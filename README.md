@@ -2,7 +2,7 @@
 
 This repository hosts code and additional results for the paper "Universal audio synthesizer control with normalizing flows".
 
-For a better viewing experience, please **visit the corresponding [supporting website](https://anonymous124.github.io/flow_synthesizer/ "Flow synthesizer")**.
+For a better viewing experience, please **visit the corresponding [supporting website](https://acids-ircam.github.io/flow_synthesizer/ "Flow synthesizer")**.
 
 It embeds the following:
   * Supplementary figures
