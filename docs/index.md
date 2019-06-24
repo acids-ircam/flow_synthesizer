@@ -13,6 +13,12 @@
       } 
 </script> 
 
+<style>
+.page {
+  width: calc(100%);
+}
+</style>
+
 # Universal audio synthesizer control with normalizing flows
 
 **This website is still under construction. We keep adding new results, so please come back later if you want more.**
@@ -644,7 +650,7 @@ We implement a convolutional model composed of 5 layers with 128 channels of str
 Finally, we implemented a *Residual Network*, with parameters settings identical to `CNN` and denote this model `ResCNN`. 
 
 ### Auto-encoding models
-We implemented various *AE architectures by relying on the `CNN` setup for encoders and decoders. However, we halve their number of parameters (by dividing the number of units and channels) to perform a fair comparison by obtaining roughly the same capacity as the baselines. All AEs map to latent spaces of dimensionality equal to the number of synthesis parameters. We perform *warmup* by linearly increasing the latent regularization $\beta$ from 0 to 1 for 100 epochs. First, we train all models with a 2-layers MLP to predict the parameters based on the latent space. 
+We implemented various *AE architectures by relying on the `CNN` setup for encoders and decoders. However, we halve their number of parameters (by dividing the number of units and channels) to perform a fair comparison by obtaining roughly the same capacity as the baselines. All AEs map to latent spaces of dimensionality equal to the number of synthesis parameters. This also implies that the different normalizing flows also have a dimensionality equal to the numbers of parameters. We perform *warmup* by linearly increasing the latent regularization $\beta$ from 0 to 1 for 100 epochs. First, we train all models with a 2-layers MLP to predict the parameters based on the latent space. 
 
 #### Families of auto-encoders (AE, VAE, WAE, VAEFlows)
 First, we implement a simple deterministic `AE` without regularization. We implement the `VAE` by adding a KL regularization to the latent space and the `WAE` by replacing the KL by the MMD. Finally, we implement `VAEFlow` by adding a normalizing flow of 16 successive IAF transforms to the `VAE` posterior. 
