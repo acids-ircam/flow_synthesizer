@@ -6,7 +6,12 @@ For a better viewing experience, please **visit the corresponding [supporting we
 
 It embeds the following:
   * Supplementary figures
-  * Audio examples for reconstruction, macro-control learning, neighborhood exploration, interpolation, and vocal sketching
+  * Audio examples
+	* Reconstruction
+	* Macro-control learning
+	* Neighborhood exploration
+	* Interpolation
+	* Vocal sketching
   * Real-time implementation in Ableton Live
   
 You can also directly parse through the different sub-directories of the main [`docs`](docs) directory.
