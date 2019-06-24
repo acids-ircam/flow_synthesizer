@@ -54,3 +54,7 @@ The code is mostly divided into two scripts `train.py` and `evaluate.py`. The fi
 
 ```
 
+### Models details
+
+As discussed in the paper, the very large amount of baseline models implemented did not allow to provide all the parameters for reference models (which are defined in the source code). However, we provide these details in the documentation page at
+
