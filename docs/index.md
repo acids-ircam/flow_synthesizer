@@ -37,7 +37,7 @@ Our paper introduces a radically novel formulation of audio synthesizer control.
 
 **Code and implementation**
   * [Real-time implementation using Ableton Live](#real-time-implementation-using-ableton-live)
-  * [Code](#code)
+  * [Source code](#code)
 
 **Additional details**
   * [Mathematical appendix](#mathematical-appendix)
@@ -632,7 +632,9 @@ Not available yet.
 
 ## Code
 
-The full code will only be released after the end of the review process and will be available on the corresponding [GitHub repository](https://github.com/acids-ircam/flow_synthesizer).
+The full open-source code is currently available on the corresponding [GitHub repository](https://github.com/acids-ircam/flow_synthesizer). Code has been developed with `Python 3.7`. It should work with other versions of `Python 3`, but has not been tested. Moreover, we rely on several third-party libraries that can be found in the README.
+
+The code is mostly divided into two scripts `train.py` and `evaluate.py`. The first script `train.py` allows to train a model from scratch as described in the paper. The second script `evaluate.py` allows to generate the figures of the papers, and also all the supporting additional materials visible on this current page.
 
 
 ## Models details
