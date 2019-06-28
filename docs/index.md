@@ -640,25 +640,30 @@ The code is mostly divided into two scripts `train.py` and `evaluate.py`. The fi
 ## Models details
 
 ### Baseline models. 
-In order to evaluate our proposal, we implemented several feed-forward deep models. Here this means that all the following models take the spectrograms $$\mathbf{x}_i$$ as input and try to infer the corresponding parameters $$\mathbf{v}_i$$. All these models are trained with a Mean-Squared Error (MSE) loss between the output of the model and the ground-truth parameters vector.
+In order to evaluate our proposal, we implemented several feed-forward deep models. In our context, it means that all the baseline models take the full spectrogram of one sample $$\mathbf{x}_i$$ as input and try to infer the corresponding synthesis parameters $$\mathbf{v}_i$$. All these models are trained with a Mean-Squared Error (MSE) loss computed between the output of the model and the ground-truth parameters vector.
 
 #### Multi-Layer Perceptron (MLP)
-First, we implement a 5-layers `MLP` with 2048 hidden units per layer, Exponential Linear Unit (ELU) activation, batch normalization and dropout with $p=.3$. This model is applied on a flattened version of the input and the final layer is a sigmoid activation. 
+First, we implement a 5-layers `MLP` with 2048 hidden units per layer, Exponential Linear Unit (ELU) activation, batch normalization and dropout with $p=.3$. This model is applied on a flattened version of the spectrogram and the final layer is a sigmoid activation.
 
 #### Convolutional Neural Network (CNN)
-We implement a convolutional model composed of 5 layers with 128 channels of strided dilated 2-D convolutions with kernel size 7, stride 2 and an exponential dilation factor of $$2^{l}$$ (starting at $$l=0$$) with batch normalization and ELU activation. The convolutions are followed by a 3-layers MLP identical to the previous model. 
+We implement a convolutional model composed of 5 layers with 128 channels of strided dilated 2-D convolutions with kernel size 7, stride 2 and an exponential dilation factor of $$2^{l}$$ (starting at $$l=0$$) with batch normalization and ELU activation. The convolutions are followed by a 3-layers MLP of 2048 hidden units with the same properties as the previous model.
 
 #### Residual Networks (ResNet)
-Finally, we implemented a *Residual Network*, with parameters settings identical to `CNN` and denote this model `ResCNN`. 
+Finally, we implemented a *Residual Network*, with parameters settings identical to `CNN`. The normal path is defined as a convolution (similar to the previous model), Batch Normalization and ELU activation, while the residual paths are defined as a simple 1x1 convolution that maps to the size of the normal path. Both paths are then added.
+
 
 ### Auto-encoding models
-We implemented various *AE architectures by relying on the `CNN` setup for encoders and decoders. However, we halve their number of parameters (by dividing the number of units and channels) to perform a fair comparison by obtaining roughly the same capacity as the baselines. All AEs map to latent spaces of dimensionality equal to the number of synthesis parameters. This also implies that the different normalizing flows also have a dimensionality equal to the numbers of parameters. We perform *warmup* by linearly increasing the latent regularization $\beta$ from 0 to 1 for 100 epochs. First, we train all models with a 2-layers MLP to predict the parameters based on the latent space. 
+We implemented various AE architectures, which are slightly more complex in terms of training as it involves two training signals. First, the traditional AE training is performed by using a MSE reconstruction loss between the input spectrogram $\mathbf{x}_i$ and reconstructed version $\tilde{\mathbf{x}}_i$. We use the previously described `CNN` setup for both encoders and decoders. However, we halve their number of parameters (by dividing the number of units and channels by 2) to perform a fair comparison by obtaining roughly the same capacity as the baselines.
+
+All AEs map to latent spaces of dimensionality equal to the number of synthesis parameters (16 or 32). This also implies that the different normalizing flows will have a dimensionality equal to the numbers of parameters. We perform *warmup* by linearly increasing the latent regularization $\beta$ from 0 to 1 for 100 epochs. 
+
+For all AE architectures, a second network is used to try to infer the parameters $\mathbf{v}_i$ based on the latent code $\mathbf{z}_i$ obtained by encoding a specific spectrogram $\mathbf{x}_i$. For this part, we train all simple AE models with a 2-layers MLP of 1024 units to predict the parameters based on the latent space, with a MSE loss. 
 
 #### Families of auto-encoders (AE, VAE, WAE, VAEFlows)
 First, we implement a simple deterministic `AE` without regularization. We implement the `VAE` by adding a KL regularization to the latent space and the `WAE` by replacing the KL by the MMD. Finally, we implement `VAEFlow` by adding a normalizing flow of 16 successive IAF transforms to the `VAE` posterior. 
 
 ### Our proposal
-Then, we evaluate *regression flows* ($Flow_{reg}$) by adding them to $VAE_{flow}$, with an IAF of length 16 without using semantic tags. Finally, we add the *disentangling flows* ($Flow_{dis}$) by introducing our objective defined in the paper.
+Finally, we evaluate *regression flows* ($Flow_{reg}$) by adding them to $VAE_{flow}$, with an IAF of length 16 without using semantic tags. Finally, we add the *disentangling flows* ($Flow_{dis}$) by introducing our objective defined in the paper.
 
 ### Optimization
 We train all models for 500 epochs with ADAM, initial rate 2e-4, Xavier initialization and a scheduler that halves the rate if validation loss stalls for 20 epochs. With this setup, the most complex model only takes $\sim$5 hours to train on a NVIDIA Titan Xp GPU.
