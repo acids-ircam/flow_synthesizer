@@ -561,45 +561,69 @@ On the figure below, one can listen to the output and visualize the way spectogr
             <th>Parameters</th>
         </tr>
         <tr>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p0_dim_0.mp3"></audio></td>
             <td>PARAMS IMG</td>
-            <td>SPECTROGRAM</td>
+            <td><img src="audio/neighborhood/n0/p0_dim_0.png"></td>
             <td rowspan="5">AUDIO SPACE IMG</td>
-            <td>SPECTROGRAM</td>
+            <td><img src="audio/neighborhood/n0/p1_dim_0.png"></td>
             <td>PARAMS IMG</td>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p1_dim_0.mp3"></audio></td>
         </tr>
         <tr>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p0_dim_1.mp3"></audio></td>
             <td>PARAMS IMG</td>
-            <td>SPECTROGRAM</td>
-            <td>SPECTROGRAM</td>
+            <td><img src="audio/neighborhood/n0/p0_dim_1.png"></td>
+            <td><img src="audio/neighborhood/n0/p1_dim_1.png"></td>
             <td>PARAMS IMG</td>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p1_dim_1.mp3"></audio></td>
         </tr>
         <tr>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p0_dim_2.mp3"></audio></td>
             <td>PARAMS IMG</td>
-            <td>SPECTROGRAM</td>
-            <td>SPECTROGRAM</td>
+            <td><img src="audio/neighborhood/n0/p0_dim_2.png"></td>
+            <td><img src="audio/neighborhood/n0/p1_dim_2.png"></td>
             <td>PARAMS IMG</td>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p1_dim_2.mp3"></audio></td>
         </tr>
         <tr>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p0_dim_3.mp3"></audio></td>
             <td>PARAMS IMG</td>
-            <td>SPECTROGRAM</td>
-            <td>SPECTROGRAM</td>
+            <td><img src="audio/neighborhood/n0/p0_dim_3.png"></td>
+            <td><img src="audio/neighborhood/n0/p1_dim_3.png"></td>
             <td>PARAMS IMG</td>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p1_dim_3.mp3"></audio></td>
         </tr>
         <tr>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p0_dim_4.mp3"></audio></td>
             <td>PARAMS IMG</td>
-            <td>SPECTROGRAM</td>
-            <td>SPECTROGRAM</td>
+            <td><img src="audio/neighborhood/n0/p0_dim_4.png"></td>
+            <td><img src="audio/neighborhood/n0/p1_dim_4.png"></td>
             <td>PARAMS IMG</td>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p1_dim_4.mp3"></audio></td>
+        </tr>
+        <tr>
+            <td><audio controls><source src="audio/neighborhood/n0/p0_dim_5.mp3"></audio></td>
+            <td>PARAMS IMG</td>
+            <td><img src="audio/neighborhood/n0/p0_dim_5.png"></td>
+            <td><img src="audio/neighborhood/n0/p1_dim_5.png"></td>
+            <td>PARAMS IMG</td>
+            <td><audio controls><source src="audio/neighborhood/n0/p1_dim_5.mp3"></audio></td>
+        </tr>
+        <tr>
+            <td><audio controls><source src="audio/neighborhood/n0/p0_dim_6.mp3"></audio></td>
+            <td>PARAMS IMG</td>
+            <td><img src="audio/neighborhood/n0/p0_dim_6.png"></td>
+            <td><img src="audio/neighborhood/n0/p1_dim_6.png"></td>
+            <td>PARAMS IMG</td>
+            <td><audio controls><source src="audio/neighborhood/n0/p1_dim_6.mp3"></audio></td>
+        </tr>
+        <tr>
+            <td><audio controls><source src="audio/neighborhood/n0/p0_dim_7.mp3"></audio></td>
+            <td>PARAMS IMG</td>
+            <td><img src="audio/neighborhood/n0/p0_dim_7.png"></td>
+            <td><img src="audio/neighborhood/n0/p1_dim_7.png"></td>
+            <td>PARAMS IMG</td>
+            <td><audio controls><source src="audio/neighborhood/n0/p1_dim_7.mp3"></audio></td>
         </tr>
     </table>
 </div>
