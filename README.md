@@ -27,21 +27,14 @@ The dataset can be downloaded here:
 
 #### Python
 
-Code has been developed with `Python 3.7`. It should work with other versions of `Python 3`, but has not been tested. Moreover, we rely on several third-party libraries, listed in [`requirements.txt`](requirements.txt). They can be installed with `pip install -r requirements.txt`. We rely on several libraries for different aspects of the code. The complete list is `numpy`, `scipy`, `pytorch`, `matplotlib`, `scikit-learn`, `nsgt`, `scikit-image`
+Code has been developed with `Python 3.7`. It should work with other versions of `Python 3`, but has not been tested. Moreover, we rely on several third-party libraries, listed in [`requirements.txt`](requirements.txt). They can be installed with
 
-Here is an helper list of pip3 install commands to facilitate your install
-
-```
-pip3 install numpy
-pip3 install scipy
-pip3 install pytorch
-pip3 install matplotlib
-pip3 install scikit-learn
-pip3 install scikit-image
-pip3 install pyro
+```bash
+$ pip install -r requirements.txt
 ```
 
-The code can also work on GPUs, in which case you need to add the following dependencies (based on the premises that you have a working GPU with CUDA installed)
+As our experiments are coded in PyTorch, no additional library is required to run them on GPU (provided you already have CUDA installed).
+
 
 #### RenderMan
 
