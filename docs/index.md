@@ -60,7 +60,7 @@ Our first experiment consists in evaluating the reconstruction ability of our mo
             <td><b>Original preset</b></td>
             <td>
                 <audio controls> 
-                    <source src="audio/reconstruction/batch1_example0/original.mp3">
+                    <source src="audio/reconstruction/1_0/original.mp3">
                 </audio>
             </td>
         </tr>
@@ -68,7 +68,7 @@ Our first experiment consists in evaluating the reconstruction ability of our mo
             <td>VAE-Flow-post</td>
             <td>
                 <audio controls> 
-                    <source src="audio/reconstruction/batch1_example0/vae_flow_mel_mse_cnn_flow_kl_f_iaf_1.mp3">
+                    <source src="audio/reconstruction/1_0/vae_flow_mel_mse_cnn_flow_kl_f_iaf_1.mp3">
                 </audio>
             </td>
         </tr>
@@ -76,7 +76,7 @@ Our first experiment consists in evaluating the reconstruction ability of our mo
             <td>VAE-Flow</td>
             <td>
                 <audio controls> 
-                    <source src="audio/reconstruction/batch1_example0/vae_flow_mel_mse_cnn_mlp_iaf_1.mp3">
+                    <source src="audio/reconstruction/1_0/vae_flow_mel_mse_cnn_mlp_iaf_1.mp3">
                 </audio>
             </td>
         </tr>
@@ -84,7 +84,7 @@ Our first experiment consists in evaluating the reconstruction ability of our mo
             <td>CNN</td>
             <td>
                 <audio controls> 
-                    <source src="audio/reconstruction/batch1_example0/cnn_mel_mse_1.mp3">
+                    <source src="audio/reconstruction/1_0/cnn_mel_mse_1.mp3">
                 </audio>
             </td>
         </tr>
@@ -92,7 +92,7 @@ Our first experiment consists in evaluating the reconstruction ability of our mo
             <td>MLP</td>
             <td>
                 <audio controls> 
-                    <source src="audio/reconstruction/batch1_example0/mlp_mel_mse_1.mp3">
+                    <source src="audio/reconstruction/1_0/mlp_mel_mse_1.mp3">
                 </audio>
             </td>
         </tr>
@@ -100,7 +100,7 @@ Our first experiment consists in evaluating the reconstruction ability of our mo
             <td>VAE</td>
             <td>
                 <audio controls> 
-                    <source src="audio/reconstruction/batch1_example0/vae_mel_mse_cnn_mlp_1.mp3">
+                    <source src="audio/reconstruction/1_0/vae_mel_mse_cnn_mlp_1.mp3">
                 </audio>
             </td>
         </tr>
@@ -108,7 +108,7 @@ Our first experiment consists in evaluating the reconstruction ability of our mo
             <td>WAE</td>
             <td>
                 <audio controls> 
-                    <source src="audio/reconstruction/batch1_example0/wae_mel_mse_cnn_mlp_1.mp3">
+                    <source src="audio/reconstruction/1_0/wae_mel_mse_cnn_mlp_1.mp3">
                 </audio>
             </td>
         </tr>
