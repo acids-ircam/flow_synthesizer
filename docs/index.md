@@ -564,7 +564,7 @@ On the figure below, one can listen to the output and visualize the way spectogr
             <td><audio controls><source src="audio/neighborhood/n0/p0_dim_0.mp3"></audio></td>
             <td>PARAMS IMG</td>
             <td><img src="audio/neighborhood/n0/p0_dim_0.png"></td>
-            <td rowspan="5">AUDIO SPACE IMG</td>
+            <td rowspan="8">AUDIO SPACE IMG</td>
             <td><img src="audio/neighborhood/n0/p1_dim_0.png"></td>
             <td>PARAMS IMG</td>
             <td><audio controls><source src="audio/neighborhood/n0/p1_dim_0.mp3"></audio></td>
