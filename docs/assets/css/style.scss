@@ -1,0 +1,19 @@
+---
+---
+
+@import "jekyll-theme-minimal";
+.figure {width: 90%; margin: 0 auto}
+.wrapper {width: 80%}
+section {width: 75%}
+header {width: 15%}
+table.audioTable
+    audio {width: 50px}
+table.noRowLine
+    tr td {border: 0}
+    tr th {border: 0}
+table.neighborhood
+    tr td {text-align: center; vertical-align: middle}
+    tr th {text-align: center; vertical-align: middle}
+table.interpolation
+    tr td {width: 16.6%}
+    audio {width: 100%}
