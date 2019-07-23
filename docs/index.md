@@ -60,7 +60,7 @@ Our first experiment consists in evaluating the reconstruction ability of our mo
             <td><b>Original preset</b></td>
             <td>
                 <audio controls> 
-                    <source src="audio/reconstruction/batch1_example0/original.mp3">
+                    <source src="audio/reconstruction/1_0/original.mp3">
                 </audio>
             </td>
         </tr>
@@ -68,7 +68,7 @@ Our first experiment consists in evaluating the reconstruction ability of our mo
             <td>VAE-Flow-post</td>
             <td>
                 <audio controls> 
-                    <source src="audio/reconstruction/batch1_example0/vae_flow_mel_mse_cnn_flow_kl_f_iaf_1.mp3">
+                    <source src="audio/reconstruction/1_0/vae_flow_mel_mse_cnn_flow_kl_f_iaf_1.mp3">
                 </audio>
             </td>
         </tr>
@@ -76,7 +76,7 @@ Our first experiment consists in evaluating the reconstruction ability of our mo
             <td>VAE-Flow</td>
             <td>
                 <audio controls> 
-                    <source src="audio/reconstruction/batch1_example0/vae_flow_mel_mse_cnn_mlp_iaf_1.mp3">
+                    <source src="audio/reconstruction/1_0/vae_flow_mel_mse_cnn_mlp_iaf_2.mp3">
                 </audio>
             </td>
         </tr>
@@ -84,7 +84,7 @@ Our first experiment consists in evaluating the reconstruction ability of our mo
             <td>CNN</td>
             <td>
                 <audio controls> 
-                    <source src="audio/reconstruction/batch1_example0/cnn_mel_mse_1.mp3">
+                    <source src="audio/reconstruction/1_0/cnn_mel_mse_1.mp3">
                 </audio>
             </td>
         </tr>
@@ -92,7 +92,7 @@ Our first experiment consists in evaluating the reconstruction ability of our mo
             <td>MLP</td>
             <td>
                 <audio controls> 
-                    <source src="audio/reconstruction/batch1_example0/mlp_mel_mse_1.mp3">
+                    <source src="audio/reconstruction/1_0/mlp_mel_mse_1.mp3">
                 </audio>
             </td>
         </tr>
@@ -100,7 +100,7 @@ Our first experiment consists in evaluating the reconstruction ability of our mo
             <td>VAE</td>
             <td>
                 <audio controls> 
-                    <source src="audio/reconstruction/batch1_example0/vae_mel_mse_cnn_mlp_1.mp3">
+                    <source src="audio/reconstruction/1_0/vae_mel_mse_cnn_mlp_2.mp3">
                 </audio>
             </td>
         </tr>
@@ -108,7 +108,7 @@ Our first experiment consists in evaluating the reconstruction ability of our mo
             <td>WAE</td>
             <td>
                 <audio controls> 
-                    <source src="audio/reconstruction/batch1_example0/wae_mel_mse_cnn_mlp_1.mp3">
+                    <source src="audio/reconstruction/1_0/wae_mel_mse_cnn_mlp_2.mp3">
                 </audio>
             </td>
         </tr>
@@ -561,60 +561,93 @@ On the figure below, one can listen to the output and visualize the way spectogr
             <th>Parameters</th>
         </tr>
         <tr>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p0_dim_0.mp3"></audio></td>
             <td>PARAMS IMG</td>
-            <td>SPECTROGRAM</td>
-            <td rowspan="5">AUDIO SPACE IMG</td>
-            <td>SPECTROGRAM</td>
+            <td><img src="audio/neighborhood/n0/p0_dim_0.png"></td>
+            <td rowspan="8">AUDIO SPACE IMG</td>
+            <td><img src="audio/neighborhood/n0/p1_dim_0.png"></td>
             <td>PARAMS IMG</td>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p1_dim_0.mp3"></audio></td>
         </tr>
         <tr>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p0_dim_1.mp3"></audio></td>
             <td>PARAMS IMG</td>
-            <td>SPECTROGRAM</td>
-            <td>SPECTROGRAM</td>
+            <td><img src="audio/neighborhood/n0/p0_dim_1.png"></td>
+            <td><img src="audio/neighborhood/n0/p1_dim_1.png"></td>
             <td>PARAMS IMG</td>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p1_dim_1.mp3"></audio></td>
         </tr>
         <tr>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p0_dim_2.mp3"></audio></td>
             <td>PARAMS IMG</td>
-            <td>SPECTROGRAM</td>
-            <td>SPECTROGRAM</td>
+            <td><img src="audio/neighborhood/n0/p0_dim_2.png"></td>
+            <td><img src="audio/neighborhood/n0/p1_dim_2.png"></td>
             <td>PARAMS IMG</td>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p1_dim_2.mp3"></audio></td>
         </tr>
         <tr>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p0_dim_3.mp3"></audio></td>
             <td>PARAMS IMG</td>
-            <td>SPECTROGRAM</td>
-            <td>SPECTROGRAM</td>
+            <td><img src="audio/neighborhood/n0/p0_dim_3.png"></td>
+            <td><img src="audio/neighborhood/n0/p1_dim_3.png"></td>
             <td>PARAMS IMG</td>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p1_dim_3.mp3"></audio></td>
         </tr>
         <tr>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p0_dim_4.mp3"></audio></td>
             <td>PARAMS IMG</td>
-            <td>SPECTROGRAM</td>
-            <td>SPECTROGRAM</td>
+            <td><img src="audio/neighborhood/n0/p0_dim_4.png"></td>
+            <td><img src="audio/neighborhood/n0/p1_dim_4.png"></td>
             <td>PARAMS IMG</td>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/p1_dim_4.mp3"></audio></td>
+        </tr>
+        <tr>
+            <td><audio controls><source src="audio/neighborhood/n0/p0_dim_5.mp3"></audio></td>
+            <td>PARAMS IMG</td>
+            <td><img src="audio/neighborhood/n0/p0_dim_5.png"></td>
+            <td><img src="audio/neighborhood/n0/p1_dim_5.png"></td>
+            <td>PARAMS IMG</td>
+            <td><audio controls><source src="audio/neighborhood/n0/p1_dim_5.mp3"></audio></td>
+        </tr>
+        <tr>
+            <td><audio controls><source src="audio/neighborhood/n0/p0_dim_6.mp3"></audio></td>
+            <td>PARAMS IMG</td>
+            <td><img src="audio/neighborhood/n0/p0_dim_6.png"></td>
+            <td><img src="audio/neighborhood/n0/p1_dim_6.png"></td>
+            <td>PARAMS IMG</td>
+            <td><audio controls><source src="audio/neighborhood/n0/p1_dim_6.mp3"></audio></td>
+        </tr>
+        <tr>
+            <td><audio controls><source src="audio/neighborhood/n0/p0_dim_7.mp3"></audio></td>
+            <td>PARAMS IMG</td>
+            <td><img src="audio/neighborhood/n0/p0_dim_7.png"></td>
+            <td><img src="audio/neighborhood/n0/p1_dim_7.png"></td>
+            <td>PARAMS IMG</td>
+            <td><audio controls><source src="audio/neighborhood/n0/p1_dim_7.mp3"></audio></td>
         </tr>
     </table>
 </div>
 <div class="figure">
     <table class="noRowLine neighborhood interpolation">
         <tr>
-            <td colspan="6">INTERPOLATION IMG</td>
+            <td><img src="audio/neighborhood/n0/interpolate_dim_0.png"></td>
+            <td><img src="audio/neighborhood/n0/interpolate_dim_1.png"></td>
+            <td><img src="audio/neighborhood/n0/interpolate_dim_2.png"></td>
+            <td><img src="audio/neighborhood/n0/interpolate_dim_3.png"></td>
+            <td><img src="audio/neighborhood/n0/interpolate_dim_4.png"></td>
+            <td><img src="audio/neighborhood/n0/interpolate_dim_5.png"></td>
+            <td><img src="audio/neighborhood/n0/interpolate_dim_6.png"></td>
+            <td><img src="audio/neighborhood/n0/interpolate_dim_7.png"></td>
         </tr>
         <tr>
-            <td><audio controls><source src=""></audio></td>
-            <td><audio controls><source src=""></audio></td>
-            <td><audio controls><source src=""></audio></td>
-            <td><audio controls><source src=""></audio></td>
-            <td><audio controls><source src=""></audio></td>
-            <td><audio controls><source src=""></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/interpolate_dim_0.mp3"></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/interpolate_dim_1.mp3"></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/interpolate_dim_2.mp3"></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/interpolate_dim_3.mp3"></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/interpolate_dim_4.mp3"></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/interpolate_dim_5.mp3"></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/interpolate_dim_6.mp3"></audio></td>
+            <td><audio controls><source src="audio/neighborhood/n0/interpolate_dim_7.mp3"></audio></td>
         </tr>
     </table>
 </div>
