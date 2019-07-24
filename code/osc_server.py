@@ -135,6 +135,7 @@ class FlowServer(OSCServer):
         super(FlowServer, self).init_bindings(self.osc_attributes)
         self.dispatcher.map('/set_model', osc_parse(self.set_model))
         self.dispatcher.map('/decode', osc_parse(self.decode))
+        self.dispatcher.map('/encode', osc_parse(self.encode))
         self.dispatcher.map('/get_spectrogram', osc_parse(self.get_spectrogram))
         self.dispatcher.map('/add_projection', osc_parse(self.add_projection))
         self.dispatcher.map('/save_projections', osc_parse(self.save_projections))
@@ -229,11 +230,15 @@ class FlowServer(OSCServer):
             data = librosa.feature.mfcc(wave, sr=22050, n_mfcc=16, hop_length=256)
             data = data[:16, :320]
             data = data.reshape(64,80)
+        # Convert to Pytorch
+        data = torch.from_numpy(data)
         # Apply final transform
-        self.dataset.transform(data)
+        data = self.dataset[2].dataset.trans_datasets[self.data].transform(data)
+        data = data.unsqueeze(0).float()
         return data
 
     def encode(self, path):
+        path = path.replace('Macintosh HD:', '')
         # Retrieve file to encode
         wave, _ = librosa.core.load(path, sr=22050)
         # Perform data transform
@@ -244,6 +249,7 @@ class FlowServer(OSCServer):
         #    z_tilde, _ = self._model.disentangling(z_tilde)
         # Perform regression on params
         out = self._model.regression_model(z_tilde)
+        print(out)
         out_list = []
         # Create dict out of params
         for p in range(out.shape[1]):
