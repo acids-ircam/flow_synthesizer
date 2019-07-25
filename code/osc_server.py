@@ -116,6 +116,7 @@ class FlowServer(OSCServer):
 
     '''
     osc_attributes = ['model', 'projection']
+    descriptors = ['loudness', 'centroid', 'bandwidth', 'flatness', 'rolloff']
     min_threshold = 0
 
     def __init__(self, *args, **kwargs):
@@ -127,20 +128,21 @@ class FlowServer(OSCServer):
         self.param_names = kwargs.get('param_names')
         self.param_dict = kwargs.get('param_dict')
         self.data = kwargs.get('data')
+        self.analysis = kwargs.get('analysis')
+        self.freeze_mode = False
+        self.prev_z = None
         super(FlowServer, self).__init__(*args)
         self.get_state()
         self.send_ref_params()
+        self.send_model_params()
 
     def init_bindings(self, osc_attributes=[]):
         super(FlowServer, self).init_bindings(self.osc_attributes)
         self.dispatcher.map('/set_model', osc_parse(self.set_model))
+        self.dispatcher.map('/dimension_analysis', osc_parse(self.dimension_analysis))
+        self.dispatcher.map('/model_params', osc_parse(self.send_model_params))
         self.dispatcher.map('/decode', osc_parse(self.decode))
         self.dispatcher.map('/encode', osc_parse(self.encode))
-        self.dispatcher.map('/get_spectrogram', osc_parse(self.get_spectrogram))
-        self.dispatcher.map('/add_projection', osc_parse(self.add_projection))
-        self.dispatcher.map('/save_projections', osc_parse(self.save_projections))
-        self.dispatcher.map('/load_projections', osc_parse(self.load_projections))
-        self.dispatcher.map('/get_projections', osc_parse(self.get_projections))
         self.dispatcher.map('/get_state', osc_parse(self.get_state))
         
     def send_ref_params(self):
@@ -151,6 +153,37 @@ class FlowServer(OSCServer):
             out_list.append(float(v))
         # Handle variables
         self.send('/params', out_list)
+        
+    def send_model_params(self):
+        out_list = []
+        # Create dict out of params
+        for k in self.param_names:
+            out_list.append(k)
+        # Handle variables
+        self.send('/model_params', out_list)
+        
+    def dimension_analysis(self, idx):
+        real_d = self.analysis['d_idx'][idx]
+        cur_params = self.analysis['d_params'][real_d]
+        for p in range(cur_params.shape[0]):
+            out_list = []
+            out_list.append('parameter')
+            out_list.append(self.param_names[p])
+            for c in range(cur_params.shape[1]):
+                out_list.append(cur_params[p, c])
+            # Handle variables
+            self.send('/dimension_analysis', out_list)
+        for d in range(len(self.descriptors)):
+            out_list = []
+            out_list.append('descriptor')
+            out_list.append(self.descriptors[d])
+            cur_desc = self.analysis['d_desc'][real_d]
+            print(self.descriptors[d])
+            print(cur_desc)
+            for c in range(len(cur_desc)):
+                out_list.append(float(cur_desc[c]))
+            # Handle variables
+            self.send('/dimension_analysis', out_list)
         
     # model attributes
     def getmodel(self):
@@ -233,8 +266,9 @@ class FlowServer(OSCServer):
         # Convert to Pytorch
         data = torch.from_numpy(data)
         # Apply final transform
-        data = self.dataset[2].dataset.trans_datasets[self.data].transform(data)
-        data = data.unsqueeze(0).float()
+        data = torch.log(data + 1e-3)
+        data = (data - self.dataset[0].dataset.means["mel"]) / self.dataset[0].dataset.vars["mel"]
+        data = data.unsqueeze(0).unsqueeze(0).float()
         return data
 
     def encode(self, path):
@@ -245,11 +279,8 @@ class FlowServer(OSCServer):
         data = self.transform_wave(wave)
         # Auto-encode
         x_tilde, z_tilde, z_loss = self._model.ae_model(data)
-        #if (args.semantic_dim > -1):
-        #    z_tilde, _ = self._model.disentangling(z_tilde)
         # Perform regression on params
         out = self._model.regression_model(z_tilde)
-        print(out)
         out_list = []
         # Create dict out of params
         for p in range(out.shape[1]):
@@ -258,11 +289,20 @@ class FlowServer(OSCServer):
         # Handle variables
         self.send('/params', out_list)
 
+    def set_freeze_mode(self, v):
+        if (v == 1):
+            self.freeze_mode = True
+        else:
+            self.freeze_mode = False
+            self.prev_z = None
+
     def decode(self, x, y, d1, d2):
         # Create vector for latent point
         z_point = torch.zeros(1, self._model.latent_dims)
-        z_point[0, d1] = x
-        z_point[0, d2] = y
+        if (self.freeze_mode and (self.prev_z is not None)):
+            z_point = self.prev_z
+        z_point[0, self.analysis['d_idx'][d1]] = x
+        z_point[0, self.analysis['d_idx'][d2]] = y
         # Perform regression on params
         out = self._model.regression_model(z_point)  
         out_list = []
@@ -272,93 +312,8 @@ class FlowServer(OSCServer):
             out_list.append(float(out[0, p]))
         # Handle variables
         self.send('/params', out_list)
-
-    def get_spectrogram(self, *args, projection=None, filter=True):
-        if self._model is None:
-           print('[Error] spectrogram requested by not any model loaded')
-           self.send('/vae_error', '[Error] spectrogram requested by not any model loaded')
-           return
-
-        if projection is None:
-            projection = self.projection
-
-        z_input = np.array(list(args))[np.newaxis, :]
-        input_dim = self._model.platent[-1]['dim'] if projection is None else projection.dim
-
-        if z_input.shape[1] > input_dim:
-            z_input = z_input[:, :input_dim]
-        elif z_input.shape[1] < input_dim:
-            z_input = np.concatenate([z_input, np.zeros((z_input.shape[0], input_dim - z_input.shape[1]))], axis=1)
-
-        if projection is not None:
-            z_input = projection.invert(z_input)
-
-        with torch.no_grad():
-            self._model.eval()
-            vae_out = self._model.decode(self._model.format_input_data(z_input))
-
-        spec_out = vae_out[0]['out_params'].mean.squeeze().numpy()
-        if self.preprocessing:
-            spec_out = self.preprocessing.invert(spec_out)
-        if self.dataset:
-            spec_out[spec_out > np.abs(audioSet.data)]
-        phase_out = self.phase_callback(spec_out)
-
-        if filter:
-            spec_out[spec_out < self.min_threshold] = 0.
-        spec_out = spec_out[1:].tolist()
-        phase_out = phase_out[1:].tolist()
-
-        self.send('/current_z', z_input.squeeze().tolist())
-        self.send('/spectrogram_mag_out', spec_out)
-        self.send('/spectrogram_phase_out', phase_out)
-
-
-    def add_projection(self, proj_name, dimred, z_select=None, n_points=None, **kwargs):
-        if proj_name == "none":
-            self.print('projection cannot be named none')
-        if proj_name in self._projections.keys():
-            del self._projections[proj_name]
-
-        proj_ids = None
-        if self.dataset:
-            if z_select is None:
-                if n_points:
-                    proj_ids = selector_n(self.dataset, n_points)
-                else:
-                    proj_ids = selector_all(self.dataset)
-            elif issubclass(type(z_select), str):
-                proj_ids = self.z_select_hash[z_select](self.dataset)
-            else:
-                proj_ids = self.z_select(self.dataset)
-
-        if issubclass(type(dimred), str):
-            dimred = getattr(dr, dimred)
-
-        self.print('computing projection %s...'%proj_name)
-        projection = dimred(**kwargs)
-        manifold = dr.LatentManifold(projection, self.model, self.dataset, ids=proj_ids, preprocessing=self.preprocessing)
-        self._projections[proj_name] = manifold
-        self.print('projection %s created : %s'%(proj_name, manifold))
-        self.get_state()
-
-    def get_projections(self):
-        self.send('/projections', list(self._projections.keys()))
-
-    def save_projections(self, path):
-        with open(path+'.aego', 'wb') as f:
-            dill.dump(self._projections, f)
-        self.print('projections saved at %s.aego'%path)
-
-    def load_projections(self, path):
-        with open(path, 'rb') as f:
-            loaded_projections = dill.load(f)
-        for k, v in loaded_projections.items():
-            if k in self._projections.keys():
-                self.print('[Warning] projection %s replaced'%k)
-            self._projections[k] = v
-        self.print('projections loaded from %s'%path)
-        self.get_state()
+        if (self.freeze_mode):
+            self.prev_z = z_point
 
 
 
