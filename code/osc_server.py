@@ -33,10 +33,11 @@ class OSCServer(object):
         # OSC library objects
         self.dispatcher = dispatcher.Dispatcher()
         self.client = udp_client.SimpleUDPClient(ip, out_port)
-        
+        # Bindings for server
         self.init_bindings(self.osc_attributes)
         self.server = osc_server.BlockingOSCUDPServer((ip, in_port), self.dispatcher)
-        
+        # Server properties
+        self.debug = False
         self.in_port = in_port
         self.out_port = out_port
         self.ip = ip
@@ -66,6 +67,10 @@ class OSCServer(object):
         
     def send(self, address, content):
         '''global method to send a message'''
+        if (self.debug):
+            print('Sending following message')
+            print(address)
+            print(content)
         self.client.send_message(address, content)
 
     def print(self, *args):
@@ -106,6 +111,27 @@ def dict2str(dic):
         str += ', set %s %s'%(k, max_format(v))
     return str[2:]
 
+def extract_max(pitches,magnitudes, shape):
+    new_pitches = []
+    for i in range(0, shape[1]):
+        index = magnitudes[:, i].argmax()
+        new_pitches.append(pitches[index,i])
+    return new_pitches
+
+def freq2midi(freq):
+    """ Given a frequency in Hz, returns its MIDI pitch number. """
+    MIDI_A4 = 69   # MIDI Pitch number
+    FREQ_A4 = 440. # Hz
+    return int(12 * (np.log2(freq) - np.log2(FREQ_A4)) + MIDI_A4)
+
+def smooth(x, window_len=5, window='hanning'):
+    if window_len < 3:
+        return x
+    s = np.r_[2*x[0]-x[window_len-1::-1],x,2*x[-1]-x[-1:-window_len:-1]]
+    w = eval('np.'+window+'(window_len)')
+    y = np.convolve(w/w.sum(),s,mode='same')
+    return y[window_len:-window_len+1]
+
 class FlowServer(OSCServer):
     '''
     Key class for the Flow synthesizer server.
@@ -130,19 +156,28 @@ class FlowServer(OSCServer):
         self.data = kwargs.get('data')
         self.analysis = kwargs.get('analysis')
         self.freeze_mode = False
+        self.pitch_shift = True
+        self.pitch_octave = False
         self.prev_z = None
         super(FlowServer, self).__init__(*args)
+        self.debug = kwargs.get('debug')
+        print('Sending base info.')
         self.get_state()
         self.send_ref_params()
         self.send_model_params()
+        self.print('Server is ready.')
 
     def init_bindings(self, osc_attributes=[]):
         super(FlowServer, self).init_bindings(self.osc_attributes)
         self.dispatcher.map('/set_model', osc_parse(self.set_model))
         self.dispatcher.map('/dimension_analysis', osc_parse(self.dimension_analysis))
+        self.dispatcher.map('/preset_space', osc_parse(self.preset_space))
         self.dispatcher.map('/model_params', osc_parse(self.send_model_params))
         self.dispatcher.map('/decode', osc_parse(self.decode))
         self.dispatcher.map('/encode', osc_parse(self.encode))
+        self.dispatcher.map('/set_freeze_mode', osc_parse(self.set_freeze_mode))
+        self.dispatcher.map('/set_pitch_shift', osc_parse(self.set_pitch_shift))
+        self.dispatcher.map('/set_pitch_octave', osc_parse(self.set_pitch_octave))
         self.dispatcher.map('/get_state', osc_parse(self.get_state))
         
     def send_ref_params(self):
@@ -162,28 +197,41 @@ class FlowServer(OSCServer):
         # Handle variables
         self.send('/model_params', out_list)
         
-    def dimension_analysis(self, idx):
+    def dimension_analysis(self, idx, n_dims):
         real_d = self.analysis['d_idx'][idx]
         cur_params = self.analysis['d_params'][real_d]
-        for p in range(cur_params.shape[0]):
+        for p in range(n_dims):
             out_list = []
             out_list.append('parameter')
-            out_list.append(self.param_names[p])
+            real_p = int(self.analysis['d_vars'][real_d, p])
+            out_list.append(self.param_names[real_p])
             for c in range(cur_params.shape[1]):
-                out_list.append(cur_params[p, c])
+                out_list.append(cur_params[real_p, c])
             # Handle variables
             self.send('/dimension_analysis', out_list)
         for d in range(len(self.descriptors)):
             out_list = []
             out_list.append('descriptor')
             out_list.append(self.descriptors[d])
-            cur_desc = self.analysis['d_desc'][real_d]
-            print(self.descriptors[d])
-            print(cur_desc)
+            cur_desc = self.analysis['d_desc'][real_d, d]
             for c in range(len(cur_desc)):
                 out_list.append(float(cur_desc[c]))
             # Handle variables
             self.send('/dimension_analysis', out_list)
+
+    def preset_space(self, d1, d2):
+        # Take re-ordered dimensions
+        d1 = self.analysis['d_idx'][d1]
+        d2 = self.analysis['d_idx'][d2]
+        z_space_proj = self.analysis['final_z'][:, [d1, d2]]
+        print(z_space_proj.shape)
+        # Send all points
+        for p in range(1000):#range(z_space_proj.shape[0]):
+            out_list = []
+            # Create dict out of params
+            for p2 in range(z_space_proj.shape[1]):
+                out_list.append(float(z_space_proj[p, p2]))
+            self.send('/presets', out_list)
         
     # model attributes
     def getmodel(self):
@@ -275,6 +323,34 @@ class FlowServer(OSCServer):
         path = path.replace('Macintosh HD:', '')
         # Retrieve file to encode
         wave, _ = librosa.core.load(path, sr=22050)
+        # Perform pitch tracking
+        if (self.pitch_shift):
+            # Track pitch
+            pitches, magnitudes = librosa.core.piptrack(y=wave, sr=22050, S=None)
+            # Window and smooth pitches
+            pitches = extract_max(pitches, magnitudes, pitches.shape)
+            pitches = smooth(pitches)
+            # Transform to MIDI and filter out
+            final_pitches = np.array([np.round(librosa.core.hz_to_midi(p)) for p in pitches])
+            final_pitches = final_pitches[final_pitches > 0]
+            final_pitches = [int(p) for p in final_pitches]
+            # Select final pitch
+            pitch = max(final_pitches,key=final_pitches.count)
+            # Compute number of steps to C4
+            n_steps = 60 - pitch
+            if (self.pitch_octave):
+                n_steps = (np.sign(n_steps) * (np.abs(n_steps) % 12))
+            # Perform pitch analysis / shift
+            if (n_steps != 0):
+                wave = librosa.effects.pitch_shift(wave, 22050, n_steps=n_steps)
+            self.send('/target_pitch', int(pitch))
+        # Eventual padding
+        if (wave.shape[0] < 4 * 22050):
+            final_wave = np.zeros(4 * 22050)
+            final_wave[:wave.shape[0]] = wave
+            wave = final_wave
+        elif (wave.shape[0] > 4 * 22050):
+            wave = wave[:(4 * 22050)]
         # Perform data transform
         data = self.transform_wave(wave)
         # Auto-encode
@@ -290,11 +366,27 @@ class FlowServer(OSCServer):
         self.send('/params', out_list)
 
     def set_freeze_mode(self, v):
+        """ Defines the latent freeze mode """
         if (v == 1):
             self.freeze_mode = True
         else:
             self.freeze_mode = False
             self.prev_z = None
+
+    def set_pitch_octave(self, v):
+        """ Defines the latent freeze mode """
+        if (v == 1):
+            self.pitch_octave = True
+        else:
+            self.pitch_octave = False
+            self.send('/target_pitch', 60)
+
+    def set_pitch_shift(self, v):
+        if (v == 1):
+            self.pitch_shift = True
+        else:
+            self.pitch_shift = False
+            self.send('/target_pitch', 60)
 
     def decode(self, x, y, d1, d2):
         # Create vector for latent point

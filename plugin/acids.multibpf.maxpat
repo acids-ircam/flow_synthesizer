@@ -9,9 +9,9 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 873.0, -1001.0, 1741.0, 965.0 ],
+		"rect" : [ 527.0, 79.0, 825.0, 937.0 ],
 		"bglocked" : 0,
-		"openinpresentation" : 0,
+		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
 		"default_fontface" : 0,
 		"default_fontname" : "Arial",
@@ -38,12 +38,1052 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-60",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 372.0, 542.0, 127.0, 22.0 ],
+					"style" : "",
+					"text" : "s #0_func_sub_router"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-59",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 372.0, 511.0, 65.0, 22.0 ],
+					"style" : "",
+					"text" : "prepend 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-58",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1543.0, 763.0, 172.0, 22.0 ],
+					"style" : "",
+					"text" : "s #0_func_sub_repeater"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-57",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1244.5, 787.0, 120.0, 22.0 ],
+					"style" : "",
+					"text" : "definenumber above"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-56",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1543.0, 735.0, 114.0, 22.0 ],
+					"style" : "",
+					"text" : "definenumber none"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-55",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1244.5, 819.0, 55.0, 22.0 ],
+					"style" : "",
+					"text" : "prepend"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-54",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1244.5, 848.0, 127.0, 22.0 ],
+					"style" : "",
+					"text" : "s #0_func_sub_router"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-51",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ -49.666687, 672.0, 60.0, 22.0 ],
+					"style" : "",
+					"text" : "loadbang"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-52",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ -49.666687, 805.0, 140.0, 22.0 ],
+					"style" : "",
+					"text" : "s #0_func_sub_repeater"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-53",
+					"linecount" : 3,
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ -49.666687, 714.5, 367.0, 52.0 ],
+					"style" : "",
+					"text" : "definerange 0. 1., definethickness 0., definepoint none, defineline lines, defineygrid none., definenumber none, definexgrid none, definexlabelsnone"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-32",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 394.5, 794.0, 125.0, 22.0 ],
+					"style" : "",
+					"text" : "r #0_func_sub_router"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-33",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 194.5, 798.0, 138.0, 22.0 ],
+					"style" : "",
+					"text" : "r #0_func_sub_repeater"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-36",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 16,
+					"outlettype" : [ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
+					"patching_rect" : [ 194.5, 832.0, 176.5, 22.0 ],
+					"style" : "",
+					"text" : "trigger l l l l l l l l l l l l l l l l"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"attr" : "margins",
+					"id" : "obj-38",
+					"maxclass" : "attrui",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 905.0, 836.0, 298.0, 22.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"attr" : "numpoints",
+					"id" : "obj-47",
+					"maxclass" : "attrui",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 883.0, 798.0, 150.0, 22.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-48",
+					"maxclass" : "newobj",
+					"numinlets" : 17,
+					"numoutlets" : 17,
+					"outlettype" : [ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
+					"patching_rect" : [ 394.5, 832.0, 439.266663, 22.0 ],
+					"style" : "",
+					"text" : "route 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bgcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+					"fontname" : "Helvetica Neue",
+					"fontsize" : 14.0,
+					"gridorigincolor" : [ 0.0, 0.0, 0.0, 0.0 ],
+					"id" : "obj-49",
+					"maxclass" : "plot~",
+					"numinlets" : 16,
+					"numoutlets" : 1,
+					"numplots" : 16,
+					"numpoints" : 5,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 394.5, 885.0, 413.0, 153.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 8.0, 5.0, 361.0, 174.0 ],
+					"subplots" : [ 						{
+							"color" : [ 0.88, 0.32, 0.32, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "", 25.0, "", 50.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.88, 0.506667, 0.32, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "", 25.0, "", 50.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.88, 0.693333, 0.32, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "", 25.0, "", 50.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.88, 0.88, 0.32, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "", 25.0, "", 50.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.693333, 0.88, 0.32, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "", 25.0, "", 50.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.506667, 0.88, 0.32, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "", 25.0, "", 50.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.32, 0.88, 0.32, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "", 25.0, "", 50.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.32, 0.88, 0.506667, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "", 25.0, "", 50.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.32, 0.88, 0.693333, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "", 25.0, "", 50.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.32, 0.88, 0.88, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "", 25.0, "", 50.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.32, 0.693333, 0.88, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "", 25.0, "", 50.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.32, 0.506667, 0.88, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "", 25.0, "", 50.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.32, 0.32, 0.88, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "", 25.0, "", 50.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.506667, 0.32, 0.88, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "", 25.0, "", 50.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.693333, 0.32, 0.88, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "", 25.0, "", 50.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.88, 0.32, 0.88, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "", 25.0, "", 50.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+ ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"attr" : "numplots",
+					"id" : "obj-50",
+					"maxclass" : "attrui",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 865.5, 769.0, 150.0, 22.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-19",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 372.0, 482.0, 63.0, 22.0 ],
+					"style" : "",
+					"text" : "zl group 5"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-16",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 372.0, 448.5, 49.0, 22.0 ],
+					"style" : "",
+					"text" : "zl nth 5"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-11",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 372.0, 420.0, 70.0, 22.0 ],
+					"style" : "",
+					"text" : "zl group 10"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-3",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 503.0, 265.0, 98.0, 22.0 ],
+					"style" : "",
+					"text" : "prepend append"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-46",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1408.0, 805.0, 101.0, 22.0 ],
+					"style" : "",
+					"text" : "s #0_func_router"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-45",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 1274.5, 695.0, 24.0, 24.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-44",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1274.5, 729.0, 115.0, 23.0 ],
+					"style" : "",
+					"text" : "definethickness 4."
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-43",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 1516.0, 695.0, 24.0, 24.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-41",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1516.0, 805.0, 115.0, 23.0 ],
+					"style" : "",
+					"text" : "definethickness 1."
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-40",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1516.0, 836.0, 114.0, 22.0 ],
+					"style" : "",
+					"text" : "s #0_func_repeater"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-39",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1408.0, 768.0, 55.0, 22.0 ],
+					"style" : "",
+					"text" : "prepend"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-37",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1408.0, 695.0, 74.0, 22.0 ],
+					"style" : "",
+					"text" : "prepend set"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-35",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1274.5, 607.0, 103.0, 22.0 ],
+					"style" : "",
+					"text" : "r #0_func_names"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-34",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 876.0, 134.0, 37.0, 22.0 ],
+					"style" : "",
+					"text" : "clear"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-30",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 876.0, 196.0, 105.0, 22.0 ],
+					"style" : "",
+					"text" : "s #0_func_names"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-29",
+					"items" : "<empty>",
+					"maxclass" : "umenu",
+					"numinlets" : 1,
+					"numoutlets" : 3,
+					"outlettype" : [ "int", "", "" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1274.5, 644.5, 116.0, 22.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 90.5, 171.5, 267.0, 22.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-28",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 564.0, 378.0, 125.0, 22.0 ],
+					"style" : "",
+					"text" : "s #0_func_names_int"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-27",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 503.0, 301.576904, 105.0, 22.0 ],
+					"style" : "",
+					"text" : "s #0_func_names"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-26",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 564.0, 348.0, 65.0, 22.0 ],
+					"style" : "",
+					"text" : "prepend 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-25",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 778.0, 49.076904, 60.0, 22.0 ],
+					"style" : "",
+					"text" : "loadbang"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-24",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 94.833313, 400.0, 60.0, 22.0 ],
+					"style" : "",
+					"text" : "loadbang"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-23",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 94.833313, 548.0, 114.0, 22.0 ],
+					"style" : "",
+					"text" : "s #0_func_repeater"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-22",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 3,
+					"outlettype" : [ "bang", "bang", "int" ],
+					"patching_rect" : [ 94.833313, 90.0, 43.0, 22.0 ],
+					"style" : "",
+					"text" : "uzi 16"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-20",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 94.833313, 55.0, 60.0, 22.0 ],
+					"style" : "",
+					"text" : "loadbang"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-18",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 778.0, 261.0, 114.0, 22.0 ],
+					"style" : "",
+					"text" : "s #0_func_repeater"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-17",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 778.0, 231.0, 70.0, 22.0 ],
+					"style" : "",
+					"text" : "zl group 50"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-15",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 778.0, 162.0, 24.0, 24.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-14",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 3,
+					"outlettype" : [ "bang", "bang", "int" ],
+					"patching_rect" : [ 778.0, 134.0, 43.0, 22.0 ],
+					"style" : "",
+					"text" : "uzi 50"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-13",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 250.5, 373.0, 101.0, 22.0 ],
+					"style" : "",
+					"text" : "s #0_func_router"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-12",
+					"linecount" : 5,
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 94.833313, 448.5, 216.0, 81.0 ],
+					"style" : "",
+					"text" : "definerange 0. 1., definethickness 2., definepoint none, defineline lines, defineygrid 0.2 0.4 0.6 0.8., definenumber none, definexgrid 0. 1., definexlabels 0 -4 25 0 50 4"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-10",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 729.0, 81.076904, 24.0, 24.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-9",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 433.0, 378.0, 101.0, 22.0 ],
+					"style" : "",
+					"text" : "s #0_func_router"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-6",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 756.0, 478.0, 99.0, 22.0 ],
+					"style" : "",
+					"text" : "r #0_func_router"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 556.0, 482.0, 112.0, 22.0 ],
+					"style" : "",
+					"text" : "r #0_func_repeater"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 16,
+					"outlettype" : [ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
+					"patching_rect" : [ 556.0, 516.0, 176.5, 22.0 ],
+					"style" : "",
+					"text" : "trigger l l l l l l l l l l l l l l l l"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"comment" : "",
+					"id" : "obj-2",
+					"index" : 0,
+					"maxclass" : "inlet",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 729.0, 41.076904, 30.0, 30.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"comment" : "",
+					"id" : "obj-1",
+					"index" : 0,
+					"maxclass" : "inlet",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 433.0, 37.076904, 30.0, 30.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-86",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 426.0, 743.0, 74.0, 22.0 ],
+					"patching_rect" : [ 250.5, 301.576904, 74.0, 22.0 ],
 					"style" : "",
 					"text" : "prepend set"
 				}
@@ -56,7 +1096,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 718.5, 688.5, 55.0, 22.0 ],
+					"patching_rect" : [ 250.5, 343.576904, 55.0, 22.0 ],
 					"style" : "",
 					"text" : "prepend"
 				}
@@ -71,7 +1111,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
-					"patching_rect" : [ 292.333313, 746.0, 36.0, 23.0 ],
+					"patching_rect" : [ 94.833313, 182.153809, 36.0, 23.0 ],
 					"style" : "",
 					"text" : "/ 18."
 				}
@@ -86,7 +1126,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 426.0, 679.5, 40.0, 40.0 ],
+					"patching_rect" : [ 94.833313, 128.076904, 40.0, 40.0 ],
 					"size" : 16.0,
 					"style" : ""
 				}
@@ -101,7 +1141,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 292.333313, 779.0, 89.0, 23.0 ],
+					"patching_rect" : [ 94.833313, 212.076904, 89.0, 23.0 ],
 					"style" : "",
 					"text" : "hsl $1 0.7 0.6"
 				}
@@ -116,7 +1156,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 292.333313, 880.0, 140.0, 22.0 ],
+					"patching_rect" : [ 94.833313, 301.576904, 140.0, 22.0 ],
 					"style" : "",
 					"text" : "definecolor $1 $2 $3 $4"
 				}
@@ -130,7 +1170,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 292.333313, 819.0, 128.0, 49.0 ],
+					"patching_rect" : [ 94.833313, 245.576904, 128.0, 49.0 ],
 					"saturation" : 0.7
 				}
 
@@ -142,7 +1182,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "list", "bang" ],
-					"patching_rect" : [ 186.666626, 778.0, 69.0, 22.0 ],
+					"patching_rect" : [ -57.333374, 440.0, 69.0, 22.0 ],
 					"style" : "",
 					"text" : "colorpicker"
 				}
@@ -153,39 +1193,26 @@
 					"fontname" : "Arial",
 					"fontsize" : 13.0,
 					"id" : "obj-75",
-					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1049.0, 662.0, 667.0, 38.0 ],
+					"patching_rect" : [ 778.0, 196.0, 29.5, 23.0 ],
 					"style" : "",
-					"text" : "definerange 0. 1., definethickness 2., definepoint none, defineline lines, defineygrid 0.2 0.4 0.6 0.8., definenumber none, definexgrid 0. 1., definexlabels 0 -4 25 0 50 4"
+					"text" : "-1"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"attr" : "numpoints",
+					"attr" : "margins",
 					"id" : "obj-73",
 					"maxclass" : "attrui",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1295.5, 774.0, 150.0, 22.0 ],
+					"patching_rect" : [ 1266.5, 520.0, 298.0, 22.0 ],
 					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-70",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 1106.0, 690.0, 69.0, 22.0 ],
-					"style" : "",
-					"text" : "print biatch"
 				}
 
 			}
@@ -196,7 +1223,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 998.0, 568.0, 24.0, 24.0 ],
+					"patching_rect" : [ 666.0, 245.576904, 24.0, 24.0 ],
 					"style" : ""
 				}
 
@@ -208,7 +1235,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 998.0, 633.0, 74.0, 22.0 ],
+					"patching_rect" : [ 666.0, 310.576904, 74.0, 22.0 ],
 					"style" : "",
 					"text" : "prepend set"
 				}
@@ -221,7 +1248,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 961.0, 667.0, 65.0, 22.0 ],
+					"patching_rect" : [ 433.0, 348.0, 65.0, 22.0 ],
 					"style" : "",
 					"text" : "prepend 0"
 				}
@@ -234,7 +1261,7 @@
 					"numinlets" : 5,
 					"numoutlets" : 4,
 					"outlettype" : [ "int", "", "", "int" ],
-					"patching_rect" : [ 998.0, 603.0, 84.0, 22.0 ],
+					"patching_rect" : [ 666.0, 280.576904, 84.0, 22.0 ],
 					"style" : "",
 					"text" : "counter 0 512"
 				}
@@ -248,7 +1275,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1295.5, 731.0, 150.0, 22.0 ],
+					"patching_rect" : [ 1244.5, 482.0, 150.0, 22.0 ],
 					"style" : ""
 				}
 
@@ -260,123 +1287,9 @@
 					"numinlets" : 17,
 					"numoutlets" : 17,
 					"outlettype" : [ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
-					"patching_rect" : [ 751.0, 724.0, 439.266663, 22.0 ],
+					"patching_rect" : [ 756.0, 516.0, 439.266663, 22.0 ],
 					"style" : "",
 					"text" : "route 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-63",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1574.0, 590.0, 35.0, 22.0 ],
-					"style" : "",
-					"text" : "refer"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-60",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1415.5, 590.0, 104.0, 22.0 ],
-					"style" : "",
-					"text" : "prepend addtrack"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-54",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1677.0, 590.0, 49.0, 22.0 ],
-					"style" : "",
-					"text" : "clearall"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-58",
-					"maxclass" : "button",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 1488.0, 543.0, 24.0, 24.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-53",
-					"maxclass" : "button",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 1510.0, 615.0, 24.0, 24.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-47",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1415.5, 475.076904, 82.0, 22.0 ],
-					"style" : "",
-					"text" : "r from_server"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-48",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 1415.5, 555.0, 49.0, 22.0 ],
-					"style" : "",
-					"text" : "zl iter 1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-49",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 1415.5, 508.076904, 124.0, 22.0 ],
-					"style" : "",
-					"text" : "route /model_params"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-41",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1438.0, 389.0, 100.0, 22.0 ],
-					"style" : ""
 				}
 
 			}
@@ -390,7 +1303,9 @@
 					"numplots" : 16,
 					"numpoints" : 50,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 751.0, 807.0, 413.0, 153.0 ],
+					"patching_rect" : [ 756.0, 570.0, 413.0, 153.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 8.0, 5.0, 361.0, 174.0 ],
 					"subplots" : [ 						{
 							"color" : [ 0.88, 0.32, 0.32, 1.0 ],
 							"thickness" : 2.0,
@@ -722,7 +1637,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 961.0, 527.5, 57.0, 22.0 ],
+					"patching_rect" : [ 433.0, 190.076904, 57.0, 22.0 ],
 					"style" : "",
 					"text" : "buddy"
 				}
@@ -735,1186 +1650,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 961.0, 490.5, 57.0, 22.0 ],
+					"patching_rect" : [ 433.0, 153.076904, 57.0, 22.0 ],
 					"style" : "",
 					"text" : "zl slice 1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-71",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 961.0, 459.0, 96.0, 22.0 ],
-					"style" : "",
-					"text" : "route parameter"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-69",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1303.0, 580.0, 49.0, 22.0 ],
-					"style" : "",
-					"text" : "clearall"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-66",
-					"maxclass" : "button",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 1303.0, 542.0, 24.0, 24.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-65",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "int" ],
-					"patching_rect" : [ 1214.0, 469.076904, 29.5, 22.0 ],
-					"style" : "",
-					"text" : "int"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-64",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1214.0, 501.0, 166.0, 22.0 ],
-					"style" : "",
-					"text" : "prepend /dimension_analysis"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-61",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 876.0, 270.5, 37.0, 22.0 ],
-					"style" : "",
-					"text" : "clear"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-55",
-					"maxclass" : "button",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 876.0, 236.5, 24.0, 24.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-52",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 961.0, 421.576904, 149.0, 22.0 ],
-					"style" : "",
-					"text" : "route /dimension_analysis"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-51",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 961.0, 391.576904, 82.0, 22.0 ],
-					"style" : "",
-					"text" : "r from_server"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"appearance" : 1,
-					"id" : "obj-50",
-					"maxclass" : "live.dial",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "float" ],
-					"parameter_enable" : 1,
-					"patching_rect" : [ 1214.0, 395.076904, 25.0, 36.0 ],
-					"presentation_rect" : [ 0.0, 0.0, 25.0, 36.0 ],
-					"saved_attribute_attributes" : 					{
-						"valueof" : 						{
-							"parameter_longname" : "live.dial[3]",
-							"parameter_shortname" : "live.dial[3]",
-							"parameter_type" : 1,
-							"parameter_mmax" : 32.0,
-							"parameter_unitstyle" : 0
-						}
-
-					}
-,
-					"varname" : "live.dial"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-46",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 1213.5, 538.0, 70.0, 22.0 ],
-					"style" : "",
-					"text" : "s to_server"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontname" : "Arial",
-					"fontsize" : 12.0,
-					"id" : "obj-45",
-					"linecount" : 2,
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1322.0, 350.5, 590.0, 35.0 ],
-					"style" : "",
-					"text" : "refer, addtrack bpf @timetagged no @info gui \"interface bpf, bounds 0 1, fgcolor red\", track 1 append 0.1 0.2 0.25 0.3 0.3 0.8 0.4 0.5 0.65 0.6 0.7 0.3 0.8 0.8, domain bounds 0. 0.8"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-40",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 812.0, 448.076904, 98.0, 22.0 ],
-					"style" : "",
-					"text" : "prepend append"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-39",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "int", "float" ],
-					"patching_rect" : [ 812.0, 414.0, 73.0, 22.0 ],
-					"style" : "",
-					"text" : "unpack 0 0."
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-38",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 812.0, 383.576904, 75.0, 22.0 ],
-					"style" : "",
-					"text" : "r vst_values"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-37",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 684.0, 285.576904, 51.0, 22.0 ],
-					"style" : "",
-					"text" : "s vst_in"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-35",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 109.499939, 152.0, 77.0, 22.0 ],
-					"style" : "",
-					"text" : "s vst_values"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-34",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 82.833275, 181.0, 78.0, 22.0 ],
-					"style" : "",
-					"text" : "s vst_names"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-33",
-					"items" : [ 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.1, ",", 0.1, ",", 0.75, ",", 0.75, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.8, ",", 0.8, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.076923, ",", 0.076923, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.85, ",", 0.85, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.73913, ",", 0.73913, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.333333, ",", 0.333333, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.175, ",", 0.175, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.75, ",", 0.75, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.652174, ",", 0.652174, ",", 0.0, ",", 0.0, ",", 0.85, ",", 0.85, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.142857, ",", 0.142857, ",", 0.4, ",", 0.4, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.2, ",", 0.2, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.285714, ",", 0.285714, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.038462, ",", 0.038462, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.4, ",", 0.4, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.066667, ",", 0.066667, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.333333, ",", 0.333333, ",", 0.0, ",", 0.0, ",", 0.01, ",", 0.01, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.75, ",", 0.75, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.1, ",", 0.1, ",", 0.75, ",", 0.75, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.8, ",", 0.8, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.076923, ",", 0.076923, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.85, ",", 0.85, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.73913, ",", 0.73913, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.333333, ",", 0.333333, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.175, ",", 0.175, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.75, ",", 0.75, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.652174, ",", 0.652174, ",", 0.0, ",", 0.0, ",", 0.85, ",", 0.85, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.142857, ",", 0.142857, ",", 0.4, ",", 0.4, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.2, ",", 0.2, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.285714, ",", 0.285714, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.038462, ",", 0.038462, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.4, ",", 0.4, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.066667, ",", 0.066667, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.333333, ",", 0.333333, ",", 0.0, ",", 0.0, ",", 0.01, ",", 0.01, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.75, ",", 0.75, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.485047, ",", 0.485047, ",", 0.092251, ",", 0.092251, ",", 0.015371, ",", 0.015371, ",", 0.538589, ",", 0.538589, ",", 0.121301, ",", 0.121301, ",", 0.37497, ",", 0.37497, ",", 0.47852, ",", 0.47852, ",", 0.315681, ",", 0.315681, ",", 0.447407, ",", 0.447407, ",", 0.114459, ",", 0.114459, ",", 0.660803, ",", 0.660803, ",", 0.511053, ",", 0.511053, ",", 0.303402, ",", 0.303402, ",", 0.609076, ",", 0.609076, ",", 0.267766, ",", 0.267766, ",", 0.407741, ",", 0.407741, ",", 0.088948, ",", 0.088948, ",", 0.204411, ",", 0.204411, ",", 0.363213, ",", 0.363213, ",", 0.269831, ",", 0.269831, ",", 0.450385, ",", 0.450385, ",", 0.414773, ",", 0.414773, ",", 0.469219, ",", 0.469219, ",", 0.218939, ",", 0.218939, ",", 0.229989, ",", 0.229989, ",", 0.27569, ",", 0.27569, ",", 0.634591, ",", 0.634591, ",", 0.111649, ",", 0.111649, ",", 0.382741, ",", 0.382741, ",", 0.06447, ",", 0.06447, ",", 0.376689, ",", 0.376689, ",", 0.35946, ",", 0.35946, ",", 0.468139, ",", 0.468139, ",", 0.310319, ",", 0.310319, ",", 0.229987, ",", 0.229987, ",", 0.510469, ",", 0.510469, ",", 0.023846, ",", 0.023846, ",", 0.480182, ",", 0.480182, ",", 0.528539, ",", 0.528539, ",", 0.583114, ",", 0.583114, ",", 0.497527, ",", 0.497527, ",", 0.26982, ",", 0.26982, ",", 0.547478, ",", 0.547478, ",", 0.517019, ",", 0.517019, ",", 0.443494, ",", 0.443493, ",", 0.216099, ",", 0.216099, ",", 0.363915, ",", 0.363915, ",", 0.547044, ",", 0.547044, ",", 0.195383, ",", 0.195383, ",", 0.661354, ",", 0.661354, ",", 0.433132, ",", 0.433132, ",", 0.086511, ",", 0.086511, ",", 0.443931, ",", 0.443931, ",", 0.474218, ",", 0.474218, ",", 0.582091, ",", 0.582091, ",", 0.373991, ",", 0.373991, ",", 0.35285, ",", 0.35285, ",", 0.146683, ",", 0.146683, ",", 0.419798, ",", 0.419798, ",", 0.188258, ",", 0.188258, ",", 0.421544, ",", 0.421544, ",", 0.108097, ",", 0.108097, ",", 0.460905, ",", 0.460905, ",", 0.638978, ",", 0.638978, ",", 0.561868, ",", 0.561868, ",", 0.002773, ",", 0.002773, ",", 0.105647, ",", 0.105647, ",", 0.473817, ",", 0.473817, ",", 0.000644, ",", 0.000644, ",", 0.613334, ",", 0.613334, ",", 0.346242, ",", 0.346242, ",", 0.355639, ",", 0.355639, ",", 0.620969, ",", 0.620969, ",", 0.151416, ",", 0.151416, ",", 0.608261, ",", 0.608261, ",", 0.388402, ",", 0.388402, ",", 0.372698, ",", 0.372697, ",", 0.739473, ",", 0.739473, ",", 0.364388, ",", 0.364388, ",", 0.206349, ",", 0.206349, ",", 0.008186, ",", 0.008186, ",", 0.148147, ",", 0.148147, ",", 0.153796, ",", 0.153796, ",", 0.025986, ",", 0.025986, ",", 0.846016, ",", 0.846016, ",", 0.339648, ",", 0.339648, ",", 0.332839, ",", 0.332839, ",", 0.175705, ",", 0.175705, ",", 0.602486, ",", 0.602486, ",", 0.098515, ",", 0.098515, ",", 0.675189, ",", 0.675189, ",", 0.672232, ",", 0.672232, ",", 0.432316, ",", 0.432316, ",", 0.000649, ",", 0.000649, ",", 0.578822, ",", 0.578822, ",", 0.841106, ",", 0.841106, ",", 0.561911, ",", 0.561911, ",", 0.002772, ",", 0.002772, ",", 0.105587, ",", 0.105587, ",", 0.47379, ",", 0.47379, ",", 0.000643, ",", 0.000643, ",", 0.613266, ",", 0.613266, ",", 0.346274, ",", 0.346274, ",", 0.355642, ",", 0.355642, ",", 0.621044, ",", 0.621044, ",", 0.151301, ",", 0.151301, ",", 0.608265, ",", 0.608265, ",", 0.3884, ",", 0.3884, ",", 0.372688, ",", 0.372688, ",", 0.739248, ",", 0.739248, ",", 0.364029, ",", 0.364029, ",", 0.206365, ",", 0.206365, ",", 0.008194, ",", 0.008194, ",", 0.148223, ",", 0.148223, ",", 0.15389, ",", 0.15389, ",", 0.025976, ",", 0.025976, ",", 0.846139, ",", 0.846139, ",", 0.339595, ",", 0.339595, ",", 0.332848, ",", 0.332848, ",", 0.175773, ",", 0.175773, ",", 0.602577, ",", 0.602577, ",", 0.098523, ",", 0.098523, ",", 0.675188, ",", 0.675188, ",", 0.672163, ",", 0.672163, ",", 0.43228, ",", 0.43228, ",", 0.000649, ",", 0.000649, ",", 0.578793, ",", 0.578793, ",", 0.841027, ",", 0.841027, ",", 0.463715, ",", 0.463715, ",", 0.981036, ",", 0.981036, ",", 0.016712, ",", 0.016712, ",", 0.5093, ",", 0.5093, ",", 0.004491, ",", 0.004491, ",", 0.319801, ",", 0.319801, ",", 0.550081, ",", 0.550081, ",", 0.225827, ",", 0.225827, ",", 0.494313, ",", 0.494313, ",", 0.007708, ",", 0.007708, ",", 0.512902, ",", 0.512902, ",", 0.524421, ",", 0.524421, ",", 0.445675, ",", 0.445675, ",", 0.928237, ",", 0.928237, ",", 0.067013, ",", 0.067013, ",", 0.408582, ",", 0.408582, ",", 0.017494, ",", 0.017494, ",", 0.015798, ",", 0.015798, ",", 0.94603, ",", 0.94603, ",", 0.01316, ",", 0.01316, ",", 0.908151, ",", 0.908151, ",", 0.446571, ",", 0.446571, ",", 0.760899, ",", 0.760899, ",", 0.459102, ",", 0.459102, ",", 0.937305, ",", 0.937305, ",", 0.133411, ",", 0.133411, ",", 0.794685, ",", 0.794685, ",", 0.243192, ",", 0.243192, ",", 0.531663, ",", 0.531663, ",", 0.019663, ",", 0.019663, ",", 0.5132, ",", 0.5132, ",", 0.947567, ",", 0.947567, ",", 0.561951, ",", 0.561951, ",", 0.002777, ",", 0.002777, ",", 0.105733, ",", 0.105733, ",", 0.473799, ",", 0.473799, ",", 0.000643, ",", 0.000643, ",", 0.613356, ",", 0.613356, ",", 0.346326, ",", 0.346326, ",", 0.355704, ",", 0.355704, ",", 0.621038, ",", 0.621038, ",", 0.15135, ",", 0.15135, ",", 0.608295, ",", 0.608295, ",", 0.3884, ",", 0.3884, ",", 0.372715, ",", 0.372715, ",", 0.739321, ",", 0.739321, ",", 0.364217, ",", 0.364217, ",", 0.206327, ",", 0.206327, ",", 0.008191, ",", 0.008191, ",", 0.148201, ",", 0.148201, ",", 0.153954, ",", 0.153954, ",", 0.025989, ",", 0.025989, ",", 0.846023, ",", 0.846023, ",", 0.339554, ",", 0.339554, ",", 0.332831, ",", 0.332831, ",", 0.175814, ",", 0.175814, ",", 0.602569, ",", 0.602569, ",", 0.098457, ",", 0.098457, ",", 0.675205, ",", 0.675205, ",", 0.672188, ",", 0.672188, ",", 0.432225, ",", 0.432225, ",", 0.000649, ",", 0.000649, ",", 0.578721, ",", 0.578721, ",", 0.840999, ",", 0.840999, ",", 0.463728, ",", 0.463728, ",", 0.981042, ",", 0.981042, ",", 0.016707, ",", 0.016707, ",", 0.509287, ",", 0.509287, ",", 0.004492, ",", 0.004492, ",", 0.319808, ",", 0.319808, ",", 0.550108, ",", 0.550108, ",", 0.22581, ",", 0.22581, ",", 0.494311, ",", 0.494311, ",", 0.007707, ",", 0.007707, ",", 0.512876, ",", 0.512876, ",", 0.524441, ",", 0.524441, ",", 0.445672, ",", 0.445672, ",", 0.928249, ",", 0.928249, ",", 0.06706, ",", 0.06706, ",", 0.408617, ",", 0.408617, ",", 0.0175, ",", 0.0175, ",", 0.015801, ",", 0.015801, ",", 0.946033, ",", 0.946033, ",", 0.013161, ",", 0.013161, ",", 0.908119, ",", 0.908119, ",", 0.446581, ",", 0.446581, ",", 0.760913, ",", 0.760913, ",", 0.459115, ",", 0.459115, ",", 0.937307, ",", 0.937307, ",", 0.133429, ",", 0.133429, ",", 0.794677, ",", 0.794677, ",", 0.243163, ",", 0.243163, ",", 0.531672, ",", 0.531672, ",", 0.019663, ",", 0.019663, ",", 0.513195, ",", 0.513195, ",", 0.947569, ",", 0.947569, ",", 0.561925, ",", 0.561925, ",", 0.002775, ",", 0.002775, ",", 0.105672, ",", 0.105672, ",", 0.473761, ",", 0.473761, ",", 0.000643, ",", 0.000643, ",", 0.613386, ",", 0.613386, ",", 0.346275, ",", 0.346275, ",", 0.35571, ",", 0.35571, ",", 0.621028, ",", 0.621028, ",", 0.151391, ",", 0.151391, ",", 0.608369, ",", 0.608369, ",", 0.388364, ",", 0.388364, ",", 0.37278, ",", 0.37278, ",", 0.73931, ",", 0.73931, ",", 0.364061, ",", 0.364061, ",", 0.206288, ",", 0.206288, ",", 0.008191, ",", 0.008191, ",", 0.148069, ",", 0.148069, ",", 0.153975, ",", 0.153975, ",", 0.025981, ",", 0.025981, ",", 0.846062, ",", 0.846062, ",", 0.339597, ",", 0.339597, ",", 0.33284, ",", 0.33284, ",", 0.17585, ",", 0.17585, ",", 0.602469, ",", 0.602469, ",", 0.098522, ",", 0.098522, ",", 0.675182, ",", 0.675182, ",", 0.672274, ",", 0.672273, ",", 0.432214, ",", 0.432214, ",", 0.000649, ",", 0.000649, ",", 0.578822, ",", 0.578822, ",", 0.840994, ",", 0.840994, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.1, ",", 0.1, ",", 0.75, ",", 0.75, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.8, ",", 0.8, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.076923, ",", 0.076923, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.85, ",", 0.85, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.73913, ",", 0.73913, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.333333, ",", 0.333333, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.175, ",", 0.175, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.75, ",", 0.75, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.652174, ",", 0.652174, ",", 0.0, ",", 0.0, ",", 0.85, ",", 0.85, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.142857, ",", 0.142857, ",", 0.4, ",", 0.4, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.2, ",", 0.2, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.285714, ",", 0.285714, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.038462, ",", 0.038462, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.4, ",", 0.4, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.066667, ",", 0.066667, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.333333, ",", 0.333333, ",", 0.0, ",", 0.0, ",", 0.01, ",", 0.01, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.75, ",", 0.75, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.458962, ",", 0.458962, ",", 0.069984, ",", 0.069984, ",", 0.040872, ",", 0.040872, ",", 0.484272, ",", 0.484272, ",", 0.067655, ",", 0.067655, ",", 0.379879, ",", 0.379879, ",", 0.489097, ",", 0.489097, ",", 0.420484, ",", 0.420484, ",", 0.486476, ",", 0.486476, ",", 0.101999, ",", 0.101999, ",", 0.592653, ",", 0.592653, ",", 0.496417, ",", 0.496417, ",", 0.336751, ",", 0.336751, ",", 0.396725, ",", 0.396725, ",", 0.246885, ",", 0.246885, ",", 0.585985, ",", 0.585985, ",", 0.167876, ",", 0.167876, ",", 0.327208, ",", 0.327208, ",", 0.372489, ",", 0.372489, ",", 0.126448, ",", 0.126448, ",", 0.583081, ",", 0.583081, ",", 0.444337, ",", 0.444337, ",", 0.510231, ",", 0.510231, ",", 0.228066, ",", 0.228066, ",", 0.225623, ",", 0.225623, ",", 0.250139, ",", 0.250139, ",", 0.569565, ",", 0.569565, ",", 0.119492, ",", 0.119492, ",", 0.370244, ",", 0.370244, ",", 0.086113, ",", 0.086113, ",", 0.325551, ",", 0.325551, ",", 0.413448, ",", 0.413448, ",", 0.496636, ",", 0.496636, ",", 0.410886, ",", 0.410886, ",", 0.169068, ",", 0.169068, ",", 0.51283, ",", 0.51283, ",", 0.017575, ",", 0.017575, ",", 0.442822, ",", 0.442822, ",", 0.621152, ",", 0.621152, ",", 0.601475, ",", 0.601475, ",", 0.499342, ",", 0.499342, ",", 0.317135, ",", 0.317135, ",", 0.595644, ",", 0.595643, ",", 0.541103, ",", 0.541103, ",", 0.378743, ",", 0.378743, ",", 0.237223, ",", 0.237223, ",", 0.322292, ",", 0.322292, ",", 0.514289, ",", 0.514289, ",", 0.082443, ",", 0.082443, ",", 0.725891, ",", 0.725891, ",", 0.330764, ",", 0.330764, ",", 0.029231, ",", 0.029231, ",", 0.571868, ",", 0.571868, ",", 0.429529, ",", 0.429529, ",", 0.548878, ",", 0.548878, ",", 0.302002, ",", 0.302002, ",", 0.273174, ",", 0.273174, ",", 0.150151, ",", 0.150151, ",", 0.477692, ",", 0.477692, ",", 0.134256, ",", 0.134256, ",", 0.381788, ",", 0.381788, ",", 0.119226, ",", 0.119226, ",", 0.324089, ",", 0.324089, ",", 0.459637, ",", 0.459637, ",", 0.496584, ",", 0.496584, ",", 0.410749, ",", 0.410749, ",", 0.169209, ",", 0.169209, ",", 0.512767, ",", 0.512767, ",", 0.017583, ",", 0.017583, ",", 0.442935, ",", 0.442935, ",", 0.620994, ",", 0.620994, ",", 0.601494, ",", 0.601494, ",", 0.499368, ",", 0.499368, ",", 0.317119, ",", 0.317119, ",", 0.595563, ",", 0.595563, ",", 0.541089, ",", 0.541089, ",", 0.378854, ",", 0.378854, ",", 0.237132, ",", 0.237132, ",", 0.322224, ",", 0.322224, ",", 0.514288, ",", 0.514288, ",", 0.082551, ",", 0.082551, ",", 0.725831, ",", 0.725831, ",", 0.33084, ",", 0.33084, ",", 0.029254, ",", 0.029254, ",", 0.571572, ",", 0.571572, ",", 0.429523, ",", 0.429523, ",", 0.548898, ",", 0.548898, ",", 0.302084, ",", 0.302084, ",", 0.273148, ",", 0.273148, ",", 0.150078, ",", 0.150078, ",", 0.477547, ",", 0.477547, ",", 0.134215, ",", 0.134215, ",", 0.381842, ",", 0.381842, ",", 0.119135, ",", 0.119135, ",", 0.324298, ",", 0.324298, ",", 0.459697, ",", 0.459697, ",", 0.552674, ",", 0.552674, ",", 0.418984, ",", 0.418984, ",", 0.072253, ",", 0.072253, ",", 0.503357, ",", 0.503357, ",", 0.005875, ",", 0.005875, ",", 0.37555, ",", 0.37555, ",", 0.57035, ",", 0.57035, ",", 0.489122, ",", 0.489122, ",", 0.600374, ",", 0.600374, ",", 0.045818, ",", 0.045818, ",", 0.654194, ",", 0.654194, ",", 0.662265, ",", 0.662265, ",", 0.451714, ",", 0.451714, ",", 0.500996, ",", 0.500996, ",", 0.081872, ",", 0.081872, ",", 0.483267, ",", 0.483267, ",", 0.015773, ",", 0.015773, ",", 0.158808, ",", 0.158808, ",", 0.473984, ",", 0.473984, ",", 0.00971, ",", 0.00971, ",", 0.170894, ",", 0.170894, ",", 0.310253, ",", 0.310253, ",", 0.466892, ",", 0.466892, ",", 0.415231, ",", 0.415231, ",", 0.275949, ",", 0.275949, ",", 0.003936, ",", 0.003936, ",", 0.487099, ",", 0.487099, ",", 0.023268, ",", 0.023268, ",", 0.460291, ",", 0.460291, ",", 0.011229, ",", 0.011229, ",", 0.608923, ",", 0.608923, ",", 0.1793, ",", 0.1793, ",", 0.49526, ",", 0.49526, ",", 0.072675, ",", 0.072675, ",", 0.23456, ",", 0.23456, ",", 0.511204, ",", 0.511204, ",", 0.052185, ",", 0.052185, ",", 0.579753, ",", 0.579753, ",", 0.630045, ",", 0.630045, ",", 0.394428, ",", 0.394428, ",", 0.537512, ",", 0.537512, ",", 0.128172, ",", 0.128172, ",", 0.659111, ",", 0.659111, ",", 0.552233, ",", 0.552233, ",", 0.338647, ",", 0.338647, ",", 0.508517, ",", 0.508517, ",", 0.141968, ",", 0.141968, ",", 0.358897, ",", 0.358897, ",", 0.018146, ",", 0.018146, ",", 0.130681, ",", 0.130681, ",", 0.694493, ",", 0.694493, ",", 0.019938, ",", 0.019938, ",", 0.348124, ",", 0.348124, ",", 0.454552, ",", 0.454552, ",", 0.473429, ",", 0.473429, ",", 0.395845, ",", 0.395845, ",", 0.224643, ",", 0.224643, ",", 0.150374, ",", 0.150374, ",", 0.520428, ",", 0.520428, ",", 0.174572, ",", 0.174572, ",", 0.550061, ",", 0.550061, ",", 0.108445, ",", 0.108445, ",", 0.555235, ",", 0.555235, ",", 0.214794, ",", 0.214794, ",", 0.489595, ",", 0.489595, ",", 0.091844, ",", 0.091844, ",", 0.095397, ",", 0.095397, ",", 0.516678, ",", 0.516678, ",", 0.098892, ",", 0.098892, ",", 0.638931, ",", 0.638931, ",", 0.565354, ",", 0.565354, ",", 0.44554, ",", 0.44554, ",", 0.435755, ",", 0.435755, ",", 0.079215, ",", 0.079215, ",", 0.655785, ",", 0.655785, ",", 0.536242, ",", 0.536242, ",", 0.343171, ",", 0.343171, ",", 0.704408, ",", 0.704408, ",", 0.115378, ",", 0.115378, ",", 0.323185, ",", 0.323185, ",", 0.011186, ",", 0.011186, ",", 0.196926, ",", 0.196926, ",", 0.884479, ",", 0.884479, ",", 0.055556, ",", 0.055556, ",", 0.518089, ",", 0.518089, ",", 0.442272, ",", 0.442272, ",", 0.530126, ",", 0.530126, ",", 0.419934, ",", 0.419934, ",", 0.344298, ",", 0.344298, ",", 0.215724, ",", 0.215724, ",", 0.529194, ",", 0.529194, ",", 0.310777, ",", 0.310777, ",", 0.435272, ",", 0.435272, ",", 0.117203, ",", 0.117203, ",", 0.469124, ",", 0.469124, ",", 0.271164, ",", 0.271164, ",", 0.603558, ",", 0.603558, ",", 0.09679, ",", 0.09679, ",", 0.001676, ",", 0.001676, ",", 0.591011, ",", 0.591011, ",", 0.040649, ",", 0.040649, ",", 0.301924, ",", 0.301924, ",", 0.439995, ",", 0.439995, ",", 0.23563, ",", 0.23563, ",", 0.361719, ",", 0.361719, ",", 0.038201, ",", 0.038201, ",", 0.687792, ",", 0.687792, ",", 0.527171, ",", 0.527171, ",", 0.277256, ",", 0.277256, ",", 0.621959, ",", 0.621959, ",", 0.227059, ",", 0.227059, ",", 0.339702, ",", 0.339702, ",", 0.06306, ",", 0.06306, ",", 0.271513, ",", 0.271513, ",", 0.599178, ",", 0.599178, ",", 0.1965, ",", 0.1965, ",", 0.623082, ",", 0.623082, ",", 0.354265, ",", 0.354265, ",", 0.481459, ",", 0.481459, ",", 0.137701, ",", 0.137701, ",", 0.197902, ",", 0.197902, ",", 0.341957, ",", 0.341957, ",", 0.745476, ",", 0.745476, ",", 0.154805, ",", 0.154805, ",", 0.472835, ",", 0.472835, ",", 0.025943, ",", 0.025943, ",", 0.435557, ",", 0.435557, ",", 0.159084, ",", 0.159084, ",", 0.559246, ",", 0.559246, ",", 0.298147, ",", 0.298147, ",", 0.04412, ",", 0.04412, ",", 0.669304, ",", 0.669304, ",", 0.007913, ",", 0.007913, ",", 0.251396, ",", 0.251396, ",", 0.792713, ",", 0.792713, ",", 0.393331, ",", 0.393331, ",", 0.538975, ",", 0.538975, ",", 0.108194, ",", 0.108194, ",", 0.698979, ",", 0.698979, ",", 0.588855, ",", 0.588855, ",", 0.337206, ",", 0.337206, ",", 0.593973, ",", 0.593973, ",", 0.143034, ",", 0.143034, ",", 0.388643, ",", 0.388643, ",", 0.01232, ",", 0.01232, ",", 0.442947, ",", 0.442947, ",", 0.178118, ",", 0.178118, ",", 0.013181, ",", 0.013181, ",", 0.649907, ",", 0.649907, ",", 0.400353, ",", 0.400353, ",", 0.447374, ",", 0.447374, ",", 0.266405, ",", 0.266405, ",", 0.276788, ",", 0.276788, ",", 0.126222, ",", 0.126222, ",", 0.641675, ",", 0.641675, ",", 0.118702, ",", 0.118702, ",", 0.407644, ",", 0.407644, ",", 0.102802, ",", 0.102802, ",", 0.315295, ",", 0.315295, ",", 0.158918, ",", 0.158918, ",", 0.459782, ",", 0.459782, ",", 0.200978, ",", 0.200978, ",", 0.100796, ",", 0.100796, ",", 0.679201, ",", 0.679201, ",", 0.002527, ",", 0.002527, ",", 0.259087, ",", 0.259087, ",", 0.772171, ",", 0.772171, ",", 0.352455, ",", 0.352455, ",", 0.540109, ",", 0.540109, ",", 0.049128, ",", 0.049128, ",", 0.623209, ",", 0.623209, ",", 0.611155, ",", 0.611155, ",", 0.342358, ",", 0.342358, ",", 0.819011, ",", 0.819011, ",", 0.199442, ",", 0.199442, ",", 0.436966, ",", 0.436966, ",", 0.003768, ",", 0.003768, ",", 0.255451, ",", 0.255451, ",", 0.122089, ",", 0.122089, ",", 0.011424, ",", 0.011424, ",", 0.54292, ",", 0.54292, ",", 0.332982, ",", 0.332982, ",", 0.347588, ",", 0.347588, ",", 0.270206, ",", 0.270206, ",", 0.539029, ",", 0.539029, ",", 0.037422, ",", 0.037422, ",", 0.598565, ",", 0.598565, ",", 0.063471, ",", 0.063471, ",", 0.392663, ",", 0.392663, ",", 0.067691, ",", 0.067691, ",", 0.314277, ",", 0.314277, ",", 0.364493, ",", 0.364493, ",", 0.459692, ",", 0.459692, ",", 0.200817, ",", 0.200817, ",", 0.100872, ",", 0.100872, ",", 0.679263, ",", 0.679263, ",", 0.002524, ",", 0.002524, ",", 0.259085, ",", 0.259085, ",", 0.772152, ",", 0.772152, ",", 0.352498, ",", 0.352498, ",", 0.540059, ",", 0.540059, ",", 0.049002, ",", 0.049002, ",", 0.623147, ",", 0.623147, ",", 0.611137, ",", 0.611137, ",", 0.342401, ",", 0.342401, ",", 0.819099, ",", 0.819099, ",", 0.199506, ",", 0.199506, ",", 0.436903, ",", 0.436903, ",", 0.003765, ",", 0.003765, ",", 0.255456, ",", 0.255456, ",", 0.122034, ",", 0.122034, ",", 0.011434, ",", 0.011434, ",", 0.542902, ",", 0.542902, ",", 0.33293, ",", 0.33293, ",", 0.347434, ",", 0.347434, ",", 0.270249, ",", 0.270249, ",", 0.539528, ",", 0.539528, ",", 0.037361, ",", 0.037361, ",", 0.598461, ",", 0.598461, ",", 0.063376, ",", 0.063376, ",", 0.392678, ",", 0.392678, ",", 0.067707, ",", 0.067707, ",", 0.314283, ",", 0.314283, ",", 0.364844, ",", 0.364844, ",", 0.459704, ",", 0.459704, ",", 0.200902, ",", 0.200902, ",", 0.100991, ",", 0.100991, ",", 0.679302, ",", 0.679302, ",", 0.00252, ",", 0.00252, ",", 0.259122, ",", 0.259122, ",", 0.772142, ",", 0.772142, ",", 0.352456, ",", 0.352456, ",", 0.540062, ",", 0.540062, ",", 0.04897, ",", 0.04897, ",", 0.623081, ",", 0.623081, ",", 0.6111, ",", 0.6111, ",", 0.342376, ",", 0.342376, ",", 0.81925, ",", 0.81925, ",", 0.199692, ",", 0.199692, ",", 0.43691, ",", 0.43691, ",", 0.003765, ",", 0.003765, ",", 0.255462, ",", 0.255462, ",", 0.122096, ",", 0.122096, ",", 0.011443, ",", 0.011443, ",", 0.542733, ",", 0.542733, ",", 0.332951, ",", 0.332951, ",", 0.347392, ",", 0.347392, ",", 0.270268, ",", 0.270268, ",", 0.539671, ",", 0.539671, ",", 0.037315, ",", 0.037315, ",", 0.598373, ",", 0.598373, ",", 0.063312, ",", 0.063312, ",", 0.392665, ",", 0.392665, ",", 0.067691, ",", 0.067691, ",", 0.314285, ",", 0.314285, ",", 0.365103, ",", 0.365103, ",", 0.574011, ",", 0.574011, ",", 0.572882, ",", 0.572882, ",", 0.103956, ",", 0.103956, ",", 0.622456, ",", 0.622456, ",", 0.001953, ",", 0.001953, ",", 0.316418, ",", 0.316418, ",", 0.713413, ",", 0.713413, ",", 0.376977, ",", 0.376977, ",", 0.552242, ",", 0.552242, ",", 0.08672, ",", 0.08672, ",", 0.615501, ",", 0.615501, ",", 0.610017, ",", 0.610017, ",", 0.337339, ",", 0.337339, ",", 0.741812, ",", 0.741812, ",", 0.178323, ",", 0.178323, ",", 0.532992, ",", 0.532992, ",", 0.007922, ",", 0.007922, ",", 0.101531, ",", 0.101531, ",", 0.487234, ",", 0.487234, ",", 0.014122, ",", 0.014122, ",", 0.279424, ",", 0.279424, ",", 0.379709, ",", 0.379709, ",", 0.465187, ",", 0.465187, ",", 0.309112, ",", 0.309112, ",", 0.298935, ",", 0.298935, ",", 0.010844, ",", 0.010844, ",", 0.546535, ",", 0.546535, ",", 0.027084, ",", 0.027084, ",", 0.41631, ",", 0.41631, ",", 0.025501, ",", 0.025501, ",", 0.426865, ",", 0.426865, ",", 0.21759, ",", 0.217591, ",", 0.574078, ",", 0.574078, ",", 0.572984, ",", 0.572984, ",", 0.103933, ",", 0.103933, ",", 0.62239, ",", 0.62239, ",", 0.001955, ",", 0.001955, ",", 0.316476, ",", 0.316476, ",", 0.713314, ",", 0.713314, ",", 0.37702, ",", 0.37702, ",", 0.552234, ",", 0.552234, ",", 0.086682, ",", 0.086682, ",", 0.615514, ",", 0.615514, ",", 0.610066, ",", 0.610066, ",", 0.337316, ",", 0.337316, ",", 0.741712, ",", 0.741712, ",", 0.178337, ",", 0.178337, ",", 0.533009, ",", 0.533009, ",", 0.007925, ",", 0.007925, ",", 0.101471, ",", 0.101471, ",", 0.487292, ",", 0.487292, ",", 0.014115, ",", 0.014115, ",", 0.279492, ",", 0.279492, ",", 0.379717, ",", 0.379717, ",", 0.465201, ",", 0.465201, ",", 0.30913, ",", 0.30913, ",", 0.298897, ",", 0.298897, ",", 0.010836, ",", 0.010836, ",", 0.546517, ",", 0.546517, ",", 0.027052, ",", 0.027052, ",", 0.41639, ",", 0.41639, ",", 0.025476, ",", 0.025476, ",", 0.426921, ",", 0.426921, ",", 0.217491, ",", 0.217491, ",", 0.592072, ",", 0.592072, ",", 0.348667, ",", 0.348667, ",", 0.05451, ",", 0.05451, ",", 0.536768, ",", 0.536768, ",", 0.002632, ",", 0.002632, ",", 0.371349, ",", 0.371349, ",", 0.569683, ",", 0.569683, ",", 0.475525, ",", 0.475525, ",", 0.595635, ",", 0.595635, ",", 0.04825, ",", 0.04825, ",", 0.696751, ",", 0.696751, ",", 0.652226, ",", 0.652226, ",", 0.405168, ",", 0.405168, ",", 0.79636, ",", 0.79636, ",", 0.061893, ",", 0.061893, ",", 0.465203, ",", 0.465203, ",", 0.010203, ",", 0.010203, ",", 0.095437, ",", 0.095437, ",", 0.613255, ",", 0.613255, ",", 0.007082, ",", 0.007082, ",", 0.157143, ",", 0.157143, ",", 0.32145, ",", 0.32145, ",", 0.42794, ",", 0.42794, ",", 0.435908, ",", 0.435908, ",", 0.245005, ",", 0.245005, ",", 0.001751, ",", 0.001751, ",", 0.507263, ",", 0.507263, ",", 0.018458, ",", 0.018458, ",", 0.466785, ",", 0.466785, ",", 0.004377, ",", 0.004377, ",", 0.573195, ",", 0.573195, ",", 0.184512, ",", 0.184512, ",", 0.479821, ",", 0.479821, ",", 0.047481, ",", 0.047481, ",", 0.027842, ",", 0.027842, ",", 0.548479, ",", 0.548479, ",", 0.000422, ",", 0.000422, ",", 0.387581, ",", 0.387581, ",", 0.610266, ",", 0.610266, ",", 0.425068, ",", 0.425068, ",", 0.528681, ",", 0.528681, ",", 0.036088, ",", 0.036088, ",", 0.748874, ",", 0.748874, ",", 0.546625, ",", 0.546625, ",", 0.493945, ",", 0.493945, ",", 0.92599, ",", 0.92599, ",", 0.056216, ",", 0.056216, ",", 0.449539, ",", 0.449539, ",", 0.006428, ",", 0.006428, ",", 0.096606, ",", 0.096606, ",", 0.713079, ",", 0.713079, ",", 0.001728, ",", 0.001728, ",", 0.063913, ",", 0.063913, ",", 0.409232, ",", 0.409232, ",", 0.45196, ",", 0.45196, ",", 0.541311, ",", 0.541311, ",", 0.136907, ",", 0.136907, ",", 0.000484, ",", 0.000484, ",", 0.484474, ",", 0.484474, ",", 0.016583, ",", 0.016583, ",", 0.575831, ",", 0.575831, ",", 0.003337, ",", 0.003337, ",", 0.564344, ",", 0.564344, ",", 0.119067, ",", 0.119067, ",", 0.479817, ",", 0.479817, ",", 0.047517, ",", 0.047517, ",", 0.02787, ",", 0.02787, ",", 0.548442, ",", 0.548442, ",", 0.000423, ",", 0.000423, ",", 0.387638, ",", 0.387638, ",", 0.610291, ",", 0.610291, ",", 0.425147, ",", 0.425147, ",", 0.528723, ",", 0.528723, ",", 0.036067, ",", 0.036067, ",", 0.748865, ",", 0.748865, ",", 0.546571, ",", 0.546571, ",", 0.493933, ",", 0.493933, ",", 0.925891, ",", 0.925891, ",", 0.056202, ",", 0.056202, ",", 0.449578, ",", 0.449578, ",", 0.006427, ",", 0.006427, ",", 0.0966, ",", 0.0966, ",", 0.712893, ",", 0.712893, ",", 0.001728, ",", 0.001728, ",", 0.06392, ",", 0.06392, ",", 0.409197, ",", 0.409197, ",", 0.451949, ",", 0.451949, ",", 0.541328, ",", 0.541328, ",", 0.136852, ",", 0.136852, ",", 0.000485, ",", 0.000485, ",", 0.484467, ",", 0.484467, ",", 0.016611, ",", 0.016611, ",", 0.575859, ",", 0.575859, ",", 0.003345, ",", 0.003345, ",", 0.564402, ",", 0.564402, ",", 0.119127, ",", 0.119127, ",", 0.506132, ",", 0.506132, ",", 0.043331, ",", 0.043331, ",", 0.086191, ",", 0.086191, ",", 0.558723, ",", 0.558723, ",", 0.104898, ",", 0.104898, ",", 0.60531, ",", 0.60531, ",", 0.620181, ",", 0.620181, ",", 0.397798, ",", 0.397798, ",", 0.450816, ",", 0.450816, ",", 0.081026, ",", 0.081026, ",", 0.657126, ",", 0.657126, ",", 0.536731, ",", 0.536731, ",", 0.284243, ",", 0.284243, ",", 0.522645, ",", 0.522645, ",", 0.106536, ",", 0.106536, ",", 0.348683, ",", 0.348683, ",", 0.006145, ",", 0.006145, ",", 0.230804, ",", 0.230804, ",", 0.799212, ",", 0.799212, ",", 0.018258, ",", 0.018258, ",", 0.518115, ",", 0.518115, ",", 0.44863, ",", 0.44863, ",", 0.476801, ",", 0.476801, ",", 0.410551, ",", 0.410551, ",", 0.250224, ",", 0.250224, ",", 0.148587, ",", 0.148587, ",", 0.532056, ",", 0.532056, ",", 0.192643, ",", 0.192643, ",", 0.51294, ",", 0.51294, ",", 0.142245, ",", 0.142245, ",", 0.479303, ",", 0.479303, ",", 0.171138, ",", 0.171138, ",", 0.520276, ",", 0.520276, ",", 0.166827, ",", 0.166827, ",", 0.170144, ",", 0.170144, ",", 0.463597, ",", 0.463597, ",", 0.048738, ",", 0.048738, ",", 0.462486, ",", 0.462486, ",", 0.548483, ",", 0.548483, ",", 0.498055, ",", 0.498055, ",", 0.525227, ",", 0.525227, ",", 0.215773, ",", 0.215773, ",", 0.607308, ",", 0.607308, ",", 0.551112, ",", 0.551112, ",", 0.573647, ",", 0.573647, ",", 0.335735, ",", 0.335735, ",", 0.222617, ",", 0.222617, ",", 0.456863, ",", 0.456863, ",", 0.105406, ",", 0.105406, ",", 0.48619, ",", 0.48619, ",", 0.473781, ",", 0.473781, ",", 0.052996, ",", 0.052996, ",", 0.227657, ",", 0.227657, ",", 0.506832, ",", 0.506832, ",", 0.598072, ",", 0.598072, ",", 0.303206, ",", 0.303206, ",", 0.216186, ",", 0.216186, ",", 0.072972, ",", 0.072972, ",", 0.46354, ",", 0.46354, ",", 0.129326, ",", 0.129326, ",", 0.498383, ",", 0.498383, ",", 0.080027, ",", 0.080027, ",", 0.496149, ",", 0.496149, ",", 0.332703, ",", 0.332703, ",", 0.537373, ",", 0.537373, ",", 0.13423, ",", 0.13423, ",", 0.146951, ",", 0.146951, ",", 0.47513, ",", 0.47513, ",", 0.043462, ",", 0.043462, ",", 0.424461, ",", 0.424461, ",", 0.540038, ",", 0.540038, ",", 0.455005, ",", 0.455005, ",", 0.557502, ",", 0.557502, ",", 0.208868, ",", 0.208868, ",", 0.677641, ",", 0.677641, ",", 0.560359, ",", 0.560359, ",", 0.59074, ",", 0.59074, ",", 0.464495, ",", 0.464495, ",", 0.180621, ",", 0.180621, ",", 0.388158, ",", 0.388158, ",", 0.055181, ",", 0.055181, ",", 0.328431, ",", 0.328431, ",", 0.593698, ",", 0.593698, ",", 0.031734, ",", 0.031734, ",", 0.170609, ",", 0.170609, ",", 0.481234, ",", 0.481234, ",", 0.580937, ",", 0.580937, ",", 0.309778, ",", 0.309778, ",", 0.142135, ",", 0.142135, ",", 0.056766, ",", 0.056766, ",", 0.481289, ",", 0.481289, ",", 0.108287, ",", 0.108287, ",", 0.508264, ",", 0.508264, ",", 0.052952, ",", 0.052952, ",", 0.504519, ",", 0.504519, ",", 0.246311, ",", 0.246311, ",", 0.537373, ",", 0.537373, ",", 0.13423, ",", 0.13423, ",", 0.146951, ",", 0.146951, ",", 0.47513, ",", 0.47513, ",", 0.043462, ",", 0.043462, ",", 0.424461, ",", 0.424461, ",", 0.540038, ",", 0.540038, ",", 0.455005, ",", 0.455005, ",", 0.557502, ",", 0.557502, ",", 0.208868, ",", 0.208868, ",", 0.677641, ",", 0.677641, ",", 0.560359, ",", 0.560359, ",", 0.59074, ",", 0.59074, ",", 0.464495, ",", 0.464495, ",", 0.180621, ",", 0.180621, ",", 0.388158, ",", 0.388158, ",", 0.055181, ",", 0.055181, ",", 0.328431, ",", 0.328431, ",", 0.593698, ",", 0.593698, ",", 0.031734, ",", 0.031734, ",", 0.170609, ",", 0.170609, ",", 0.481234, ",", 0.481234, ",", 0.580937, ",", 0.580937, ",", 0.309778, ",", 0.309778, ",", 0.142135, ",", 0.142135, ",", 0.056766, ",", 0.056766, ",", 0.481289, ",", 0.481289, ",", 0.108287, ",", 0.108287, ",", 0.508264, ",", 0.508264, ",", 0.052952, ",", 0.052952, ",", 0.504519, ",", 0.504519, ",", 0.246311, ",", 0.246311, ",", 0.470397, ",", 0.470397, ",", 0.30834, ",", 0.30834, ",", 0.239592, ",", 0.239592, ",", 0.51528, ",", 0.51528, ",", 0.02352, ",", 0.02352, ",", 0.479558, ",", 0.479558, ",", 0.523857, ",", 0.523857, ",", 0.580531, ",", 0.580531, ",", 0.4958, ",", 0.4958, ",", 0.278269, ",", 0.278269, ",", 0.546201, ",", 0.546201, ",", 0.516392, ",", 0.516392, ",", 0.44221, ",", 0.44221, ",", 0.215036, ",", 0.215036, ",", 0.37396, ",", 0.37396, ",", 0.546294, ",", 0.546294, ",", 0.195575, ",", 0.195575, ",", 0.654986, ",", 0.654986, ",", 0.431543, ",", 0.431543, ",", 0.082906, ",", 0.082906, ",", 0.454405, ",", 0.454404, ",", 0.470543, ",", 0.470543, ",", 0.580974, ",", 0.580974, ",", 0.373465, ",", 0.373465, ",", 0.349647, ",", 0.349647, ",", 0.145312, ",", 0.145312, ",", 0.419009, ",", 0.419009, ",", 0.190819, ",", 0.190819, ",", 0.423504, ",", 0.423504, ",", 0.10366, ",", 0.10366, ",", 0.462101, ",", 0.462101, ",", 0.652763, ",", 0.652763, ",", 0.548813, ",", 0.548813, ",", 0.100468, ",", 0.100468, ",", 0.255525, ",", 0.255525, ",", 0.589381, ",", 0.589381, ",", 0.007556, ",", 0.007556, ",", 0.421489, ",", 0.421489, ",", 0.458038, ",", 0.458038, ",", 0.416407, ",", 0.416407, ",", 0.590199, ",", 0.590199, ",", 0.224754, ",", 0.224754, ",", 0.590085, ",", 0.590085, ",", 0.547702, ",", 0.547702, ",", 0.304616, ",", 0.304616, ",", 0.352955, ",", 0.352955, ",", 0.247316, ",", 0.247316, ",", 0.545982, ",", 0.545982, ",", 0.043905, ",", 0.043905, ",", 0.329562, ",", 0.329562, ",", 0.352298, ",", 0.352298, ",", 0.014003, ",", 0.014003, ",", 0.668157, ",", 0.668157, ",", 0.474354, ",", 0.474354, ",", 0.473914, ",", 0.473914, ",", 0.328724, ",", 0.328724, ",", 0.323931, ",", 0.323931, ",", 0.174043, ",", 0.174043, ",", 0.586787, ",", 0.586787, ",", 0.209108, ",", 0.209108, ",", 0.479858, ",", 0.479858, ",", 0.025593, ",", 0.025593, ",", 0.401155, ",", 0.401155, ",", 0.395658, ",", 0.395658, ",", 0.548789, ",", 0.548789, ",", 0.100623, ",", 0.100623, ",", 0.255752, ",", 0.255752, ",", 0.589295, ",", 0.589295, ",", 0.007555, ",", 0.007555, ",", 0.421335, ",", 0.421335, ",", 0.457965, ",", 0.457965, ",", 0.416474, ",", 0.416474, ",", 0.590196, ",", 0.590196, ",", 0.22459, ",", 0.22459, ",", 0.590044, ",", 0.590044, ",", 0.547823, ",", 0.547823, ",", 0.304502, ",", 0.304502, ",", 0.353108, ",", 0.353108, ",", 0.247374, ",", 0.247374, ",", 0.546011, ",", 0.546011, ",", 0.043996, ",", 0.043996, ",", 0.329537, ",", 0.329537, ",", 0.352476, ",", 0.352476, ",", 0.014007, ",", 0.014007, ",", 0.667947, ",", 0.667947, ",", 0.474341, ",", 0.474341, ",", 0.473994, ",", 0.473994, ",", 0.328722, ",", 0.328722, ",", 0.323811, ",", 0.323811, ",", 0.174023, ",", 0.174023, ",", 0.586668, ",", 0.586668, ",", 0.208926, ",", 0.208926, ",", 0.479813, ",", 0.479813, ",", 0.025578, ",", 0.025578, ",", 0.401178, ",", 0.401178, ",", 0.395818, ",", 0.395818, ",", 0.510316, ",", 0.510316, ",", 0.219826, ",", 0.219826, ",", 0.211894, ",", 0.211894, ",", 0.486755, ",", 0.486755, ",", 0.042973, ",", 0.042973, ",", 0.485471, ",", 0.485471, ",", 0.536538, ",", 0.536538, ",", 0.542259, ",", 0.542259, ",", 0.509993, ",", 0.509993, ",", 0.250521, ",", 0.250521, ",", 0.551443, ",", 0.551443, ",", 0.539639, ",", 0.539639, ",", 0.502547, ",", 0.502547, ",", 0.231703, ",", 0.231703, ",", 0.287971, ",", 0.287971, ",", 0.527015, ",", 0.527015, ",", 0.192663, ",", 0.192663, ",", 0.600665, ",", 0.600665, ",", 0.442943, ",", 0.442943, ",", 0.092935, ",", 0.092935, ",", 0.355048, ",", 0.355048, ",", 0.513683, ",", 0.513683, ",", 0.602807, ",", 0.602807, ",", 0.33682, ",", 0.33682, ",", 0.303436, ",", 0.303436, ",", 0.11297, ",", 0.11297, ",", 0.425048, ",", 0.425048, ",", 0.169461, ",", 0.169461, ",", 0.454046, ",", 0.454046, ",", 0.113189, ",", 0.113189, ",", 0.476878, ",", 0.476878, ",", 0.50911, ",", 0.50911, ",", 0.52139, ",", 0.52139, ",", 0.099433, ",", 0.099433, ",", 0.116613, ",", 0.116613, ",", 0.50526, ",", 0.50526, ",", 0.040177, ",", 0.040177, ",", 0.352644, ",", 0.352644, ",", 0.483105, ",", 0.483105, ",", 0.421784, ",", 0.421784, ",", 0.585046, ",", 0.585046, ",", 0.181024, ",", 0.181024, ",", 0.744617, ",", 0.744617, ",", 0.598562, ",", 0.598562, ",", 0.612308, ",", 0.612308, ",", 0.625681, ",", 0.625681, ",", 0.155827, ",", 0.155827, ",", 0.357535, ",", 0.357535, ",", 0.034544, ",", 0.034544, ",", 0.240585, ",", 0.240585, ",", 0.76273, ",", 0.76273, ",", 0.027556, ",", 0.027556, ",", 0.135875, ",", 0.135875, ",", 0.436386, ",", 0.436386, ",", 0.580093, ",", 0.580093, ",", 0.330888, ",", 0.330888, ",", 0.094461, ",", 0.094461, ",", 0.047991, ",", 0.047991, ",", 0.474548, ",", 0.474548, ",", 0.110313, ",", 0.110313, ",", 0.485095, ",", 0.485095, ",", 0.039566, ",", 0.039566, ",", 0.493496, ",", 0.493496, ",", 0.189164, ",", 0.189164, ",", 0.539297, ",", 0.539297, ",", 0.122246, ",", 0.122246, ",", 0.137879, ",", 0.137879, ",", 0.485368, ",", 0.485368, ",", 0.040541, ",", 0.040541, ",", 0.39659, ",", 0.39659, ",", 0.518737, ",", 0.518737, ",", 0.441408, ",", 0.441408, ",", 0.567894, ",", 0.567894, ",", 0.197083, ",", 0.197083, ",", 0.705589, ",", 0.705589, ",", 0.569075, ",", 0.569075, ",", 0.596509, ",", 0.596509, ",", 0.530403, ",", 0.530403, ",", 0.1678, ",", 0.1678, ",", 0.371219, ",", 0.371219, ",", 0.044571, ",", 0.044571, ",", 0.280427, ",", 0.280427, ",", 0.659479, ",", 0.659479, ",", 0.027924, ",", 0.027924, ",", 0.152225, ",", 0.152225, ",", 0.466149, ",", 0.466149, ",", 0.580109, ",", 0.580109, ",", 0.318679, ",", 0.318679, ",", 0.118608, ",", 0.118608, ",", 0.052808, ",", 0.052808, ",", 0.481879, ",", 0.481879, ",", 0.107847, ",", 0.107847, ",", 0.506818, ",", 0.506818, ",", 0.046704, ",", 0.046704, ",", 0.502287, ",", 0.502287, ",", 0.216072, ",", 0.216072, ",", 0.495095, ",", 0.495095, ",", 0.080341, ",", 0.080341, ",", 0.112531, ",", 0.112531, ",", 0.516391, ",", 0.516391, ",", 0.044887, ",", 0.044887, ",", 0.34618, ",", 0.34618, ",", 0.467784, ",", 0.467784, ",", 0.419527, ",", 0.419527, ",", 0.598269, ",", 0.598269, ",", 0.157957, ",", 0.157957, ",", 0.763035, ",", 0.763035, ",", 0.617173, ",", 0.617173, ",", 0.624167, ",", 0.624167, ",", 0.697946, ",", 0.697946, ",", 0.141949, ",", 0.141949, ",", 0.348033, ",", 0.348033, ",", 0.03418, ",", 0.03418, ",", 0.220129, ",", 0.220129, ",", 0.816904, ",", 0.816904, ",", 0.034251, ",", 0.034251, ",", 0.13756, ",", 0.13756, ",", 0.416275, ",", 0.416275, ",", 0.578787, ",", 0.578787, ",", 0.342171, ",", 0.342171, ",", 0.079394, ",", 0.079394, ",", 0.046757, ",", 0.046757, ",", 0.465091, ",", 0.465091, ",", 0.11744, ",", 0.11744, ",", 0.468923, ",", 0.468923, ",", 0.042173, ",", 0.042173, ",", 0.493302, ",", 0.493302, ",", 0.188562, ",", 0.188562, ",", 0.495239, ",", 0.495239, ",", 0.080458, ",", 0.080458, ",", 0.112546, ",", 0.112546, ",", 0.516342, ",", 0.516342, ",", 0.044848, ",", 0.044848, ",", 0.346173, ",", 0.346173, ",", 0.467846, ",", 0.467846, ",", 0.419544, ",", 0.419544, ",", 0.598182, ",", 0.598182, ",", 0.158128, ",", 0.158128, ",", 0.762922, ",", 0.762922, ",", 0.617068, ",", 0.617068, ",", 0.624048, ",", 0.624048, ",", 0.697521, ",", 0.697521, ",", 0.142046, ",", 0.142046, ",", 0.348102, ",", 0.348102, ",", 0.034161, ",", 0.034161, ",", 0.220182, ",", 0.220182, ",", 0.816656, ",", 0.816656, ",", 0.034169, ",", 0.034169, ",", 0.13752, ",", 0.13752, ",", 0.416346, ",", 0.416346, ",", 0.578801, ",", 0.578801, ",", 0.342101, ",", 0.342101, ",", 0.079474, ",", 0.079474, ",", 0.046754, ",", 0.046754, ",", 0.465157, ",", 0.465157, ",", 0.117433, ",", 0.117433, ",", 0.46902, ",", 0.46902, ",", 0.042125, ",", 0.042125, ",", 0.493321, ",", 0.493321, ",", 0.18856, ",", 0.18856, ",", 0.50068, ",", 0.50068, ",", 0.084804, ",", 0.084804, ",", 0.112944, ",", 0.112944, ",", 0.514251, ",", 0.514251, ",", 0.043528, ",", 0.043528, ",", 0.345992, ",", 0.345992, ",", 0.470834, ",", 0.470834, ",", 0.419699, ",", 0.419699, ",", 0.594774, ",", 0.594774, ",", 0.164818, ",", 0.164818, ",", 0.759048, ",", 0.759048, ",", 0.613339, ",", 0.613339, ",", 0.620036, ",", 0.620036, ",", 0.682714, ",", 0.682714, ",", 0.14547, ",", 0.14547, ",", 0.350656, ",", 0.350656, ",", 0.033572, ",", 0.033572, ",", 0.222022, ",", 0.222022, ",", 0.80702, ",", 0.80702, ",", 0.031445, ",", 0.031445, ",", 0.136466, ",", 0.136466, ",", 0.418758, ",", 0.418758, ",", 0.579066, ",", 0.579066, ",", 0.339463, ",", 0.339463, ",", 0.082239, ",", 0.082239, ",", 0.046727, ",", 0.046727, ",", 0.467507, ",", 0.467507, ",", 0.117303, ",", 0.117303, ",", 0.472548, ",", 0.472548, ",", 0.040554, ",", 0.040554, ",", 0.493195, ",", 0.493195, ",", 0.188658, ",", 0.188658, ",", 0.52139, ",", 0.52139, ",", 0.099433, ",", 0.099433, ",", 0.116613, ",", 0.116613, ",", 0.50526, ",", 0.50526, ",", 0.040177, ",", 0.040177, ",", 0.352644, ",", 0.352644, ",", 0.483105, ",", 0.483105, ",", 0.421784, ",", 0.421784, ",", 0.585046, ",", 0.585046, ",", 0.181024, ",", 0.181024, ",", 0.744617, ",", 0.744617, ",", 0.598562, ",", 0.598562, ",", 0.612308, ",", 0.612308, ",", 0.625681, ",", 0.625681, ",", 0.155827, ",", 0.155827, ",", 0.357535, ",", 0.357535, ",", 0.034544, ",", 0.034544, ",", 0.240585, ",", 0.240585, ",", 0.76273, ",", 0.76273, ",", 0.027556, ",", 0.027556, ",", 0.135875, ",", 0.135875, ",", 0.436386, ",", 0.436386, ",", 0.580093, ",", 0.580093, ",", 0.330888, ",", 0.330888, ",", 0.094461, ",", 0.094461, ",", 0.047991, ",", 0.047991, ",", 0.474548, ",", 0.474548, ",", 0.110313, ",", 0.110313, ",", 0.485095, ",", 0.485095, ",", 0.039566, ",", 0.039566, ",", 0.493496, ",", 0.493496, ",", 0.189164, ",", 0.189164, ",", 0.505566, ",", 0.505566, ",", 0.233249, ",", 0.233249, ",", 0.215915, ",", 0.215915, ",", 0.490308, ",", 0.490308, ",", 0.039584, ",", 0.039584, ",", 0.48541, ",", 0.48541, ",", 0.536932, ",", 0.536932, ",", 0.55034, ",", 0.55034, ",", 0.508837, ",", 0.508837, ",", 0.262761, ",", 0.262761, ",", 0.550248, ",", 0.550248, ",", 0.536093, ",", 0.536093, ",", 0.487891, ",", 0.487891, ",", 0.223268, ",", 0.223268, ",", 0.296117, ",", 0.296117, ",", 0.534489, ",", 0.534489, ",", 0.202945, ",", 0.202945, ",", 0.612669, ",", 0.612669, ",", 0.444559, ",", 0.444559, ",", 0.09271, ",", 0.09271, ",", 0.376993, ",", 0.376993, ",", 0.509993, ",", 0.509993, ",", 0.596487, ",", 0.596487, ",", 0.345055, ",", 0.345055, ",", 0.309372, ",", 0.309372, ",", 0.119683, ",", 0.119683, ",", 0.422712, ",", 0.422712, ",", 0.174544, ",", 0.174544, ",", 0.446658, ",", 0.446658, ",", 0.113819, ",", 0.113819, ",", 0.470284, ",", 0.470284, ",", 0.534552, ",", 0.534552, ",", 0.547999, ",", 0.547999, ",", 0.10568, ",", 0.10568, ",", 0.26342, ",", 0.26342, ",", 0.586267, ",", 0.586267, ",", 0.007508, ",", 0.007508, ",", 0.415711, ",", 0.415711, ",", 0.456117, ",", 0.456117, ",", 0.418936, ",", 0.418936, ",", 0.589738, ",", 0.589738, ",", 0.219018, ",", 0.219018, ",", 0.58832, ",", 0.58832, ",", 0.552205, ",", 0.552205, ",", 0.300284, ",", 0.300284, ",", 0.358493, ",", 0.358493, ",", 0.249153, ",", 0.249153, ",", 0.547758, ",", 0.547758, ",", 0.04734, ",", 0.04734, ",", 0.329091, ",", 0.329091, ",", 0.357864, ",", 0.357864, ",", 0.014196, ",", 0.014196, ",", 0.660242, ",", 0.660242, ",", 0.474136, ",", 0.474136, ",", 0.476807, ",", 0.476807, ",", 0.328673, ",", 0.328673, ",", 0.319427, ",", 0.319427, ",", 0.173186, ",", 0.173186, ",", 0.582359, ",", 0.582359, ",", 0.202993, ",", 0.202993, ",", 0.478258, ",", 0.478258, ",", 0.025009, ",", 0.025009, ",", 0.401995, ",", 0.401995, ",", 0.402057, ",", 0.402057, ",", 0.553738, ",", 0.553738, ",", 0.056492, ",", 0.056492, ",", 0.171317, ",", 0.171317, ",", 0.624338, ",", 0.624338, ",", 0.009993, ",", 0.009993, ",", 0.474421, ",", 0.474421, ",", 0.455304, ",", 0.455304, ",", 0.397323, ",", 0.397323, ",", 0.598339, ",", 0.598339, ",", 0.227663, ",", 0.227663, ",", 0.598196, ",", 0.598195, ",", 0.493878, ",", 0.493878, ",", 0.348734, ",", 0.348734, ",", 0.324117, ",", 0.324117, ",", 0.223687, ",", 0.223687, ",", 0.531787, ",", 0.531787, ",", 0.02161, ",", 0.02161, ",", 0.440175, ",", 0.440175, ",", 0.371423, ",", 0.371423, ",", 0.014787, ",", 0.014787, ",", 0.730268, ",", 0.730268, ",", 0.480904, ",", 0.480904, ",", 0.438992, ",", 0.438992, ",", 0.318574, ",", 0.318574, ",", 0.41466, ",", 0.41466, ",", 0.205863, ",", 0.205863, ",", 0.648743, ",", 0.648743, ",", 0.301655, ",", 0.301655, ",", 0.495101, ",", 0.495101, ",", 0.027248, ",", 0.027248, ",", 0.375176, ",", 0.375176, ",", 0.346458, ",", 0.346458, ",", 0.553738, ",", 0.553738, ",", 0.056492, ",", 0.056492, ",", 0.171317, ",", 0.171317, ",", 0.624338, ",", 0.624338, ",", 0.009993, ",", 0.009993, ",", 0.474421, ",", 0.474421, ",", 0.455304, ",", 0.455304, ",", 0.397323, ",", 0.397323, ",", 0.598339, ",", 0.598339, ",", 0.227663, ",", 0.227663, ",", 0.598196, ",", 0.598195, ",", 0.493878, ",", 0.493878, ",", 0.348734, ",", 0.348734, ",", 0.324117, ",", 0.324117, ",", 0.223687, ",", 0.223687, ",", 0.531787, ",", 0.531787, ",", 0.02161, ",", 0.02161, ",", 0.440175, ",", 0.440175, ",", 0.371423, ",", 0.371423, ",", 0.014787, ",", 0.014787, ",", 0.730268, ",", 0.730268, ",", 0.480904, ",", 0.480904, ",", 0.438992, ",", 0.438992, ",", 0.318574, ",", 0.318574, ",", 0.41466, ",", 0.41466, ",", 0.205863, ",", 0.205863, ",", 0.648743, ",", 0.648743, ",", 0.301655, ",", 0.301655, ",", 0.495101, ",", 0.495101, ",", 0.027248, ",", 0.027248, ",", 0.375176, ",", 0.375176, ",", 0.346458, ",", 0.346458, ",", 0.553738, ",", 0.553738, ",", 0.056492, ",", 0.056492, ",", 0.171317, ",", 0.171317, ",", 0.624338, ",", 0.624338, ",", 0.009993, ",", 0.009993, ",", 0.474421, ",", 0.474421, ",", 0.455304, ",", 0.455304, ",", 0.397323, ",", 0.397323, ",", 0.598339, ",", 0.598339, ",", 0.227663, ",", 0.227663, ",", 0.598196, ",", 0.598195, ",", 0.493878, ",", 0.493878, ",", 0.348734, ",", 0.348734, ",", 0.324117, ",", 0.324117, ",", 0.223687, ",", 0.223687, ",", 0.531787, ",", 0.531787, ",", 0.02161, ",", 0.02161, ",", 0.440175, ",", 0.440175, ",", 0.371423, ",", 0.371423, ",", 0.014787, ",", 0.014787, ",", 0.730268, ",", 0.730268, ",", 0.480904, ",", 0.480904, ",", 0.438992, ",", 0.438992, ",", 0.318574, ",", 0.318574, ",", 0.41466, ",", 0.41466, ",", 0.205863, ",", 0.205863, ",", 0.648743, ",", 0.648743, ",", 0.301655, ",", 0.301655, ",", 0.495101, ",", 0.495101, ",", 0.027248, ",", 0.027248, ",", 0.375176, ",", 0.375176, ",", 0.346458, ",", 0.346458, ",", 0.504475, ",", 0.504475, ",", 0.339895, ",", 0.339894, ",", 0.290191, ",", 0.290191, ",", 0.551457, ",", 0.551457, ",", 0.014042, ",", 0.014042, ",", 0.426871, ",", 0.426871, ",", 0.479667, ",", 0.479667, ",", 0.545545, ",", 0.545545, ",", 0.470514, ",", 0.470514, ",", 0.271934, ",", 0.271934, ",", 0.544969, ",", 0.544969, ",", 0.542634, ",", 0.542634, ",", 0.351269, ",", 0.351269, ",", 0.291715, ",", 0.291715, ",", 0.357525, ",", 0.357525, ",", 0.573169, ",", 0.573169, ",", 0.203792, ",", 0.203792, ",", 0.512454, ",", 0.512454, ",", 0.373183, ",", 0.373183, ",", 0.052619, ",", 0.052619, ",", 0.576849, ",", 0.576849, ",", 0.463626, ",", 0.463626, ",", 0.556794, ",", 0.556794, ",", 0.35797, ",", 0.35797, ",", 0.299339, ",", 0.299339, ",", 0.173339, ",", 0.173339, ",", 0.447023, ",", 0.447023, ",", 0.20523, ",", 0.20523, ",", 0.430777, ",", 0.430777, ",", 0.053067, ",", 0.053067, ",", 0.402611, ",", 0.402611, ",", 0.67894, ",", 0.67894, ",", 0.4696, ",", 0.4696, ",", 0.301953, ",", 0.301953, ",", 0.235161, ",", 0.235161, ",", 0.508215, ",", 0.508215, ",", 0.028023, ",", 0.028023, ",", 0.489263, ",", 0.489263, ",", 0.537876, ",", 0.537876, ",", 0.567953, ",", 0.567953, ",", 0.488018, ",", 0.488018, ",", 0.293939, ",", 0.293939, ",", 0.567572, ",", 0.567572, ",", 0.515549, ",", 0.515549, ",", 0.450853, ",", 0.450853, ",", 0.245378, ",", 0.245378, ",", 0.354681, ",", 0.354681, ",", 0.538312, ",", 0.538312, ",", 0.203484, ",", 0.203484, ",", 0.665533, ",", 0.665533, ",", 0.463641, ",", 0.463641, ",", 0.091711, ",", 0.091711, ",", 0.406053, ",", 0.406053, ",", 0.479213, ",", 0.479213, ",", 0.58153, ",", 0.58153, ",", 0.360642, ",", 0.360642, ",", 0.354438, ",", 0.354438, ",", 0.147628, ",", 0.147628, ",", 0.415335, ",", 0.415335, ",", 0.192629, ",", 0.192629, ",", 0.405995, ",", 0.405995, ",", 0.098126, ",", 0.098126, ",", 0.455724, ",", 0.455724, ",", 0.634293, ",", 0.634293, ",", 0.549948, ",", 0.549948, ",", 0.338605, ",", 0.338605, ",", 0.123361, ",", 0.123361, ",", 0.488556, ",", 0.488556, ",", 0.082331, ",", 0.082331, ",", 0.493236, ",", 0.493236, ",", 0.588463, ",", 0.588463, ",", 0.39086, ",", 0.39086, ",", 0.529426, ",", 0.529426, ",", 0.298861, ",", 0.298861, ",", 0.678028, ",", 0.678028, ",", 0.493979, ",", 0.493979, ",", 0.525107, ",", 0.525107, ",", 0.61392, ",", 0.61392, ",", 0.250373, ",", 0.250373, ",", 0.188612, ",", 0.188612, ",", 0.121381, ",", 0.121381, ",", 0.498994, ",", 0.498994, ",", 0.583285, ",", 0.583285, ",", 0.199465, ",", 0.199465, ",", 0.10339, ",", 0.10339, ",", 0.431186, ",", 0.431186, ",", 0.381621, ",", 0.381621, ",", 0.250646, ",", 0.250646, ",", 0.50322, ",", 0.50322, ",", 0.070668, ",", 0.070668, ",", 0.575449, ",", 0.575449, ",", 0.28442, ",", 0.28442, ",", 0.570472, ",", 0.570472, ",", 0.039247, ",", 0.039247, ",", 0.44215, ",", 0.44215, ",", 0.309432, ",", 0.309432, ",", 0.562349, ",", 0.562349, ",", 0.351011, ",", 0.351011, ",", 0.145869, ",", 0.145869, ",", 0.506734, ",", 0.506734, ",", 0.415654, ",", 0.415654, ",", 0.438639, ",", 0.438639, ",", 0.500195, ",", 0.500195, ",", 0.284837, ",", 0.284837, ",", 0.462254, ",", 0.462254, ",", 0.208263, ",", 0.208263, ",", 0.603012, ",", 0.603012, ",", 0.515828, ",", 0.515828, ",", 0.498247, ",", 0.498247, ",", 0.562992, ",", 0.562992, ",", 0.4303, ",", 0.4303, ",", 0.453995, ",", 0.453994, ",", 0.212894, ",", 0.212894, ",", 0.537597, ",", 0.537597, ",", 0.271687, ",", 0.271687, ",", 0.085416, ",", 0.085416, ",", 0.069181, ",", 0.069181, ",", 0.453266, ",", 0.453266, ",", 0.26324, ",", 0.26324, ",", 0.409774, ",", 0.409774, ",", 0.705201, ",", 0.705201, ",", 0.099453, ",", 0.099453, ",", 0.51449, ",", 0.51449, ",", 0.067828, ",", 0.067828, ",", 0.470018, ",", 0.470018, ",", 0.044385, ",", 0.044385, ",", 0.505933, ",", 0.505933, ",", 0.258101, ",", 0.258101, ",", 0.562349, ",", 0.562349, ",", 0.351011, ",", 0.351011, ",", 0.145869, ",", 0.145869, ",", 0.506734, ",", 0.506734, ",", 0.415654, ",", 0.415654, ",", 0.438639, ",", 0.438639, ",", 0.500195, ",", 0.500195, ",", 0.284837, ",", 0.284837, ",", 0.462254, ",", 0.462254, ",", 0.208263, ",", 0.208263, ",", 0.603012, ",", 0.603012, ",", 0.515828, ",", 0.515828, ",", 0.498247, ",", 0.498247, ",", 0.562992, ",", 0.562992, ",", 0.4303, ",", 0.4303, ",", 0.453995, ",", 0.453994, ",", 0.212894, ",", 0.212894, ",", 0.537597, ",", 0.537597, ",", 0.271687, ",", 0.271687, ",", 0.085416, ",", 0.085416, ",", 0.069181, ",", 0.069181, ",", 0.453266, ",", 0.453266, ",", 0.26324, ",", 0.26324, ",", 0.409774, ",", 0.409774, ",", 0.705201, ",", 0.705201, ",", 0.099453, ",", 0.099453, ",", 0.51449, ",", 0.51449, ",", 0.067828, ",", 0.067828, ",", 0.470018, ",", 0.470018, ",", 0.044385, ",", 0.044385, ",", 0.505933, ",", 0.505933, ",", 0.258101, ",", 0.258101, ",", 0.562349, ",", 0.562349, ",", 0.351011, ",", 0.351011, ",", 0.145869, ",", 0.145869, ",", 0.506734, ",", 0.506734, ",", 0.415654, ",", 0.415654, ",", 0.438639, ",", 0.438639, ",", 0.500195, ",", 0.500195, ",", 0.284837, ",", 0.284837, ",", 0.462254, ",", 0.462254, ",", 0.208263, ",", 0.208263, ",", 0.603012, ",", 0.603012, ",", 0.515828, ",", 0.515828, ",", 0.498247, ",", 0.498247, ",", 0.562992, ",", 0.562992, ",", 0.4303, ",", 0.4303, ",", 0.453995, ",", 0.453994, ",", 0.212894, ",", 0.212894, ",", 0.537597, ",", 0.537597, ",", 0.271687, ",", 0.271687, ",", 0.085416, ",", 0.085416, ",", 0.069181, ",", 0.069181, ",", 0.453266, ",", 0.453266, ",", 0.26324, ",", 0.26324, ",", 0.409774, ",", 0.409774, ",", 0.705201, ",", 0.705201, ",", 0.099453, ",", 0.099453, ",", 0.51449, ",", 0.51449, ",", 0.067828, ",", 0.067828, ",", 0.470018, ",", 0.470018, ",", 0.044385, ",", 0.044385, ",", 0.505933, ",", 0.505933, ",", 0.258101, ",", 0.258101, ",", 0.472396, ",", 0.472396, ",", 0.308231, ",", 0.308231, ",", 0.224534, ",", 0.224534, ",", 0.510127, ",", 0.510127, ",", 0.030202, ",", 0.030202, ",", 0.478949, ",", 0.478949, ",", 0.536962, ",", 0.536962, ",", 0.55045, ",", 0.55045, ",", 0.489326, ",", 0.489326, ",", 0.284325, ",", 0.284325, ",", 0.563099, ",", 0.563099, ",", 0.508656, ",", 0.508656, ",", 0.452015, ",", 0.452015, ",", 0.24918, ",", 0.24918, ",", 0.341468, ",", 0.341468, ",", 0.554308, ",", 0.554308, ",", 0.186598, ",", 0.186598, ",", 0.643304, ",", 0.643304, ",", 0.431701, ",", 0.431701, ",", 0.074613, ",", 0.074613, ",", 0.401089, ",", 0.401089, ",", 0.479496, ",", 0.479496, ",", 0.563174, ",", 0.563174, ",", 0.365375, ",", 0.365375, ",", 0.353092, ",", 0.353092, ",", 0.148079, ",", 0.148079, ",", 0.413036, ",", 0.413036, ",", 0.172748, ",", 0.172748, ",", 0.403118, ",", 0.403118, ",", 0.098983, ",", 0.098983, ",", 0.455054, ",", 0.455054, ",", 0.618223, ",", 0.618223, ",", 0.456216, ",", 0.456216, ",", 0.299823, ",", 0.299823, ",", 0.240243, ",", 0.240243, ",", 0.509799, ",", 0.509799, ",", 0.027117, ",", 0.027117, ",", 0.484857, ",", 0.484857, ",", 0.537632, ",", 0.537632, ",", 0.577774, ",", 0.577774, ",", 0.496976, ",", 0.496976, ",", 0.260055, ",", 0.260055, ",", 0.557895, ",", 0.557895, ",", 0.531623, ",", 0.531623, ",", 0.44816, ",", 0.44816, ",", 0.248824, ",", 0.248824, ",", 0.388909, ",", 0.388909, ",", 0.529069, ",", 0.529069, ",", 0.198575, ",", 0.198575, ",", 0.660409, ",", 0.660409, ",", 0.430314, ",", 0.430314, ",", 0.090314, ",", 0.090314, ",", 0.452853, ",", 0.452853, ",", 0.467007, ",", 0.467007, ",", 0.593885, ",", 0.593885, ",", 0.380691, ",", 0.380691, ",", 0.366934, ",", 0.366934, ",", 0.131529, ",", 0.131529, ",", 0.417708, ",", 0.417708, ",", 0.181232, ",", 0.181232, ",", 0.426122, ",", 0.426122, ",", 0.113249, ",", 0.113249, ",", 0.467371, ",", 0.467372, ",", 0.63623, ",", 0.63623, ",", 0.456186, ",", 0.456186, ",", 0.299782, ",", 0.299782, ",", 0.240278, ",", 0.240278, ",", 0.509796, ",", 0.509796, ",", 0.027118, ",", 0.027118, ",", 0.484814, ",", 0.484814, ",", 0.537667, ",", 0.537667, ",", 0.577742, ",", 0.577742, ",", 0.496959, ",", 0.496959, ",", 0.260071, ",", 0.260071, ",", 0.557901, ",", 0.557901, ",", 0.531631, ",", 0.531631, ",", 0.448166, ",", 0.448166, ",", 0.248781, ",", 0.248781, ",", 0.388919, ",", 0.388919, ",", 0.529056, ",", 0.529056, ",", 0.198584, ",", 0.198584, ",", 0.660493, ",", 0.660493, ",", 0.430444, ",", 0.430444, ",", 0.090338, ",", 0.090338, ",", 0.452804, ",", 0.452804, ",", 0.467046, ",", 0.467046, ",", 0.593862, ",", 0.593862, ",", 0.380685, ",", 0.380685, ",", 0.366991, ",", 0.366991, ",", 0.13153, ",", 0.13153, ",", 0.417723, ",", 0.417723, ",", 0.181233, ",", 0.181233, ",", 0.426103, ",", 0.426103, ",", 0.113256, ",", 0.113256, ",", 0.467388, ",", 0.467388, ",", 0.636186, ",", 0.636186, ",", 0.527089, ",", 0.527089, ",", 0.212347, ",", 0.212347, ",", 0.4664, ",", 0.4664, ",", 0.483739, ",", 0.483739, ",", 0.046968, ",", 0.046968, ",", 0.496568, ",", 0.496568, ",", 0.605654, ",", 0.605654, ",", 0.454909, ",", 0.454909, ",", 0.506355, ",", 0.506355, ",", 0.504058, ",", 0.504058, ",", 0.639254, ",", 0.639254, ",", 0.485221, ",", 0.485221, ",", 0.460361, ",", 0.460361, ",", 0.469423, ",", 0.469423, ",", 0.319489, ",", 0.319489, ",", 0.251801, ",", 0.251801, ",", 0.17018, ",", 0.17018, ",", 0.509039, ",", 0.509039, ",", 0.759537, ",", 0.759537, ",", 0.150717, ",", 0.150717, ",", 0.297786, ",", 0.297786, ",", 0.51238, ",", 0.51238, ",", 0.461071, ",", 0.461071, ",", 0.303128, ",", 0.303128, ",", 0.471419, ",", 0.471419, ",", 0.094921, ",", 0.094921, ",", 0.521791, ",", 0.521791, ",", 0.341178, ",", 0.341178, ",", 0.557238, ",", 0.557238, ",", 0.028655, ",", 0.028655, ",", 0.447308, ",", 0.447308, ",", 0.165733, ",", 0.165733, ",", 0.553545, ",", 0.553545, ",", 0.075191, ",", 0.075191, ",", 0.154142, ",", 0.154142, ",", 0.52669, ",", 0.52669, ",", 0.020228, ",", 0.020228, ",", 0.529031, ",", 0.529031, ",", 0.464464, ",", 0.464464, ",", 0.51555, ",", 0.51555, ",", 0.492733, ",", 0.492733, ",", 0.127576, ",", 0.127576, ",", 0.691368, ",", 0.691368, ",", 0.469044, ",", 0.469044, ",", 0.415854, ",", 0.415854, ",", 0.418886, ",", 0.418886, ",", 0.139061, ",", 0.139061, ",", 0.206917, ",", 0.206917, ",", 0.014047, ",", 0.014047, ",", 0.183028, ",", 0.183028, ",", 0.30798, ",", 0.30798, ",", 0.013994, ",", 0.013994, ",", 0.698067, ",", 0.698067, ",", 0.489561, ",", 0.489561, ",", 0.491599, ",", 0.491599, ",", 0.329681, ",", 0.329681, ",", 0.201316, ",", 0.201316, ",", 0.069579, ",", 0.069579, ",", 0.519274, ",", 0.519274, ",", 0.199953, ",", 0.199953, ",", 0.520409, ",", 0.520409, ",", 0.016826, ",", 0.016826, ",", 0.512518, ",", 0.512518, ",", 0.420807, ",", 0.420807, ",", 0.553611, ",", 0.553611, ",", 0.075096, ",", 0.075096, ",", 0.154067, ",", 0.154067, ",", 0.526701, ",", 0.526701, ",", 0.020218, ",", 0.020218, ",", 0.529009, ",", 0.529009, ",", 0.464479, ",", 0.464479, ",", 0.515485, ",", 0.515485, ",", 0.49281, ",", 0.49281, ",", 0.127479, ",", 0.127479, ",", 0.691398, ",", 0.691398, ",", 0.468979, ",", 0.468979, ",", 0.415803, ",", 0.415803, ",", 0.419165, ",", 0.419165, ",", 0.139004, ",", 0.139004, ",", 0.206815, ",", 0.206815, ",", 0.01403, ",", 0.01403, ",", 0.18286, ",", 0.18286, ",", 0.308218, ",", 0.308218, ",", 0.01398, ",", 0.01398, ",", 0.698178, ",", 0.698178, ",", 0.489611, ",", 0.489611, ",", 0.491538, ",", 0.491538, ",", 0.329639, ",", 0.329639, ",", 0.201242, ",", 0.201242, ",", 0.069539, ",", 0.069539, ",", 0.519306, ",", 0.519306, ",", 0.199949, ",", 0.199949, ",", 0.52039, ",", 0.52039, ",", 0.016812, ",", 0.016812, ",", 0.512451, ",", 0.512451, ",", 0.420573, ",", 0.420573, ",", 0.553572, ",", 0.553572, ",", 0.075125, ",", 0.075125, ",", 0.154042, ",", 0.154042, ",", 0.526723, ",", 0.526723, ",", 0.020208, ",", 0.020208, ",", 0.52899, ",", 0.52899, ",", 0.464488, ",", 0.464488, ",", 0.515615, ",", 0.515615, ",", 0.492739, ",", 0.492739, ",", 0.127654, ",", 0.127654, ",", 0.691364, ",", 0.691364, ",", 0.469045, ",", 0.469045, ",", 0.415887, ",", 0.415887, ",", 0.418745, ",", 0.418745, ",", 0.139039, ",", 0.139039, ",", 0.206926, ",", 0.206926, ",", 0.014047, ",", 0.014047, ",", 0.183033, ",", 0.183033, ",", 0.307865, ",", 0.307865, ",", 0.01401, ",", 0.01401, ",", 0.698271, ",", 0.698271, ",", 0.489593, ",", 0.489593, ",", 0.491618, ",", 0.491618, ",", 0.32966, ",", 0.32966, ",", 0.201324, ",", 0.201324, ",", 0.069566, ",", 0.069566, ",", 0.519298, ",", 0.519298, ",", 0.199881, ",", 0.199881, ",", 0.520383, ",", 0.520383, ",", 0.016818, ",", 0.016818, ",", 0.512466, ",", 0.512466, ",", 0.420834, ",", 0.420834, ",", 0.546686, ",", 0.546686, ",", 0.006983, ",", 0.006983, ",", 0.027755, ",", 0.027755, ",", 0.528442, ",", 0.528442, ",", 0.003845, ",", 0.003845, ",", 0.515792, ",", 0.515792, ",", 0.529322, ",", 0.529322, ",", 0.502903, ",", 0.502903, ",", 0.57195, ",", 0.57195, ",", 0.205288, ",", 0.205288, ",", 0.715154, ",", 0.715154, ",", 0.476536, ",", 0.476536, ",", 0.502251, ",", 0.502251, ",", 0.33915, ",", 0.33915, ",", 0.096661, ",", 0.096661, ",", 0.241257, ",", 0.241257, ",", 0.006962, ",", 0.006962, ",", 0.34939, ",", 0.34939, ",", 0.221256, ",", 0.221256, ",", 0.035576, ",", 0.035576, ",", 0.894502, ",", 0.894502, ",", 0.598686, ",", 0.598686, ",", 0.516959, ",", 0.516959, ",", 0.352422, ",", 0.352422, ",", 0.152116, ",", 0.152116, ",", 0.05809, ",", 0.05809, ",", 0.560828, ",", 0.560828, ",", 0.141253, ",", 0.141253, ",", 0.500475, ",", 0.500475, ",", 0.01135, ",", 0.01135, ",", 0.426309, ",", 0.426309, ",", 0.444564, ",", 0.444564, ",", 0.561301, ",", 0.561301, ",", 0.420464, ",", 0.420464, ",", 0.146216, ",", 0.146216, ",", 0.49215, ",", 0.49215, ",", 0.361095, ",", 0.361095, ",", 0.454516, ",", 0.454516, ",", 0.515333, ",", 0.515333, ",", 0.286601, ",", 0.286601, ",", 0.489579, ",", 0.489579, ",", 0.197514, ",", 0.197514, ",", 0.605178, ",", 0.605178, ",", 0.502025, ",", 0.502025, ",", 0.507334, ",", 0.507334, ",", 0.60609, ",", 0.60609, ",", 0.430815, ",", 0.430815, ",", 0.458142, ",", 0.458142, ",", 0.192629, ",", 0.192629, ",", 0.54064, ",", 0.54064, ",", 0.330576, ",", 0.330576, ",", 0.095772, ",", 0.095772, ",", 0.069767, ",", 0.069767, ",", 0.441839, ",", 0.441839, ",", 0.279411, ",", 0.279411, ",", 0.381091, ",", 0.381091, ",", 0.65487, ",", 0.65487, ",", 0.108442, ",", 0.108442, ",", 0.512887, ",", 0.512887, ",", 0.086481, ",", 0.086481, ",", 0.447334, ",", 0.447334, ",", 0.053353, ",", 0.053353, ",", 0.502347, ",", 0.502347, ",", 0.298487, ",", 0.298487, ",", 0.56123, ",", 0.56123, ",", 0.420341, ",", 0.420341, ",", 0.146169, ",", 0.146169, ",", 0.492165, ",", 0.492165, ",", 0.361325, ",", 0.361325, ",", 0.454514, ",", 0.454514, ",", 0.515281, ",", 0.515281, ",", 0.286657, ",", 0.286657, ",", 0.489528, ",", 0.489528, ",", 0.197465, ",", 0.197465, ",", 0.605125, ",", 0.605125, ",", 0.502023, ",", 0.502023, ",", 0.507275, ",", 0.507275, ",", 0.605862, ",", 0.605862, ",", 0.430848, ",", 0.430848, ",", 0.458071, ",", 0.458071, ",", 0.192761, ",", 0.192761, ",", 0.540624, ",", 0.540624, ",", 0.33059, ",", 0.33059, ",", 0.095839, ",", 0.095839, ",", 0.069755, ",", 0.069755, ",", 0.441795, ",", 0.441795, ",", 0.279318, ",", 0.279318, ",", 0.381109, ",", 0.381109, ",", 0.654828, ",", 0.654828, ",", 0.108495, ",", 0.108495, ",", 0.51292, ",", 0.51292, ",", 0.086486, ",", 0.086486, ",", 0.447314, ",", 0.447314, ",", 0.053358, ",", 0.053358, ",", 0.502392, ",", 0.502392, ",", 0.298457, ",", 0.298457, ",", 0.462042, ",", 0.462042, ",", 0.302702, ",", 0.302702, ",", 0.23054, ",", 0.23054, ",", 0.509218, ",", 0.509218, ",", 0.025588, ",", 0.025588, ",", 0.479771, ",", 0.479771, ",", 0.533063, ",", 0.533063, ",", 0.579263, ",", 0.579263, ",", 0.496859, ",", 0.496859, ",", 0.262993, ",", 0.262993, ",", 0.552192, ",", 0.552192, ",", 0.522059, ",", 0.522059, ",", 0.447514, ",", 0.447514, ",", 0.222681, ",", 0.222681, ",", 0.372008, ",", 0.372008, ",", 0.541208, ",", 0.541208, ",", 0.198496, ",", 0.198496, ",", 0.661014, ",", 0.661014, ",", 0.440642, ",", 0.440642, ",", 0.088916, ",", 0.088916, ",", 0.436344, ",", 0.436344, ",", 0.474026, ",", 0.474026, ",", 0.586887, ",", 0.586887, ",", 0.376637, ",", 0.376637, ",", 0.360296, ",", 0.360296, ",", 0.138192, ",", 0.138192, ",", 0.418817, ",", 0.418817, ",", 0.187089, ",", 0.187089, ",", 0.424132, ",", 0.424132, ",", 0.112966, ",", 0.112966, ",", 0.469348, ",", 0.469348, ",", 0.641781, ",", 0.641781, ",", 0.462052, ",", 0.462052, ",", 0.302729, ",", 0.302729, ",", 0.230532, ",", 0.230532, ",", 0.509225, ",", 0.509225, ",", 0.025587, ",", 0.025587, ",", 0.47977, ",", 0.47977, ",", 0.533058, ",", 0.533058, ",", 0.57926, ",", 0.57926, ",", 0.496873, ",", 0.496873, ",", 0.263011, ",", 0.263011, ",", 0.552177, ",", 0.552177, ",", 0.522053, ",", 0.522053, ",", 0.447502, ",", 0.447502, ",", 0.22267, ",", 0.22267, ",", 0.372037, ",", 0.372037, ",", 0.54123, ",", 0.54123, ",", 0.19849, ",", 0.19849, ",", 0.660992, ",", 0.660992, ",", 0.440581, ",", 0.440581, ",", 0.088901, ",", 0.088901, ",", 0.436353, ",", 0.436353, ",", 0.474022, ",", 0.474022, ",", 0.586879, ",", 0.586879, ",", 0.37663, ",", 0.37663, ",", 0.360288, ",", 0.360288, ",", 0.138199, ",", 0.138199, ",", 0.418821, ",", 0.418821, ",", 0.187079, ",", 0.187079, ",", 0.424131, ",", 0.424131, ",", 0.112966, ",", 0.112966, ",", 0.469344, ",", 0.469344, ",", 0.641778, ",", 0.641778, ",", 0.46083, ",", 0.460829, ",", 0.255099, ",", 0.255099, ",", 0.207035, ",", 0.207035, ",", 0.52498, ",", 0.52498, ",", 0.019089, ",", 0.019089, ",", 0.524418, ",", 0.524418, ",", 0.501944, ",", 0.501944, ",", 0.577282, ",", 0.577282, ",", 0.484672, ",", 0.484672, ",", 0.124944, ",", 0.124944, ",", 0.576073, ",", 0.576073, ",", 0.550598, ",", 0.550598, ",", 0.479492, ",", 0.479492, ",", 0.246057, ",", 0.246057, ",", 0.352296, ",", 0.352296, ",", 0.472438, ",", 0.472438, ",", 0.092185, ",", 0.092185, ",", 0.431106, ",", 0.431106, ",", 0.153929, ",", 0.153929, ",", 0.072837, ",", 0.072837, ",", 0.739964, ",", 0.739964, ",", 0.440561, ",", 0.440561, ",", 0.600495, ",", 0.600495, ",", 0.359085, ",", 0.359085, ",", 0.209316, ",", 0.209316, ",", 0.090739, ",", 0.090739, ",", 0.489493, ",", 0.489493, ",", 0.120517, ",", 0.120517, ",", 0.486512, ",", 0.486512, ",", 0.060768, ",", 0.060768, ",", 0.516424, ",", 0.516424, ",", 0.573127, ",", 0.573127, ",", 0.460868, ",", 0.460868, ",", 0.254877, ",", 0.254877, ",", 0.206843, ",", 0.206843, ",", 0.524985, ",", 0.524985, ",", 0.019078, ",", 0.019078, ",", 0.524324, ",", 0.524324, ",", 0.50189, ",", 0.50189, ",", 0.577238, ",", 0.577238, ",", 0.484755, ",", 0.484755, ",", 0.124865, ",", 0.124865, ",", 0.576133, ",", 0.576133, ",", 0.550585, ",", 0.550585, ",", 0.479645, ",", 0.479645, ",", 0.245796, ",", 0.245796, ",", 0.352182, ",", 0.352182, ",", 0.472417, ",", 0.472417, ",", 0.092035, ",", 0.092035, ",", 0.431051, ",", 0.431051, ",", 0.153803, ",", 0.153803, ",", 0.072784, ",", 0.072784, ",", 0.739995, ",", 0.739995, ",", 0.440525, ",", 0.440525, ",", 0.60047, ",", 0.60047, ",", 0.359059, ",", 0.359059, ",", 0.209262, ",", 0.209262, ",", 0.090619, ",", 0.090619, ",", 0.48954, ",", 0.48954, ",", 0.120404, ",", 0.120404, ",", 0.486519, ",", 0.486519, ",", 0.060747, ",", 0.060747, ",", 0.516465, ",", 0.516465, ",", 0.57272, ",", 0.57272, ",", 0.526269, ",", 0.526269, ",", 0.043951, ",", 0.043951, ",", 0.076738, ",", 0.076738, ",", 0.536942, ",", 0.536942, ",", 0.013303, ",", 0.013303, ",", 0.515772, ",", 0.515772, ",", 0.463911, ",", 0.463911, ",", 0.580652, ",", 0.580652, ",", 0.51199, ",", 0.51199, ",", 0.201064, ",", 0.201064, ",", 0.679718, ",", 0.679718, ",", 0.47437, ",", 0.47437, ",", 0.474271, ",", 0.474271, ",", 0.301382, ",", 0.301382, ",", 0.14357, ",", 0.14357, ",", 0.26713, ",", 0.26713, ",", 0.012215, ",", 0.012215, ",", 0.274616, ",", 0.274616, ",", 0.180502, ",", 0.180502, ",", 0.042142, ",", 0.042142, ",", 0.797362, ",", 0.797362, ",", 0.535276, ",", 0.535276, ",", 0.534582, ",", 0.534582, ",", 0.355885, ",", 0.355885, ",", 0.196305, ",", 0.196305, ",", 0.068065, ",", 0.068065, ",", 0.542269, ",", 0.542269, ",", 0.128359, ",", 0.128359, ",", 0.510466, ",", 0.510466, ",", 0.017586, ",", 0.017586, ",", 0.498333, ",", 0.498333, ",", 0.412844, ",", 0.412844, ",", 0.48937, ",", 0.48937, ",", 0.230326, ",", 0.230326, ",", 0.222468, ",", 0.222468, ",", 0.423957, ",", 0.423957, ",", 0.078466, ",", 0.078466, ",", 0.445758, ",", 0.445758, ",", 0.49798, ",", 0.49798, ",", 0.362446, ",", 0.362446, ",", 0.558474, ",", 0.558474, ",", 0.439043, ",", 0.439043, ",", 0.658647, ",", 0.658647, ",", 0.426448, ",", 0.426448, ",", 0.437345, ",", 0.437345, ",", 0.557316, ",", 0.557316, ",", 0.284968, ",", 0.284968, ",", 0.195745, ",", 0.195745, ",", 0.204991, ",", 0.204991, ",", 0.449646, ",", 0.449646, ",", 0.675167, ",", 0.675167, ",", 0.195439, ",", 0.195439, ",", 0.233912, ",", 0.233912, ",", 0.494539, ",", 0.494539, ",", 0.367208, ",", 0.367208, ",", 0.223447, ",", 0.223447, ",", 0.574657, ",", 0.574657, ",", 0.055856, ",", 0.055856, ",", 0.526024, ",", 0.526024, ",", 0.295274, ",", 0.295274, ",", 0.597304, ",", 0.597304, ",", 0.034015, ",", 0.034015, ",", 0.484894, ",", 0.484894, ",", 0.044053, ",", 0.044053, ",", 0.489287, ",", 0.489287, ",", 0.230177, ",", 0.230177, ",", 0.222382, ",", 0.222382, ",", 0.423917, ",", 0.423917, ",", 0.078416, ",", 0.078416, ",", 0.445742, ",", 0.445742, ",", 0.497939, ",", 0.497939, ",", 0.362451, ",", 0.362451, ",", 0.558519, ",", 0.558519, ",", 0.439047, ",", 0.439047, ",", 0.658597, ",", 0.658597, ",", 0.426457, ",", 0.426457, ",", 0.437295, ",", 0.437295, ",", 0.557408, ",", 0.557408, ",", 0.284971, ",", 0.284971, ",", 0.195761, ",", 0.195761, ",", 0.20502, ",", 0.20502, ",", 0.449596, ",", 0.449596, ",", 0.675199, ",", 0.675199, ",", 0.195434, ",", 0.195434, ",", 0.234098, ",", 0.234098, ",", 0.494517, ",", 0.494517, ",", 0.367219, ",", 0.367219, ",", 0.223433, ",", 0.223433, ",", 0.574687, ",", 0.574687, ",", 0.055852, ",", 0.055852, ",", 0.525993, ",", 0.525993, ",", 0.29525, ",", 0.29525, ",", 0.59727, ",", 0.59727, ",", 0.034009, ",", 0.034009, ",", 0.484938, ",", 0.484938, ",", 0.044007, ",", 0.044007, ",", 0.561902, ",", 0.561902, ",", 0.002771, ",", 0.002771, ",", 0.105562, ",", 0.105562, ",", 0.473819, ",", 0.473819, ",", 0.000643, ",", 0.000643, ",", 0.613173, ",", 0.613173, ",", 0.34622, ",", 0.34622, ",", 0.355647, ",", 0.355647, ",", 0.62105, ",", 0.62105, ",", 0.15119, ",", 0.15119, ",", 0.608295, ",", 0.608295, ",", 0.388393, ",", 0.388393, ",", 0.372709, ",", 0.372709, ",", 0.739248, ",", 0.739248, ",", 0.363842, ",", 0.363842, ",", 0.206342, ",", 0.206342, ",", 0.0082, ",", 0.0082, ",", 0.148286, ",", 0.148286, ",", 0.15399, ",", 0.15399, ",", 0.025957, ",", 0.025957, ",", 0.846225, ",", 0.846225, ",", 0.339582, ",", 0.339582, ",", 0.332857, ",", 0.332857, ",", 0.17582, ",", 0.17582, ",", 0.602621, ",", 0.602621, ",", 0.098535, ",", 0.098535, ",", 0.675167, ",", 0.675167, ",", 0.672252, ",", 0.672252, ",", 0.432217, ",", 0.432217, ",", 0.000649, ",", 0.000649, ",", 0.578786, ",", 0.578786, ",", 0.841009, ",", 0.841009, ",", 0.463724, ",", 0.463724, ",", 0.981041, ",", 0.981041, ",", 0.016709, ",", 0.016709, ",", 0.509297, ",", 0.509297, ",", 0.004492, ",", 0.004492, ",", 0.319801, ",", 0.319801, ",", 0.550062, ",", 0.550062, ",", 0.225801, ",", 0.225801, ",", 0.494311, ",", 0.494311, ",", 0.007707, ",", 0.007707, ",", 0.512893, ",", 0.512893, ",", 0.5244, ",", 0.5244, ",", 0.445686, ",", 0.445686, ",", 0.928255, ",", 0.928255, ",", 0.067035, ",", 0.067035, ",", 0.408601, ",", 0.408601, ",", 0.017499, ",", 0.017499, ",", 0.015801, ",", 0.015801, ",", 0.946026, ",", 0.946026, ",", 0.013161, ",", 0.013161, ",", 0.908147, ",", 0.908147, ",", 0.446593, ",", 0.446593, ",", 0.760911, ",", 0.760911, ",", 0.45911, ",", 0.45911, ",", 0.937311, ",", 0.937311, ",", 0.133433, ",", 0.133433, ",", 0.794674, ",", 0.794674, ",", 0.243163, ",", 0.243163, ",", 0.531685, ",", 0.531685, ",", 0.019662, ",", 0.019662, ",", 0.513194, ",", 0.513194, ",", 0.947563, ",", 0.947563, ",", 0.463728, ",", 0.463728, ",", 0.981037, ",", 0.981037, ",", 0.016711, ",", 0.016711, ",", 0.509283, ",", 0.509283, ",", 0.004492, ",", 0.004492, ",", 0.319802, ",", 0.319802, ",", 0.550081, ",", 0.550081, ",", 0.225787, ",", 0.225787, ",", 0.494328, ",", 0.494328, ",", 0.007706, ",", 0.007706, ",", 0.512882, ",", 0.512882, ",", 0.524424, ",", 0.524424, ",", 0.445649, ",", 0.445649, ",", 0.928264, ",", 0.928264, ",", 0.067043, ",", 0.067043, ",", 0.40861, ",", 0.40861, ",", 0.017495, ",", 0.017495, ",", 0.015796, ",", 0.015796, ",", 0.94602, ",", 0.94602, ",", 0.013163, ",", 0.013163, ",", 0.908156, ",", 0.908156, ",", 0.446597, ",", 0.446597, ",", 0.760923, ",", 0.760923, ",", 0.459105, ",", 0.459105, ",", 0.9373, ",", 0.9373, ",", 0.133397, ",", 0.133397, ",", 0.794669, ",", 0.794669, ",", 0.24319, ",", 0.24319, ",", 0.531694, ",", 0.531694, ",", 0.019658, ",", 0.019658, ",", 0.513213, ",", 0.513213, ",", 0.947576, ",", 0.947576, ",", 0.762651, ",", 0.762651, ",", 0.021572, ",", 0.021572, ",", 0.004117, ",", 0.004117, ",", 0.481193, ",", 0.481193, ",", 0.018387, ",", 0.018387, ",", 0.636875, ",", 0.636875, ",", 0.451743, ",", 0.451743, ",", 0.502198, ",", 0.502198, ",", 0.545624, ",", 0.545624, ",", 0.005087, ",", 0.005087, ",", 0.815283, ",", 0.815283, ",", 0.475957, ",", 0.475957, ",", 0.425755, ",", 0.425755, ",", 0.003582, ",", 0.003582, ",", 0.025455, ",", 0.025455, ",", 0.658814, ",", 0.658814, ",", 0.015924, ",", 0.015924, ",", 0.771739, ",", 0.771739, ",", 0.003857, ",", 0.003857, ",", 0.00625, ",", 0.00625, ",", 0.96839, ",", 0.96839, ",", 0.521828, ",", 0.521828, ",", 0.67825, ",", 0.67825, ",", 0.493604, ",", 0.493604, ",", 0.193288, ",", 0.193288, ",", 0.059228, ",", 0.059228, ",", 0.217648, ",", 0.217648, ",", 0.013854, ",", 0.013854, ",", 0.523857, ",", 0.523857, ",", 0.016194, ",", 0.016194, ",", 0.64313, ",", 0.64313, ",", 0.661117, ",", 0.661117, ",", 0.56187, ",", 0.56187, ",", 0.002776, ",", 0.002776, ",", 0.105609, ",", 0.105609, ",", 0.47373, ",", 0.47373, ",", 0.000643, ",", 0.000643, ",", 0.613293, ",", 0.613293, ",", 0.346207, ",", 0.346207, ",", 0.355621, ",", 0.355621, ",", 0.621057, ",", 0.621057, ",", 0.151398, ",", 0.151398, ",", 0.608239, ",", 0.608239, ",", 0.388396, ",", 0.388396, ",", 0.372662, ",", 0.372662, ",", 0.739476, ",", 0.739476, ",", 0.363884, ",", 0.363884, ",", 0.206368, ",", 0.206368, ",", 0.008192, ",", 0.008192, ",", 0.148142, ",", 0.148142, ",", 0.153924, ",", 0.153924, ",", 0.025967, ",", 0.025967, ",", 0.846099, ",", 0.846099, ",", 0.33952, ",", 0.33952, ",", 0.332775, ",", 0.332775, ",", 0.175751, ",", 0.175751, ",", 0.602553, ",", 0.602553, ",", 0.098506, ",", 0.098506, ",", 0.675208, ",", 0.675208, ",", 0.672089, ",", 0.672089, ",", 0.432301, ",", 0.432301, ",", 0.000648, ",", 0.000648, ",", 0.578813, ",", 0.578813, ",", 0.841075, ",", 0.841075, ",", 0.529453, ",", 0.529453, ",", 0.345722, ",", 0.345722, ",", 0.263855, ",", 0.263855, ",", 0.500471, ",", 0.500471, ",", 0.055168, ",", 0.055168, ",", 0.502898, ",", 0.502898, ",", 0.620315, ",", 0.620315, ",", 0.439343, ",", 0.439343, ",", 0.506256, ",", 0.506256, ",", 0.39136, ",", 0.39136, ",", 0.651073, ",", 0.651073, ",", 0.515466, ",", 0.515466, ",", 0.515648, ",", 0.515648, ",", 0.645521, ",", 0.645521, ",", 0.350657, ",", 0.350657, ",", 0.245892, ",", 0.245892, ",", 0.138719, ",", 0.138719, ",", 0.5278, ",", 0.5278, ",", 0.680937, ",", 0.680937, ",", 0.216339, ",", 0.216339, ",", 0.172241, ",", 0.172241, ",", 0.483349, ",", 0.483349, ",", 0.450665, ",", 0.450665, ",", 0.282974, ",", 0.282974, ",", 0.489991, ",", 0.489991, ",", 0.08873, ",", 0.08873, ",", 0.557302, ",", 0.557302, ",", 0.312929, ",", 0.312929, ",", 0.544605, ",", 0.544605, ",", 0.039361, ",", 0.039361, ",", 0.434866, ",", 0.434866, ",", 0.380897, ",", 0.380897, ",", 0.452663, ",", 0.452663, ",", 0.318982, ",", 0.318982, ",", 0.266832, ",", 0.266832, ",", 0.52534, ",", 0.52534, ",", 0.026302, ",", 0.026302, ",", 0.522176, ",", 0.522176, ",", 0.496887, ",", 0.496887, ",", 0.567452, ",", 0.567452, ",", 0.475155, ",", 0.475155, ",", 0.153349, ",", 0.153349, ",", 0.574447, ",", 0.574447, ",", 0.558894, ",", 0.558894, ",", 0.452352, ",", 0.452352, ",", 0.335173, ",", 0.335173, ",", 0.343149, ",", 0.343149, ",", 0.471032, ",", 0.471032, ",", 0.141328, ",", 0.141328, ",", 0.413256, ",", 0.413256, ",", 0.204905, ",", 0.204905, ",", 0.079674, ",", 0.079674, ",", 0.686298, ",", 0.686298, ",", 0.434226, ",", 0.434226, ",", 0.595501, ",", 0.595501, ",", 0.374518, ",", 0.374518, ",", 0.244953, ",", 0.244953, ",", 0.121787, ",", 0.121787, ",", 0.45563, ",", 0.45563, ",", 0.170755, ",", 0.170755, ",", 0.483551, ",", 0.483551, ",", 0.070878, ",", 0.070878, ",", 0.50489, ",", 0.50489, ",", 0.675608, ",", 0.675608, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.1, ",", 0.1, ",", 0.75, ",", 0.75, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.8, ",", 0.8, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.076923, ",", 0.076923, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.85, ",", 0.85, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.73913, ",", 0.73913, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.333333, ",", 0.333333, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.175, ",", 0.175, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.75, ",", 0.75, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.652174, ",", 0.652174, ",", 0.0, ",", 0.0, ",", 0.85, ",", 0.85, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.142857, ",", 0.142857, ",", 0.4, ",", 0.4, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.2, ",", 0.2, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.285714, ",", 0.285714, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.038462, ",", 0.038462, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.4, ",", 0.4, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.066667, ",", 0.066667, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.333333, ",", 0.333333, ",", 0.0, ",", 0.0, ",", 0.01, ",", 0.01, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.75, ",", 0.75, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.1, ",", 0.1, ",", 0.75, ",", 0.75, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.8, ",", 0.8, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.076923, ",", 0.076923, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.85, ",", 0.85, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.73913, ",", 0.73913, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.333333, ",", 0.333333, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.175, ",", 0.175, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.75, ",", 0.75, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.652174, ",", 0.652174, ",", 0.0, ",", 0.0, ",", 0.85, ",", 0.85, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.142857, ",", 0.142857, ",", 0.4, ",", 0.4, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.2, ",", 0.2, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.285714, ",", 0.285714, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.038462, ",", 0.038462, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.4, ",", 0.4, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.066667, ",", 0.066667, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.333333, ",", 0.333333, ",", 0.0, ",", 0.0, ",", 0.01, ",", 0.01, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.75, ",", 0.75, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.1, ",", 0.1, ",", 0.75, ",", 0.75, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.8, ",", 0.8, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.076923, ",", 0.076923, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.85, ",", 0.85, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.73913, ",", 0.73913, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.333333, ",", 0.333333, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.175, ",", 0.175, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.75, ",", 0.75, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.652174, ",", 0.652174, ",", 0.0, ",", 0.0, ",", 0.85, ",", 0.85, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.142857, ",", 0.142857, ",", 0.4, ",", 0.4, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.2, ",", 0.2, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.285714, ",", 0.285714, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.038462, ",", 0.038462, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.4, ",", 0.4, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.066667, ",", 0.066667, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.333333, ",", 0.333333, ",", 0.0, ",", 0.0, ",", 0.01, ",", 0.01, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.75, ",", 0.75, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.1, ",", 0.1, ",", 0.75, ",", 0.75, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.8, ",", 0.8, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.076923, ",", 0.076923, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.85, ",", 0.85, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.73913, ",", 0.73913, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.333333, ",", 0.333333, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.175, ",", 0.175, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.75, ",", 0.75, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.652174, ",", 0.652174, ",", 0.0, ",", 0.0, ",", 0.85, ",", 0.85, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.142857, ",", 0.142857, ",", 0.4, ",", 0.4, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.2, ",", 0.2, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.285714, ",", 0.285714, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.038462, ",", 0.038462, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.4, ",", 0.4, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.066667, ",", 0.066667, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.333333, ",", 0.333333, ",", 0.0, ",", 0.0, ",", 0.01, ",", 0.01, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.75, ",", 0.75, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.1, ",", 0.1, ",", 0.75, ",", 0.75, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.8, ",", 0.8, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.076923, ",", 0.076923, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.85, ",", 0.85, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.73913, ",", 0.73913, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.333333, ",", 0.333333, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.175, ",", 0.175, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.75, ",", 0.75, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.652174, ",", 0.652174, ",", 0.0, ",", 0.0, ",", 0.85, ",", 0.85, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.142857, ",", 0.142857, ",", 0.4, ",", 0.4, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.2, ",", 0.2, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.285714, ",", 0.285714, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.038462, ",", 0.038462, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.4, ",", 0.4, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.066667, ",", 0.066667, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.333333, ",", 0.333333, ",", 0.0, ",", 0.0, ",", 0.01, ",", 0.01, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.75, ",", 0.75, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.561861, ",", 0.561861, ",", 0.002774, ",", 0.002774, ",", 0.10556, ",", 0.10556, ",", 0.473776, ",", 0.473776, ",", 0.000643, ",", 0.000643, ",", 0.61321, ",", 0.61321, ",", 0.346302, ",", 0.346302, ",", 0.355613, ",", 0.355613, ",", 0.62102, ",", 0.62102, ",", 0.151378, ",", 0.151378, ",", 0.608215, ",", 0.608215, ",", 0.388381, ",", 0.388381, ",", 0.372676, ",", 0.372676, ",", 0.739109, ",", 0.739109, ",", 0.364124, ",", 0.364124, ",", 0.20634, ",", 0.20634, ",", 0.008194, ",", 0.008194, ",", 0.148229, ",", 0.148229, ",", 0.153917, ",", 0.153917, ",", 0.02596, ",", 0.02596, ",", 0.846213, ",", 0.846213, ",", 0.339621, ",", 0.339621, ",", 0.332873, ",", 0.332873, ",", 0.175757, ",", 0.175757, ",", 0.602513, ",", 0.602513, ",", 0.098504, ",", 0.098504, ",", 0.675228, ",", 0.675228, ",", 0.672137, ",", 0.672137, ",", 0.432219, ",", 0.432219, ",", 0.000648, ",", 0.000648, ",", 0.578768, ",", 0.578768, ",", 0.840907, ",", 0.840907, ",", 1.0, ",", 0.0, ",", 1.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.1, ",", 0.1, ",", 0.75, ",", 0.75, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.8, ",", 0.8, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.076923, ",", 0.076923, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.85, ",", 0.85, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.73913, ",", 0.73913, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.333333, ",", 0.333333, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.175, ",", 0.175, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.75, ",", 0.75, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.652174, ",", 0.652174, ",", 0.0, ",", 0.0, ",", 0.85, ",", 0.85, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.142857, ",", 0.142857, ",", 0.4, ",", 0.4, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.2, ",", 0.2, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.285714, ",", 0.285714, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.038462, ",", 0.038462, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.4, ",", 0.4, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.066667, ",", 0.066667, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.333333, ",", 0.333333, ",", 0.0, ",", 0.0, ",", 0.01, ",", 0.01, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.75, ",", 0.75, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.561893, ",", 0.561893, ",", 0.002779, ",", 0.002779, ",", 0.105613, ",", 0.105613, ",", 0.473737, ",", 0.473737, ",", 0.000644, ",", 0.000644, ",", 0.613197, ",", 0.613197, ",", 0.346199, ",", 0.346199, ",", 0.355605, ",", 0.355605, ",", 0.621052, ",", 0.621052, ",", 0.151407, ",", 0.151407, ",", 0.608332, ",", 0.608332, ",", 0.388447, ",", 0.388447, ",", 0.372715, ",", 0.372715, ",", 0.739416, ",", 0.739416, ",", 0.363835, ",", 0.363835, ",", 0.206288, ",", 0.206288, ",", 0.008198, ",", 0.008198, ",", 0.148098, ",", 0.148098, ",", 0.153998, ",", 0.153998, ",", 0.025982, ",", 0.025982, ",", 0.846044, ",", 0.846044, ",", 0.339565, ",", 0.339565, ",", 0.332804, ",", 0.332804, ",", 0.175774, ",", 0.175774, ",", 0.602604, ",", 0.602604, ",", 0.098544, ",", 0.098544, ",", 0.675198, ",", 0.675198, ",", 0.672238, ",", 0.672238, ",", 0.432217, ",", 0.432217, ",", 0.000649, ",", 0.000649, ",", 0.578788, ",", 0.578788, ",", 0.841029, ",", 0.841029, ",", 0.463725, ",", 0.463725, ",", 0.981033, ",", 0.981033, ",", 0.016707, ",", 0.016707, ",", 0.509269, ",", 0.509269, ",", 0.004492, ",", 0.004492, ",", 0.319803, ",", 0.319803, ",", 0.55007, ",", 0.55007, ",", 0.225804, ",", 0.225804, ",", 0.494325, ",", 0.494325, ",", 0.007708, ",", 0.007708, ",", 0.512879, ",", 0.512879, ",", 0.524423, ",", 0.524423, ",", 0.445684, ",", 0.445684, ",", 0.928251, ",", 0.928251, ",", 0.067029, ",", 0.067029, ",", 0.408613, ",", 0.408613, ",", 0.017497, ",", 0.017497, ",", 0.015795, ",", 0.015795, ",", 0.94602, ",", 0.94602, ",", 0.01316, ",", 0.01316, ",", 0.908142, ",", 0.908142, ",", 0.446592, ",", 0.446592, ",", 0.760914, ",", 0.760914, ",", 0.459123, ",", 0.459123, ",", 0.9373, ",", 0.9373, ",", 0.133424, ",", 0.133424, ",", 0.794685, ",", 0.794685, ",", 0.243165, ",", 0.243165, ",", 0.531686, ",", 0.531686, ",", 0.01966, ",", 0.01966, ",", 0.513203, ",", 0.513203, ",", 0.947554, ",", 0.947554, ",", 0.762624, ",", 0.762624, ",", 0.021575, ",", 0.021575, ",", 0.00412, ",", 0.00412, ",", 0.481192, ",", 0.481192, ",", 0.018383, ",", 0.018383, ",", 0.636892, ",", 0.636892, ",", 0.451704, ",", 0.451704, ",", 0.502193, ",", 0.502193, ",", 0.545673, ",", 0.545673, ",", 0.005086, ",", 0.005086, ",", 0.815264, ",", 0.815264, ",", 0.475923, ",", 0.475923, ",", 0.425747, ",", 0.425747, ",", 0.003582, ",", 0.003582, ",", 0.025464, ",", 0.025464, ",", 0.658795, ",", 0.658795, ",", 0.015919, ",", 0.015919, ",", 0.771718, ",", 0.771718, ",", 0.003857, ",", 0.003857, ",", 0.00625, ",", 0.00625, ",", 0.968385, ",", 0.968385, ",", 0.521806, ",", 0.521806, ",", 0.678253, ",", 0.678253, ",", 0.493613, ",", 0.493613, ",", 0.193294, ",", 0.193294, ",", 0.059223, ",", 0.059223, ",", 0.21765, ",", 0.21765, ",", 0.013854, ",", 0.013854, ",", 0.523845, ",", 0.523845, ",", 0.016192, ",", 0.016192, ",", 0.643133, ",", 0.643133, ",", 0.661129, ",", 0.661129, ",", 0.572325, ",", 0.572325, ",", 0.179925, ",", 0.179925, ",", 0.057232, ",", 0.057232, ",", 0.545668, ",", 0.545668, ",", 0.055842, ",", 0.055842, ",", 0.551541, ",", 0.551541, ",", 0.65205, ",", 0.65205, ",", 0.476671, ",", 0.476671, ",", 0.60061, ",", 0.60061, ",", 0.362869, ",", 0.362869, ",", 0.658221, ",", 0.658221, ",", 0.481857, ",", 0.481857, ",", 0.447479, ",", 0.447479, ",", 0.532342, ",", 0.532342, ",", 0.142487, ",", 0.142487, ",", 0.166597, ",", 0.166597, ",", 0.183308, ",", 0.183308, ",", 0.509659, ",", 0.509659, ",", 0.395698, ",", 0.395698, ",", 0.009448, ",", 0.009448, ",", 0.430429, ",", 0.430429, ",", 0.590357, ",", 0.590357, ",", 0.490776, ",", 0.490776, ",", 0.481895, ",", 0.481895, ",", 0.198316, ",", 0.198316, ",", 0.117684, ",", 0.117684, ",", 0.670514, ",", 0.670514, ",", 0.103603, ",", 0.103603, ",", 0.599667, ",", 0.599667, ",", 0.011113, ",", 0.011113, ",", 0.522513, ",", 0.522513, ",", 0.050542, ",", 0.050542, ",", 0.561847, ",", 0.561847, ",", 0.002774, ",", 0.002774, ",", 0.105531, ",", 0.105531, ",", 0.473764, ",", 0.473764, ",", 0.000643, ",", 0.000643, ",", 0.613108, ",", 0.613108, ",", 0.346271, ",", 0.346271, ",", 0.355535, ",", 0.355535, ",", 0.621118, ",", 0.621118, ",", 0.151422, ",", 0.151422, ",", 0.60832, ",", 0.60832, ",", 0.388385, ",", 0.388385, ",", 0.372686, ",", 0.372686, ",", 0.739349, ",", 0.739349, ",", 0.36376, ",", 0.36376, ",", 0.206261, ",", 0.206261, ",", 0.008202, ",", 0.008202, ",", 0.148251, ",", 0.148251, ",", 0.154087, ",", 0.154087, ",", 0.025976, ",", 0.025976, ",", 0.846191, ",", 0.846191, ",", 0.339561, ",", 0.339561, ",", 0.332853, ",", 0.332853, ",", 0.175749, ",", 0.175749, ",", 0.602523, ",", 0.602523, ",", 0.098517, ",", 0.098517, ",", 0.675195, ",", 0.675195, ",", 0.672095, ",", 0.672095, ",", 0.432196, ",", 0.432196, ",", 0.000648, ",", 0.000648, ",", 0.57874, ",", 0.57874, ",", 0.841008, ",", 0.841008, ",", 0.561851, ",", 0.561851, ",", 0.002776, ",", 0.002776, ",", 0.105649, ",", 0.105649, ",", 0.473776, ",", 0.473776, ",", 0.000644, ",", 0.000644, ",", 0.613348, ",", 0.613348, ",", 0.346275, ",", 0.346275, ",", 0.355618, ",", 0.355618, ",", 0.621068, ",", 0.621068, ",", 0.151479, ",", 0.151479, ",", 0.608401, ",", 0.608401, ",", 0.388372, ",", 0.388372, ",", 0.372775, ",", 0.372775, ",", 0.739397, ",", 0.739397, ",", 0.364155, ",", 0.364155, ",", 0.206267, ",", 0.206267, ",", 0.008202, ",", 0.008202, ",", 0.148258, ",", 0.148258, ",", 0.153921, ",", 0.153921, ",", 0.026008, ",", 0.026008, ",", 0.84607, ",", 0.84607, ",", 0.339591, ",", 0.339591, ",", 0.332854, ",", 0.332854, ",", 0.175803, ",", 0.175803, ",", 0.602391, ",", 0.602391, ",", 0.098516, ",", 0.098516, ",", 0.675125, ",", 0.675125, ",", 0.672181, ",", 0.672181, ",", 0.432197, ",", 0.432197, ",", 0.000649, ",", 0.000649, ",", 0.578771, ",", 0.578771, ",", 0.841008, ",", 0.841008, ",", 0.53148, ",", 0.53148, ",", 0.053438, ",", 0.053438, ",", 0.025974, ",", 0.025974, ",", 0.591278, ",", 0.591278, ",", 0.028916, ",", 0.028916, ",", 0.60725, ",", 0.60725, ",", 0.672452, ",", 0.672452, ",", 0.620808, ",", 0.620808, ",", 0.482195, ",", 0.482195, ",", 0.275272, ",", 0.275272, ",", 0.545065, ",", 0.545065, ",", 0.490309, ",", 0.490309, ",", 0.548586, ",", 0.548586, ",", 0.255722, ",", 0.255722, ",", 0.031747, ",", 0.031747, ",", 0.223965, ",", 0.223965, ",", 0.02677, ",", 0.02677, ",", 0.62716, ",", 0.62716, ",", 0.393282, ",", 0.393282, ",", 0.007447, ",", 0.007447, ",", 0.636215, ",", 0.636215, ",", 0.452361, ",", 0.452361, ",", 0.450868, ",", 0.450868, ",", 0.502374, ",", 0.502374, ",", 0.416425, ",", 0.416425, ",", 0.010137, ",", 0.010137, ",", 0.499294, ",", 0.499294, ",", 0.028965, ",", 0.028965, ",", 0.462762, ",", 0.462762, ",", 0.030594, ",", 0.030594, ",", 0.486975, ",", 0.486975, ",", 0.569332, ",", 0.569332, ",", 0.762652, ",", 0.762652, ",", 0.021576, ",", 0.021576, ",", 0.004117, ",", 0.004117, ",", 0.481212, ",", 0.481212, ",", 0.018384, ",", 0.018384, ",", 0.636905, ",", 0.636905, ",", 0.451715, ",", 0.451715, ",", 0.502229, ",", 0.502229, ",", 0.545618, ",", 0.545618, ",", 0.005089, ",", 0.005089, ",", 0.815276, ",", 0.815276, ",", 0.475973, ",", 0.475973, ",", 0.425767, ",", 0.425767, ",", 0.003583, ",", 0.003583, ",", 0.025451, ",", 0.025451, ",", 0.658806, ",", 0.658806, ",", 0.015922, ",", 0.015922, ",", 0.771715, ",", 0.771714, ",", 0.003857, ",", 0.003857, ",", 0.00625, ",", 0.00625, ",", 0.968406, ",", 0.968406, ",", 0.521836, ",", 0.521836, ",", 0.678259, ",", 0.678259, ",", 0.493596, ",", 0.493596, ",", 0.193329, ",", 0.193329, ",", 0.059242, ",", 0.059242, ",", 0.217628, ",", 0.217628, ",", 0.013856, ",", 0.013856, ",", 0.523864, ",", 0.523864, ",", 0.0162, ",", 0.0162, ",", 0.643146, ",", 0.643146, ",", 0.661165, ",", 0.661165, ",", 0.561925, ",", 0.561925, ",", 0.002774, ",", 0.002774, ",", 0.105585, ",", 0.105585, ",", 0.473773, ",", 0.473773, ",", 0.000643, ",", 0.000643, ",", 0.613324, ",", 0.613324, ",", 0.346229, ",", 0.346229, ",", 0.355621, ",", 0.355621, ",", 0.621056, ",", 0.621056, ",", 0.151354, ",", 0.151354, ",", 0.608231, ",", 0.608231, ",", 0.388383, ",", 0.388383, ",", 0.372691, ",", 0.372691, ",", 0.739327, ",", 0.739327, ",", 0.364032, ",", 0.364032, ",", 0.206371, ",", 0.206371, ",", 0.008197, ",", 0.008197, ",", 0.14825, ",", 0.14825, ",", 0.153891, ",", 0.153891, ",", 0.025998, ",", 0.025998, ",", 0.846126, ",", 0.846126, ",", 0.339593, ",", 0.339593, ",", 0.332808, ",", 0.332808, ",", 0.175746, ",", 0.175746, ",", 0.602633, ",", 0.602633, ",", 0.098455, ",", 0.098455, ",", 0.675162, ",", 0.675162, ",", 0.672039, ",", 0.672039, ",", 0.432291, ",", 0.432291, ",", 0.000648, ",", 0.000648, ",", 0.578785, ",", 0.578785, ",", 0.841023, ",", 0.841023, ",", 0.463722, ",", 0.463722, ",", 0.981034, ",", 0.981034, ",", 0.016709, ",", 0.016709, ",", 0.509287, ",", 0.509287, ",", 0.00449, ",", 0.00449, ",", 0.319794, ",", 0.319794, ",", 0.550062, ",", 0.550062, ",", 0.225811, ",", 0.225811, ",", 0.494331, ",", 0.494331, ",", 0.007708, ",", 0.007708, ",", 0.512891, ",", 0.512891, ",", 0.524424, ",", 0.524424, ",", 0.44568, ",", 0.44568, ",", 0.928262, ",", 0.928262, ",", 0.067018, ",", 0.067018, ",", 0.408591, ",", 0.408591, ",", 0.017494, ",", 0.017494, ",", 0.015797, ",", 0.015797, ",", 0.946027, ",", 0.946027, ",", 0.013156, ",", 0.013156, ",", 0.90816, ",", 0.90816, ",", 0.44658, ",", 0.44658, ",", 0.760918, ",", 0.760918, ",", 0.459115, ",", 0.459115, ",", 0.9373, ",", 0.9373, ",", 0.133435, ",", 0.133435, ",", 0.794694, ",", 0.794694, ",", 0.243161, ",", 0.243161, ",", 0.5317, ",", 0.5317, ",", 0.019659, ",", 0.019659, ",", 0.5132, ",", 0.5132, ",", 0.947556, ",", 0.947556, ",", 0.762659, ",", 0.762659, ",", 0.021567, ",", 0.021567, ",", 0.004118, ",", 0.004118, ",", 0.481212, ",", 0.481212, ",", 0.018395, ",", 0.018395, ",", 0.636853, ",", 0.636853, ",", 0.451752, ",", 0.451752, ",", 0.502166, ",", 0.502166, ",", 0.545661, ",", 0.545661, ",", 0.005087, ",", 0.005087, ",", 0.815277, ",", 0.815277, ",", 0.475954, ",", 0.475954, ",", 0.425746, ",", 0.425746, ",", 0.003581, ",", 0.003581, ",", 0.02545, ",", 0.02545, ",", 0.658898, ",", 0.658898, ",", 0.015918, ",", 0.015918, ",", 0.771686, ",", 0.771686, ",", 0.003855, ",", 0.003855, ",", 0.006248, ",", 0.006248, ",", 0.968398, ",", 0.968398, ",", 0.521833, ",", 0.521833, ",", 0.678249, ",", 0.678249, ",", 0.493587, ",", 0.493587, ",", 0.193247, ",", 0.193247, ",", 0.059218, ",", 0.059218, ",", 0.217653, ",", 0.217653, ",", 0.01385, ",", 0.01385, ",", 0.523857, ",", 0.523857, ",", 0.016188, ",", 0.016188, ",", 0.643132, ",", 0.643132, ",", 0.661099, ",", 0.661099, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.1, ",", 0.1, ",", 0.75, ",", 0.75, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.8, ",", 0.8, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.076923, ",", 0.076923, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.85, ",", 0.85, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.73913, ",", 0.73913, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.333333, ",", 0.333333, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.175, ",", 0.175, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.75, ",", 0.75, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.652174, ",", 0.652174, ",", 0.0, ",", 0.0, ",", 0.85, ",", 0.85, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.142857, ",", 0.142857, ",", 0.4, ",", 0.4, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.2, ",", 0.2, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.285714, ",", 0.285714, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.038462, ",", 0.038462, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.4, ",", 0.4, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.066667, ",", 0.066667, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.333333, ",", 0.333333, ",", 0.0, ",", 0.0, ",", 0.01, ",", 0.01, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.75, ",", 0.75, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.561904, ",", 0.561904, ",", 0.002771, ",", 0.002771, ",", 0.105535, ",", 0.105535, ",", 0.473763, ",", 0.473763, ",", 0.000643, ",", 0.000643, ",", 0.613276, ",", 0.613276, ",", 0.346226, ",", 0.346226, ",", 0.355646, ",", 0.355646, ",", 0.621037, ",", 0.621037, ",", 0.15131, ",", 0.15131, ",", 0.608295, ",", 0.608295, ",", 0.388407, ",", 0.388407, ",", 0.372691, ",", 0.372691, ",", 0.739545, ",", 0.739545, ",", 0.364016, ",", 0.364016, ",", 0.206374, ",", 0.206374, ",", 0.0082, ",", 0.0082, ",", 0.148301, ",", 0.148301, ",", 0.153822, ",", 0.153822, ",", 0.025998, ",", 0.025998, ",", 0.846117, ",", 0.846117, ",", 0.339557, ",", 0.339557, ",", 0.332824, ",", 0.332824, ",", 0.175754, ",", 0.175754, ",", 0.602605, ",", 0.602605, ",", 0.09853, ",", 0.09853, ",", 0.675139, ",", 0.675139, ",", 0.672115, ",", 0.672115, ",", 0.43231, ",", 0.43231, ",", 0.000649, ",", 0.000649, ",", 0.578781, ",", 0.578781, ",", 0.841041, ",", 0.841041, ",", 0.520895, ",", 0.520895, ",", 0.000317, ",", 0.000317, ",", 0.012778, ",", 0.012778, ",", 0.517764, ",", 0.517764, ",", 0.017618, ",", 0.017618, ",", 0.293474, ",", 0.293474, ",", 0.46047, ",", 0.46047, ",", 0.359774, ",", 0.359774, ",", 0.585283, ",", 0.585283, ",", 0.009527, ",", 0.009527, ",", 0.74041, ",", 0.74041, ",", 0.429873, ",", 0.429873, ",", 0.505604, ",", 0.505604, ",", 0.925515, ",", 0.925515, ",", 0.077576, ",", 0.077576, ",", 0.542549, ",", 0.542549, ",", 0.007293, ",", 0.007293, ",", 0.085645, ",", 0.085645, ",", 0.788242, ",", 0.788242, ",", 0.013988, ",", 0.013988, ",", 0.013822, ",", 0.013822, ",", 0.517901, ",", 0.517901, ",", 0.51026, ",", 0.51026, ",", 0.321263, ",", 0.321263, ",", 0.046586, ",", 0.046586, ",", 0.022903, ",", 0.022903, ",", 0.345569, ",", 0.345569, ",", 0.230929, ",", 0.230929, ",", 0.474344, ",", 0.474344, ",", 0.025141, ",", 0.025141, ",", 0.574035, ",", 0.574035, ",", 0.1942, ",", 0.1942, ",", 0.485563, ",", 0.485563, ",", 0.005197, ",", 0.005197, ",", 0.024345, ",", 0.024345, ",", 0.481837, ",", 0.481837, ",", 0.005874, ",", 0.005874, ",", 0.552418, ",", 0.552418, ",", 0.483165, ",", 0.483165, ",", 0.318504, ",", 0.318504, ",", 0.537701, ",", 0.537701, ",", 0.143605, ",", 0.143605, ",", 0.665634, ",", 0.665634, ",", 0.555231, ",", 0.555231, ",", 0.400576, ",", 0.400576, ",", 0.172183, ",", 0.172183, ",", 0.592519, ",", 0.592519, ",", 0.15186, ",", 0.15186, ",", 0.014112, ",", 0.014112, ",", 0.11321, ",", 0.11321, ",", 0.605358, ",", 0.605358, ",", 0.009914, ",", 0.009914, ",", 0.744826, ",", 0.744826, ",", 0.697099, ",", 0.697099, ",", 0.360394, ",", 0.360394, ",", 0.236626, ",", 0.236626, ",", 0.164343, ",", 0.164343, ",", 0.019636, ",", 0.019636, ",", 0.450112, ",", 0.450112, ",", 0.033264, ",", 0.033264, ",", 0.563328, ",", 0.563328, ",", 0.033943, ",", 0.033943, ",", 0.501988, ",", 0.501988, ",", 0.825138, ",", 0.825138, ",", 0.534455, ",", 0.534455, ",", 0.099774, ",", 0.099774, ",", 0.238024, ",", 0.238024, ",", 0.513601, ",", 0.513601, ",", 0.055742, ",", 0.055742, ",", 0.453496, ",", 0.453496, ",", 0.427675, ",", 0.427675, ",", 0.490765, ",", 0.490765, ",", 0.423592, ",", 0.423592, ",", 0.30656, ",", 0.30656, ",", 0.701639, ",", 0.701639, ",", 0.382226, ",", 0.382226, ",", 0.455996, ",", 0.455996, ",", 0.58008, ",", 0.58008, ",", 0.183333, ",", 0.183333, ",", 0.253809, ",", 0.253809, ",", 0.019264, ",", 0.019264, ",", 0.086717, ",", 0.086717, ",", 0.074505, ",", 0.074505, ",", 0.012607, ",", 0.012607, ",", 0.926997, ",", 0.926997, ",", 0.438599, ",", 0.438599, ",", 0.450409, ",", 0.450409, ",", 0.503621, ",", 0.503621, ",", 0.853774, ",", 0.853774, ",", 0.109204, ",", 0.109204, ",", 0.721919, ",", 0.721919, ",", 0.083225, ",", 0.083225, ",", 0.471108, ",", 0.471108, ",", 0.031356, ",", 0.031356, ",", 0.470583, ",", 0.470583, ",", 0.129458, ",", 0.129458, ",", 0.451837, ",", 0.451837, ",", 0.002218, ",", 0.002218, ",", 0.00203, ",", 0.00203, ",", 0.442292, ",", 0.442292, ",", 0.001705, ",", 0.001705, ",", 0.3414, ",", 0.3414, ",", 0.529358, ",", 0.529358, ",", 0.207612, ",", 0.207612, ",", 0.420312, ",", 0.420312, ",", 0.013344, ",", 0.013344, ",", 0.413248, ",", 0.413248, ",", 0.472823, ",", 0.472823, ",", 0.438033, ",", 0.438033, ",", 0.094488, ",", 0.094488, ",", 0.044211, ",", 0.044211, ",", 0.540664, ",", 0.540664, ",", 0.005674, ",", 0.005674, ",", 0.297897, ",", 0.297897, ",", 0.256361, ",", 0.256361, ",", 0.014895, ",", 0.014895, ",", 0.951479, ",", 0.951479, ",", 0.48269, ",", 0.48269, ",", 0.558386, ",", 0.558386, ",", 0.085539, ",", 0.085539, ",", 0.512908, ",", 0.512908, ",", 0.009314, ",", 0.009314, ",", 0.543295, ",", 0.543295, ",", 0.143015, ",", 0.143015, ",", 0.49259, ",", 0.49259, ",", 0.00992, ",", 0.00992, ",", 0.246424, ",", 0.246424, ",", 0.008936, ",", 0.008936, ",", 0.424794, ",", 0.424794, ",", 0.430344, ",", 0.430344, ",", 0.290224, ",", 0.290224, ",", 0.441543, ",", 0.441543, ",", 0.057214, ",", 0.057214, ",", 0.44919, ",", 0.44919, ",", 0.506042, ",", 0.506042, ",", 0.459281, ",", 0.459281, ",", 0.469122, ",", 0.469122, ",", 0.076059, ",", 0.076059, ",", 0.646758, ",", 0.646758, ",", 0.58112, ",", 0.58112, ",", 0.582024, ",", 0.582024, ",", 0.394321, ",", 0.394321, ",", 0.162824, ",", 0.162824, ",", 0.31121, ",", 0.31121, ",", 0.064879, ",", 0.064879, ",", 0.565483, ",", 0.565483, ",", 0.174768, ",", 0.174768, ",", 0.040358, ",", 0.040358, ",", 0.138327, ",", 0.138327, ",", 0.542852, ",", 0.542852, ",", 0.492714, ",", 0.492714, ",", 0.339783, ",", 0.339783, ",", 0.857998, ",", 0.857998, ",", 0.613112, ",", 0.613112, ",", 0.514392, ",", 0.514392, ",", 0.540253, ",", 0.540253, ",", 0.598611, ",", 0.598611, ",", 0.110879, ",", 0.110879, ",", 0.329514, ",", 0.329514, ",", 0.056977, ",", 0.056977, ",", 0.424756, ",", 0.424756, ",", 0.430347, ",", 0.430347, ",", 0.290195, ",", 0.290195, ",", 0.441524, ",", 0.441524, ",", 0.057218, ",", 0.057218, ",", 0.449145, ",", 0.449145, ",", 0.506003, ",", 0.506003, ",", 0.459256, ",", 0.459256, ",", 0.469169, ",", 0.469169, ",", 0.076023, ",", 0.076023, ",", 0.646717, ",", 0.646717, ",", 0.581084, ",", 0.581084, ",", 0.581982, ",", 0.581982, ",", 0.3941, ",", 0.3941, ",", 0.162811, ",", 0.162811, ",", 0.311247, ",", 0.311247, ",", 0.064879, ",", 0.064879, ",", 0.565409, ",", 0.565409, ",", 0.174688, ",", 0.174688, ",", 0.040358, ",", 0.040358, ",", 0.138348, ",", 0.138348, ",", 0.54283, ",", 0.54283, ",", 0.492678, ",", 0.492678, ",", 0.339757, ",", 0.339757, ",", 0.858041, ",", 0.858041, ",", 0.613128, ",", 0.613128, ",", 0.514384, ",", 0.514384, ",", 0.540288, ",", 0.540288, ",", 0.598583, ",", 0.598583, ",", 0.110881, ",", 0.110881, ",", 0.329532, ",", 0.329532, ",", 0.056947, ",", 0.056947, ",", 0.424787, ",", 0.424787, ",", 0.430385, ",", 0.430385, ",", 0.290172, ",", 0.290172, ",", 0.441533, ",", 0.441533, ",", 0.057215, ",", 0.057215, ",", 0.449146, ",", 0.449146, ",", 0.506037, ",", 0.506037, ",", 0.459272, ",", 0.459272, ",", 0.469166, ",", 0.469166, ",", 0.076024, ",", 0.076024, ",", 0.646738, ",", 0.646738, ",", 0.581094, ",", 0.581094, ",", 0.581983, ",", 0.581983, ",", 0.394122, ",", 0.394122, ",", 0.162842, ",", 0.162842, ",", 0.311228, ",", 0.311228, ",", 0.06488, ",", 0.06488, ",", 0.565487, ",", 0.565487, ",", 0.174678, ",", 0.174678, ",", 0.040365, ",", 0.040365, ",", 0.13833, ",", 0.13833, ",", 0.542837, ",", 0.542837, ",", 0.492688, ",", 0.492688, ",", 0.339767, ",", 0.339767, ",", 0.858025, ",", 0.858025, ",", 0.613132, ",", 0.613132, ",", 0.514379, ",", 0.514379, ",", 0.540278, ",", 0.540278, ",", 0.598584, ",", 0.598584, ",", 0.11087, ",", 0.11087, ",", 0.32952, ",", 0.32952, ",", 0.056958, ",", 0.056958, ",", 0.580142, ",", 0.580142, ",", 0.60923, ",", 0.60923, ",", 0.126679, ",", 0.126679, ",", 0.567051, ",", 0.567051, ",", 0.004852, ",", 0.004852, ",", 0.370545, ",", 0.370545, ",", 0.672723, ",", 0.672723, ",", 0.485086, ",", 0.485086, ",", 0.5623, ",", 0.5623, ",", 0.142554, ",", 0.142554, ",", 0.586503, ",", 0.586503, ",", 0.625485, ",", 0.625485, ",", 0.355644, ",", 0.355644, ",", 0.389987, ",", 0.389987, ",", 0.269483, ",", 0.269483, ",", 0.581384, ",", 0.581384, ",", 0.013877, ",", 0.013877, ",", 0.212927, ",", 0.212927, ",", 0.372722, ",", 0.372722, ",", 0.016336, ",", 0.016336, ",", 0.391318, ",", 0.391318, ",", 0.394813, ",", 0.394813, ",", 0.530465, ",", 0.530465, ",", 0.284072, ",", 0.284072, ",", 0.255787, ",", 0.255787, ",", 0.030177, ",", 0.030177, ",", 0.507177, ",", 0.507177, ",", 0.046802, ",", 0.046802, ",", 0.415329, ",", 0.415329, ",", 0.054402, ",", 0.054402, ",", 0.428755, ",", 0.428755, ",", 0.233425, ",", 0.233425, ",", 0.580122, ",", 0.580122, ",", 0.609056, ",", 0.609056, ",", 0.126662, ",", 0.126662, ",", 0.567049, ",", 0.567049, ",", 0.004856, ",", 0.004856, ",", 0.370579, ",", 0.370579, ",", 0.672599, ",", 0.672599, ",", 0.485145, ",", 0.485145, ",", 0.562353, ",", 0.562353, ",", 0.142526, ",", 0.142526, ",", 0.586475, ",", 0.586475, ",", 0.625529, ",", 0.625529, ",", 0.355623, ",", 0.355623, ",", 0.389705, ",", 0.389705, ",", 0.269453, ",", 0.269453, ",", 0.581471, ",", 0.581471, ",", 0.013885, ",", 0.013885, ",", 0.212894, ",", 0.212894, ",", 0.372846, ",", 0.372846, ",", 0.016346, ",", 0.016346, ",", 0.391167, ",", 0.391167, ",", 0.39478, ",", 0.39478, ",", 0.5305, ",", 0.5305, ",", 0.284116, ",", 0.284116, ",", 0.25585, ",", 0.25585, ",", 0.030168, ",", 0.030168, ",", 0.50708, ",", 0.50708, ",", 0.046784, ",", 0.046784, ",", 0.415403, ",", 0.415403, ",", 0.054377, ",", 0.054377, ",", 0.428875, ",", 0.428875, ",", 0.23332, ",", 0.23332, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.1, ",", 0.1, ",", 0.75, ",", 0.75, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.8, ",", 0.8, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.076923, ",", 0.076923, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.85, ",", 0.85, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.73913, ",", 0.73913, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.333333, ",", 0.333333, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.175, ",", 0.175, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.75, ",", 0.75, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.652174, ",", 0.652174, ",", 0.0, ",", 0.0, ",", 0.85, ",", 0.85, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.142857, ",", 0.142857, ",", 0.4, ",", 0.4, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.2, ",", 0.2, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.285714, ",", 0.285714, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.038462, ",", 0.038462, ",", 0.2, ",", 0.2, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.4, ",", 0.4, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.2, ",", 0.2, ",", 0.066667, ",", 0.066667, ",", 0.5, ",", 0.5, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.333333, ",", 0.333333, ",", 0.0, ",", 0.0, ",", 0.01, ",", 0.01, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 0.75, ",", 0.75, ",", 1.0, ",", 1.0, ",", 0.0, ",", 0.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 1.0, ",", 1.0, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.5, ",", 0.485529, ",", 0.485529, ",", 0.005197, ",", 0.005197, ",", 0.024341, ",", 0.024341, ",", 0.481841, ",", 0.481841, ",", 0.005873, ",", 0.005873, ",", 0.552472, ",", 0.552472, ",", 0.483146, ",", 0.483146, ",", 0.318477, ",", 0.318477, ",", 0.537663, ",", 0.537663, ",", 0.143559, ",", 0.143559, ",", 0.665629, ",", 0.665629, ",", 0.555237, ",", 0.555237, ",", 0.400625, ",", 0.400625, ",", 0.172177, ",", 0.172177, ",", 0.592427, ",", 0.592427, ",", 0.151884, ",", 0.151884, ",", 0.014115, ",", 0.014115, ",", 0.113197, ",", 0.113197, ",", 0.605451, ",", 0.605451, ",", 0.00992, ",", 0.00992, ",", 0.744866, ",", 0.744866, ",", 0.697134, ",", 0.697134, ",", 0.360382, ",", 0.360382, ",", 0.236574, ",", 0.236574, ",", 0.164294, ",", 0.164294, ",", 0.019634, ",", 0.019634, ",", 0.450111, ",", 0.450111, ",", 0.033266, ",", 0.033266, ",", 0.563338, ",", 0.563338, ",", 0.033956, ",", 0.033956, ",", 0.502008, ",", 0.502008, ",", 0.825129, ",", 0.825129 ],
-					"maxclass" : "umenu",
-					"numinlets" : 1,
-					"numoutlets" : 3,
-					"outlettype" : [ "int", "", "" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 812.0, 475.076904, 100.0, 22.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-32",
-					"items" : [ "OSC: Shape1", ",", "OSC: FM", ",", "OSC: NoiseVol", ",", "OSC: Tune3", ",", "LFO1: Phase", ",", "ENV2: Decay", ",", "OSC: Tune2", ",", "ENV2: Release", ",", "LFO1: Rate", ",", "OSC: Vibrato", ",", "VCF1: FreqModDepth", ",", "VCF1: FilterFM", ",", "ENV1: Decay", ",", "OSC: Volume2", ",", "VCF1: Feedback", ",", "VCF1: Frequency", ",", "LFO1: Delay", ",", "VCF1: KeyFollow", ",", "OSC: Volume3", ",", "LFO2: Delay", ",", "ENV1: Sustain", ",", "OSC: Shape2", ",", "OSC: Tune1", ",", "ENV1: Release", ",", "VCF1: Resonance", ",", "ENV1: Attack", ",", "VCF1: FreqMod2Depth", ",", "ENV2: Attack", ",", "OSC: Shape3", ",", "LFO2: Phase", ",", "LFO2: Rate", ",", "ENV2: Sustain" ],
-					"maxclass" : "umenu",
-					"numinlets" : 1,
-					"numoutlets" : 3,
-					"outlettype" : [ "int", "", "" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 766.0, 334.576904, 100.0, 22.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-11",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 684.0, 162.0, 82.0, 22.0 ],
-					"style" : "",
-					"text" : "r from_server"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-16",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 766.0, 257.0, 98.0, 22.0 ],
-					"style" : "",
-					"text" : "prepend append"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-17",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 684.0, 257.0, 75.0, 22.0 ],
-					"style" : "",
-					"text" : "prepend get"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-18",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 684.0, 224.0, 49.0, 22.0 ],
-					"style" : "",
-					"text" : "zl iter 1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-19",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 684.0, 195.0, 124.0, 22.0 ],
-					"style" : "",
-					"text" : "route /model_params"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-59",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 450.0, 807.0, 34.0, 22.0 ],
-					"style" : "",
-					"text" : "start"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-56",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 450.0, 774.0, 60.0, 22.0 ],
-					"style" : "",
-					"text" : "loadbang"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-27",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 166.166626, 654.5, 110.0, 22.0 ],
-					"style" : "",
-					"text" : "send~ main_out_2"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-30",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 26.499939, 654.5, 110.0, 22.0 ],
-					"style" : "",
-					"text" : "send~ main_out_1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-25",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 56.333294, 210.0, 110.0, 22.0 ],
-					"style" : "",
-					"text" : "send~ main_out_2"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-24",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 29.333292, 236.0, 110.0, 22.0 ],
-					"style" : "",
-					"text" : "send~ main_out_1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-22",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 573.333313, 807.0, 122.0, 22.0 ],
-					"style" : "",
-					"text" : "receive~ main_out_2"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-20",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 546.666626, 774.0, 122.0, 22.0 ],
-					"style" : "",
-					"text" : "receive~ main_out_1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-26",
-					"local" : 1,
-					"maxclass" : "ezdac~",
-					"numinlets" : 2,
-					"numoutlets" : 0,
-					"patching_rect" : [ 546.666626, 848.166687, 45.666668, 45.666668 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 546.666626, 848.166687, 45.666668, 45.666668 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-6",
-					"maxclass" : "toggle",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "int" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 207.0, 447.0, 24.0, 24.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-5",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 207.0, 419.076904, 60.0, 22.0 ],
-					"style" : "",
-					"text" : "loadbang"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontsize" : 14.0,
-					"id" : "obj-14",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 504.0, 395.076904, 154.333374, 22.0 ],
-					"style" : "",
-					"text" : "XY Panel"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-198",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 504.0, 688.5, 70.0, 22.0 ],
-					"style" : "",
-					"text" : "s to_server"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-197",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 504.0, 653.5, 101.0, 22.0 ],
-					"style" : "",
-					"text" : "prepend /decode"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-12",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 492.0, 162.0, 82.0, 22.0 ],
-					"style" : "",
-					"text" : "r from_server"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-10",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 389.0, 162.0, 84.0, 22.0 ],
-					"style" : "",
-					"text" : "s from_server"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"bgmode" : 0,
-					"border" : 0,
-					"clickthrough" : 0,
-					"enablehscroll" : 0,
-					"enablevscroll" : 0,
-					"id" : "obj-9",
-					"lockeddragscroll" : 0,
-					"maxclass" : "bpatcher",
-					"name" : "acids.osc.maxpat",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"offset" : [ 0.0, 0.0 ],
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 389.0, 113.0, 68.0, 34.0 ],
-					"viewvisibility" : 1
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"bgmode" : 0,
-					"border" : 0,
-					"clickthrough" : 0,
-					"enablehscroll" : 0,
-					"enablevscroll" : 0,
-					"id" : "obj-2",
-					"lockeddragscroll" : 0,
-					"maxclass" : "bpatcher",
-					"name" : "acids.vst.maxpat",
-					"numinlets" : 2,
-					"numoutlets" : 4,
-					"offset" : [ 0.0, 0.0 ],
-					"outlettype" : [ "signal", "signal", "", "" ],
-					"patching_rect" : [ 29.499939, 79.0, 99.0, 68.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 6.666626, 63.0, 99.0, 68.0 ],
-					"viewvisibility" : 1
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontsize" : 14.0,
-					"id" : "obj-125",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 30.499939, 419.076904, 154.333374, 22.0 ],
-					"style" : "",
-					"text" : "Input target (waveform)"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-124",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 30.499939, 368.576904, 51.0, 22.0 ],
-					"style" : "",
-					"text" : "s vst_in"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"bgmode" : 0,
-					"border" : 0,
-					"clickthrough" : 0,
-					"enablehscroll" : 0,
-					"enablevscroll" : 0,
-					"id" : "obj-105",
-					"lockeddragscroll" : 0,
-					"maxclass" : "bpatcher",
-					"name" : "acids.midi.autoplay.maxpat",
-					"numinlets" : 5,
-					"numoutlets" : 1,
-					"offset" : [ 0.0, 0.0 ],
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 30.499939, 304.576904, 267.0, 52.0 ],
-					"viewvisibility" : 1
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"bgmode" : 0,
-					"border" : 0,
-					"clickthrough" : 0,
-					"enablehscroll" : 0,
-					"enablevscroll" : 0,
-					"id" : "obj-1",
-					"lockeddragscroll" : 0,
-					"maxclass" : "bpatcher",
-					"name" : "acids.wave.maxpat",
-					"numinlets" : 1,
-					"numoutlets" : 3,
-					"offset" : [ 0.0, 0.0 ],
-					"outlettype" : [ "signal", "signal", "" ],
-					"patching_rect" : [ 26.499939, 491.0, 298.333374, 121.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 116.0, 3.0, 265.0, 128.0 ],
-					"viewvisibility" : 1
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-77",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1383.0, 78.5, 37.0, 22.0 ],
-					"style" : "",
-					"text" : "clear"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-57",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1225.0, 82.5, 37.0, 22.0 ],
-					"style" : "",
-					"text" : "clear"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-36",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1049.0, 82.5, 37.0, 22.0 ],
-					"style" : "",
-					"text" : "clear"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"activebgoncolor" : [ 0.792157, 0.219608, 0.133333, 1.0 ],
-					"id" : "obj-28",
-					"maxclass" : "live.text",
-					"mode" : 0,
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"parameter_enable" : 1,
-					"patching_rect" : [ 1462.416748, 143.5, 93.166626, 25.5 ],
-					"saved_attribute_attributes" : 					{
-						"valueof" : 						{
-							"parameter_longname" : "live.text",
-							"parameter_shortname" : "live.text",
-							"parameter_type" : 2,
-							"parameter_mmax" : 1.0,
-							"parameter_enum" : [ "val1", "val2" ]
-						}
-
-					}
-,
-					"text" : "Import model",
-					"varname" : "live.text"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-29",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 551.0, 257.0, 100.0, 22.0 ],
-					"style" : "",
-					"text" : "print params_set"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-283",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 305.833313, 685.5, 70.0, 22.0 ],
-					"style" : "",
-					"text" : "s to_server"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-284",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 305.833313, 654.5, 101.0, 22.0 ],
-					"style" : "",
-					"text" : "prepend /encode"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-209",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 492.0, 257.0, 51.0, 22.0 ],
-					"style" : "",
-					"text" : "s vst_in"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-207",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 492.0, 224.0, 49.0, 22.0 ],
-					"style" : "",
-					"text" : "zl iter 2"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-206",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 492.0, 195.0, 85.0, 22.0 ],
-					"style" : "",
-					"text" : "route /params"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-202",
-					"maxclass" : "button",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 1415.5, 151.0, 24.0, 24.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-15",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "int" ],
-					"patching_rect" : [ 1415.5, 214.0, 130.0, 22.0 ],
-					"style" : "",
-					"text" : "conformpath max boot"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-200",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "bang" ],
-					"patching_rect" : [ 1415.5, 185.0, 69.0, 22.0 ],
-					"style" : "",
-					"text" : "opendialog"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-201",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1415.5, 244.0, 63.0, 22.0 ],
-					"style" : "",
-					"text" : "/model $1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-199",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 1063.0, 299.5, 70.0, 22.0 ],
-					"style" : "",
-					"text" : "s to_server"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-196",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 389.0, 73.0, 68.0, 22.0 ],
-					"style" : "",
-					"text" : "r to_server"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-187",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 1278.0, 41.0, 60.0, 22.0 ],
-					"style" : "",
-					"text" : "loadbang"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-188",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1278.0, 136.0, 98.0, 22.0 ],
-					"style" : "",
-					"text" : "prepend append"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-189",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 1278.0, 109.432373, 49.0, 22.0 ],
-					"style" : "",
-					"text" : "zl iter 1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-190",
-					"items" : [ 1, ",", 2, ",", 4 ],
-					"maxclass" : "umenu",
-					"numinlets" : 1,
-					"numoutlets" : 3,
-					"outlettype" : [ "int", "", "" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 1278.0, 177.0, 100.0, 22.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-191",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1278.0, 78.5, 37.0, 22.0 ],
-					"style" : "",
-					"text" : "1 2 4"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-186",
-					"maxclass" : "newobj",
-					"numinlets" : 3,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1063.0, 220.0, 87.0, 22.0 ],
-					"style" : "",
-					"text" : "pak flow mel 1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-184",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 1100.0, 41.0, 60.0, 22.0 ],
-					"style" : "",
-					"text" : "loadbang"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-180",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1100.0, 140.0, 98.0, 22.0 ],
-					"style" : "",
-					"text" : "prepend append"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-181",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 1100.0, 113.432373, 49.0, 22.0 ],
-					"style" : "",
-					"text" : "zl iter 1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-182",
-					"items" : [ "mel", ",", "mfcc", ",", "mel_mfcc" ],
-					"maxclass" : "umenu",
-					"numinlets" : 1,
-					"numoutlets" : 3,
-					"outlettype" : [ "int", "", "" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 1100.0, 177.0, 100.0, 22.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-183",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1100.0, 82.5, 113.0, 22.0 ],
-					"style" : "",
-					"text" : "mel mfcc mel_mfcc"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-179",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 952.0, 41.0, 60.0, 22.0 ],
-					"style" : "",
-					"text" : "loadbang"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-178",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1063.0, 251.0, 117.0, 22.0 ],
-					"style" : "",
-					"text" : "prepend /set_model"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-176",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 952.0, 140.0, 98.0, 22.0 ],
-					"style" : "",
-					"text" : "prepend append"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-175",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 952.0, 113.432373, 49.0, 22.0 ],
-					"style" : "",
-					"text" : "zl iter 1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-174",
-					"items" : [ "wae", ",", "vae", ",", "flow" ],
-					"maxclass" : "umenu",
-					"numinlets" : 1,
-					"numoutlets" : 3,
-					"outlettype" : [ "int", "", "" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 952.0, 177.0, 100.0, 22.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-172",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 952.0, 82.5, 80.0, 22.0 ],
-					"style" : "",
-					"text" : "wae vae flow"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontsize" : 18.0,
-					"id" : "obj-23",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 389.0, 34.0, 216.0, 27.0 ],
-					"style" : "",
-					"text" : "OSC Server"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontsize" : 14.0,
-					"id" : "obj-4",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 63.499939, 269.509277, 171.0, 22.0 ],
-					"style" : "",
-					"text" : "Automatic MIDI player"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontsize" : 14.0,
-					"id" : "obj-3",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 139.499939, 81.432373, 172.0, 22.0 ],
-					"style" : "",
-					"text" : "VST Section"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-120",
-					"maxclass" : "toggle",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "int" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 30.499939, 269.509277, 24.0, 24.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-107",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 29.499939, 43.5, 49.0, 22.0 ],
-					"style" : "",
-					"text" : "r vst_in"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"bgmode" : 0,
-					"border" : 0,
-					"clickthrough" : 0,
-					"enablehscroll" : 0,
-					"enablevscroll" : 0,
-					"id" : "obj-13",
-					"lockeddragscroll" : 0,
-					"maxclass" : "bpatcher",
-					"name" : "acids.xy.maxpat",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"offset" : [ 0.0, 0.0 ],
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 504.0, 431.0, 228.0, 201.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 385.0, 3.0, 228.0, 201.0 ],
-					"viewvisibility" : 1
 				}
 
 			}
@@ -1926,7 +1664,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1278.0, 702.0, 150.0, 22.0 ],
+					"patching_rect" : [ 1227.0, 453.0, 150.0, 22.0 ],
 					"style" : ""
 				}
 
@@ -1934,402 +1672,308 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"destination" : [ "obj-27", 0 ],
-					"source" : [ "obj-1", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-284", 0 ],
-					"source" : [ "obj-1", 2 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-30", 0 ],
+					"destination" : [ "obj-72", 0 ],
 					"source" : [ "obj-1", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-124", 0 ],
-					"source" : [ "obj-105", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-2", 0 ],
-					"source" : [ "obj-107", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-19", 0 ],
-					"source" : [ "obj-11", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-206", 0 ],
-					"source" : [ "obj-12", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-105", 0 ],
-					"source" : [ "obj-120", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-197", 0 ],
-					"source" : [ "obj-13", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-201", 0 ],
-					"source" : [ "obj-15", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-32", 0 ],
-					"source" : [ "obj-16", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-37", 0 ],
-					"source" : [ "obj-17", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-175", 0 ],
-					"source" : [ "obj-172", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-186", 0 ],
-					"midpoints" : [ 1002.0, 209.0, 1072.5, 209.0 ],
-					"source" : [ "obj-174", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-176", 0 ],
-					"source" : [ "obj-175", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-174", 0 ],
-					"source" : [ "obj-176", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-199", 0 ],
-					"source" : [ "obj-178", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-172", 0 ],
+					"destination" : [ "obj-14", 0 ],
+					"midpoints" : [ 738.5, 118.538452, 787.5, 118.538452 ],
 					"order" : 1,
-					"source" : [ "obj-179", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-36", 0 ],
-					"midpoints" : [ 961.5, 72.75, 1058.5, 72.75 ],
-					"order" : 0,
-					"source" : [ "obj-179", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-16", 0 ],
-					"midpoints" : [ 693.5, 251.0, 775.5, 251.0 ],
-					"order" : 0,
-					"source" : [ "obj-18", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-17", 0 ],
-					"midpoints" : [ 693.5, 243.0, 693.5, 243.0 ],
-					"order" : 1,
-					"source" : [ "obj-18", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-182", 0 ],
-					"source" : [ "obj-180", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-180", 0 ],
-					"source" : [ "obj-181", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-186", 1 ],
-					"midpoints" : [ 1150.0, 209.0, 1106.5, 209.0 ],
-					"source" : [ "obj-182", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-181", 0 ],
-					"source" : [ "obj-183", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-183", 0 ],
-					"order" : 1,
-					"source" : [ "obj-184", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-57", 0 ],
-					"midpoints" : [ 1109.5, 72.25, 1234.5, 72.25 ],
-					"order" : 0,
-					"source" : [ "obj-184", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-178", 0 ],
-					"source" : [ "obj-186", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-191", 0 ],
-					"order" : 1,
-					"source" : [ "obj-187", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-77", 0 ],
-					"midpoints" : [ 1287.5, 70.25, 1392.5, 70.25 ],
-					"order" : 0,
-					"source" : [ "obj-187", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-190", 0 ],
-					"source" : [ "obj-188", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-188", 0 ],
-					"source" : [ "obj-189", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-18", 0 ],
-					"order" : 1,
-					"source" : [ "obj-19", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-55", 0 ],
-					"midpoints" : [ 693.5, 219.75, 885.5, 219.75 ],
-					"order" : 0,
-					"source" : [ "obj-19", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-186", 2 ],
-					"midpoints" : [ 1328.0, 210.5, 1140.5, 210.5 ],
-					"source" : [ "obj-190", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-189", 0 ],
-					"source" : [ "obj-191", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-9", 0 ],
-					"source" : [ "obj-196", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-198", 0 ],
-					"source" : [ "obj-197", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-24", 0 ],
-					"source" : [ "obj-2", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-25", 0 ],
-					"source" : [ "obj-2", 1 ]
+					"source" : [ "obj-10", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-34", 0 ],
-					"source" : [ "obj-2", 2 ]
+					"midpoints" : [ 738.5, 119.038452, 885.5, 119.038452 ],
+					"order" : 0,
+					"source" : [ "obj-10", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-35", 0 ],
-					"source" : [ "obj-2", 3 ]
+					"destination" : [ "obj-7", 2 ],
+					"midpoints" : [ 738.5, 273.538452, 708.0, 273.538452 ],
+					"order" : 2,
+					"source" : [ "obj-10", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-26", 0 ],
-					"source" : [ "obj-20", 0 ]
+					"destination" : [ "obj-16", 0 ],
+					"source" : [ "obj-11", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-23", 0 ],
+					"source" : [ "obj-12", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-15", 0 ],
-					"source" : [ "obj-200", 0 ]
+					"source" : [ "obj-14", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-199", 0 ],
-					"source" : [ "obj-201", 0 ]
+					"destination" : [ "obj-75", 0 ],
+					"source" : [ "obj-15", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-200", 0 ],
-					"source" : [ "obj-202", 0 ]
+					"destination" : [ "obj-19", 0 ],
+					"source" : [ "obj-16", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-207", 0 ],
-					"source" : [ "obj-206", 0 ]
+					"destination" : [ "obj-18", 0 ],
+					"source" : [ "obj-17", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-209", 0 ],
-					"midpoints" : [ 501.5, 243.0, 501.5, 243.0 ],
-					"order" : 1,
-					"source" : [ "obj-207", 0 ]
+					"destination" : [ "obj-59", 0 ],
+					"source" : [ "obj-19", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-29", 0 ],
-					"order" : 0,
-					"source" : [ "obj-207", 0 ]
+					"destination" : [ "obj-10", 0 ],
+					"source" : [ "obj-2", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-26", 1 ],
+					"destination" : [ "obj-22", 0 ],
+					"source" : [ "obj-20", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-83", 0 ],
 					"source" : [ "obj-22", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-200", 0 ],
-					"source" : [ "obj-28", 0 ]
+					"destination" : [ "obj-12", 0 ],
+					"source" : [ "obj-24", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-283", 0 ],
-					"source" : [ "obj-284", 0 ]
+					"destination" : [ "obj-14", 0 ],
+					"source" : [ "obj-25", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-28", 0 ],
+					"source" : [ "obj-26", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-37", 0 ],
+					"midpoints" : [ 1284.0, 684.75, 1417.5, 684.75 ],
+					"order" : 1,
+					"source" : [ "obj-29", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-43", 0 ],
+					"midpoints" : [ 1284.0, 684.25, 1525.5, 684.25 ],
+					"order" : 0,
+					"source" : [ "obj-29", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-45", 0 ],
+					"order" : 2,
+					"source" : [ "obj-29", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-27", 0 ],
+					"source" : [ "obj-3", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-21", 0 ],
-					"midpoints" : [ 1287.5, 763.75, 760.5, 763.75 ],
+					"midpoints" : [ 1236.5, 556.75, 765.5, 556.75 ],
 					"source" : [ "obj-31", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-174", 0 ],
-					"midpoints" : [ 1058.5, 167.75, 961.5, 167.75 ],
+					"destination" : [ "obj-48", 0 ],
+					"source" : [ "obj-32", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-36", 0 ],
+					"source" : [ "obj-33", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-30", 0 ],
+					"source" : [ "obj-34", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-29", 0 ],
+					"source" : [ "obj-35", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 15 ],
+					"source" : [ "obj-36", 15 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 14 ],
+					"source" : [ "obj-36", 14 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 13 ],
+					"source" : [ "obj-36", 13 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 12 ],
+					"source" : [ "obj-36", 12 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 11 ],
+					"source" : [ "obj-36", 11 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 10 ],
+					"source" : [ "obj-36", 10 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 9 ],
+					"source" : [ "obj-36", 9 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 8 ],
+					"source" : [ "obj-36", 8 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 7 ],
+					"source" : [ "obj-36", 7 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 6 ],
+					"source" : [ "obj-36", 6 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 5 ],
+					"source" : [ "obj-36", 5 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 4 ],
+					"source" : [ "obj-36", 4 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 3 ],
+					"source" : [ "obj-36", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 2 ],
+					"source" : [ "obj-36", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 1 ],
+					"midpoints" : [ 214.5, 872.0, 430.266667, 872.0 ],
+					"source" : [ "obj-36", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 0 ],
+					"midpoints" : [ 204.0, 873.0, 404.0, 873.0 ],
 					"source" : [ "obj-36", 0 ]
 				}
 
@@ -2337,208 +1981,418 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-39", 0 ],
-					"source" : [ "obj-38", 0 ]
+					"midpoints" : [ 1417.5, 743.5, 1417.5, 743.5 ],
+					"order" : 0,
+					"source" : [ "obj-37", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-40", 0 ],
-					"source" : [ "obj-39", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-33", 0 ],
-					"source" : [ "obj-40", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-21", 0 ],
-					"midpoints" : [ 1305.0, 764.75, 760.5, 764.75 ],
-					"source" : [ "obj-42", 0 ]
+					"destination" : [ "obj-55", 0 ],
+					"order" : 1,
+					"source" : [ "obj-37", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-49", 0 ],
-					"source" : [ "obj-47", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-60", 0 ],
-					"source" : [ "obj-48", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-48", 0 ],
-					"order" : 1,
-					"source" : [ "obj-49", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-58", 0 ],
-					"order" : 0,
-					"source" : [ "obj-49", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-6", 0 ],
-					"source" : [ "obj-5", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-65", 0 ],
-					"source" : [ "obj-50", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-52", 0 ],
-					"source" : [ "obj-51", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-71", 0 ],
-					"source" : [ "obj-52", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-61", 0 ],
-					"source" : [ "obj-55", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-59", 0 ],
-					"source" : [ "obj-56", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-182", 0 ],
-					"midpoints" : [ 1234.5, 167.25, 1109.5, 167.25 ],
-					"source" : [ "obj-57", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-54", 0 ],
-					"order" : 0,
-					"source" : [ "obj-58", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-63", 0 ],
-					"order" : 1,
-					"source" : [ "obj-58", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-26", 0 ],
-					"source" : [ "obj-59", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-1", 0 ],
-					"source" : [ "obj-6", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-32", 0 ],
-					"midpoints" : [ 885.5, 306.538452, 775.5, 306.538452 ],
-					"source" : [ "obj-61", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-70", 0 ],
-					"order" : 0,
-					"source" : [ "obj-62", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-8", 0 ],
-					"order" : 1,
-					"source" : [ "obj-62", 0 ]
+					"midpoints" : [ 914.5, 872.0, 404.0, 872.0 ],
+					"source" : [ "obj-38", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-46", 0 ],
+					"source" : [ "obj-39", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 15 ],
+					"source" : [ "obj-4", 15 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 14 ],
+					"source" : [ "obj-4", 14 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 13 ],
+					"source" : [ "obj-4", 13 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 12 ],
+					"source" : [ "obj-4", 12 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 11 ],
+					"source" : [ "obj-4", 11 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 10 ],
+					"source" : [ "obj-4", 10 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 9 ],
+					"source" : [ "obj-4", 9 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 8 ],
+					"source" : [ "obj-4", 8 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 7 ],
+					"source" : [ "obj-4", 7 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 6 ],
+					"source" : [ "obj-4", 6 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 5 ],
+					"source" : [ "obj-4", 5 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 4 ],
+					"source" : [ "obj-4", 4 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 3 ],
+					"source" : [ "obj-4", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 2 ],
+					"source" : [ "obj-4", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 1 ],
+					"midpoints" : [ 576.0, 556.0, 791.766667, 556.0 ],
+					"source" : [ "obj-4", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 0 ],
+					"midpoints" : [ 565.5, 557.0, 765.5, 557.0 ],
+					"source" : [ "obj-4", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-40", 0 ],
+					"source" : [ "obj-41", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 0 ],
+					"midpoints" : [ 1254.0, 557.75, 765.5, 557.75 ],
+					"source" : [ "obj-42", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-41", 0 ],
 					"order" : 1,
-					"source" : [ "obj-64", 0 ]
+					"source" : [ "obj-43", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-66", 0 ],
+					"destination" : [ "obj-56", 0 ],
 					"order" : 0,
-					"source" : [ "obj-64", 0 ]
+					"source" : [ "obj-43", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-64", 0 ],
-					"source" : [ "obj-65", 0 ]
+					"destination" : [ "obj-39", 0 ],
+					"midpoints" : [ 1284.0, 759.5, 1417.5, 759.5 ],
+					"source" : [ "obj-44", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-69", 0 ],
+					"destination" : [ "obj-44", 0 ],
 					"order" : 0,
-					"source" : [ "obj-66", 0 ]
+					"source" : [ "obj-45", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-7", 2 ],
+					"destination" : [ "obj-57", 0 ],
 					"order" : 1,
-					"source" : [ "obj-66", 0 ]
+					"source" : [ "obj-45", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 0 ],
+					"midpoints" : [ 892.5, 873.75, 404.0, 873.75 ],
+					"source" : [ "obj-47", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 15 ],
+					"source" : [ "obj-48", 15 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 14 ],
+					"source" : [ "obj-48", 14 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 13 ],
+					"source" : [ "obj-48", 13 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 12 ],
+					"source" : [ "obj-48", 12 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 11 ],
+					"source" : [ "obj-48", 11 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 10 ],
+					"source" : [ "obj-48", 10 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 9 ],
+					"source" : [ "obj-48", 9 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 8 ],
+					"source" : [ "obj-48", 8 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 7 ],
+					"source" : [ "obj-48", 7 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 6 ],
+					"source" : [ "obj-48", 6 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 5 ],
+					"source" : [ "obj-48", 5 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 4 ],
+					"source" : [ "obj-48", 4 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 3 ],
+					"source" : [ "obj-48", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 2 ],
+					"source" : [ "obj-48", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 1 ],
+					"source" : [ "obj-48", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 0 ],
+					"source" : [ "obj-48", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 0 ],
+					"midpoints" : [ 875.0, 872.75, 404.0, 872.75 ],
+					"source" : [ "obj-50", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-53", 0 ],
+					"source" : [ "obj-51", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-52", 0 ],
+					"source" : [ "obj-53", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-54", 0 ],
+					"source" : [ "obj-55", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-58", 0 ],
+					"source" : [ "obj-56", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-55", 0 ],
+					"source" : [ "obj-57", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-60", 0 ],
+					"source" : [ "obj-59", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"source" : [ "obj-6", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-9", 0 ],
+					"midpoints" : [ 442.5, 376.0, 442.5, 376.0 ],
+					"source" : [ "obj-62", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-26", 0 ],
+					"midpoints" : [ 675.5, 337.288452, 573.5, 337.288452 ],
+					"order" : 0,
+					"source" : [ "obj-67", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-59", 0 ],
+					"order" : 2,
+					"source" : [ "obj-67", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-62", 0 ],
+					"midpoints" : [ 675.5, 337.788452, 442.5, 337.788452 ],
+					"order" : 1,
 					"source" : [ "obj-67", 0 ]
 				}
 
@@ -2553,23 +2407,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-67", 0 ],
-					"order" : 1,
 					"source" : [ "obj-7", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-70", 0 ],
-					"order" : 0,
-					"source" : [ "obj-7", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-72", 0 ],
-					"source" : [ "obj-71", 0 ]
 				}
 
 			}
@@ -2590,149 +2428,22 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-21", 0 ],
+					"midpoints" : [ 1276.0, 556.0, 765.5, 556.0 ],
 					"source" : [ "obj-73", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-21", 15 ],
-					"order" : 0,
+					"destination" : [ "obj-17", 0 ],
 					"source" : [ "obj-75", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-21", 14 ],
-					"order" : 1,
-					"source" : [ "obj-75", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-21", 13 ],
-					"order" : 2,
-					"source" : [ "obj-75", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-21", 12 ],
-					"order" : 3,
-					"source" : [ "obj-75", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-21", 11 ],
-					"order" : 4,
-					"source" : [ "obj-75", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-21", 10 ],
-					"order" : 5,
-					"source" : [ "obj-75", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-21", 9 ],
-					"order" : 6,
-					"source" : [ "obj-75", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-21", 8 ],
-					"order" : 7,
-					"source" : [ "obj-75", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-21", 7 ],
-					"order" : 8,
-					"source" : [ "obj-75", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-21", 6 ],
-					"order" : 9,
-					"source" : [ "obj-75", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-21", 5 ],
-					"order" : 10,
-					"source" : [ "obj-75", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-21", 4 ],
-					"order" : 11,
-					"source" : [ "obj-75", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-21", 3 ],
-					"order" : 12,
-					"source" : [ "obj-75", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-21", 2 ],
-					"order" : 13,
-					"source" : [ "obj-75", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-21", 1 ],
-					"order" : 14,
-					"source" : [ "obj-75", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-21", 0 ],
-					"order" : 15,
-					"source" : [ "obj-75", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-190", 0 ],
-					"midpoints" : [ 1392.5, 167.25, 1287.5, 167.25 ],
-					"source" : [ "obj-77", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-85", 0 ],
+					"midpoints" : [ 104.333313, 335.576904, 260.0, 335.576904 ],
 					"source" : [ "obj-79", 0 ]
 				}
 
@@ -2859,7 +2570,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-62", 0 ],
+					"destination" : [ "obj-11", 0 ],
 					"order" : 1,
 					"source" : [ "obj-81", 0 ]
 				}
@@ -2867,9 +2578,36 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-68", 0 ],
+					"destination" : [ "obj-26", 0 ],
+					"midpoints" : [ 480.5, 336.538452, 573.5, 336.538452 ],
+					"order" : 1,
+					"source" : [ "obj-81", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"midpoints" : [ 480.5, 228.326904, 512.5, 228.326904 ],
+					"order" : 2,
+					"source" : [ "obj-81", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-62", 0 ],
 					"order" : 0,
 					"source" : [ "obj-81", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-68", 0 ],
+					"midpoints" : [ 480.5, 228.326904, 675.5, 228.326904 ],
+					"order" : 0,
+					"source" : [ "obj-81", 1 ]
 				}
 
 			}
@@ -2891,6 +2629,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-86", 0 ],
+					"midpoints" : [ 104.333313, 177.326904, 260.0, 177.326904 ],
 					"order" : 0,
 					"source" : [ "obj-83", 0 ]
 				}
@@ -2905,7 +2644,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-8", 0 ],
+					"destination" : [ "obj-13", 0 ],
 					"source" : [ "obj-85", 0 ]
 				}
 
@@ -2917,113 +2656,8 @@
 				}
 
 			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-10", 0 ],
-					"source" : [ "obj-9", 0 ]
-				}
-
-			}
  ],
-		"parameters" : 		{
-			"obj-2::obj-126" : [ "live.dial", "live.dial", 0 ],
-			"obj-1::obj-105" : [ "live.drop", "live.drop", 0 ],
-			"obj-1::obj-296" : [ "Audio[1]", "Audio", 0 ],
-			"obj-2::obj-167" : [ "live.dial[2]", "live.dial", 0 ],
-			"obj-2::obj-9" : [ "live.text[2]", "live.text", 0 ],
-			"obj-13::obj-3" : [ "y", "y", 0 ],
-			"obj-2::obj-131" : [ "live.dial[1]", "live.dial", 0 ],
-			"obj-13::obj-192" : [ "pictslider[1]", "pictslider", 0 ],
-			"obj-28" : [ "live.text", "live.text", 0 ],
-			"obj-2::obj-96" : [ "vst~[2]", "vst~[2]", 0 ],
-			"obj-13::obj-2" : [ "x", "x", 0 ],
-			"obj-2::obj-10" : [ "live.text[1]", "live.text", 0 ],
-			"obj-50" : [ "live.dial[3]", "live.dial[3]", 0 ]
-		}
-,
-		"dependency_cache" : [ 			{
-				"name" : "acids.xy.maxpat",
-				"bootpath" : "~/Coding/git/acids/flow_synthesizer/plugin",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "acids.wave.maxpat",
-				"bootpath" : "~/Coding/git/acids/flow_synthesizer/plugin",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "acids.button.graphics.maxpat",
-				"bootpath" : "~/Coding/git/acids/flow_synthesizer/plugin",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "microphone.png",
-				"bootpath" : "~/Coding/git/acids/flow_synthesizer/plugin/graphics",
-				"patcherrelativepath" : "./graphics",
-				"type" : "PNG ",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "play.png",
-				"bootpath" : "~/Coding/git/acids/flow_synthesizer/plugin/graphics",
-				"patcherrelativepath" : "./graphics",
-				"type" : "PNG ",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "repeat.png",
-				"bootpath" : "~/Coding/git/acids/flow_synthesizer/plugin/graphics",
-				"patcherrelativepath" : "./graphics",
-				"type" : "PNG ",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "acids.midi.autoplay.maxpat",
-				"bootpath" : "~/Coding/git/acids/flow_synthesizer/plugin",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "acids.vst.maxpat",
-				"bootpath" : "~/Coding/git/acids/flow_synthesizer/plugin",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "Diva.maxsnap",
-				"bootpath" : "~/Documents/Max 7/Snapshots",
-				"patcherrelativepath" : "../../../../../Documents/Max 7/Snapshots",
-				"type" : "mx@s",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "acids.osc.maxpat",
-				"bootpath" : "~/Coding/git/acids/flow_synthesizer/plugin",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "rbfi.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "mubu.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "mubu.mxo",
-				"type" : "iLaX"
-			}
- ],
+		"dependency_cache" : [  ],
 		"autosave" : 0,
 		"styles" : [ 			{
 				"name" : "AudioStatus_Menu",

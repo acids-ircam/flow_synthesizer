@@ -25,6 +25,11 @@ Compute descriptors for a batch of spectral representations
 """
 # Set of descriptors we will analyze
 descriptors = ['loudness', 'centroid', 'bandwidth', 'flatness', 'rolloff']
+descriptor_funcs = [librosa.feature.rmse, 
+         librosa.feature.spectral_centroid,
+         librosa.feature.spectral_flatness,
+         librosa.feature.spectral_bandwidth,
+         librosa.feature.spectral_rolloff]
 # Helper function to sample, synthesize and analyze a point in space
 def compute_descriptors(batch_mels):
     # Create descriptors matrix
@@ -33,14 +38,9 @@ def compute_descriptors(batch_mels):
     for b in range(batch_mels.shape[0]):
         cur_val = batch_mels[b]
         # Compute all descriptors
-        try:
-            out_desc[b, 0] = librosa.feature.rmse(S = cur_val).mean()
-            out_desc[b, 1] = librosa.feature.spectral_centroid(S = cur_val).mean() / 1e4
-            out_desc[b, 2] = librosa.feature.spectral_flatness(S = cur_val).mean()
-            out_desc[b, 3] = librosa.feature.spectral_bandwidth(S = cur_val).mean() / 1e4
-            out_desc[b, 4] = librosa.feature.spectral_rolloff(S = cur_val).mean() / 1e4
-        except:
-            pass
+        for d in range(len(descriptors)):
+            cur_val[cur_val < 0] = 0
+            out_desc[b, d] = descriptor_funcs[d](S = cur_val).mean()
     return out_desc
 
 def save_batch_audio(final_audio, name):
@@ -193,7 +193,12 @@ def evaluate_dimensions(model, test_loader, n_steps = 50, pos=[-1, 0, 1]):
     descriptor_max = np.zeros(5)
     for d in range(5):
         descriptor_max[d] = np.max(latent_descriptors[:, d, :])
-        latent_descriptors[:, d, :] = latent_descriptors[:, d, :] / np.max(latent_descriptors[:, d, :])
+        if (descriptor_max[d] == 0):
+            descriptor_max[d] = 1
+        latent_descriptors[:, d, :] = latent_descriptors[:, d, :] / descriptor_max[d]
+    # Reorder variances per dimension (for top parameters)
+    for l in range(latent_dims):
+        latent_variances[l, :] = np.argsort(latent_variances[l])[::-1]
     return latent_sort, latent_variances, latent_parameters, latent_descriptors, descriptor_max
 
 """

@@ -180,9 +180,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
-					"patching_rect" : [ 93.0, 296.0, 47.0, 22.0 ],
+					"patching_rect" : [ 93.0, 296.0, 41.0, 22.0 ],
 					"style" : "",
-					"text" : "/ 1000."
+					"text" : "/ 100."
 				}
 
 			}
@@ -193,9 +193,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
-					"patching_rect" : [ 28.0, 296.0, 47.0, 22.0 ],
+					"patching_rect" : [ 28.0, 296.0, 41.0, 22.0 ],
 					"style" : "",
-					"text" : "/ 1000."
+					"text" : "/ 100."
 				}
 
 			}
@@ -237,12 +237,12 @@
 , 			{
 				"box" : 				{
 					"bgcolor" : [ 0.0, 0.0, 0.0, 0.0 ],
-					"bottomvalue" : -3000,
+					"bottomvalue" : -300,
 					"color" : [ 0.941176, 0.690196, 0.196078, 1.0 ],
 					"elementcolor" : [ 0.792157, 0.219608, 0.133333, 1.0 ],
 					"id" : "obj-192",
 					"invisiblebkgnd" : 1,
-					"leftvalue" : -3000,
+					"leftvalue" : -300,
 					"maxclass" : "pictslider",
 					"numinlets" : 2,
 					"numoutlets" : 2,
@@ -251,7 +251,7 @@
 					"patching_rect" : [ 28.0, 74.5, 185.0, 175.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 8.0, 8.156372, 182.0, 175.343628 ],
-					"rightvalue" : 3000,
+					"rightvalue" : 300,
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "pictslider",
@@ -263,7 +263,7 @@
 					}
 ,
 					"style" : "",
-					"topvalue" : 3000,
+					"topvalue" : 300,
 					"varname" : "pictslider"
 				}
 
@@ -359,9 +359,9 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-2" : [ "x", "x", 0 ],
+			"obj-3" : [ "y", "y", 0 ],
 			"obj-192" : [ "pictslider", "pictslider", 0 ],
-			"obj-3" : [ "y", "y", 0 ]
+			"obj-2" : [ "x", "x", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{

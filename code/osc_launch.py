@@ -1,19 +1,22 @@
 import argparse
 import torch
 import json, ast
-from matplotlib import pyplot as plt
+#from matplotlib import pyplot as plt
 from osc_server import FlowServer
 from utils.data import load_dataset
 from evaluate import evaluate_dimensions, evaluate_dataset
 import os
 import numpy as np
 
+# Debug mode
+__DEBUG__ = False
+
 parser = argparse.ArgumentParser()
 parser.add_argument('--in_port',    type=int,   default=1234)
 parser.add_argument('--out_port',   type=int,   default=1235)
 parser.add_argument('--ip',         type=str,   default="127.0.0.1")
 # Model arguments
-parser.add_argument('--model',      type=str,   default="results/wae_mel_mse_cnn_mlp_1.model")
+parser.add_argument('--model',      type=str,   default="results/32par/vae_flow_mel_mse_cnn_mlp_iaf_1.model")
 # Data arguments
 parser.add_argument('--path',       type=str,   default='/Users/esling/Datasets/diva_dataset', help='')
 parser.add_argument('--dataset',    type=str,   default='32par', help='')
@@ -21,6 +24,7 @@ parser.add_argument('--train_type', type=str,   default='fixed', help='')
 parser.add_argument('--data',       type=str,   default='mel', help='')
 parser.add_argument('--batch_size', type=int,   default=128, help='')
 parser.add_argument('--nbworkers',  type=int,   default=0, help='')
+parser.add_argument('--reanalyze',  type=int,   default=0, help='')
 parser.add_argument('--device',     type=str,   default='cpu', help='')
 args = parser.parse_args()
 
@@ -85,12 +89,12 @@ print(param_names)
 Perform model pre-analysis
 ###################
 """ 
-if (not os.path.exists(args.model.replace('.model', '.analysis') + '.npy')):
+if (not os.path.exists(args.model.replace('.model', '.analysis') + '.npy') or args.reanalyze):
     # Perform dimension evaluation    
     d_idx, d_vars, d_params, d_desc, desc_max =  evaluate_dimensions(model, test_loader)
     # Perform dataset evaluation
     z_trans, final_z, final_meta, pca, z_vars, z_means = evaluate_dataset(model, [train_loader, valid_loader, test_loader])
-    # Save information 
+    # Save information s
     model_analysis = {
      'd_idx':d_idx, 
      'd_vars':d_vars, 
@@ -107,16 +111,25 @@ if (not os.path.exists(args.model.replace('.model', '.analysis') + '.npy')):
     np.save(args.model.replace('.model', '.analysis'), model_analysis)
 else:
     model_analysis = np.load(args.model.replace('.model', '.analysis') + '.npy').item()
-#%% Perform dataset evaluation
-#for d in range(32):
-#    plt.figure()
-#    plt.plot(d_params[d_idx[d]].T)
+
 #%%
 """
 ###################
-Load dataset
+Create server
 ###################
 """
-server = FlowServer(args.in_port, args.out_port, model=model, dataset=audioset, data=args.data, param_names=param_names, param_dict=param_dict, analysis=model_analysis)
-print('[Running server on ports in : %d - out : %d]'%(args.in_port, args.out_port))
-server.run()
+server = FlowServer(args.in_port, args.out_port, model=model, dataset=audioset, data=args.data, param_names=param_names, param_dict=param_dict, analysis=model_analysis, debug=__DEBUG__)
+#%%
+if (__DEBUG__):
+    # Test pitch analysis
+    print('[Debug mode : Testing server on given functions]')
+else:
+    print('[Running server on ports in : %d - out : %d]'%(args.in_port, args.out_port))
+    server.run()
+    
+#%% DATASET SHIT
+import json, codecs
+with codecs.open("dataset.json", encoding="utf-8") as f:
+    diva_dataset = json.load(f)
+for k_hash, v in diva_dataset.items():
+    
