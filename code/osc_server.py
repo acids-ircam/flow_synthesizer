@@ -5,6 +5,7 @@ from pythonosc import osc_server
 from models.vae.ae import RegressionAE
 import torch, numpy as np
 import librosa
+import os
 
 # Helper function to parse attribute
 def osc_attr(obj, attribute):
@@ -172,6 +173,7 @@ class FlowServer(OSCServer):
         self.dispatcher.map('/set_model', osc_parse(self.set_model))
         self.dispatcher.map('/dimension_analysis', osc_parse(self.dimension_analysis))
         self.dispatcher.map('/preset_space', osc_parse(self.preset_space))
+        self.dispatcher.map('/load_preset', osc_parse(self.load_preset))
         self.dispatcher.map('/model_params', osc_parse(self.send_model_params))
         self.dispatcher.map('/decode', osc_parse(self.decode))
         self.dispatcher.map('/encode', osc_parse(self.encode))
@@ -219,19 +221,28 @@ class FlowServer(OSCServer):
             # Handle variables
             self.send('/dimension_analysis', out_list)
 
-    def preset_space(self, d1, d2):
+    def preset_space(self, val):
         # Take re-ordered dimensions
-        d1 = self.analysis['d_idx'][d1]
-        d2 = self.analysis['d_idx'][d2]
-        z_space_proj = self.analysis['final_z'][:, [d1, d2]]
-        print(z_space_proj.shape)
-        # Send all points
-        for p in range(1000):#range(z_space_proj.shape[0]):
-            out_list = []
-            # Create dict out of params
-            for p2 in range(z_space_proj.shape[1]):
-                out_list.append(float(z_space_proj[p, p2]))
-            self.send('/presets', out_list)
+        space_dir = os.getcwd() + '/' + self.analysis['dataset_path']
+        self.send('/presets', space_dir)
+            
+    def load_preset(self, hash_v):
+        # Retrieve correct index
+        l_idx = self.analysis['hash_loaders'][hash_v]
+        cur_file = self.dataset[l_idx[0]].dataset.data_files[l_idx[1]]
+        loaded = np.load(cur_file)
+        params = loaded['param'].item()
+        params = torch.Tensor([params[p] for p in self.param_names])
+        out_list = []
+        # Create dict out of params
+        for p in range(params.shape[0]):
+            out_list.append(self.param_names[p])
+            out_list.append(float(params[p]))
+        # Handle variables
+        self.send('/params', out_list)
+        if (self.freeze_mode):
+            self.prev_z = torch.Tensor(1, params.shape[0])
+            self.prev_z[0] = params
         
     # model attributes
     def getmodel(self):

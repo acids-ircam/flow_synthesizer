@@ -3,6 +3,7 @@ import torch
 import json, ast
 #from matplotlib import pyplot as plt
 from osc_server import FlowServer
+from osc_utils import generate_dataset
 from utils.data import load_dataset
 from evaluate import evaluate_dimensions, evaluate_dataset
 from torch.utils.data import DataLoader
@@ -112,6 +113,11 @@ if (not os.path.exists(args.model.replace('.model', '.analysis') + '.npy') or ar
      'z_vars':z_vars, 
      'z_means':z_means
      }
+    # Generate offline presets dataset
+    model_analysis = generate_dataset(args.model.replace('.model', '_dataset.txt'), [train_loader, valid_loader, test_loader], model_analysis)
+    # Keep path to the model dataset
+    model_analysis['dataset_path'] = args.model.replace('.model', '_dataset.txt')
+    # Save the whole analysis
     np.save(args.model.replace('.model', '.analysis'), model_analysis)
 else:
     model_analysis = np.load(args.model.replace('.model', '.analysis') + '.npy').item()
@@ -130,106 +136,3 @@ if (__DEBUG__):
 else:
     print('[Running server on ports in : %d - out : %d]'%(args.in_port, args.out_port))
     server.run()
-    
-#%% DATASET SHIT
-import json, codecs
-with codecs.open("dataset.json", encoding="utf-8") as f:
-    diva_dataset = json.load(f)
-characters = []
-features = []
-categories = []
-cat_large = []
-for k_hash, v in diva_dataset.items():
-    if (v['Meta'].get('Character') is not None):
-        [characters.append(x) for x in v['Meta'].get('Character')]
-    if (v['Meta'].get('Features') is not None):
-        [features.append(x) for x in v['Meta'].get('Features')]
-    if (v['Meta'].get('Categories') is not None):
-        [categories.append(x) for x in v['Meta'].get('Categories')]
-        [cat_large.append(x.split(':')[0]) for x in v['Meta'].get('Categories')]
-# Characters
-char_count = [[x,characters.count(x)] for x in set(characters)]
-char_count = sorted(char_count,key=lambda x: x[1])
-# Count features (Arp, Mono, Poly, Chord)
-feat_count = [[x,features.count(x)] for x in set(features)]
-feat_count = sorted(feat_count,key=lambda x: x[1])
-# Sort categories (large: Keys, FX, Drums)
-cat_large_count = [[x,cat_large.count(x)] for x in set(cat_large)]
-cat_large_count = sorted(cat_large_count,key=lambda x: x[1])
-# Sort categories (precise)
-cat_count = [[x,categories.count(x)] for x in set(categories)]
-cat_count = sorted(cat_count,key=lambda x: x[1])
-# Turn counts into IDx
-def turn_count_to_idx(l):
-    final_dict = {}
-    for i in range(len(l)):
-        final_dict[l[i][0]] = i + 1
-    return final_dict
-char_idx = turn_count_to_idx(char_count)
-feat_idx = turn_count_to_idx(feat_count)
-cat_large_idx = turn_count_to_idx(cat_large_count)
-cat_idx = turn_count_to_idx(cat_count)
-#%% New dataset check
-with open('dataset.txt', 'w') as f:
-    cur_id = 0
-    sets_len = 0
-    for loader in [train_loader, valid_loader, test_loader]:
-        sets_len += len(loader)
-    f.write('\t(\n')
-    f.write('\t\t( presets\n')
-    f.write('\t\t\t( hash s )\n')
-    f.write('\t\t\t( features s )\n')
-    f.write('\t\t\t( category s )\n')
-    f.write('\t\t\t( categories s )\n')
-    for d in range(32):
-        f.write('\t\t\t( x%d f )\n'%(d))
-    f.write('\t\t)\n')    
-    # Create sets of categorical variables
-    set_cat = torch.ones(sets_len, 3) * -1              
-    f.write('\t\t(\n')    
-    for loader in [train_loader, valid_loader, test_loader]:
-        cur_l_id = 0
-        for (x, y, meta, _) in loader:
-            for b in range(x.shape[0]):           
-                f.write('\t\t\t(\n')               
-                f.write('\t\t\t\t( preset_id %d )\n'%(cur_id + 1) ) 
-                fname = os.path.basename(loader.dataset.data_files[cur_l_id]).split('_')[0]
-                f.write('\t\t\t\t( hash %s )\n'%(fname))
-                v = diva_dataset[fname]
-                if (v['Meta'].get('Character') is not None):
-                    pass
-                feat_str = 'None'
-                if (v['Meta'].get('Features') is not None):
-                    cur_f = 0
-                    for x in v['Meta'].get('Features'):
-                        if (feat_idx[x] > cur_f):
-                            cur_f = feat_idx[x]
-                            feat_str = x
-                f.write('\t\t\t\t( features %s )\n'%(feat_str))
-                cat_large_str = 'None'
-                cat_str = 'None'
-                if (v['Meta'].get('Categories') is not None):
-                    cur_c = 0
-                    cur_l = 0
-                    for x in v['Meta'].get('Categories'):
-                        if (cat_idx[x] > cur_c):
-                            cur_c = cat_idx[x]
-                            cat_str = x
-                        x = x.split(':')[0]
-                        if (cat_large_idx[x] > cur_l):
-                            cur_l = cat_large_idx[x]
-                            cat_large_str = x
-                f.write('\t\t\t\t( category %s )\n'%(cat_large_str))
-                f.write('\t\t\t\t( categories %s )\n'%(cat_str))
-                for d in range(final_z.shape[1]):
-                    f.write('\t\t\t\t( x%d %f )\n'%(d, final_z[cur_id, model_analysis['d_idx'][d]]))
-                print(fname)
-                #loaded = np.load(loader.dataset.data_files[cur_l_id])
-                #params = loaded['param'].item()
-                #params = torch.Tensor([params[p] for p in loader.dataset.final_params])        
-                f.write('\t\t\t)\n')          
-                cur_l_id += 1
-                cur_id += 1
-    f.write('\t\t)\n')    
-    f.write('/t)\n')
-#/Users/esling/Datasets/diva_dataset/32par/raw/940f6727635f57e7b451528455107716_60_100.npz

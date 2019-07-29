@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 34.0, 79.0, 1156.0, 937.0 ],
+		"rect" : [ 34.0, 79.0, 689.0, 937.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -52,16 +52,17 @@
 , 			{
 				"box" : 				{
 					"fontname" : "Helvetica Neue",
-					"fontsize" : 12.0,
+					"fontsize" : 10.0,
 					"id" : "obj-5",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 665.0, 339.0, 150.0, 20.0 ],
+					"patching_rect" : [ 665.0, 339.0, 128.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 61.125, 5.75, 133.0, 20.0 ],
+					"presentation_rect" : [ 36.5, 2.75, 113.0, 18.0 ],
 					"style" : "",
-					"text" : "Server status ..."
+					"text" : "Server status ...",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 
 			}
@@ -89,36 +90,6 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 39.5, 94.5, 30.0, 30.0 ],
 					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontsize" : 18.0,
-					"id" : "obj-9",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 14.5, 336.5, 23.0, 27.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 7.25, 6.75, 23.0, 27.0 ],
-					"style" : "",
-					"text" : "^"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontsize" : 14.0,
-					"id" : "obj-8",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 618.0, 275.0, 21.0, 22.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 36.875, 4.75, 20.0, 22.0 ],
-					"style" : "",
-					"text" : "v"
 				}
 
 			}
@@ -156,10 +127,10 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"outlinecolor" : [ 0.376471, 0.384314, 0.4, 1.0 ],
+					"outlinecolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"patching_rect" : [ 39.5, 336.5, 24.0, 24.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ -5.5, -3.75, 40.5, 40.5 ],
+					"presentation_rect" : [ -1.25, 0.75, 22.25, 22.25 ],
 					"style" : ""
 				}
 
@@ -248,9 +219,10 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
+					"outlinecolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"patching_rect" : [ 586.5, 275.0, 24.0, 24.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 24.25, -4.125, 40.875, 40.875 ],
+					"presentation_rect" : [ 17.25, 0.75, 22.25, 22.25 ],
 					"style" : ""
 				}
 
