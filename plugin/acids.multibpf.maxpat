@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 951.0, -995.0, 1285.0, 937.0 ],
+		"rect" : [ 1623.0, -1001.0, 638.0, 937.0 ],
 		"bgcolor" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
@@ -39,14 +39,143 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-90",
-					"linecolor" : [ 0.349151, 0.377564, 0.442529, 1.0 ],
-					"maxclass" : "live.line",
+					"id" : "obj-87",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 234.25, 133.076904, 31.0, 22.0 ],
+					"style" : "",
+					"text" : "+ 3."
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-77",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 234.25, 55.0, 97.0, 22.0 ],
+					"style" : "",
+					"text" : "r #0_num_funcs"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-74",
+					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 2094.0, 625.0, 5.0, 18.0 ],
+					"patching_rect" : [ 140.0, 944.0, 99.0, 22.0 ],
+					"style" : "",
+					"text" : "s #0_num_funcs"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-70",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 51.0, 955.0, 65.0, 22.0 ],
+					"style" : "",
+					"text" : "pak 0 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"activedialcolor" : [ 0.802765, 0.214107, 0.169615, 1.0 ],
+					"activeneedlecolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"annotation" : "Sets the relative percentage of the unprocessed vs. processed input signal to be output.",
+					"appearance" : 1,
+					"focusbordercolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"fontname" : "Helvetica Neue Light",
+					"id" : "obj-66",
+					"maxclass" : "live.dial",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "float" ],
+					"panelcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 97.0, 885.0, 25.0, 36.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 218.405151, 321.483398, 240.454361, 183.0 ]
+					"presentation_rect" : [ 167.425537, 123.5, 25.0, 36.0 ],
+					"prototypename" : "wet/dry",
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_linknames" : 1,
+							"parameter_longname" : "tiny[1]",
+							"parameter_shortname" : "n",
+							"parameter_type" : 1,
+							"parameter_mmax" : 16.0,
+							"parameter_initial_enable" : 1,
+							"parameter_initial" : [ 8 ],
+							"parameter_unitstyle" : 0,
+							"parameter_speedlim" : 0.0
+						}
+
+					}
+,
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"varname" : "tiny[1]"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"activedialcolor" : [ 0.802765, 0.214107, 0.169615, 1.0 ],
+					"activeneedlecolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"annotation" : "Sets the relative percentage of the unprocessed vs. processed input signal to be output.",
+					"appearance" : 1,
+					"focusbordercolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"fontname" : "Helvetica Neue Light",
+					"id" : "obj-155",
+					"maxclass" : "live.dial",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "float" ],
+					"panelcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 51.0, 885.0, 25.0, 36.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 141.425537, 123.5, 25.0, 36.0 ],
+					"prototypename" : "wet/dry",
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_linknames" : 1,
+							"parameter_longname" : "tiny",
+							"parameter_shortname" : "dim",
+							"parameter_type" : 1,
+							"parameter_mmax" : 32.0,
+							"parameter_initial_enable" : 1,
+							"parameter_initial" : [ 0 ],
+							"parameter_unitstyle" : 0,
+							"parameter_speedlim" : 0.0
+						}
+
+					}
+,
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"varname" : "tiny"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"comment" : "",
+					"id" : "obj-64",
+					"index" : 0,
+					"maxclass" : "outlet",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 51.0, 993.0, 30.0, 30.0 ],
+					"style" : ""
 				}
 
 			}
@@ -212,7 +341,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ -49.666687, 714.5, 284.5, 52.0 ],
+					"patching_rect" : [ -49.666687, 714.5, 292.0, 52.0 ],
 					"style" : "",
 					"text" : "definerange 0. 1., definethickness 0., definepoint none, defineline lines, definenumber none, gridcolor 1. 1. 1. 1."
 				}
@@ -293,347 +422,6 @@
 					"patching_rect" : [ 394.5, 832.0, 439.266663, 22.0 ],
 					"style" : "",
 					"text" : "route 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"bgcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
-					"fontname" : "Helvetica Neue",
-					"fontsize" : 14.0,
-					"gridcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"gridorigincolor" : [ 0.0, 0.0, 0.0, 0.0 ],
-					"id" : "obj-49",
-					"maxclass" : "plot~",
-					"numinlets" : 16,
-					"numoutlets" : 1,
-					"numplots" : 16,
-					"numpoints" : 5,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 394.5, 885.0, 413.0, 115.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 8.0, 5.0, 361.0, 174.0 ],
-					"subplots" : [ 						{
-							"color" : [ 0.88, 0.32, 0.32, 1.0 ],
-							"thickness" : 0.0,
-							"point_style" : "none",
-							"line_style" : "lines",
-							"number_style" : "none",
-							"filter" : "none",
-							"domain_start" : 0.0,
-							"domain_end" : 1.0,
-							"domain_style" : "linear",
-							"domain_markers" : [ 0.0 ],
-							"domain_labels" : [ 0.0, "" ],
-							"range_start" : 0.0,
-							"range_end" : 1.0,
-							"range_style" : "linear",
-							"range_markers" : [ 0.0 ],
-							"range_labels" : [  ],
-							"origin_x" : 0.0,
-							"origin_y" : 0.0
-						}
-, 						{
-							"color" : [ 0.88, 0.506667, 0.32, 1.0 ],
-							"thickness" : 0.0,
-							"point_style" : "none",
-							"line_style" : "lines",
-							"number_style" : "none",
-							"filter" : "none",
-							"domain_start" : 0.0,
-							"domain_end" : 1.0,
-							"domain_style" : "linear",
-							"domain_markers" : [ 0.0 ],
-							"domain_labels" : [ 0.0, "" ],
-							"range_start" : 0.0,
-							"range_end" : 1.0,
-							"range_style" : "linear",
-							"range_markers" : [ 0.0 ],
-							"range_labels" : [  ],
-							"origin_x" : 0.0,
-							"origin_y" : 0.0
-						}
-, 						{
-							"color" : [ 0.88, 0.693333, 0.32, 1.0 ],
-							"thickness" : 0.0,
-							"point_style" : "none",
-							"line_style" : "lines",
-							"number_style" : "none",
-							"filter" : "none",
-							"domain_start" : 0.0,
-							"domain_end" : 1.0,
-							"domain_style" : "linear",
-							"domain_markers" : [ 0.0 ],
-							"domain_labels" : [ 0.0, "" ],
-							"range_start" : 0.0,
-							"range_end" : 1.0,
-							"range_style" : "linear",
-							"range_markers" : [ 0.0 ],
-							"range_labels" : [  ],
-							"origin_x" : 0.0,
-							"origin_y" : 0.0
-						}
-, 						{
-							"color" : [ 0.88, 0.88, 0.32, 1.0 ],
-							"thickness" : 0.0,
-							"point_style" : "none",
-							"line_style" : "lines",
-							"number_style" : "none",
-							"filter" : "none",
-							"domain_start" : 0.0,
-							"domain_end" : 1.0,
-							"domain_style" : "linear",
-							"domain_markers" : [ 0.0 ],
-							"domain_labels" : [ 0.0, "" ],
-							"range_start" : 0.0,
-							"range_end" : 1.0,
-							"range_style" : "linear",
-							"range_markers" : [ 0.0 ],
-							"range_labels" : [  ],
-							"origin_x" : 0.0,
-							"origin_y" : 0.0
-						}
-, 						{
-							"color" : [ 0.693333, 0.88, 0.32, 1.0 ],
-							"thickness" : 0.0,
-							"point_style" : "none",
-							"line_style" : "lines",
-							"number_style" : "none",
-							"filter" : "none",
-							"domain_start" : 0.0,
-							"domain_end" : 1.0,
-							"domain_style" : "linear",
-							"domain_markers" : [ 0.0 ],
-							"domain_labels" : [ 0.0, "" ],
-							"range_start" : 0.0,
-							"range_end" : 1.0,
-							"range_style" : "linear",
-							"range_markers" : [ 0.0 ],
-							"range_labels" : [  ],
-							"origin_x" : 0.0,
-							"origin_y" : 0.0
-						}
-, 						{
-							"color" : [ 0.506667, 0.88, 0.32, 1.0 ],
-							"thickness" : 0.0,
-							"point_style" : "none",
-							"line_style" : "lines",
-							"number_style" : "none",
-							"filter" : "none",
-							"domain_start" : 0.0,
-							"domain_end" : 1.0,
-							"domain_style" : "linear",
-							"domain_markers" : [ 0.0 ],
-							"domain_labels" : [ 0.0, "" ],
-							"range_start" : 0.0,
-							"range_end" : 1.0,
-							"range_style" : "linear",
-							"range_markers" : [ 0.0 ],
-							"range_labels" : [  ],
-							"origin_x" : 0.0,
-							"origin_y" : 0.0
-						}
-, 						{
-							"color" : [ 0.32, 0.88, 0.32, 1.0 ],
-							"thickness" : 0.0,
-							"point_style" : "none",
-							"line_style" : "lines",
-							"number_style" : "none",
-							"filter" : "none",
-							"domain_start" : 0.0,
-							"domain_end" : 1.0,
-							"domain_style" : "linear",
-							"domain_markers" : [ 0.0 ],
-							"domain_labels" : [ 0.0, "" ],
-							"range_start" : 0.0,
-							"range_end" : 1.0,
-							"range_style" : "linear",
-							"range_markers" : [ 0.0 ],
-							"range_labels" : [  ],
-							"origin_x" : 0.0,
-							"origin_y" : 0.0
-						}
-, 						{
-							"color" : [ 0.32, 0.88, 0.506667, 1.0 ],
-							"thickness" : 0.0,
-							"point_style" : "none",
-							"line_style" : "lines",
-							"number_style" : "none",
-							"filter" : "none",
-							"domain_start" : 0.0,
-							"domain_end" : 1.0,
-							"domain_style" : "linear",
-							"domain_markers" : [ 0.0 ],
-							"domain_labels" : [ 0.0, "" ],
-							"range_start" : 0.0,
-							"range_end" : 1.0,
-							"range_style" : "linear",
-							"range_markers" : [ 0.0 ],
-							"range_labels" : [  ],
-							"origin_x" : 0.0,
-							"origin_y" : 0.0
-						}
-, 						{
-							"color" : [ 0.32, 0.88, 0.693333, 1.0 ],
-							"thickness" : 0.0,
-							"point_style" : "none",
-							"line_style" : "lines",
-							"number_style" : "none",
-							"filter" : "none",
-							"domain_start" : 0.0,
-							"domain_end" : 1.0,
-							"domain_style" : "linear",
-							"domain_markers" : [ 0.0 ],
-							"domain_labels" : [ 0.0, "" ],
-							"range_start" : 0.0,
-							"range_end" : 1.0,
-							"range_style" : "linear",
-							"range_markers" : [ 0.0 ],
-							"range_labels" : [  ],
-							"origin_x" : 0.0,
-							"origin_y" : 0.0
-						}
-, 						{
-							"color" : [ 0.32, 0.88, 0.88, 1.0 ],
-							"thickness" : 0.0,
-							"point_style" : "none",
-							"line_style" : "lines",
-							"number_style" : "none",
-							"filter" : "none",
-							"domain_start" : 0.0,
-							"domain_end" : 1.0,
-							"domain_style" : "linear",
-							"domain_markers" : [ 0.0 ],
-							"domain_labels" : [ 0.0, "" ],
-							"range_start" : 0.0,
-							"range_end" : 1.0,
-							"range_style" : "linear",
-							"range_markers" : [ 0.0 ],
-							"range_labels" : [  ],
-							"origin_x" : 0.0,
-							"origin_y" : 0.0
-						}
-, 						{
-							"color" : [ 0.32, 0.693333, 0.88, 1.0 ],
-							"thickness" : 0.0,
-							"point_style" : "none",
-							"line_style" : "lines",
-							"number_style" : "none",
-							"filter" : "none",
-							"domain_start" : 0.0,
-							"domain_end" : 1.0,
-							"domain_style" : "linear",
-							"domain_markers" : [ 0.0 ],
-							"domain_labels" : [ 0.0, "" ],
-							"range_start" : 0.0,
-							"range_end" : 1.0,
-							"range_style" : "linear",
-							"range_markers" : [ 0.0 ],
-							"range_labels" : [  ],
-							"origin_x" : 0.0,
-							"origin_y" : 0.0
-						}
-, 						{
-							"color" : [ 0.32, 0.506667, 0.88, 1.0 ],
-							"thickness" : 0.0,
-							"point_style" : "none",
-							"line_style" : "lines",
-							"number_style" : "none",
-							"filter" : "none",
-							"domain_start" : 0.0,
-							"domain_end" : 1.0,
-							"domain_style" : "linear",
-							"domain_markers" : [ 0.0 ],
-							"domain_labels" : [ 0.0, "" ],
-							"range_start" : 0.0,
-							"range_end" : 1.0,
-							"range_style" : "linear",
-							"range_markers" : [ 0.0 ],
-							"range_labels" : [  ],
-							"origin_x" : 0.0,
-							"origin_y" : 0.0
-						}
-, 						{
-							"color" : [ 0.32, 0.32, 0.88, 1.0 ],
-							"thickness" : 0.0,
-							"point_style" : "none",
-							"line_style" : "lines",
-							"number_style" : "none",
-							"filter" : "none",
-							"domain_start" : 0.0,
-							"domain_end" : 1.0,
-							"domain_style" : "linear",
-							"domain_markers" : [ 0.0 ],
-							"domain_labels" : [ 0.0, "" ],
-							"range_start" : 0.0,
-							"range_end" : 1.0,
-							"range_style" : "linear",
-							"range_markers" : [ 0.0 ],
-							"range_labels" : [  ],
-							"origin_x" : 0.0,
-							"origin_y" : 0.0
-						}
-, 						{
-							"color" : [ 0.506667, 0.32, 0.88, 1.0 ],
-							"thickness" : 0.0,
-							"point_style" : "none",
-							"line_style" : "lines",
-							"number_style" : "none",
-							"filter" : "none",
-							"domain_start" : 0.0,
-							"domain_end" : 1.0,
-							"domain_style" : "linear",
-							"domain_markers" : [ 0.0 ],
-							"domain_labels" : [ 0.0, "" ],
-							"range_start" : 0.0,
-							"range_end" : 1.0,
-							"range_style" : "linear",
-							"range_markers" : [ 0.0 ],
-							"range_labels" : [  ],
-							"origin_x" : 0.0,
-							"origin_y" : 0.0
-						}
-, 						{
-							"color" : [ 0.693333, 0.32, 0.88, 1.0 ],
-							"thickness" : 0.0,
-							"point_style" : "none",
-							"line_style" : "lines",
-							"number_style" : "none",
-							"filter" : "none",
-							"domain_start" : 0.0,
-							"domain_end" : 1.0,
-							"domain_style" : "linear",
-							"domain_markers" : [ 0.0 ],
-							"domain_labels" : [ 0.0, "" ],
-							"range_start" : 0.0,
-							"range_end" : 1.0,
-							"range_style" : "linear",
-							"range_markers" : [ 0.0 ],
-							"range_labels" : [  ],
-							"origin_x" : 0.0,
-							"origin_y" : 0.0
-						}
-, 						{
-							"color" : [ 0.88, 0.32, 0.88, 1.0 ],
-							"thickness" : 0.0,
-							"point_style" : "none",
-							"line_style" : "lines",
-							"number_style" : "none",
-							"filter" : "none",
-							"domain_start" : 0.0,
-							"domain_end" : 1.0,
-							"domain_style" : "linear",
-							"domain_markers" : [ 0.0 ],
-							"domain_labels" : [ 0.0, "" ],
-							"range_start" : 0.0,
-							"range_end" : 1.0,
-							"range_style" : "linear",
-							"range_markers" : [ 0.0 ],
-							"range_labels" : [  ],
-							"origin_x" : 0.0,
-							"origin_y" : 0.0
-						}
- ]
 				}
 
 			}
@@ -846,6 +634,13 @@
 			}
 , 			{
 				"box" : 				{
+					"bgfillcolor_angle" : 270.0,
+					"bgfillcolor_autogradient" : 0.0,
+					"bgfillcolor_color" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
+					"bgfillcolor_color1" : [ 0.65098, 0.666667, 0.662745, 0.0 ],
+					"bgfillcolor_color2" : [ 0.290196, 0.309804, 0.301961, 0.0 ],
+					"bgfillcolor_proportion" : 0.39,
+					"bgfillcolor_type" : "gradient",
 					"id" : "obj-29",
 					"items" : "<empty>",
 					"maxclass" : "umenu",
@@ -855,7 +650,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 1274.5, 644.5, 116.0, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 90.5, 171.5, 267.0, 22.0 ],
+					"presentation_rect" : [ 201.5, 138.5, 153.0, 22.0 ],
 					"style" : ""
 				}
 
@@ -1349,6 +1144,399 @@
 			}
 , 			{
 				"box" : 				{
+					"id" : "obj-81",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 433.0, 190.076904, 57.0, 22.0 ],
+					"style" : "",
+					"text" : "buddy"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-72",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 433.0, 153.076904, 57.0, 22.0 ],
+					"style" : "",
+					"text" : "zl slice 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"attr" : "numplots",
+					"id" : "obj-31",
+					"maxclass" : "attrui",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1227.0, 453.0, 150.0, 22.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"attr" : "gridcolor",
+					"id" : "obj-61",
+					"maxclass" : "attrui",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 900.633362, 378.0, 150.0, 22.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bgcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+					"fontname" : "Helvetica Neue",
+					"fontsize" : 14.0,
+					"gridcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"gridorigincolor" : [ 0.0, 0.0, 0.0, 0.0 ],
+					"id" : "obj-49",
+					"maxclass" : "plot~",
+					"numinlets" : 16,
+					"numoutlets" : 1,
+					"numplots" : 16,
+					"numpoints" : 5,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 394.5, 885.0, 413.0, 115.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 3.0, 2.0, 361.0, 136.5 ],
+					"subplots" : [ 						{
+							"color" : [ 0.88, 0.32, 0.32, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.88, 0.506667, 0.32, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.88, 0.693333, 0.32, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.88, 0.88, 0.32, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.693333, 0.88, 0.32, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.506667, 0.88, 0.32, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.32, 0.88, 0.32, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.32, 0.88, 0.506667, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.32, 0.88, 0.693333, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.32, 0.88, 0.88, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.32, 0.693333, 0.88, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.32, 0.506667, 0.88, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.32, 0.32, 0.88, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.506667, 0.32, 0.88, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.693333, 0.32, 0.88, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+, 						{
+							"color" : [ 0.88, 0.32, 0.88, 1.0 ],
+							"thickness" : 0.0,
+							"point_style" : "none",
+							"line_style" : "lines",
+							"number_style" : "none",
+							"filter" : "none",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0 ],
+							"domain_labels" : [ 0.0, "" ],
+							"range_start" : 0.0,
+							"range_end" : 1.0,
+							"range_style" : "linear",
+							"range_markers" : [ 0.0 ],
+							"range_labels" : [  ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+ ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"bgcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"fontname" : "Helvetica Neue",
 					"fontsize" : 12.0,
@@ -1363,7 +1551,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 756.0, 570.0, 413.0, 153.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 8.0, 5.0, 361.0, 174.0 ],
+					"presentation_rect" : [ 3.0, 4.0, 361.0, 136.5 ],
 					"subplots" : [ 						{
 							"color" : [ 0.88, 0.32, 0.32, 1.0 ],
 							"thickness" : 2.0,
@@ -1690,58 +1878,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-81",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 433.0, 190.076904, 57.0, 22.0 ],
-					"style" : "",
-					"text" : "buddy"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-72",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 433.0, 153.076904, 57.0, 22.0 ],
-					"style" : "",
-					"text" : "zl slice 1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"attr" : "numplots",
-					"id" : "obj-31",
-					"maxclass" : "attrui",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1227.0, 453.0, 150.0, 22.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"attr" : "gridcolor",
-					"id" : "obj-61",
-					"maxclass" : "attrui",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 900.633362, 378.0, 150.0, 22.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"angle" : 0.0,
 					"bgcolor" : [ 0.094118, 0.113725, 0.137255, 0.21 ],
 					"border" : 1,
@@ -1753,10 +1889,23 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 711.5, 343.0, 120.0, 120.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 8.0, 6.5, 361.0, 196.0 ],
+					"presentation_rect" : [ 3.0, 2.0, 361.0, 163.0 ],
 					"proportion" : 0.39,
 					"rounded" : 16,
 					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-90",
+					"linecolor" : [ 0.349151, 0.377564, 0.442529, 1.0 ],
+					"maxclass" : "live.line",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 2094.0, 625.0, 5.0, 18.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 215.405151, 137.5, 134.454361, 18.0 ]
 				}
 
 			}
@@ -1820,6 +1969,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-75", 0 ],
 					"source" : [ "obj-15", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-70", 0 ],
+					"source" : [ "obj-155", 0 ]
 				}
 
 			}
@@ -2503,6 +2659,22 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-70", 1 ],
+					"order" : 1,
+					"source" : [ "obj-66", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-74", 0 ],
+					"order" : 0,
+					"source" : [ "obj-66", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-26", 0 ],
 					"midpoints" : [ 675.5, 337.288452, 573.5, 337.288452 ],
 					"order" : 0,
@@ -2550,6 +2722,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-64", 0 ],
+					"source" : [ "obj-70", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-81", 0 ],
 					"source" : [ "obj-72", 1 ]
 				}
@@ -2574,6 +2753,23 @@
 				"patchline" : 				{
 					"destination" : [ "obj-17", 0 ],
 					"source" : [ "obj-75", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-22", 1 ],
+					"midpoints" : [ 243.75, 83.0, 125.333313, 83.0 ],
+					"order" : 1,
+					"source" : [ "obj-77", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-87", 0 ],
+					"order" : 0,
+					"source" : [ "obj-77", 0 ]
 				}
 
 			}
@@ -2793,7 +2989,20 @@
 				}
 
 			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-82", 1 ],
+					"midpoints" : [ 243.75, 178.115357, 120.333313, 178.115357 ],
+					"source" : [ "obj-87", 0 ]
+				}
+
+			}
  ],
+		"parameters" : 		{
+			"obj-66" : [ "tiny[1]", "n", 0 ],
+			"obj-155" : [ "tiny", "dim", 0 ]
+		}
+,
 		"dependency_cache" : [  ],
 		"autosave" : 0,
 		"styles" : [ 			{

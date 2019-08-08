@@ -18,7 +18,8 @@ parser.add_argument('--in_port',    type=int,   default=1234)
 parser.add_argument('--out_port',   type=int,   default=1235)
 parser.add_argument('--ip',         type=str,   default="127.0.0.1")
 # Model arguments
-parser.add_argument('--model',      type=str,   default="results/32par/vae_flow_mel_mse_cnn_mlp_iaf_1.model")
+parser.add_argument('--model_path', type=str,   default="results/")
+parser.add_argument('--model_name', type=str,   default="vae_flow_mel_mse_cnn_mlp_iaf_1.model")
 # Data arguments
 parser.add_argument('--path',       type=str,   default='/Users/esling/Datasets/diva_dataset', help='')
 parser.add_argument('--dataset',    type=str,   default='32par', help='')
@@ -37,6 +38,7 @@ Load model
 ###################
 """
 model = None
+args.model = args.model_path + args.dataset + '/' + args.model_name
 if args.model:
     model = torch.load(args.model, map_location="cpu")
     model = model.eval()
@@ -77,12 +79,9 @@ audioset = [train_loader, valid_loader, test_loader]
 with open("synth/diva_params.txt") as f:
     diva_midi_desc = ast.literal_eval(f.read())
 rev_idx = {diva_midi_desc[key]: key for key in diva_midi_desc}
-if args.dataset == "toy":
-    with open("synth/param_nomod.json") as f:
-        params_default = json.load(f)
-if args.dataset == "32par":
-    with open("synth/param_default_32.json") as f:
-        params_default = json.load(f)
+# Retrieve dataset parameters
+with open("synth/param_default_32.json") as f:
+    params_default = json.load(f)
 param_dict = params_default
 param_names = test_loader.dataset.final_params
 print('[Reference set on which model was trained]')
@@ -128,7 +127,7 @@ else:
 Create server
 ###################
 """
-server = FlowServer(args.in_port, args.out_port, model=model, dataset=audioset, data=args.data, param_names=param_names, param_dict=param_dict, analysis=model_analysis, debug=__DEBUG__)
+server = FlowServer(args.in_port, args.out_port, model=model, dataset=audioset, data=args.data, param_names=param_names, param_dict=param_dict, analysis=model_analysis, debug=__DEBUG__, args=args)
 #%%
 if (__DEBUG__):
     # Test pitch analysis

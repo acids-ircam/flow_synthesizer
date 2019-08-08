@@ -68,10 +68,9 @@ class OSCServer(object):
         
     def send(self, address, content):
         '''global method to send a message'''
-        if (self.debug):
-            print('Sending following message')
-            print(address)
-            print(content)
+        print('Sending following message')
+        print(address)
+        print(content)
         self.client.send_message(address, content)
 
     def print(self, *args):
@@ -156,6 +155,7 @@ class FlowServer(OSCServer):
         self.param_dict = kwargs.get('param_dict')
         self.data = kwargs.get('data')
         self.analysis = kwargs.get('analysis')
+        self.args = kwargs.get('args')
         self.freeze_mode = False
         self.pitch_shift = True
         self.pitch_octave = False
@@ -166,11 +166,13 @@ class FlowServer(OSCServer):
         self.get_state()
         self.send_ref_params()
         self.send_model_params()
+        self.send_params_nb()
         self.print('Server is ready.')
 
     def init_bindings(self, osc_attributes=[]):
         super(FlowServer, self).init_bindings(self.osc_attributes)
         self.dispatcher.map('/set_model', osc_parse(self.set_model))
+        self.dispatcher.map('/set_dataset', osc_parse(self.set_dataset))
         self.dispatcher.map('/dimension_analysis', osc_parse(self.dimension_analysis))
         self.dispatcher.map('/preset_space', osc_parse(self.preset_space))
         self.dispatcher.map('/load_preset', osc_parse(self.load_preset))
@@ -198,6 +200,12 @@ class FlowServer(OSCServer):
             out_list.append(k)
         # Handle variables
         self.send('/model_params', out_list)
+        
+    def send_params_nb(self):
+        # Infer number of parameters
+        n_params = len(self.param_names)
+        # Handle variables
+        self.send('/params_nb', n_params)
         
     def dimension_analysis(self, idx, n_dims):
         real_d = self.analysis['d_idx'][idx]
@@ -240,9 +248,19 @@ class FlowServer(OSCServer):
             out_list.append(float(params[p]))
         # Handle variables
         self.send('/params', out_list)
+        cur_z = self.analysis['final_z'][l_idx[2]]
         if (self.freeze_mode):
-            self.prev_z = torch.Tensor(1, params.shape[0])
-            self.prev_z[0] = params
+            self.prev_z = torch.Tensor(1, cur_z.shape[0])
+            self.prev_z[0] = cur_z
+            print(self.prev_z[0])
+        # Resend full z position
+        out_list = []
+        # Create dict out of params
+        for p in range(cur_z.shape[0]):
+            out_list.append('x%d'%(p))
+            out_list.append(float(cur_z[self.analysis['d_idx'][p]]))
+        # Handle variables
+        self.send('/z_pos', out_list)
         
     # model attributes
     def getmodel(self):
@@ -272,8 +290,23 @@ class FlowServer(OSCServer):
             m_name = 'wae'
             regress = 'mlp'
         m_path = 'results/' + m_name + '_' + data + '_mse_cnn_' + regress + '_' + str(beta) + '.model'
-        self.print('loading model %s...'%m_path)
+        self.args.model_path = m_path
+        self.print('Loading model.')
         self._model = torch.load(m_path, map_location='cpu')
+        self.get_state()
+    
+    def set_dataset(self, model, data, params):
+        dataset = str(params) + 'par'
+        self.print('Loading dataset.')
+        self.args.dataset = dataset
+        self.args.data = data
+        ref_split = self.args.path + '/reference_split_' + dataset + "_" + data + '.npz'
+        data = np.load(ref_split)['arr_0']
+        train_loader, valid_loader, test_loader = data[0], data[1], data[2]
+        self.dataset = [train_loader, valid_loader, test_loader]
+        m_path = self.args.model_path + args.dataset + '/' + args.model_name
+        self._model = torch.load(m_path, map_location='cpu')
+        self.send_params_nb()
         self.get_state()
 
     model = property(getmodel, setmodel, delmodel, "vae model attached to server")
@@ -311,6 +344,7 @@ class FlowServer(OSCServer):
                  'regression_dims': regression_dims}
         state_str = dict2str(state)
         self.send('/state', state_str)
+        self.print('Server is ready.')
         return state
 
     def transform_wave(self, wave):
@@ -400,10 +434,13 @@ class FlowServer(OSCServer):
             self.send('/target_pitch', 60)
 
     def decode(self, x, y, d1, d2):
+        print('Decoding point at d%d:%f - d%d:%f'%(d1, x, d2, y))
         # Create vector for latent point
         z_point = torch.zeros(1, self._model.latent_dims)
         if (self.freeze_mode and (self.prev_z is not None)):
             z_point = self.prev_z
+            print('Reusing point:')
+            print(z_point)
         z_point[0, self.analysis['d_idx'][d1]] = x
         z_point[0, self.analysis['d_idx'][d2]] = y
         # Perform regression on params
