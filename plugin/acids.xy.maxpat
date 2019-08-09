@@ -91,18 +91,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-66",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 568.0, 457.5, 75.0, 22.0 ],
-					"style" : "",
-					"text" : "print pos_xy"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-64",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -1900,14 +1888,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-66", 0 ],
-					"order" : 2,
-					"source" : [ "obj-59", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-195", 3 ],
 					"midpoints" : [ 434.5, 331.5, 101.5, 331.5 ],
 					"order" : 2,
@@ -2007,13 +1987,13 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-157" : [ "also[1]", "x", 0 ],
 			"obj-32" : [ "pictslider[1]", "pictslider", 0 ],
 			"obj-28" : [ "Map[4]", "Map", 0 ],
-			"obj-6" : [ "also[2]", "y", 0 ],
+			"obj-157" : [ "also[1]", "x", 0 ],
 			"obj-13" : [ "also[3]", "y", 0 ],
-			"obj-22" : [ "Map[3]", "Map", 0 ],
+			"obj-6" : [ "also[2]", "y", 0 ],
 			"obj-192" : [ "pictslider", "pictslider", 0 ],
+			"obj-22" : [ "Map[3]", "Map", 0 ],
 			"obj-14" : [ "also[4]", "x", 0 ]
 		}
 ,
@@ -2032,14 +2012,7 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "snowflake.png",
-				"bootpath" : "~/Coding/git/acids/flow_synthesizer/plugin/graphics/icons_white_50",
-				"patcherrelativepath" : "./graphics/icons_white_50",
-				"type" : "PNG ",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "expand.png",
+				"name" : "resume-button.png",
 				"bootpath" : "~/Coding/git/acids/flow_synthesizer/plugin/graphics/icons_white_50",
 				"patcherrelativepath" : "./graphics/icons_white_50",
 				"type" : "PNG ",

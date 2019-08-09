@@ -166,7 +166,7 @@ def evaluate_semantic_parameters(model, test_loader, args, train=False, name=Non
 Dimensions evaluation for AE models
 ###################
 """
-def evaluate_dimensions(model, test_loader, n_steps = 50, pos=[-1, 0, 1]):
+def evaluate_dimensions(model, pca, args, n_steps = 50, pos=[-1, 0, 1]):
     print('[Evaluate latent dimensions.]')
     latent_dims = model.ae_model.latent_dims
     latent_variances = np.zeros((latent_dims, latent_dims))
@@ -177,6 +177,8 @@ def evaluate_dimensions(model, test_loader, n_steps = 50, pos=[-1, 0, 1]):
         print('   - Dimension ' + str(l))
         fake_batch = torch.zeros(n_steps, latent_dims)
         fake_batch[:, l] = var_z
+        if (len(args.projection) > 0):
+            fake_batch = torch.Tensor(pca.inverse_transform(fake_batch))
         # Generate VAE outputs
         x_tilde_full = model.ae_model.decode(fake_batch)
         # Perform regression
@@ -206,7 +208,7 @@ def evaluate_dimensions(model, test_loader, n_steps = 50, pos=[-1, 0, 1]):
 Dataset evaluation for AE models
 ###################
 """
-def evaluate_dataset(model, loaders):
+def evaluate_dataset(model, loaders, args):
     print('[Evaluate dataset]')
     final_params = []
     final_z_space = []
@@ -230,11 +232,19 @@ def evaluate_dataset(model, loaders):
     z_vars = final_z_space.std(dim = 0)
     z_means = final_z_space.mean(dim = 0)
     # Create PCA 
-    pca = decomposition.PCA()
+    pca = None, None
+    if (args.projection == 'pca'):
+        pca = decomposition.PCA()
+    elif (args.projection == 'ica'):
+        pca = decomposition.FastICA()
     # Fit it
-    pca.fit(final_z_space)
-    X = pca.transform(final_z_space)
-    return X, final_z_space, final_meta, pca, z_vars, z_means
+    if (len(args.projection) > 0):
+        print('[Computing projection]')
+        pca.fit(final_z_space)
+        final_z_space = pca.transform(final_z_space)
+    else:
+        print('[No projection required]')
+    return final_z_space, final_meta, pca, z_vars, z_means
 
 """
 ###################

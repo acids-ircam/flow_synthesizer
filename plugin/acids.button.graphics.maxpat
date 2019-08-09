@@ -160,9 +160,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1118.0, 620.0, 133.0, 22.0 ],
+					"patching_rect" : [ 1118.0, 620.0, 119.0, 22.0 ],
 					"style" : "",
-					"text" : "store plot 0.95 plot.png"
+					"text" : "store plot 1. plot.png"
 				}
 
 			}

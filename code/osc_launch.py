@@ -22,13 +22,14 @@ parser.add_argument('--model_path', type=str,   default="results/")
 parser.add_argument('--model_name', type=str,   default="vae_flow_mel_mse_cnn_mlp_iaf_1.model")
 # Data arguments
 parser.add_argument('--path',       type=str,   default='/Users/esling/Datasets/diva_dataset', help='')
-parser.add_argument('--dataset',    type=str,   default='32par', help='')
-parser.add_argument('--train_type', type=str,   default='fixed', help='')
-parser.add_argument('--data',       type=str,   default='mel', help='')
-parser.add_argument('--batch_size', type=int,   default=128, help='')
-parser.add_argument('--nbworkers',  type=int,   default=0, help='')
-parser.add_argument('--reanalyze',  type=int,   default=0, help='')
-parser.add_argument('--device',     type=str,   default='cpu', help='')
+parser.add_argument('--dataset',    type=str,   default='32par',    help='')
+parser.add_argument('--train_type', type=str,   default='fixed',    help='')
+parser.add_argument('--data',       type=str,   default='mel',      help='')
+parser.add_argument('--projection', type=str,   default='pca',      help='')
+parser.add_argument('--batch_size', type=int,   default=128,        help='')
+parser.add_argument('--nbworkers',  type=int,   default=0,          help='')
+parser.add_argument('--reanalyze',  type=int,   default=0,          help='')
+parser.add_argument('--device',     type=str,   default='cpu',      help='')
 args = parser.parse_args()
 
 #%%
@@ -93,19 +94,26 @@ print(param_names)
 Perform model pre-analysis
 ###################
 """ 
-if (not os.path.exists(args.model.replace('.model', '.analysis') + '.npy') or args.reanalyze):
-    # Perform dimension evaluation    
-    d_idx, d_vars, d_params, d_desc, desc_max =  evaluate_dimensions(model, test_loader)
+# Target file of analysis
+analysis_file = args.model.replace('.model', '.analysis')
+# Target dataset
+dataset_file = args.model.replace('.model', '.dataset')
+if (len(args.projection) > 0):
+    analysis_file += '.' + args.projection
+    dataset_file += '.' + args.projection
+# Create analysis files
+if (not os.path.exists(analysis_file + '.npy') or args.reanalyze):
     # Perform dataset evaluation
-    z_trans, final_z, final_meta, pca, z_vars, z_means = evaluate_dataset(model, [train_loader, valid_loader, test_loader])
-    # Save information s
+    final_z, final_meta, pca, z_vars, z_means = evaluate_dataset(model, [train_loader, valid_loader, test_loader], args)
+    # Perform dimension evaluation    
+    d_idx, d_vars, d_params, d_desc, desc_max =  evaluate_dimensions(model, pca, args)
+    # Save information
     model_analysis = {
      'd_idx':d_idx, 
      'd_vars':d_vars, 
      'd_params':d_params, 
      'd_desc':d_desc, 
      'desc_max':desc_max,
-     'z_trans':z_trans, 
      'final_z':final_z,
      'final_meta':final_meta, 
      'pca':pca, 
@@ -113,9 +121,9 @@ if (not os.path.exists(args.model.replace('.model', '.analysis') + '.npy') or ar
      'z_means':z_means
      }
     # Generate offline presets dataset
-    model_analysis = generate_dataset(args.model.replace('.model', '_dataset.txt'), [train_loader, valid_loader, test_loader], model_analysis)
+    model_analysis = generate_dataset(dataset_file + '.txt', [train_loader, valid_loader, test_loader], model_analysis)
     # Keep path to the model dataset
-    model_analysis['dataset_path'] = args.model.replace('.model', '_dataset.txt')
+    model_analysis['dataset_path'] = dataset_file + '.txt'
     # Save the whole analysis
     np.save(args.model.replace('.model', '.analysis'), model_analysis)
 else:
