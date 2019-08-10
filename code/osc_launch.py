@@ -125,9 +125,9 @@ if (not os.path.exists(analysis_file + '.npy') or args.reanalyze):
     # Keep path to the model dataset
     model_analysis['dataset_path'] = dataset_file + '.txt'
     # Save the whole analysis
-    np.save(args.model.replace('.model', '.analysis'), model_analysis)
+    np.save(analysis_file, model_analysis)
 else:
-    model_analysis = np.load(args.model.replace('.model', '.analysis') + '.npy').item()
+    model_analysis = np.load(analysis_file + '.npy').item()
 
 #%%
 """

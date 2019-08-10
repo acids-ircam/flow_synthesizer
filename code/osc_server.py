@@ -159,7 +159,8 @@ class FlowServer(OSCServer):
         self.param_names = kwargs.get('param_names')
         self.param_dict = kwargs.get('param_dict')
         self.analysis = kwargs.get('analysis')
-        self.pca = kwargs.get('analysis')['pca']
+        self.pca = self.analysis['pca']
+        print(self.pca)
         # Options flags
         self.freeze_mode = False
         self.pitch_shift = True
@@ -434,9 +435,10 @@ class FlowServer(OSCServer):
             loaded = np.load(cur_file)
             params = loaded['param'].item()
             params = torch.Tensor([params[p] for p in self.param_names])
-            self.preset_path.append(cur_z)
+            self.preset_path.append(params)
     
     def play_path(self, cur_p):
+        print('Path at ratio : %f'%(cur_p))
         """ Retrieve parameters on the path at a given ratio (between 0 and 1) """
         if ((len(self.preset_path) == 0) and (len(self.free_path) == 0)):
             return
@@ -445,13 +447,14 @@ class FlowServer(OSCServer):
         if (len(self.free_path) > 0):
             cur_path = self.free_path
         # First infer positions
-        val = cur_p * float(len(cur_path))
+        val = cur_p * float(len(cur_path) - 1)
         val_inf = int(np.floor(val))
         val_sup = val_inf + 1
         if (val_sup >= len(cur_path)):
             val_sup = val_inf
         # Then evaluate position in range
         cur_ratio = val - float(val_inf)
+        print('Values used : %d - %d (%d) - %f'%(val_inf, val_sup, len(cur_path), cur_ratio))
         z_start = cur_path[val_inf]
         z_end = cur_path[val_sup]
         cur_z = ((1. - cur_ratio) * z_start + cur_ratio * z_end).unsqueeze(0)
@@ -579,7 +582,7 @@ class FlowServer(OSCServer):
             out_list.append(float(out[0, p]))
         # Eventually project to PCA space
         if (self.pca is not None):
-            z_tilde = torch.Tensor(self.pca.transform(z_tilde))
+            z_tilde = torch.Tensor(self.pca.transform(z_tilde.detach()))
         # Handle variables
         self.send('/params', out_list)
         if (self.freeze_mode):

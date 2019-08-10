@@ -232,7 +232,7 @@ def evaluate_dataset(model, loaders, args):
     z_vars = final_z_space.std(dim = 0)
     z_means = final_z_space.mean(dim = 0)
     # Create PCA 
-    pca = None, None
+    pca = None
     if (args.projection == 'pca'):
         pca = decomposition.PCA()
     elif (args.projection == 'ica'):
@@ -242,6 +242,7 @@ def evaluate_dataset(model, loaders, args):
         print('[Computing projection]')
         pca.fit(final_z_space)
         final_z_space = pca.transform(final_z_space)
+        final_z_space = torch.Tensor(final_z_space)
     else:
         print('[No projection required]')
     return final_z_space, final_meta, pca, z_vars, z_means
