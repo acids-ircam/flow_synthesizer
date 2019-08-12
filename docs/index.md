@@ -33,6 +33,8 @@ Our paper introduces a radically novel formulation of audio synthesizer control.
   * [Audio reconstruction](#audio-reconstruction)
   * [Macro-control learning](#macro-control-learning)
   * [Audio space interpolation](#audio-space-interpolation)
+  * [Parameters inference and generalization](#parameters-inference)
+  * [Semantic dimensions evaluation](#semantic-dimensions-evaluation)
   * [Vocal sketching](#vocal-sketching)
 
 **Code and implementation**
@@ -652,6 +654,26 @@ On the figure below, one can listen to the output and visualize the way spectogr
     </table>
 </div>
 
+
+## Parameters inference
+
+Here, we compare the accuracy of all models on *parameters inference* by computing the magnitude-normalized *Mean Square Error* ($$MSE_n$$) between predicted and original parameters values. We average these results across folds and report variance. We also evaluate the distance between the audio synthesized from inferred parameters and the original with the *Spectral Convergence* (SC) distance (magnitude-normalized Frobenius norm) and *MSE*. We provide evaluations for *16* and *32* parameters on the test set and an *out-of-domain* dataset in the following table.
+
+<img src="figures/results_models.png">
+
+In low parameters settings, baseline models seem to perform an accurate approximation of parameters, with the $$CNN$$ providing the best inference. Based on this criterion solely, our formulation would appear to provide only a marginal improvement, with $$VAE$$s even outperformed by baseline models and best results obtained by the $$WAE$$. However, analysis of the corresponding audio accuracy tells an entirely different story. Indeed, AEs approaches strongly outperform baseline models in audio accuracy, with the best results obtained by our proposed $$Flow_{reg}$$ (1-way ANOVA $$F=2.81$$, $$p<.003$$). These results show that, even though AE models do not provide an exact parameters approximation, they are able to account for the importance of these different parameters on the synthesized audio. This supports our original hypothesis that learning the latent space of synthesizer audio capabilities is a crucial component to understand its behavior. Finally, it appears that adding *disentangling flows* ($$Flow_{dis}$$) slightly impairs the audio accuracy. However, the model still outperform most approaches, while providing the huge benefit of explicit semantic macro-controls.
+
+*Increasing parameters complexity*. We evaluate the robustness of different models by increasing the number of parameters from 16 to 32. As we can see, the accuracy of baseline models is highly degraded, notably on audio reconstruction. Interestingly, the gap between parameter and audio accuracies is strongly increased. This seems logical as the relative importance of parameters in larger sets provoke stronger impacts on the resulting audio. Also, it should be noted that $$VAE*$$ models now outperform baselines even on parameters accuracy. Although our proposal also suffers from larger sets of parameters, it appears as the most resilient and manages this higher complexity. While the gap between AE variants is more pronounced, the *flows* strongly outperform all methods ($$F=8.13$$, $$p<.001$$).
+
+*Out-of-domain generalization*. We evaluate *out-of-domain generalization* with a set of audio samples produced by other synthesizers, orchestral instruments and voices, with the same audio evaluation. Here, the overall distribution of scores remains consistent with previous observations. However, it seems that the average error is quite high, indicating a potentially distant reconstruction of some examples. Upon closer listening, it seems that the models fail to reproduce natural sounds (voices, instruments) but perform well with sounds from other synthesizers. In both cases, our proposal accurately reproduces the temporal shape of target sounds, even if the timbre is somewhat distant.
+
+## Semantic dimensions evaluation
+
+Our proposed *disentangling flows* can steer the organization of selected latent dimensions so that they provide a separation of given tags. As this audio space is mapped to parameters through $$p(\mathbf{v}|\mathbf{z})$$, this turns the selected dimensions into *macro-parameters* with a clearly defined semantic meaning. To evaluate this, we analyze the behavior of corresponding latent dimensions, as depicted in the following figure.
+
+<img src="figures/meta_parameters_semantic.png">
+
+First, we can see the effect of disentangling flows on the latent space (left), which provide a separation of semantic pairs. We study the traversal of semantic dimensions while keeping all other fixed at $$\mathbf{0}$$ and infer parameters through $$p(\mathbf{v}|\mathbf{z})$$. We display the 6 parameters with highest variance and the resulting synthesized audio. As we can see, the semantic latent dimensions provide a very smooth evolution in terms of both parameters and synthesized audio. Interestingly, while the parameters evolution is smooth, it exhibits non-linear relationships between different parameters. This correlates with the intuition that there are complex interplays in parameters of a synthesizer. Regarding the effect of different semantic dimensions, it appears that the [*'Constant'*, *'Moving'*] pair provides a very intuitive result. Indeed, the synthesized sounds are mostly stationary in extreme negative values, but gradually incorporate clearly marked temporal modulations. Hence, our proposal appears successful to uncover *semantic macro-parameters* for a given synthesizer. However, the corresponding parameters are quite harder to interpret. The [*'Calm'*, *'Aggressive'*] dimension also provides an intuitive control starting from a sparse sound and increasingly adding modulation, resonance and noise. However, we note that the notion of '*Aggressive*' is highly subjective and requires finer analyses to be conclusive.
 
 ## Vocal sketching
 
