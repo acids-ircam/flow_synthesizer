@@ -2,6 +2,25 @@
 
 This repository hosts code and additional results for the paper "Universal audio synthesizer control with normalizing flows".
 
+## Installing the flow synthesizer plugin
+
+In order to try out the _Flow synthesizer_ plugin, you must 
+1. Have an installed version of the [Diva VST](https://u-he.com/products/diva/) (The system works with the free tryout version but will produce noise every now and then) 
+2. Have an updated version of `Python 3.7`
+3. Install the Python dependencies by running the following line at the root of this folder
+```bash
+$ pip install -r requirements.txt
+```
+4. Put the `flow_synth.amxd` device inside a MIDI track in `Ableton Live`
+5. If you want to ensure (and debug) what is going on from the server side run
+```bash
+$ cd code && python osc_launch.py
+```
+
+Note that the plugin has only been tested on MacOS X High Sierra (10.13.6)
+
+## Supporting webpage
+
 For a better viewing experience, please **visit the corresponding [supporting website](https://acids-ircam.github.io/flow_synthesizer/ "Flow synthesizer")**.
 
 It embeds the following:
