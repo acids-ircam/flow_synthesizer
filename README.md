@@ -6,7 +6,9 @@ This repository hosts code and additional results for the paper [Universal audio
 
 In order to try out the _Flow synthesizer_ plugin, you must 
 1. Have an installed version of the [Diva VST](https://u-he.com/products/diva/) (The system works with the free tryout version but will produce noise every now and then). For simplicity, please ensure that it is located here
-`/Library/Audio/Plug-Ins/VST/u-he/Diva.vst`
+```
+/Library/Audio/Plug-Ins/VST/u-he/Diva.vst
+```
 2. Have an updated version of `Python 3.7`
 3. Install the Python dependencies by running the following line at the root of this folder
 ```bash
