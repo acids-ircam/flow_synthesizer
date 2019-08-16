@@ -1,6 +1,6 @@
 # Universal audio synthesizer control with normalizing flows
 
-This repository hosts code and additional results for the paper "Universal audio synthesizer control with normalizing flows".
+This repository hosts code and additional results for the paper [Universal audio synthesizer control with normalizing flows](https://arxiv.org/abs/1907.00971)
 
 ## Installing the flow synthesizer plugin
 
@@ -12,7 +12,7 @@ In order to try out the _Flow synthesizer_ plugin, you must
 $ pip install -r requirements.txt
 ```
 4. Put the `flow_synth.amxd` device inside a MIDI track in `Ableton Live`
-5. If you want to ensure (and debug) what is going on from the server side run
+5. If the device seems non-responding, you can try to run the server manually
 ```bash
 $ cd code && python osc_launch.py
 ```
@@ -56,6 +56,8 @@ As our experiments are coded in PyTorch, no additional library is required to ru
 
 
 #### RenderMan
+
+For people interested in the research aspects of this repository, if you want to try new models or evaluate variations of the existing ones, you will need at one point to render the correponding audio. We rely on the great [RenderMan](https://github.com/fedden/RenderMan) library to batch generate audio output from synthesizer presets.
 
 ### Usage
 

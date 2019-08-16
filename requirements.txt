@@ -1,7 +1,9 @@
-numpy
-matplotlib
-torchvision
-torch
-scipy
+asyncio
 librosa
+matplotlib
+numpy
+python-osc
+scipy
+torch
+torchvision
 scikit_learn
