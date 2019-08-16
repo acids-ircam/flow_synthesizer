@@ -12,7 +12,10 @@ In order to try out the _Flow synthesizer_ plugin, you must
 $ pip install -r requirements.txt
 ```
 4. Put the `flow_synth.amxd` device inside a MIDI track in `Ableton Live`
-5. If the device seems non-responding, you can try to run the server manually
+5. ???
+6. Profit
+
+NB: If the device seems non-responding, you can try to run the server manually
 ```bash
 $ cd code && python osc_launch.py
 ```
@@ -67,6 +70,10 @@ The code is mostly divided into two scripts `train.py` and `evaluate.py`. The fi
 ```
 
 ```
+
+## Pre-trained models
+
+Note that a set of pre-trained models are availble in the `code/results`  folder.
 
 ### Models details
 
