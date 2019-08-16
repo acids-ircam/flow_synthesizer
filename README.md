@@ -14,7 +14,7 @@ In order to try out the _Flow synthesizer_ plugin, you must
 ```bash
 $ pip install -r requirements.txt
 ```
-4. Put the `flow_synth.amxd` device inside a MIDI track in `Ableton Live`
+4. Put the `plugin/flow_synth.amxd` device inside a MIDI track in `Ableton Live`
 5. ???
 6. Profit
 
