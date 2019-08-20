@@ -5,7 +5,6 @@ from torch import nn
 from torch import distributions as distrib
 from torch.distributions import MultivariateNormal, transforms as transform
 
-
 class Flow(transform.Transform, nn.Module):
 
     """
@@ -95,7 +94,7 @@ class NormalizingFlow(nn.Module):
             'input' : The parameters are external to the flow
     """
 
-    def __init__(self, dim, blocks, flow_length, density=None, amortized='none'):
+    def __init__(self, dim, blocks, flow_length, final_block=None, density=None, amortized='none'):
         """ Initialize normalizing flow """
         super().__init__()
         biject = []
@@ -113,6 +112,10 @@ class NormalizingFlow(nn.Module):
         cur_block = blocks[0](dim, amortized=amortized)
         self.n_params.append(cur_block.n_parameters())
         biject.append(cur_block)
+        if (final_block is not None):            
+            cur_block = final_block
+            self.n_params.append(cur_block.n_parameters())
+            biject.append(cur_block)
         # Full set of transforms
         self.transforms = transform.ComposeTransform(biject)
         self.bijectors = nn.ModuleList(biject)

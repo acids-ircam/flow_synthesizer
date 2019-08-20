@@ -9,6 +9,7 @@ import numpy as np
 # Flows library
 from models.flows.flow import NormalizingFlow, Flow
 from models.flows.layers import GaussianDiag, sum_dims
+from models.flows.activation import SigmoidFlow
 
 """
 ##########
@@ -76,6 +77,7 @@ class FlowPredictor(nn.Module):
         # Define type of flow
         self.flow = NormalizingFlow(
                 dim=latent_size, blocks=blocks, flow_length=flow_length,
+                final_block=SigmoidFlow(),
                 density=MultivariateNormal(torch.zeros(latent_size),
                 torch.eye(latent_size)), amortized=amortize)
         self.var_y = VariationalLambda(latent_size, eps_var, var_type)

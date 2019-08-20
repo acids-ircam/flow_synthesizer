@@ -17,6 +17,7 @@ import matplotlib.gridspec as gridspec
 from mpl_toolkits.mplot3d import Axes3D
 from sklearn import decomposition
 import librosa
+import glob
 
 """
 ###################
@@ -25,11 +26,6 @@ Compute descriptors for a batch of spectral representations
 """
 # Set of descriptors we will analyze
 descriptors = ['loudness', 'centroid', 'bandwidth', 'flatness', 'rolloff']
-descriptor_funcs = [librosa.feature.rmse, 
-         librosa.feature.spectral_centroid,
-         librosa.feature.spectral_flatness,
-         librosa.feature.spectral_bandwidth,
-         librosa.feature.spectral_rolloff]
 # Helper function to sample, synthesize and analyze a point in space
 def compute_descriptors(batch_mels):
     # Create descriptors matrix
@@ -38,9 +34,14 @@ def compute_descriptors(batch_mels):
     for b in range(batch_mels.shape[0]):
         cur_val = batch_mels[b]
         # Compute all descriptors
-        for d in range(len(descriptors)):
-            cur_val[cur_val < 0] = 0
-            out_desc[b, d] = descriptor_funcs[d](S = cur_val).mean()
+        try:
+            out_desc[b, 0] = librosa.feature.rmse(S = cur_val).mean()
+            out_desc[b, 1] = librosa.feature.spectral_centroid(S = cur_val).mean() / 1e4
+            out_desc[b, 2] = librosa.feature.spectral_flatness(S = cur_val).mean()
+            out_desc[b, 3] = librosa.feature.spectral_bandwidth(S = cur_val).mean() / 1e4
+            out_desc[b, 4] = librosa.feature.spectral_rolloff(S = cur_val).mean() / 1e4
+        except:
+            pass
     return out_desc
 
 def save_batch_audio(final_audio, name):
@@ -163,92 +164,6 @@ def evaluate_semantic_parameters(model, test_loader, args, train=False, name=Non
 
 """
 ###################
-Dimensions evaluation for AE models
-###################
-"""
-def evaluate_dimensions(model, pca, args, n_steps = 50, pos=[-1, 0, 1]):
-    print('[Evaluate latent dimensions.]')
-    latent_dims = model.ae_model.latent_dims
-    latent_variances = np.zeros((latent_dims, latent_dims))
-    latent_parameters = np.zeros((latent_dims, latent_dims, n_steps))
-    latent_descriptors = np.zeros((latent_dims, 5, n_steps))
-    var_z = torch.linspace(-4, 4, n_steps)
-    for l in range(latent_dims):
-        print('   - Dimension ' + str(l))
-        fake_batch = torch.zeros(n_steps, latent_dims)
-        fake_batch[:, l] = var_z
-        if (len(args.projection) > 0):
-            fake_batch = torch.Tensor(pca.inverse_transform(fake_batch))
-        # Generate VAE outputs
-        x_tilde_full = model.ae_model.decode(fake_batch)
-        # Perform regression
-        out = model.regression_model(fake_batch)
-        # Select parameters
-        latent_parameters[l, :, :] = out.detach().numpy().T
-        latent_variances[l, :] = out.std(dim=0).detach()
-        x_tilde_full = x_tilde_full[:,0]
-        # Compute descriptors
-        latent_descriptors[l] = compute_descriptors(x_tilde_full.detach().cpu().numpy()).T
-    # Now analyze each dimensions
-    latent_sort = np.argsort(np.mean(latent_variances, axis = 1))[::-1]
-    # Analyze each descriptor
-    descriptor_max = np.zeros(5)
-    for d in range(5):
-        descriptor_max[d] = np.max(latent_descriptors[:, d, :])
-        if (descriptor_max[d] == 0):
-            descriptor_max[d] = 1
-        latent_descriptors[:, d, :] = latent_descriptors[:, d, :] / descriptor_max[d]
-    # Reorder variances per dimension (for top parameters)
-    for l in range(latent_dims):
-        latent_variances[l, :] = np.argsort(latent_variances[l])[::-1]
-    return latent_sort, latent_variances, latent_parameters, latent_descriptors, descriptor_max
-
-"""
-###################
-Dataset evaluation for AE models
-###################
-"""
-def evaluate_dataset(model, loaders, args):
-    print('[Evaluate dataset]')
-    final_params = []
-    final_z_space = []
-    full_meta = []
-    for loader in loaders:
-        print('   - Projecting loader')
-        for (x, y, meta, _) in loader:
-            # Auto-encode
-            x_tilde, z_tilde, z_loss = model.ae_model(x)
-            #if (args.semantic_dim > -1):
-            #    z_tilde, _ = model.disentangling(z_tilde)
-            # Perform regression on params
-            out = model.regression_model(z_tilde)
-            final_z_space.append(z_tilde)
-            final_params.append(out)
-            full_meta.append(meta)
-    # Final space of all z points
-    final_z_space = torch.cat(final_z_space, dim = 0).detach().cpu()
-    final_meta = torch.cat(full_meta, dim = 0).detach().cpu()
-    # Compute variances of latent
-    z_vars = final_z_space.std(dim = 0)
-    z_means = final_z_space.mean(dim = 0)
-    # Create PCA 
-    pca = None
-    if (args.projection == 'pca'):
-        pca = decomposition.PCA()
-    elif (args.projection == 'ica'):
-        pca = decomposition.FastICA()
-    # Fit it
-    if (len(args.projection) > 0):
-        print('[Computing projection]')
-        pca.fit(final_z_space)
-        final_z_space = pca.transform(final_z_space)
-        final_z_space = torch.Tensor(final_z_space)
-    else:
-        print('[No projection required]')
-    return final_z_space, final_meta, pca, z_vars, z_means
-
-"""
-###################
 Meta-parameters evaluation for AE models
 ###################
 """
@@ -274,6 +189,12 @@ def evaluate_meta_parameters(model, test_loader, args, train=False, name=None, n
         x_tilde_full = model.ae_model.decode(fake_batch)
         # Perform regression
         out = model.regression_model(fake_batch)
+        if (args.loss in ['multinomial']):
+            tmp = out.view(out.shape[0], -1, latent_dims).max(dim=1)[1]
+            out = tmp.float() / (args.n_classes - 1.)
+        if (args.loss in ['multi_mse']):
+            out = out.view(out.shape[0], -1, latent_dims)
+            out = out[:, -1, :]
         # Select parameters
         var_param = out.std(dim=0)
         idx = torch.argsort(var_param, descending=True)
@@ -296,6 +217,12 @@ def evaluate_meta_parameters(model, test_loader, args, train=False, name=None, n
         # Reconstruct with the synth engine
         if (args.synthesize == True and train == False and ((var_param[idx[:5]].mean().item() > 0.15) or ((args.semantic_dim > -1) and (l == 0)))):
             out_batch = model.regression_model(fake_batch)
+            if (args.loss in ['multinomial']):
+                tmp = out_batch.view(out_batch.shape[0], -1, args.latent_dims).max(dim=1)[1]
+                out_batch = tmp.float() / (args.n_classes - 1.)
+            if (args.loss in ['multi_mse']):
+                out_batch = out_batch.view(out_batch.shape[0], -1, args.latent_dims)
+                out_batch = out_batch[:, -1, :]
             print('      - Generate audio for latent ' + str(l))
             from synth.synthesize import synthesize_batch
             audio = synthesize_batch(out_batch.cpu(), test_loader.dataset.final_params, args.engine, args.generator, args.param_defaults, args.rev_idx, orig_wave=None, name=None)
@@ -307,6 +234,12 @@ def evaluate_meta_parameters(model, test_loader, args, train=False, name=None, n
                 tmp_data = in_data[s].clone().unsqueeze(0).repeat(n_recons, 1)
                 tmp_data[:, l] = torch.linspace(-4, 4, n_recons)
                 tmp_data = model.regression_model(tmp_data)
+                if (args.loss in ['multinomial']):
+                    tmp = tmp_data.view(tmp_data.shape[0], -1, args.latent_dims).max(dim=1)[1]
+                    tmp_data = tmp.float() / (args.n_classes - 1.)
+                if (args.loss in ['multi_mse']):
+                    tmp_data = tmp_data.view(tmp_data.shape[0], -1, args.latent_dims)
+                    tmp_data = tmp_data[:, -1, :]
                 # Synthesize meta-modified test example :)                
                 audio = synthesize_batch(tmp_data.cpu(), test_loader.dataset.final_params, args.engine, args.generator, args.param_defaults, args.rev_idx, orig_wave=None, name=None)
                 save_batch_audio(audio, args.base_audio + '_meta_parameters_z' + str(l) + '_b' + str(s))
@@ -374,6 +307,12 @@ def evaluate_latent_neighborhood(model, test_loader, args, train=False, name=Non
             v_r = 0.5
             out1 = out[ids[i]] + (torch.randn(8, out.shape[1]) * v_r).to(args.device)
             out1 = model.regression_model(out1)
+            if (args.loss in ['multinomial']):
+                tmp = out1.view(out1.shape[0], -1, y.shape[1]).max(dim=1)[1]
+                out1 = tmp.float() / (args.n_classes - 1.)
+            if (args.loss in ['multi_mse']):
+                out1 = out1.view(out1.shape[0], -1, y.shape[1])
+                out1 = out1[:, -1, :]
             audio = synthesize_batch(out1.cpu(), test_loader.dataset.final_params, args.engine, args.generator, args.param_defaults, args.rev_idx, orig_wave=x_wave, name=None)
             save_batch_audio(audio, args.base_audio + '_neighbors_' + str(cur_batch) + '_p' + str(i))
             # Compute mel spectrograms
@@ -391,9 +330,16 @@ def evaluate_latent_neighborhood(model, test_loader, args, train=False, name=Non
             compare_batch_detailed(x[id_full].cpu(), y[id_full].cpu(), full_mels[:8].cpu().numpy(), out1[:8].detach().cpu(), None, x_wave[id_full].cpu(), audio[:8], name=args.base_img + '_neighbors_' + str(cur_batch) + '_' + str(i))
         # Create linear interpolation
         print('Perform interpolation')
-        outs = torch.zeros(8, out.shape[1])
+        outs = torch.zeros(8, len(test_loader.dataset.param_names))
         for e in range(8):
-            outs[e] = model.regression_model(((out[ids[0]] * ((7.0-e)/7.0)) + (out[ids[1]] * (e/7.0))).unsqueeze(0))[0]
+            outs_t = model.regression_model(((out[ids[0]] * ((7.0-e)/7.0)) + (out[ids[1]] * (e/7.0))).unsqueeze(0))
+            if (args.loss in ['multinomial']):
+                tmp = outs_t.view(outs_t.shape[0], -1, y.shape[1]).max(dim=1)[1]
+                outs_t = tmp.float() / (args.n_classes - 1.)
+            if (args.loss in ['multi_mse']):
+                outs_t = outs_t.view(outs_t.shape[0], -1, y.shape[1])
+                outs_t = outs_t[:, -1, :]
+            outs[e] = outs_t[0]
         # Compute mel spectrograms
         full_mels = []
         audio = synthesize_batch(outs.cpu(), test_loader.dataset.final_params, args.engine, args.generator, args.param_defaults, args.rev_idx, orig_wave=x_wave, name=None)
@@ -596,7 +542,7 @@ def evaluate_projection(model, test_loader, args, train=False, name=None, type_v
         if (args.synthesize == True):
             from synth.synthesize import synthesize_batch
             # Generate the test batch for comparison
-            audio = synthesize_batch(out.cpu(), test_loader.dataset.final_params, args.engine, args.generator, args.param_defaults, args.rev_idx, orig_wave=x_wave, name=args.base_audio + '_' + type_val + '_' + str(n_evals))
+            audio = synthesize_batch(out.cpu(), test_loader.dataset.final_params, args.engine, args.generator, args.param_defaults, args.rev_idx, orig_wave=x_wave, name=None)
             # Compute mel spectrogram
             for b in range(x.shape[0]):
                 _, mse, sc, lm, f_mel = spectral_losses(audio[b], x[b], test_loader, args, raw=True)
@@ -614,6 +560,49 @@ def evaluate_projection(model, test_loader, args, train=False, name=None, type_v
         np.save(name + '.' + type_val + '.results', [final_sc.mean().cpu(), final_sc.std().cpu(), final_lm.mean().cpu(), final_lm.std().cpu(), final_mse.mean().cpu(), final_mse.std().cpu()])
     if (train == False):
         np.save(args.base_model + '.' + type_val + '.results', [final_sc.mean().cpu(), final_sc.std().cpu(), final_lm.mean().cpu(), final_lm.std().cpu(), final_mse.mean().cpu(), final_mse.std().cpu()])
+        # Analyze the best targets
+        losses = {'sc':final_sc, 'lm':final_lm, 'mse':final_mse}
+        best_idx = []
+        best_files = []
+        for k, v in losses.items():
+            print('Ranking based on ' + k)
+            idx = torch.argsort(final_sc, dim=0)
+            for i in range(20):
+                best_files.append(test_loader.dataset.data_files[idx[i]])
+                best_idx.append(idx[i])
+        best_idx = list(set(best_idx))
+        best_files = list(set(best_files))
+        np.save(args.base_model + '.' + type_val + '.best_targets', [best_files, best_idx])
+        best_batch = []
+        x_wave = []
+        for i in best_idx:
+            data, wave = test_loader.dataset[idx[i]]
+            best_batch.append(data)
+            x_wave.append(torch.Tensor(wave).unsqueeze(0))
+        x_wave = torch.cat(x_wave)
+        x = torch.cat(best_batch)
+        # Send to device
+        x = x.to(args.device)
+        # Encode our fixed batch
+        if (not (args.model in ['mlp', 'gated_mlp', 'cnn', 'gated_cnn', 'res_cnn'])): 
+            # Auto-encode
+            x_tilde, z_tilde, z_loss = model.ae_model(x)
+            if (args.semantic_dim > -1):
+                z_tilde, _ = model.disentangling(z_tilde)
+            # Perform regression on params
+            out = model.regression_model(z_tilde)
+        else:
+            out = model(x)
+        if (args.loss in ['multinomial']):
+            tmp = out.view(out.shape[0], args.n_classes, -1).max(dim=1)[1]
+            out = tmp.float() / (args.n_classes - 1.)
+        if (args.loss in ['multi_mse']):
+            out = out.view(out.shape[0], args.n_classes + 1, -1)
+            out = out[:, -1, :]
+        # Generate the test batch for comparison
+        synthesize_batch(out.cpu(), test_loader.dataset.final_params, args.engine, args.generator, args.param_defaults, args.rev_idx, orig_wave=x_wave, n_outs=60, name=args.base_audio + '_' + type_val + '_best')
+            
+            
 
 """
 ###################
@@ -746,8 +735,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     # Data arguments
     parser.add_argument('--path',       type=str,   default='/Users/esling/Datasets/diva_dataset', help='')
-    parser.add_argument('--output',     type=str,   default='flow_results_final/32par/', help='')
-    parser.add_argument('--dataset',    type=str,   default='toy', help='')
+    parser.add_argument('--output',     type=str,   default='flow_results_64/64par/', help='')
+    parser.add_argument('--dataset',    type=str,   default='64par', help='')
     parser.add_argument('--data',       type=str,   default='mel', help='')
     parser.add_argument('--batch_size', type=int,   default=128, help='')
     parser.add_argument('--n_classes',  type=int,   default=64, help='')
@@ -764,139 +753,87 @@ if __name__ == '__main__':
         from synth.synthesize import create_synth
         # Create synth rendering system
         args.engine, args.generator, args.param_defaults, args.rev_idx = create_synth()
-    # List of datas
-    data = ['mel', 'mfcc', 'mel_mfcc']
+    #%%
+    
+    """
+    #############
+    List of values to analyze
+    #############
+    """
     # Models list
-    models = ['mlp', 'gated_mlp', 'cnn', 'gated_cnn', 'res_cnn', 'ae', 'vae', 'wae', 'vae_flow']
+    models = ['vae', 'wae', 'vae_flow']
     # List of losses
-    losses = ['mse', 'l1', 'multinomial', 'multi_mse']
+    losses = ['mse', 'multinomial']
     # List of layers
-    layers = ['mlp', 'gated_mlp', 'cnn', 'gated_cnn', 'res_cnn']
-    test_regressors = (args.test_regress > 0) #False
-    # Regressors
-    if (test_regressors == True):
-        regressor = ['mlp', 'flow_cde', 'flow_ext', 'flow_kl_f', 'flow_trans', 'flow_kl', 'flow_post']
-        #args.output = 'flow_results_regress'
-    else:
-        regressor = ['mlp']#, 'flow_cde', 'flow_ext', 'flow_kl_f', 'flow_trans', 'flow_kl', 'flow_post']
-        #args.output = 'flow_results_final/32par/'
-    # Save all results
-    train_losses = torch.zeros(200, 3, len(data), len(models), len(losses), len(layers), 6)
-    param_results = torch.zeros(4, len(data), len(models), len(losses), len(layers), 6)
-    synth_results = torch.zeros(6, len(data), len(models), len(losses), len(layers), 6)
-    proj_results = torch.zeros(6, len(data), len(models), len(losses), len(layers), 6)
-    recons_results = torch.zeros(6, len(data), len(models), len(losses), len(layers), 6)
-    # Parse through results
-    for d in range(len(data)):
-        args.data = data[d]
-        if (args.eval_type == 'full'):
-            print('[Loading dataset for ' + data[d] + ']')
-            train_loader, valid_loader, test_loader, args = load_dataset(args)
-            #% Take fixed batches (test set)
-            b_data, b_params, b_meta, b_audio = next(iter(test_loader))
-            batch_data = (b_data, b_params, b_meta, b_audio)
-        else:
-            print('[Summary analysis - no data loading.]')
-            test_loader = None
-            batch_data = None
-        #% Parse through different models        
-        for m in range(len(models)):
-            args.model = models[m]
-            for l in range(len(losses)):
-                args.loss = losses[l]
-                # Model save file
-                model_name = '{0}_{1}_{2}'.format(args.model, args.data, args.loss)
-                base_models = '{0}/models/{1}'.format(args.output, model_name)
-                # Check across runs
-                for k in range(1, 5):
-                    model_name_r = model_name + '_' + str(k)
-                    base_dir = base_models + '_' + str(k)
-                    # Check k-fold model    
-                    train_l, param_r, synth_r, proj_r, recons_r = check_model(base_dir, model_name_r, batch_data, test_loader, args)
-                    train_losses[:len(train_l), :, d, m, l, 0, k] = train_l
-                    param_results[:, d, m, l, 0, k] = param_r
-                    synth_results[:, d, m, l, 0, k] = synth_r
-                    proj_results[:, d, m, l, 0, k] = proj_r
-                    recons_results[:, d, m, l, 0, k] = recons_r
-                    if (args.model in ['ae', 'vae', 'wae', 'vae_flow']):
-                        for la in range(len(layers)):
-                            args.layers = layers[la]
-                            for reg in range(len(regressor)):
-                                regress = regressor[reg]
-                                model_name_r = model_name + '_' + args.layers + '_' + regress + '_' + str(k)
-                                base_dir = base_models + '_' + args.layers + '_' + regress + '_'  + str(k)
-                                if (args.model == 'vae_flow'):
-                                    model_name_r = model_name + '_' + args.layers + '_' + regress + '_iaf_' + str(k)
-                                    base_dir = base_models + '_' + args.layers + '_' + regress + '_iaf_' + str(k)
-                                # Check k-fold model    
-                                train_l, param_r, synth_r, proj_r, recons_r = check_model(base_dir, model_name_r, batch_data, test_loader, args)
-                                train_losses[:len(train_l), :, d, m, l, la, k] = train_l
-                                param_results[:, d, m, l, la, k] = param_r
-                                synth_results[:, d, m, l, la, k] = synth_r
-                                proj_results[:, d, m, l, la, k] = proj_r
-                                recons_results[:, d, m, l, la, k] = recons_r
-    #zerzer
-    if (test_regressors):
-        sdivns
-    def boxplot_value(full_results_c, val_names, dim, cond=None, dim_cond=0, cond_sub=0, name=None, ax=None):
+    layers = ['cnn', 'gated_cnn', 'res_cnn']
+    # List of latent dims
+    latent = ['16', '32', '64', '0']
+    # List of regressors
+    regress = ['mlp', 'flow_kl_f']
+    # List of flows
+    flows = ['iaf', 'maf', 'real_nvp']
+    # List of betas
+    betas = ['1', '2', '4']
+    # List of variants
+    variants = {'models':models, 'loss':losses, 'layers':layers, 'beta':betas,
+                'latent':latent, 'regressor':regress, 'flow':flows}
+    
+    """
+    #############
+    Utility functions for results plotting
+    #############
+    """
+    # Function to analyze results
+    def analyze_results(files, type_d, summary, take_one=False):
+        model_list = []
+        final_res = []
+        summary[type_d] = {}
+        for f in files:
+            cur_model = os.path.basename(f).split('.')[0]
+            model_list.append(cur_model)
+            data = np.load(f)
+            if (take_one):
+                data = data[1]
+            for k, v in variants.items():
+                if (summary[type_d].get(k) is None):
+                    summary[type_d][k] = {}
+                for cur_v in v:
+                    if (cur_v in cur_model):
+                        if (summary[type_d][k].get(cur_v) is None):
+                            summary[type_d][k][cur_v] = []
+                        summary[type_d][k][cur_v].append(torch.Tensor(data).unsqueeze(0))
+            final_res.append(torch.Tensor(data).unsqueeze(0))
+        final_res = torch.cat(final_res)
+        idx = torch.argsort(final_res[:, 0])
+        summary[type_d]['model_list'] = model_list
+        summary[type_d]['results'] = final_res
+        summary[type_d]['idx'] = idx
+        return summary
+    
+    # Plot boxplot
+    def boxplot_value(full_results_c, val_names, cond=None, dim_cond=0, cond_sub=0, name=None, ax=None):
         # Analyze flow
-        if (cond is None):
-            plt.figure()
-            ax = plt.subplot(111)
-        for rz in range(0, full_results_c.shape[0], 2):
-            full_results = full_results_c[rz] / torch.max(full_results_c[rz])
-            r_start = ((rz / 2) * len(val_names))
-            if (cond is not None):
-                full_results = np.take(full_results, cond, axis=dim_cond).unsqueeze(dim_cond)
-            for r in range(len(val_names)):
-                #cur_name = val_names[r]
-                cur_mse = np.take(full_results, r, axis=dim).flatten()
-                cur_mse = cur_mse[cur_mse.nonzero()].t()
-                ax.boxplot(cur_mse, positions = [r_start + r + 1])
-        ax.set_xlim(0.5, r_start + r + 1.5)
-        ax.set_xticks(np.linspace(1, len(val_names), len(val_names)))
-        ax.set_xticklabels(val_names)
+        plt.figure(figsize=(10, 4))
+        nb_losses = full_results_c[val_names[0]].shape[1]
+        for l in range(0, nb_losses, 2):
+            ax = plt.subplot(1, nb_losses / 2, (l / 2) + 1)
+            cur_start = 1
+            for var in val_names:
+                if (full_results_c.get(var) is None):
+                    cur_start += 1
+                    continue
+                full_results = full_results_c[var][:, l]
+                ax.boxplot(full_results, positions = [cur_start])
+                cur_start += 1
+            ax.set_xlim(0.5, cur_start - .5)
+            ax.set_xticks(np.linspace(1, len(val_names), len(val_names)))
+            ax.set_xticklabels(val_names)
         for tick in ax.get_xticklabels():
             tick.set_rotation(90)
         #ax.xticks(np.linspace(1, len(val_names), len(val_names)), val_names, rotation='vertical')
         if (name is not None):
             plt.savefig(name + '.pdf')
             plt.close()
-        
-    def evaluate_train_curves(train_loss, val_names, dim, cond=None, dim_cond=0, cond_sub=0):
-        # Analyze flow
-        if (cond is None):
-            fig = plt.figure()
-            ax = plt.subplot(111)
-        else:
-            train_loss = np.take(train_loss.detach(), cond, axis=dim_cond).unsqueeze(dim_cond)
-            ax = plt.subplot(cond_sub)
-        axis_legend = []
-        N = len(val_names)
-        cmap = plt.cm.get_cmap('jet', len(val_names))
-        # Fill all configurations
-        mean_curves, min_curves, max_curves = [np.zeros(200)] * N, [np.zeros(200)] * N, [np.zeros(200)] * N
-        for v in range(len(val_names)):
-            axis_legend.append(val_names[v])
-            var_curves = np.take(train_loss.detach(), v, dim)
-            var_curves = var_curves.transpose(0, var_curves.ndimension() - 1).contiguous().view(-1, 200).detach().numpy()
-            var_nonz, = np.nonzero(np.sum(var_curves, axis=1))
-            if (len(var_nonz) == 0):
-                continue
-            # Only keep non_zeros
-            var_curves = var_curves[var_nonz, :]
-            # Compute curves
-            min_curves[v] = np.min(var_curves, axis=0)
-            max_curves[v] = np.max(var_curves, axis=0)
-            mean_curves[v] = np.mean(var_curves, axis=0)
-        for v in range(len(val_names)):
-            ax.plot(mean_curves[v], c=cmap(v), linewidth = 2.5, alpha = 0.85)
-        for v in range(len(val_names)):
-            ax.plot(min_curves[v], c=cmap(v), linewidth = 0.75, alpha = 0.6)
-            ax.plot(max_curves[v], c=cmap(v), linewidth = 0.75, alpha = 0.6)
-            for i in range(1, 200):
-                plt.fill([i-1, i-1, i, i], [min_curves[v][i-1], max_curves[v][i-1], max_curves[v][i], min_curves[v][i]], c=cmap(v), alpha=0.2)
-        ax.legend(axis_legend)
         
     def print_table(full_results, val_names, dim, file, cond=None, dim_cond=0, cond_sub=0):
         # Analyze flow
@@ -919,85 +856,36 @@ if __name__ == '__main__':
         print(msg)
         for f in files:
             f.write(msg + '\n')
-
-    analysis_vals = [data, models, losses, layers]  
-    analysis_names = ['data', 'models', 'losses', 'layers'] 
-    res_list = {'params':param_results,'synth':synth_results, 'proj':proj_results, 'recons':recons_results}
-    #param_results = torch.zeros(4, len(data), len(models), len(losses), len(layers), 6)
-    #synth_results = torch.zeros(6, len(data), len(models), len(losses), len(layers), 6)
-    for k, v in res_list.items():    
-        files = [args.output + '/final/summary.'+k+'.txt', args.output + '/final/summary.'+k+'.fixed.txt']
-        files = [open(f, 'w') for f in files]
-        base_name = args.output + '/final/' + k
-        cur_res = v
-        #losses = [param_results]
-        for a in range(len(analysis_vals)):
-            out_name = base_name + '_' + analysis_names[a]
-            boxplot_value(cur_res, analysis_vals[a], a, name=out_name)
-            #evaluate_train_curves(train_losses[:, 2], analysis_vals[a], a+1)
-            # Print a loss table based on averaging
-            print_all('-----------', files)
-            print_all(str(analysis_vals[a]), files)
-            print_table(cur_res, analysis_vals[a], a+1, [files[0]])
-            # Create compound figure
-            fig = plt.figure(figsize=(5, 10))
-            outer = gridspec.GridSpec(len(analysis_vals[a]), 1, wspace=0.2, hspace=0.4)
-            for cur_cond in range(len(analysis_vals[a])):
-                cur_id = 1
-                print(len(analysis_vals))
-                inner = gridspec.GridSpecFromSubplotSpec(1, len(analysis_vals)-1, subplot_spec=outer[cur_cond], wspace=0.1, hspace=0.1)
-                for a_id in range(len(analysis_vals)):
-                    if (a == a_id):
-                        continue
-                    print(cur_id)
-                    ax = plt.Subplot(fig, inner[cur_id-1])
-                    boxplot_value(cur_res, analysis_vals[a_id], a_id, cur_cond, a, 100 + ((len(analysis_vals) - 1) * 10) + cur_id, ax=ax)
-                    fig.add_subplot(ax)
-                    cur_id += 1
-                #outer[cur_cond].set_title(analysis_vals[a][cur_cond])
-                cur_id = 1
-                #fig = plt.figure(figsize=(10, 5))
-                #for a_id in range(len(analysis_vals)):
-                #    if (a == a_id):
-                #        continue
-                    #evaluate_train_curves(train_losses[:, 2], analysis_vals[a_id], a_id + 1, cur_cond, a + 1, 100 + ((len(analysis_vals) - 1) * 10) + cur_id)
-                #    cur_id += 1
-                #fig.suptitle(analysis_vals[a][cur_cond])
-                #fig.show()
-                files[1].write('*** Fixing as ' + analysis_vals[a][cur_cond] + ' ***\n')
-                for a_id in range(len(analysis_vals)):
-                    if (a == a_id):
-                        continue
-                    print_table(cur_res, analysis_vals[a_id], a_id+1, [files[1]], cur_cond, a + 1)
-            fig.show()
-            plt.savefig(out_name + '_fixed.pdf')
-            plt.close()
-        [f.close() for f in files]
-            
+    
+    result_types = {'params':True, 'recons':False, 'synth':False, 'project':False, 'vocal':False}
+    summary = {}
+    # Parse through different results
+    for t,v in result_types.items():
+        # Simply list all results files
+        cur_res = sorted(glob.glob(args.output + '/models/*.' + t + '.results.npy'))
+        print('Retrieving ' + t)
+        summary = analyze_results(cur_res, t, summary, take_one=v)
+    
+    # First perform a results type analysis
+    for t,v in result_types.items():
+        cur_results = summary[t]
+        # Plot results as boxplot
+        for var, vals in variants.items():
+            for v_v in vals:
+                if (cur_results[var].get(v_v) is None):
+                    continue
+                cur_results[var][v_v] = torch.cat(cur_results[var][v_v])
+            boxplot_value(cur_results[var], vals, name='outputs/'+ t + '_' + var)
+        # Print tables of results
+        model_n = cur_results['model_list']
+        model_r = cur_results['results']
+        model_i = cur_results['idx']
+        print('----------------')
+        print('****************')
+        print('Best performing models for ' + t)
+        for i in range(10):
+            print(model_n[model_i[i]])
+            print(model_r[model_i[i]])
+        print('----------------')
         
-#%%
-    print('Param results :')
-    for d in range(len(data)):
-        print(data[d])
-        param_results[:, d, :, :]
-        for m in range(len(models)):
-            print(models[m])
-            for l in range(len(losses)):
-                if (torch.sum(param_results[:, d, m, l, :]) == 0):
-                    continue
-                if (models[m] in ['ae', 'vae', 'wae', 'vae_flow']):
-                    for la in range(len(layers)):
-                        print(losses[l][:7] + '\t' + str(param_results[:, d, m, l, la, 1]))
-                else:                    
-                    print(losses[l][:7] + '\t' + str(param_results[:, d, m, l, 0, 1]))
-    print('Synth results :')
-    for d in range(len(data)):
-        print(data[d])
-        param_results[:, d, :, :]
-        for m in range(len(models)):
-            print(models[m])
-            for l in range(len(losses)):
-                if (torch.sum(param_results[:, d, m, l, :]) == 0):
-                    continue
-                print(losses[l][:7] + '\t' + str(synth_results[:, d, m, l, 0, 1]))
                 

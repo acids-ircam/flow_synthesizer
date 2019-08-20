@@ -69,14 +69,10 @@ class RegressionAE(nn.Module):
                 x, y = x.to(args.device, non_blocking=True), y.to(args.device, non_blocking=True)
                 # Auto-encode
                 x_tilde, z_tilde, z_loss = self.ae_model(x)
-                #if (self.regressor == 'mlp'):
                 # Perform regression on params
                 p_tilde = self.regression_model(z_tilde)
                 # Regression loss
                 reg_loss = loss_params(p_tilde, y)
-                #else:
-                    # Use log probability model
-                    # p_tilde, reg_loss = self.regression_model(z_tilde, y)
                 full_loss += reg_loss
             full_loss /= len(loader)
         return full_loss

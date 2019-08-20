@@ -34,7 +34,7 @@ parser.add_argument('--nbworkers',      type=int,   default=0,              help
 parser.add_argument('--model',          type=str,   default='vae',          help='')
 parser.add_argument('--loss',           type=str,   default='mse',          help='')
 parser.add_argument('--rec_loss',       type=str,   default='mse',          help='')
-parser.add_argument('--n_classes',      type=int,   default=32,             help='')
+parser.add_argument('--n_classes',      type=int,   default=61,             help='')
 parser.add_argument('--n_hidden',       type=int,   default=1024,           help='')
 parser.add_argument('--n_layers',       type=int,   default=4,              help='')
 # CNN parameters
@@ -47,7 +47,7 @@ parser.add_argument('--encoder_dims',   type=int,   default=64,             help
 parser.add_argument('--latent_dims',    type=int,   default=0,              help='')
 parser.add_argument('--warm_latent',    type=int,   default=50,             help='')
 parser.add_argument('--start_regress',  type=int,   default=100,            help='')
-parser.add_argument('--warm_regress',   type=int,   default=25,             help='')
+parser.add_argument('--warm_regress',   type=int,   default=100,            help='')
 parser.add_argument('--beta_factor',    type=int,   default=1,              help='')
 # Two-step training parameters
 parser.add_argument('--ref_model',      type=str,   default='',             help='')
@@ -92,8 +92,9 @@ if (len(args.path) == 0):
     args.test_sounds = (args.device == 'cpu') and '/Users/esling/Datasets/synth_testing' or '/fast-2/datasets/flow_synthesizer/synth_testing'
     args.vocal_sounds = '/fast-2/datasets/flow_synthesizer/vocal_testing'
     #args.output = (args.device == 'cpu') and 'outputs' or '/fast-1/philippe/flow_results'
-if (args.device != 'cpu'):
+if (args.device not in ['cpu']):
     args.synthesize = True
+if (args.device != 'cpu'):
     # Enable CuDNN optimization
     torch.backends.cudnn.benchmark=True
 
@@ -109,11 +110,14 @@ if not os.path.exists('{0}'.format(args.output)):
     os.makedirs('{0}/images'.format(args.output))
     os.makedirs('{0}/models'.format(args.output))
 # Model save file
-model_name = '{0}_{1}_{2}'.format(args.model, args.data, args.loss)
+model_name = '{0}_{1}_{2}_{3}'.format(args.model, args.data, args.loss, str(args.latent_dims))
 if (not (args.model in ['mlp', 'gated_mlp', 'cnn', 'gated_cnn', 'res_cnn'])):
-    model_name += '_' + args.layers + '_' + args.regressor
+    model_name += '_' + args.layers
     if (args.model == 'vae_flow'):
         model_name += '_' + args.flow
+    model_name += '_' + args.regressor
+    if (args.regressor != 'mlp'):
+        model_name += '_' + args.reg_flow + '_' + str(args.reg_layers)
     if (args.semantic_dim > -1):
         model_name += '_' + str(args.semantic_dim) + '_' + args.disentangling
 if (args.k_run > 0):
@@ -136,17 +140,17 @@ Basic definitions
 ################### 
 """
 print('[Loading dataset]')
-ref_split = args.path + '/reference_split_' + args.dataset+ "_" +args.data + '.npz'
+ref_split = args.path + '/reference_split_' + args.dataset+ "_" + args.data + '.th'
 if (args.train_type == 'random' or (not os.path.exists(ref_split))):
     train_loader, valid_loader, test_loader, args = load_dataset(args)
+    if (args.train_type == 'fixed'):
+        torch.save([train_loader, valid_loader, test_loader], ref_split)
     # Take fixed batch
     fixed_data, fixed_params, fixed_meta, fixed_audio = next(iter(test_loader))
     fixed_data, fixed_params, fixed_meta, fixed_audio = fixed_data.to(args.device), fixed_params.to(args.device), fixed_meta, fixed_audio
     fixed_batch = (fixed_data, fixed_params, fixed_meta, fixed_audio)
-    if (args.train_type == 'fixed'):
-        np.savez(ref_split, [train_loader, valid_loader, test_loader])
 else:
-    data = np.load(ref_split)['arr_0']
+    data = torch.load(ref_split)
     train_loader, valid_loader, test_loader = data[0], data[1], data[2]
     fixed_data, fixed_params, fixed_meta, fixed_audio = next(iter(test_loader))
     fixed_data, fixed_params, fixed_meta, fixed_audio = fixed_data.to(args.device), fixed_params.to(args.device), fixed_meta, fixed_audio
@@ -267,6 +271,13 @@ best_loss = np.inf
 early = 0
 print('[Starting training]')
 for i in range(args.epochs):
+    if (args.start_regress == 0):
+        from pympler import muppy, summary
+        all_objects = muppy.get_objects()
+        sum1 = summary.summarize(all_objects)
+        # Prints out a summary of the large objects
+        print('************ Summary at beginning of epoch ************')
+        summary.print_(sum1)
     # Set warm-up values
     args.beta = args.beta_factor * (float(i) / float(max(args.warm_latent, i)))
     if (i >= args.start_regress):
@@ -281,7 +292,7 @@ for i in range(args.epochs):
         args.delta = 0
     print('%.3f - %.3f'%(args.beta, args.gamma))
     # Perform one epoch of train
-    losses[i, 0] = model.train_epoch(train_loader, loss, optimizer, args)
+    losses[i, 0] = model.train_epoch(train_loader, loss, optimizer, args)    
     # Perform validation
     losses[i, 1] = model.eval_epoch(valid_loader, loss, args)
     # Learning rate scheduling
@@ -308,12 +319,15 @@ for i in range(args.epochs):
     if ((i + 1) % args.plot_interval == 0 or (args.epochs == 1)):
         args.plot = 'train'
         with torch.no_grad():
+            model.eval()
             evaluate_model(model, fixed_batch, test_loader, args, train=True, name=base_img + '_batch_' + str(i))
     # Time limit for HPC grid eval
     if ((args.time_limit > 0) and (((time.time() - start_time) / 60.0) > args.time_limit)):
         print('[Hitting time limit after ' + str((time.time() - start_time) / 60.0) + ' minutes.]')
         print('[Going to evaluation mode]')
         break
+    if (args.regressor == 'flow_kl_f'):
+        print(torch.cuda.memory_allocated(args.device))
     print('Epoch ' + str(i))
     print(losses[i])
 

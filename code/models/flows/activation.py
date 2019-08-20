@@ -54,7 +54,7 @@ class SigmoidFlow(Flow):
 
     def _call(self, z):
         """ Forward sigmoid """
-        return F.sigmoid(z)
+        return torch.sigmoid(z)
 
     def _inverse(self, z):
         """ Inverse of sigmoid is logit """

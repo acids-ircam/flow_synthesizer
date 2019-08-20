@@ -21,7 +21,7 @@ parser.add_argument('--ip',         type=str,   default="127.0.0.1")
 parser.add_argument('--model_path', type=str,   default="results/")
 parser.add_argument('--model_name', type=str,   default="vae_flow_mel_mse_cnn_mlp_iaf_1.model")
 # Data arguments
-parser.add_argument('--path',       type=str,   default='/Users/esling/Datasets/diva_dataset', help='')
+parser.add_argument('--path',       type=str,   default='data', help='')
 parser.add_argument('--dataset',    type=str,   default='32par',    help='')
 parser.add_argument('--train_type', type=str,   default='fixed',    help='')
 parser.add_argument('--data',       type=str,   default='mel',      help='')
@@ -53,9 +53,9 @@ print('[Loading dataset for ' + args.data + ']')
 if (args.train_type == 'random'):
     train_loader, valid_loader, test_loader, args = load_dataset(args)
 else:
-    ref_split = args.path + '/reference_split_' + args.dataset + "_" + args.data + '.npz'
+    ref_split = args.path + '/reference_split_' + args.dataset + "_" + args.data + '.th'
     print('[About to load]')
-    data = np.load(ref_split)['arr_0']
+    data = torch.load(ref_split)
     train_loader, valid_loader, test_loader = data[0], data[1], data[2]
     print('[Changing refs in reference]')
     for idx in range(len(train_loader.dataset.data_files)):
@@ -67,7 +67,7 @@ else:
     for idx in range(len(test_loader.dataset.data_files)):
         test_loader.dataset.trans_datasets['mel'].spectral_files[idx] = test_loader.dataset.trans_datasets['mel'].spectral_files[idx].replace('/fast-2/datasets/diva_dataset/', '/Users/esling/Datasets/diva_dataset')
         test_loader.dataset.data_files[idx] = test_loader.dataset.data_files[idx].replace('/fast-2/datasets/diva_dataset/', '/Users/esling/Datasets/diva_dataset')
-    np.savez(ref_split, [train_loader, valid_loader, test_loader])
+    torch.save([train_loader, valid_loader, test_loader], ref_split)
 # Remove the shuffling from dataset
 train_loader = DataLoader(train_loader.dataset, batch_size=64, shuffle=False, num_workers=2)
 valid_loader = DataLoader(valid_loader.dataset, batch_size=64, shuffle=False, num_workers=2)

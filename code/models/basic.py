@@ -91,7 +91,7 @@ def construct_regressor(in_dims, out_dims, model='mlp', hidden_dims = 0, n_layer
             if (l < (n_layers - 1)):
                 regression_model.add_module('b%d'%l, nn.BatchNorm1d(out_s))
                 regression_model.add_module('r%d'%l, nn.ReLU())
-                regression_model.add_module('d%d'%l, nn.Dropout(p=.1))
+                regression_model.add_module('d%d'%l, nn.Dropout(p=.3))
             else:
                 regression_model.add_module('h', nn.Sigmoid())
     # Bayesian regression
@@ -117,9 +117,6 @@ def construct_regressor(in_dims, out_dims, model='mlp', hidden_dims = 0, n_layer
             regression_model = FlowDecoder(in_dims, blocks=blocks, flow_length=n_layers, amortize=amortize, eps_var=eps_var, var_type = var_type)
         else:
             raise ValueError('Invalid regressor choice : ' + model)
-        # Handle different dimensions
-        if (in_dims != out_dims):
-            regression_model = nn.Sequential(regression_model, nn.Linear(in_dims, out_dims), nn.Sigmoid())
     else:
         raise ValueError('Invalid regressor choice : ' + model)
     return regression_model
@@ -169,7 +166,7 @@ class GatedMLP(RegressionModel):
             if (l < n_layers - 1):
                 modules.add_module('b%i'%l, nn.BatchNorm1d(out_s))
                 modules.add_module('a%i'%l, nn.ReLU())
-                modules.add_module('a%i'%l, nn.Dropout(p=.1))
+                modules.add_module('a%i'%l, nn.Dropout(p=.3))
         self.net = modules
     
     def init_parameters(self):
@@ -221,6 +218,7 @@ class GatedCNN(RegressionModel):
             if (l < n_layers - 1):
                 modules.add_module('b2%i'%l, nn.BatchNorm2d(out_s))
                 modules.add_module('a2%i'%l, nn.ReLU())
+                modules.add_module('d2%i'%l, nn.Dropout2d(p=.25))
             size[0] = int((size[0]+2*pad-(dil*(kernel-1)+1))/stride+1)
             size[1] = int((size[1]+2*pad-(dil*(kernel-1)+1))/stride+1)
         self.net = modules
@@ -233,6 +231,7 @@ class GatedCNN(RegressionModel):
             if (l < n_layers - 1):
                 self.mlp.add_module('b%i'%l, nn.BatchNorm1d(out_s))
                 self.mlp.add_module('a%i'%l, nn.ReLU())
+                self.mlp.add_module('d%i'%l, nn.Dropout(p=.25))
         self.cnn_size = size
     
     def init_parameters(self):
@@ -270,6 +269,7 @@ class DecodeCNN(RegressionModel):
             if (l < n_layers - 1):
                 self.mlp.add_module('b%i'%l, nn.BatchNorm1d(out_s))
                 self.mlp.add_module('a%i'%l, nn.ReLU())
+                self.mlp.add_module('d%i'%l, nn.Dropout(p=.25))
         modules = nn.Sequential()
         """ Then do a CNN """
         for l in range(n_layers):
@@ -284,6 +284,7 @@ class DecodeCNN(RegressionModel):
             if (l < n_layers - 1):
                 modules.add_module('b2%i'%l, nn.BatchNorm2d(out_s))
                 modules.add_module('a2%i'%l, nn.ReLU())
+                modules.add_module('a2%i'%l, nn.Dropout2d(p=.25))
             size[0] = int((size[0] - 1) * stride - (2 * pad) + dil * (kernel - 1) + out_pad + 1)
             size[1] = int((size[1] - 1) * stride - (2 * pad) + dil * (kernel - 1) + out_pad + 1)
         self.net = modules

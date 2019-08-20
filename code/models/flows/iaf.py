@@ -27,10 +27,12 @@ class IAFlow(Flow):
     """
 
     def __init__(
-        self, dim, n_hidden=32, n_layers=2, activation=nn.ELU,
+        self, dim, n_hidden=0, n_layers=2, activation=nn.ELU,
         amortized='none', forget_bias=2.
     ):
         super(IAFlow, self).__init__()
+        if (n_hidden == 0):
+            n_hidden = dim
         # Create auto-regressive nets
         self.ar_net = self.transform_net(dim, n_hidden, activation)
         # Add mean and std net

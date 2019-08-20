@@ -43,7 +43,7 @@ def create_synth(dataset, path='synth/diva.64.so'):
     if dataset == "toy":
         with open("synth/param_nomod.json") as f:
             param_defaults = json.load(f)
-    if dataset == "32par":
+    else:
         with open("synth/param_default_32.json") as f:
             param_defaults = json.load(f)
     engine = rm.RenderEngine(44100, 512, 512)
@@ -57,7 +57,7 @@ def synthesize_audio(params, engine, generator, params_default):
     audio, patch = play_patch(engine, generator, patch)
     return audio
 
-def synthesize_batch(batch, param_names, engine, generator, params_default, rev_idx, orig_wave=None, name=None):
+def synthesize_batch(batch, param_names, engine, generator, params_default, rev_idx, n_outs=2, orig_wave=None, name=None):
     final_audio = [None] * batch.shape[0]
     # Ensure that we reset the synth
     engine.load_preset("synth/osc_reset.fxb")
@@ -70,12 +70,13 @@ def synthesize_batch(batch, param_names, engine, generator, params_default, rev_
         final_audio[b] = synthesize_audio(param_dict, engine, generator, rev_idx)
         final_audio[b] = resample(final_audio[b], 44100, 22050)
     if (name is not None):
+        n_outs = min(n_outs, len(final_audio))
         # Figure out len of full audio
-        orig_size = sum([int(o.shape[0]) for o in orig_wave[:2]]) + (2205 * len(final_audio))
-        final_size = sum([int(f.shape[0]) for f in final_audio[:2]]) + (2205 * len(final_audio))
+        orig_size = sum([int(o.shape[0]) for o in orig_wave[:n_outs]]) + (2205 * n_outs)
+        final_size = sum([int(f.shape[0]) for f in final_audio[:n_outs]]) + (2205 * n_outs)
         wave_out = np.zeros(int(orig_size + final_size))
         cur_p = 0
-        for b in range(min(2, len(final_audio))):
+        for b in range(n_outs):
             wave_out[cur_p:(cur_p + orig_wave[b].shape[0])] += orig_wave[b].numpy()
             cur_p += orig_wave[b].shape[0] + 2205
             wave_out[cur_p:(cur_p + final_audio[b].shape[0])] += final_audio[b]
