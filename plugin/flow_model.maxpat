@@ -39,6 +39,31 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 9.0,
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 4,
+					"outlettype" : [ "", "", "", "" ],
+					"patching_rect" : [ 891.0, 205.644531, 114.0, 19.0 ],
+					"restore" : 					{
+						"database_n_params" : [ 0 ],
+						"database_type" : [ 0 ],
+						"model_beta" : [ 0 ],
+						"model_import" : [ 0.0 ],
+						"model_type" : [ 0 ],
+						"space_load" : [ 0.0 ]
+					}
+,
+					"style" : "",
+					"text" : "autopattr @autoname 1",
+					"varname" : "u372014106"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-21",
 					"maxclass" : "message",
 					"numinlets" : 2,
@@ -108,7 +133,7 @@
 					"text" : "Space",
 					"textcolor" : [ 1.0, 1.0, 1.0, 0.6 ],
 					"texton" : "Hide",
-					"varname" : "live.text[1]"
+					"varname" : "space_load"
 				}
 
 			}
@@ -285,7 +310,8 @@
 					"patching_rect" : [ 539.0, 205.644531, 100.0, 21.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 9.333374, 50.0, 71.166626, 21.0 ],
-					"style" : ""
+					"style" : "",
+					"varname" : "database_n_params"
 				}
 
 			}
@@ -330,7 +356,8 @@
 					"patching_rect" : [ 349.0, 205.644531, 100.0, 21.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 9.333374, 17.0, 71.5, 21.0 ],
-					"style" : ""
+					"style" : "",
+					"varname" : "model_beta"
 				}
 
 			}
@@ -397,10 +424,10 @@
 
 					}
 ,
-					"text" : "Import",
+					"text" : "model_import",
 					"textcolor" : [ 1.0, 1.0, 1.0, 0.6 ],
 					"texton" : "Hide",
-					"varname" : "live.text[4]"
+					"varname" : "model_import"
 				}
 
 			}
@@ -445,7 +472,8 @@
 					"patching_rect" : [ 171.0, 205.644531, 100.0, 21.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 9.333374, 34.0, 71.166626, 21.0 ],
-					"style" : ""
+					"style" : "",
+					"varname" : "database_type"
 				}
 
 			}
@@ -470,7 +498,8 @@
 					"patching_rect" : [ 23.0, 205.644531, 100.0, 21.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 9.333374, -0.0625, 71.166626, 21.0 ],
-					"style" : ""
+					"style" : "",
+					"varname" : "model_type"
 				}
 
 			}
@@ -1188,8 +1217,8 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-17" : [ "Map[1]", "Map", 0 ],
-			"obj-6" : [ "Map[84]", "Map", 0 ]
+			"obj-6" : [ "Map[84]", "Map", 0 ],
+			"obj-17" : [ "Map[1]", "Map", 0 ]
 		}
 ,
 		"dependency_cache" : [  ],
@@ -1224,12 +1253,12 @@
 , 			{
 				"name" : "BlueTextButtons-1",
 				"default" : 				{
-					"bgcolor" : [ 0.538741, 0.764449, 0.877768, 1.0 ],
+					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
 					"fontname" : [ "Helvetica" ],
 					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"bgcolor" : [ 0.538741, 0.764449, 0.877768, 1.0 ],
 					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
-					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
-					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ]
+					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -1238,12 +1267,6 @@
 , 			{
 				"name" : "Luca",
 				"default" : 				{
-					"bgcolor" : [ 0.904179, 0.895477, 0.842975, 0.56 ],
-					"textcolor_inverse" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
-					"fontname" : [ "Open Sans Semibold" ],
-					"color" : [ 0.475135, 0.293895, 0.251069, 1.0 ],
-					"accentcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ],
-					"elementcolor" : [ 0.786675, 0.801885, 0.845022, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
@@ -1254,7 +1277,13 @@
 						"autogradient" : 0
 					}
 ,
-					"selectioncolor" : [ 0.720698, 0.16723, 0.080014, 1.0 ]
+					"selectioncolor" : [ 0.720698, 0.16723, 0.080014, 1.0 ],
+					"fontname" : [ "Open Sans Semibold" ],
+					"color" : [ 0.475135, 0.293895, 0.251069, 1.0 ],
+					"bgcolor" : [ 0.904179, 0.895477, 0.842975, 0.56 ],
+					"textcolor_inverse" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
+					"accentcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ],
+					"elementcolor" : [ 0.786675, 0.801885, 0.845022, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -1263,12 +1292,12 @@
 , 			{
 				"name" : "RedTextButtons",
 				"default" : 				{
-					"bgcolor" : [ 0.843137, 0.733333, 0.729412, 1.0 ],
+					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
 					"fontname" : [ "Helvetica" ],
 					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"bgcolor" : [ 0.843137, 0.733333, 0.729412, 1.0 ],
 					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
-					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
-					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ]
+					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -1277,12 +1306,12 @@
 , 			{
 				"name" : "VioletTextButton",
 				"default" : 				{
-					"bgcolor" : [ 0.715377, 0.696413, 0.824482, 1.0 ],
+					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
 					"fontname" : [ "Helvetica" ],
 					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"bgcolor" : [ 0.715377, 0.696413, 0.824482, 1.0 ],
 					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
-					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
-					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ]
+					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -1291,9 +1320,6 @@
 , 			{
 				"name" : "dark-night-patch",
 				"default" : 				{
-					"patchlinecolor" : [ 0.439216, 0.74902, 0.254902, 0.898039 ],
-					"accentcolor" : [ 0.952941, 0.564706, 0.098039, 1.0 ],
-					"textcolor" : [ 0.862745, 0.870588, 0.878431, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -1302,7 +1328,10 @@
 						"angle" : 270.0,
 						"proportion" : 0.39
 					}
-
+,
+					"textcolor" : [ 0.862745, 0.870588, 0.878431, 1.0 ],
+					"patchlinecolor" : [ 0.439216, 0.74902, 0.254902, 0.898039 ],
+					"accentcolor" : [ 0.952941, 0.564706, 0.098039, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -1344,8 +1373,8 @@
 , 			{
 				"name" : "multislider001",
 				"default" : 				{
-					"bgcolor" : [ 0.945827, 0.711942, 0.174445, 0.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.945827, 0.711942, 0.174445, 0.0 ]
 				}
 ,
 				"parentstyle" : "",

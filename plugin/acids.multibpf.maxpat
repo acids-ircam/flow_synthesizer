@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 2345.0, -974.0, 907.0, 937.0 ],
+		"rect" : [ 739.0, 79.0, 602.0, 937.0 ],
 		"bgcolor" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
@@ -38,6 +38,30 @@
 		"style" : "",
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 9.0,
+					"id" : "obj-71",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 4,
+					"outlettype" : [ "", "", "", "" ],
+					"patching_rect" : [ 1229.5, 374.0, 114.0, 19.0 ],
+					"restore" : 					{
+						"bpf_dim" : [ 0.0 ],
+						"bpf_function_select" : [ 0 ],
+						"bpf_n" : [ 8.0 ],
+						"dial" : [ 0 ],
+						"swatch" : [ 0.88, 0.32, 0.32, 1.0, 0.0, 0.7, 0.6 ]
+					}
+,
+					"style" : "",
+					"text" : "autopattr @autoname 1",
+					"varname" : "u284008277"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-87",
 					"maxclass" : "newobj",
@@ -110,7 +134,7 @@
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_linknames" : 1,
-							"parameter_longname" : "tiny[1]",
+							"parameter_longname" : "bpf_n",
 							"parameter_shortname" : "n",
 							"parameter_type" : 1,
 							"parameter_mmax" : 16.0,
@@ -123,7 +147,7 @@
 					}
 ,
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"varname" : "tiny[1]"
+					"varname" : "bpf_n"
 				}
 
 			}
@@ -149,7 +173,7 @@
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_linknames" : 1,
-							"parameter_longname" : "tiny",
+							"parameter_longname" : "bpf_dim",
 							"parameter_shortname" : "dim",
 							"parameter_type" : 1,
 							"parameter_mmax" : 32.0,
@@ -162,7 +186,7 @@
 					}
 ,
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"varname" : "tiny"
+					"varname" : "bpf_dim"
 				}
 
 			}
@@ -653,7 +677,8 @@
 					"patching_rect" : [ 1274.5, 644.5, 116.0, 20.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 113.425537, 59.5, 95.074463, 20.0 ],
-					"style" : ""
+					"style" : "",
+					"varname" : "bpf_function_select"
 				}
 
 			}
@@ -979,7 +1004,8 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 94.833313, 128.076904, 40.0, 40.0 ],
 					"size" : 16.0,
-					"style" : ""
+					"style" : "",
+					"varname" : "dial"
 				}
 
 			}
@@ -1022,7 +1048,8 @@
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 94.833313, 245.576904, 128.0, 49.0 ],
-					"saturation" : 0.7
+					"saturation" : 0.7,
+					"varname" : "swatch"
 				}
 
 			}
@@ -3001,8 +3028,8 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-66" : [ "tiny[1]", "n", 0 ],
-			"obj-155" : [ "tiny", "dim", 0 ]
+			"obj-66" : [ "bpf_n", "n", 0 ],
+			"obj-155" : [ "bpf_dim", "dim", 0 ]
 		}
 ,
 		"dependency_cache" : [  ],

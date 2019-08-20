@@ -38,6 +38,30 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 9.0,
+					"id" : "obj-38",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 4,
+					"outlettype" : [ "", "", "", "" ],
+					"patching_rect" : [ 884.166626, 188.0, 114.0, 19.0 ],
+					"restore" : 					{
+						"autoplay_start" : [ 0.0 ],
+						"encode_octave_fix" : [ 0.0 ],
+						"encode_pitch_shift" : [ 1.0 ],
+						"keyboard" : [ 60 ],
+						"midi_in" : [ 2 ]
+					}
+,
+					"style" : "",
+					"text" : "autopattr @autoname 1",
+					"varname" : "u283006224"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-26",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -158,7 +182,8 @@
 					"outlettype" : [ "int", "", "" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 602.928589, 362.932373, 147.0, 22.0 ],
-					"style" : ""
+					"style" : "",
+					"varname" : "midi_in"
 				}
 
 			}
@@ -300,7 +325,7 @@
 					"text" : "Start",
 					"textcolor" : [ 1.0, 1.0, 1.0, 0.6 ],
 					"texton" : "Stop",
-					"varname" : "live.text[1]"
+					"varname" : "autoplay_start"
 				}
 
 			}
@@ -382,7 +407,7 @@
 					"text" : "Oct.",
 					"textcolor" : [ 1.0, 1.0, 1.0, 0.6 ],
 					"texton" : "Fix",
-					"varname" : "live.text[3]"
+					"varname" : "encode_octave_fix"
 				}
 
 			}
@@ -451,7 +476,7 @@
 					"text" : "Pitch",
 					"textcolor" : [ 1.0, 1.0, 1.0, 0.6 ],
 					"texton" : "Fix",
-					"varname" : "live.text[4]"
+					"varname" : "encode_pitch_shift"
 				}
 
 			}
@@ -611,19 +636,6 @@
 					"patching_rect" : [ 884.166626, 94.432373, 138.0, 22.0 ],
 					"style" : "",
 					"text" : "prepend /set_pitch_shift"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-5",
-					"maxclass" : "toggle",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "int" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 884.166626, 46.432373, 24.0, 24.0 ],
-					"style" : ""
 				}
 
 			}
@@ -926,7 +938,8 @@
 					"patching_rect" : [ 18.666626, 164.0, 336.0, 53.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 181.666626, 316.0, 252.0, 41.0 ],
-					"style" : ""
+					"style" : "",
+					"varname" : "keyboard"
 				}
 
 			}
@@ -1184,13 +1197,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-43", 0 ],
-					"source" : [ "obj-5", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
 					"midpoints" : [ 540.928589, 536.716187, 30.666626, 536.716187 ],
 					"source" : [ "obj-50", 0 ]
@@ -1278,9 +1284,9 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-30" : [ "Map[2]", "Map", 0 ],
 			"obj-23" : [ "Map[84]", "Map", 0 ],
-			"obj-24" : [ "Map[1]", "Map", 0 ]
+			"obj-24" : [ "Map[1]", "Map", 0 ],
+			"obj-30" : [ "Map[2]", "Map", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{

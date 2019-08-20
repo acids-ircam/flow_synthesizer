@@ -1,7 +1,6 @@
 #%% -*- coding: utf-8 -*-
 
 import matplotlib
-matplotlib.use('agg')
 import torch
 import torch.nn as nn
 import os.path
@@ -67,6 +66,92 @@ AE-specific evaluation
 
 ###################
 """
+
+"""	
+###################	
+Dimensions evaluation for AE models	
+###################	
+"""	
+def evaluate_dimensions(model, pca, args, n_steps = 50, pos=[-1, 0, 1]):	
+    print('[Evaluate latent dimensions.]')	
+    latent_dims = model.ae_model.latent_dims	
+    latent_variances = np.zeros((latent_dims, latent_dims))	
+    latent_parameters = np.zeros((latent_dims, latent_dims, n_steps))	
+    latent_descriptors = np.zeros((latent_dims, 5, n_steps))	
+    var_z = torch.linspace(-4, 4, n_steps)	
+    for l in range(latent_dims):	
+        print('   - Dimension ' + str(l))	
+        fake_batch = torch.zeros(n_steps, latent_dims)	
+        fake_batch[:, l] = var_z	
+        if (len(args.projection) > 0):	
+            fake_batch = torch.Tensor(pca.inverse_transform(fake_batch))	
+        # Generate VAE outputs	
+        x_tilde_full = model.ae_model.decode(fake_batch)	
+        # Perform regression	
+        out = model.regression_model(fake_batch)	
+        # Select parameters	
+        latent_parameters[l, :, :] = out.detach().numpy().T	
+        latent_variances[l, :] = out.std(dim=0).detach()	
+        x_tilde_full = x_tilde_full[:,0]	
+        # Compute descriptors	
+        latent_descriptors[l] = compute_descriptors(x_tilde_full.detach().cpu().numpy()).T	
+    # Now analyze each dimensions	
+    latent_sort = np.argsort(np.mean(latent_variances, axis = 1))[::-1]	
+    # Analyze each descriptor	
+    descriptor_max = np.zeros(5)	
+    for d in range(5):	
+        descriptor_max[d] = np.max(latent_descriptors[:, d, :])	
+        if (descriptor_max[d] == 0):	
+            descriptor_max[d] = 1	
+        latent_descriptors[:, d, :] = latent_descriptors[:, d, :] / descriptor_max[d]	
+    # Reorder variances per dimension (for top parameters)	
+    for l in range(latent_dims):	
+        latent_variances[l, :] = np.argsort(latent_variances[l])[::-1]	
+    return latent_sort, latent_variances, latent_parameters, latent_descriptors, descriptor_max	
+
+"""	
+###################	
+Dataset evaluation for AE models	
+###################	
+"""	
+def evaluate_dataset(model, loaders, args):	
+    print('[Evaluate dataset]')	
+    final_params = []	
+    final_z_space = []	
+    full_meta = []	
+    for loader in loaders:	
+        print('   - Projecting loader')	
+        for (x, y, meta, _) in loader:	
+            # Auto-encode	
+            x_tilde, z_tilde, z_loss = model.ae_model(x)	
+            #if (args.semantic_dim > -1):	
+            #    z_tilde, _ = model.disentangling(z_tilde)	
+            # Perform regression on params	
+            out = model.regression_model(z_tilde)	
+            final_z_space.append(z_tilde)	
+            final_params.append(out)	
+            full_meta.append(meta)	
+    # Final space of all z points	
+    final_z_space = torch.cat(final_z_space, dim = 0).detach().cpu()	
+    final_meta = torch.cat(full_meta, dim = 0).detach().cpu()	
+    # Compute variances of latent	
+    z_vars = final_z_space.std(dim = 0)	
+    z_means = final_z_space.mean(dim = 0)	
+    # Create PCA 	
+    pca = None	
+    if (args.projection == 'pca'):	
+        pca = decomposition.PCA()	
+    elif (args.projection == 'ica'):	
+        pca = decomposition.FastICA()	
+    # Fit it	
+    if (len(args.projection) > 0):	
+        print('[Computing projection]')	
+        pca.fit(final_z_space)	
+        final_z_space = pca.transform(final_z_space)	
+        final_z_space = torch.Tensor(final_z_space)	
+    else:	
+        print('[No projection required]')	
+    return final_z_space, final_meta, pca, z_vars, z_means
 
 """
 ###################

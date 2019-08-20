@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 992.0, -1001.0, 1216.0, 881.0 ],
+		"rect" : [ 430.0, 79.0, 1216.0, 881.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -43,9 +43,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 218.0, 812.0, 57.0, 22.0 ],
+					"patching_rect" : [ 218.0, 819.0, 84.0, 22.0 ],
 					"style" : "",
-					"text" : "cursor 0."
+					"text" : "forceredraw 1"
 				}
 
 			}
@@ -516,6 +516,10 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 289.0, 368.5, 44.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"style" : "",
 					"text" : "out~ 2"
 				}
@@ -528,6 +532,10 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 232.0, 368.5, 44.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"style" : "",
 					"text" : "out~ 1"
 				}
@@ -1395,7 +1403,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 862.25, 378.0, 164.0, 35.0 ],
 					"style" : "",
-					"text" : "/tmp/recorded.target.2019-08-9.15h39"
+					"text" : "/tmp/recorded.target.2019-08-18.15h14"
 				}
 
 			}
@@ -1676,11 +1684,11 @@
 					"bufferchooser_visible" : 0,
 					"cursor_color" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"cursor_followmouse" : 0,
-					"cursor_position" : 0.0,
+					"cursor_position" : -1.0,
 					"cursor_shape" : "bar",
 					"cursor_size" : 3,
 					"cursor_visible" : 1,
-					"domain_bounds" : [ 0.0, 7999.954649 ],
+					"domain_bounds" : [ 0.0, 3999.977324 ],
 					"domainruler_bgcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"domainruler_fgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"domainruler_grid" : 0,
@@ -2721,7 +2729,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-223", 0 ],
-					"midpoints" : [ 227.5, 847.0, 87.0, 847.0, 87.0, 567.0, 109.5, 567.0 ],
+					"midpoints" : [ 227.5, 856.0, 87.0, 856.0, 87.0, 567.0, 109.5, 567.0 ],
 					"source" : [ "obj-54", 0 ]
 				}
 

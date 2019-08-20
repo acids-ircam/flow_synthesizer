@@ -19,10 +19,10 @@ parser.add_argument('--out_port',   type=int,   default=1235)
 parser.add_argument('--ip',         type=str,   default="127.0.0.1")
 # Model arguments
 parser.add_argument('--model_path', type=str,   default="results/")
-parser.add_argument('--model_name', type=str,   default="vae_flow_mel_mse_cnn_mlp_iaf_1.model")
+parser.add_argument('--model_name', type=str,   default="vae_flow_mel_mse_64_cnn_iaf_mlp_1.model")
 # Data arguments
 parser.add_argument('--path',       type=str,   default='data', help='')
-parser.add_argument('--dataset',    type=str,   default='32par',    help='')
+parser.add_argument('--dataset',    type=str,   default='64par',    help='')
 parser.add_argument('--train_type', type=str,   default='fixed',    help='')
 parser.add_argument('--data',       type=str,   default='mel',      help='')
 parser.add_argument('--projection', type=str,   default='pca',      help='')
@@ -58,15 +58,9 @@ else:
     data = torch.load(ref_split)
     train_loader, valid_loader, test_loader = data[0], data[1], data[2]
     print('[Changing refs in reference]')
-    for idx in range(len(train_loader.dataset.data_files)):
-        train_loader.dataset.trans_datasets['mel'].spectral_files[idx] = train_loader.dataset.trans_datasets['mel'].spectral_files[idx].replace('/fast-2/datasets/diva_dataset/', '/Users/esling/Datasets/diva_dataset')
-        train_loader.dataset.data_files[idx] = train_loader.dataset.data_files[idx].replace('/fast-2/datasets/diva_dataset/', '/Users/esling/Datasets/diva_dataset')
-    for idx in range(len(valid_loader.dataset.data_files)):
-        valid_loader.dataset.trans_datasets['mel'].spectral_files[idx] = valid_loader.dataset.trans_datasets['mel'].spectral_files[idx].replace('/fast-2/datasets/diva_dataset/', '/Users/esling/Datasets/diva_dataset')
-        valid_loader.dataset.data_files[idx] = valid_loader.dataset.data_files[idx].replace('/fast-2/datasets/diva_dataset/', '/Users/esling/Datasets/diva_dataset')
-    for idx in range(len(test_loader.dataset.data_files)):
-        test_loader.dataset.trans_datasets['mel'].spectral_files[idx] = test_loader.dataset.trans_datasets['mel'].spectral_files[idx].replace('/fast-2/datasets/diva_dataset/', '/Users/esling/Datasets/diva_dataset')
-        test_loader.dataset.data_files[idx] = test_loader.dataset.data_files[idx].replace('/fast-2/datasets/diva_dataset/', '/Users/esling/Datasets/diva_dataset')
+    for t in [train_loader, valid_loader, test_loader]:
+        t.dataset.datadir = '/Users/esling/Datasets/diva_dataset/' + args.dataset
+        t.dataset.trans_datasets[args.data].datadir = '/Users/esling/Datasets/diva_dataset/' + args.dataset
     torch.save([train_loader, valid_loader, test_loader], ref_split)
 # Remove the shuffling from dataset
 train_loader = DataLoader(train_loader.dataset, batch_size=64, shuffle=False, num_workers=2)
