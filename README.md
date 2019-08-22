@@ -9,14 +9,15 @@ In order to try out the _Flow synthesizer_ plugin, you must
 ```
 /Library/Audio/Plug-Ins/VST/u-he/Diva.vst
 ```
-2. Have an updated version of `Python 3.7`
-3. Install the Python dependencies by running the following line at the root of this folder
+2. Install the latest version of the [Dada library](https://www.bachproject.net/dl/) for MaxMsp
+3. Have an updated version of `Python 3.7`
+4. Install the Python dependencies by running the following line at the root of this folder
 ```bash
 $ pip install -r requirements.txt
 ```
-4. Put the `plugin/flow_synth.amxd` device inside a MIDI track in `Ableton Live`
-5. ???
-6. Profit
+5. Put the `plugin/flow_synth.amxd` device inside a MIDI track in `Ableton Live`
+6. ???
+7. Profit
 
 NB: If the device seems non-responding, you can try to run the server manually
 ```bash

@@ -516,10 +516,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 289.0, 368.5, 44.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"style" : "",
 					"text" : "out~ 2"
 				}
@@ -532,10 +528,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 232.0, 368.5, 44.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"style" : "",
 					"text" : "out~ 1"
 				}
@@ -1403,7 +1395,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 862.25, 378.0, 164.0, 35.0 ],
 					"style" : "",
-					"text" : "/tmp/recorded.target.2019-08-18.15h14"
+					"text" : "/tmp/recorded.target.2019-08-21.18h43"
 				}
 
 			}
@@ -1684,11 +1676,11 @@
 					"bufferchooser_visible" : 0,
 					"cursor_color" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"cursor_followmouse" : 0,
-					"cursor_position" : -1.0,
+					"cursor_position" : 0.0,
 					"cursor_shape" : "bar",
 					"cursor_size" : 3,
 					"cursor_visible" : 1,
-					"domain_bounds" : [ 0.0, 3999.977324 ],
+					"domain_bounds" : [ 0.0, 1.0 ],
 					"domainruler_bgcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"domainruler_fgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"domainruler_grid" : 0,
@@ -2789,8 +2781,8 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-105" : [ "live.drop", "live.drop", 0 ],
-			"obj-296" : [ "Audio[1]", "Audio", 0 ]
+			"obj-296" : [ "Audio[1]", "Audio", 0 ],
+			"obj-105" : [ "live.drop", "live.drop", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
