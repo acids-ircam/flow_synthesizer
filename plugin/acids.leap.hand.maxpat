@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 149.0, 81.0, 1260.0, 809.0 ],
+		"rect" : [ 149.0, 81.0, 911.0, 935.0 ],
 		"bgcolor" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
@@ -38,6 +38,19 @@
 		"style" : "",
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-168",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 945.0, 675.0, 72.0, 22.0 ],
+					"style" : "",
+					"text" : "loadmess 3"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-167",
 					"maxclass" : "newobj",
@@ -121,7 +134,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 985.0, 781.644531, 113.0, 22.0 ],
+					"patching_rect" : [ 979.0, 772.644531, 113.0, 22.0 ],
 					"style" : "",
 					"text" : "r #0_activator_type"
 				}
@@ -229,6 +242,7 @@
 , 			{
 				"box" : 				{
 					"bgcolor" : [ 0.290196, 0.309804, 0.301961, 0.0 ],
+					"hint" : "Shows if the hand is active",
 					"id" : "obj-153",
 					"ignoreclick" : 1,
 					"maxclass" : "toggle",
@@ -297,6 +311,7 @@
 			}
 , 			{
 				"box" : 				{
+					"hint" : "Sensitivity of hand detect activation",
 					"id" : "obj-16",
 					"maxclass" : "live.slider",
 					"modulationcolor" : [ 0.792157, 0.219608, 0.133333, 0.0 ],
@@ -394,8 +409,9 @@
 					"bgfillcolor_type" : "gradient",
 					"fontname" : "Helvetica Neue",
 					"fontsize" : 14.0,
+					"hint" : "Type of hand activation",
 					"id" : "obj-174",
-					"items" : [ "grab", ",", "pinch", ",", "auto" ],
+					"items" : [ "grab", ",", "pinch", ",", "auto", ",", "grab-auto" ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -2225,6 +2241,7 @@
 					"focusbordercolor" : [ 0.862745, 0.870588, 0.878431, 1.0 ],
 					"fontname" : "Helvetica Neue",
 					"fontsize" : 12.0,
+					"hint" : "Size of the hand",
 					"id" : "obj-53",
 					"maxclass" : "live.dial",
 					"numinlets" : 1,
@@ -2349,6 +2366,7 @@
 					"focusbordercolor" : [ 0.862745, 0.870588, 0.878431, 1.0 ],
 					"fontname" : "Helvetica Neue",
 					"fontsize" : 12.0,
+					"hint" : "Number of fingers",
 					"id" : "obj-45",
 					"maxclass" : "live.dial",
 					"numinlets" : 1,
@@ -4109,6 +4127,14 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-174", 0 ],
+					"midpoints" : [ 954.5, 810.322265, 1122.5, 810.322265 ],
+					"source" : [ "obj-168", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-21", 0 ],
 					"source" : [ "obj-17", 0 ]
 				}
@@ -4209,7 +4235,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-174", 0 ],
-					"midpoints" : [ 994.5, 810.644531, 1122.5, 810.644531 ],
+					"midpoints" : [ 988.5, 810.644531, 1122.5, 810.644531 ],
 					"source" : [ "obj-196", 0 ]
 				}
 
@@ -4997,27 +5023,27 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-25" : [ "live.dial[3]", "grab", 0 ],
-			"obj-45" : [ "live.dial[6]", "fingers", 0 ],
-			"obj-104" : [ "pos_x[1]", "x", 0 ],
-			"obj-24" : [ "live.dial[2]", "z", 0 ],
-			"obj-101" : [ "pos_roll[1]", "roll", 0 ],
-			"obj-102" : [ "live.dial[12]", "z", 0 ],
-			"obj-103" : [ "live.dial[13]", "y", 0 ],
-			"obj-39" : [ "live.slider[1]", "live.slider", 0 ],
-			"obj-22" : [ "pos_x", "x", 0 ],
-			"obj-35" : [ "live.dial[4]", "trust", 0 ],
-			"obj-99" : [ "live.dial[10]", "yaw", 0 ],
-			"obj-100" : [ "live.dial[11]", "pitch", 0 ],
-			"obj-16" : [ "live.slider[2]", "live.slider", 0 ],
-			"obj-23" : [ "live.dial[1]", "y", 0 ],
-			"obj-44" : [ "live.dial[5]", "pinch", 0 ],
-			"obj-30" : [ "live.slider", "live.slider", 0 ],
-			"obj-53" : [ "live.dial[7]", "radius", 0 ],
-			"obj-72" : [ "pos_roll", "roll", 0 ],
-			"obj-17" : [ "Map[1]", "Map", 0 ],
 			"obj-70" : [ "live.dial[8]", "yaw", 0 ],
-			"obj-71" : [ "live.dial[9]", "pitch", 0 ]
+			"obj-53" : [ "live.dial[7]", "radius", 0 ],
+			"obj-71" : [ "live.dial[9]", "pitch", 0 ],
+			"obj-16" : [ "live.slider[2]", "live.slider", 0 ],
+			"obj-101" : [ "pos_roll[1]", "roll", 0 ],
+			"obj-22" : [ "pos_x", "x", 0 ],
+			"obj-99" : [ "live.dial[10]", "yaw", 0 ],
+			"obj-44" : [ "live.dial[5]", "pinch", 0 ],
+			"obj-100" : [ "live.dial[11]", "pitch", 0 ],
+			"obj-23" : [ "live.dial[1]", "y", 0 ],
+			"obj-30" : [ "live.slider", "live.slider", 0 ],
+			"obj-45" : [ "live.dial[6]", "fingers", 0 ],
+			"obj-35" : [ "live.dial[4]", "trust", 0 ],
+			"obj-17" : [ "Map[1]", "Map", 0 ],
+			"obj-104" : [ "pos_x[1]", "x", 0 ],
+			"obj-39" : [ "live.slider[1]", "live.slider", 0 ],
+			"obj-25" : [ "live.dial[3]", "grab", 0 ],
+			"obj-24" : [ "live.dial[2]", "z", 0 ],
+			"obj-72" : [ "pos_roll", "roll", 0 ],
+			"obj-102" : [ "live.dial[12]", "z", 0 ],
+			"obj-103" : [ "live.dial[13]", "y", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
@@ -5056,12 +5082,12 @@
 , 			{
 				"name" : "BlueTextButtons-1",
 				"default" : 				{
-					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
-					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
 					"fontname" : [ "Helvetica" ],
+					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"bgcolor" : [ 0.538741, 0.764449, 0.877768, 1.0 ],
 					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
-					"bgcolor" : [ 0.538741, 0.764449, 0.877768, 1.0 ]
+					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
+					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -5070,11 +5096,8 @@
 , 			{
 				"name" : "Luca",
 				"default" : 				{
-					"textcolor_inverse" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
-					"color" : [ 0.475135, 0.293895, 0.251069, 1.0 ],
-					"accentcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ],
-					"elementcolor" : [ 0.786675, 0.801885, 0.845022, 1.0 ],
 					"fontname" : [ "Open Sans Semibold" ],
+					"color" : [ 0.475135, 0.293895, 0.251069, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
@@ -5085,8 +5108,11 @@
 						"autogradient" : 0
 					}
 ,
+					"bgcolor" : [ 0.904179, 0.895477, 0.842975, 0.56 ],
 					"selectioncolor" : [ 0.720698, 0.16723, 0.080014, 1.0 ],
-					"bgcolor" : [ 0.904179, 0.895477, 0.842975, 0.56 ]
+					"textcolor_inverse" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
+					"accentcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ],
+					"elementcolor" : [ 0.786675, 0.801885, 0.845022, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -5095,12 +5121,12 @@
 , 			{
 				"name" : "RedTextButtons",
 				"default" : 				{
-					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
-					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
 					"fontname" : [ "Helvetica" ],
+					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"bgcolor" : [ 0.843137, 0.733333, 0.729412, 1.0 ],
 					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
-					"bgcolor" : [ 0.843137, 0.733333, 0.729412, 1.0 ]
+					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
+					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -5109,12 +5135,12 @@
 , 			{
 				"name" : "VioletTextButton",
 				"default" : 				{
-					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
-					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
 					"fontname" : [ "Helvetica" ],
+					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"bgcolor" : [ 0.715377, 0.696413, 0.824482, 1.0 ],
 					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
-					"bgcolor" : [ 0.715377, 0.696413, 0.824482, 1.0 ]
+					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
+					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -5123,8 +5149,6 @@
 , 			{
 				"name" : "dark-night-patch",
 				"default" : 				{
-					"patchlinecolor" : [ 0.439216, 0.74902, 0.254902, 0.898039 ],
-					"accentcolor" : [ 0.952941, 0.564706, 0.098039, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -5134,7 +5158,9 @@
 						"proportion" : 0.39
 					}
 ,
-					"textcolor" : [ 0.862745, 0.870588, 0.878431, 1.0 ]
+					"textcolor" : [ 0.862745, 0.870588, 0.878431, 1.0 ],
+					"patchlinecolor" : [ 0.439216, 0.74902, 0.254902, 0.898039 ],
+					"accentcolor" : [ 0.952941, 0.564706, 0.098039, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

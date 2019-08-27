@@ -651,8 +651,7 @@ class FlowServer(OSCServer):
             out_list.append(float(out[0, p]))
         # Handle variables
         self.send('/params', out_list)
-        if (self.freeze_mode):
-            self.prev_z = z_point
+        self.prev_z = z_point
 
 
 
