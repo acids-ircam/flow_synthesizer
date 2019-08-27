@@ -39,6 +39,19 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-334",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 2944.5, 1360.0, 60.0, 22.0 ],
+					"style" : "",
+					"text" : "loadbang"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-332",
 					"maxclass" : "message",
 					"numinlets" : 2,
@@ -172,6 +185,7 @@
 					"bgcolor" : [ 0.290196, 0.309804, 0.301961, 0.0 ],
 					"fontname" : "Helvetica Neue",
 					"fontsize" : 14.0,
+					"hint" : "Beats duration of path",
 					"id" : "obj-374",
 					"maxclass" : "number",
 					"numinlets" : 1,
@@ -770,7 +784,7 @@
 					"fontface" : 0,
 					"fontname" : "Helvetica Neue",
 					"fontsize" : 12.0,
-					"hint" : "Open",
+					"hint" : "Play the selected path",
 					"id" : "obj-343",
 					"maxclass" : "live.text",
 					"numinlets" : 1,
@@ -1012,12 +1026,12 @@
 						"scatter_zoom_x" : [ 0.0, 6.0 ],
 						"scatter_zoom_y" : [ 0.0, 6.0 ],
 						"toggle" : [ 0 ],
-						"toggle[1]" : [ 0 ]
+						"toggle[1]" : [ 1 ]
 					}
 ,
 					"style" : "",
 					"text" : "autopattr @autoname 1",
-					"varname" : "u012023026"
+					"varname" : "u988010545"
 				}
 
 			}
@@ -1037,7 +1051,7 @@
 					"fontface" : 0,
 					"fontname" : "Helvetica Neue",
 					"fontsize" : 11.0,
-					"hint" : "Open",
+					"hint" : "Interpolation in audio or preset space",
 					"id" : "obj-296",
 					"maxclass" : "live.text",
 					"numinlets" : 1,
@@ -2548,6 +2562,7 @@
 				"box" : 				{
 					"bgcolor" : [ 0.290196, 0.309804, 0.301961, 0.0 ],
 					"fontsize" : 16.0,
+					"hint" : "Preset id (direct load)",
 					"id" : "obj-175",
 					"maxclass" : "number",
 					"numinlets" : 1,
@@ -2575,6 +2590,7 @@
 					"fontface" : 1,
 					"fontname" : "Helvetica Neue",
 					"fontsize" : 14.0,
+					"hint" : "Select coloring and filtering",
 					"id" : "obj-165",
 					"items" : [ "hash", ",", "features", ",", "category", ",", "categories", ",", "dark", ",", "dirty", ",", "vintage", ",", "phat", ",", "aggressive", ",", "moving", ",", "synthetic", ",", "wide", ",", "inharmonic", ",", "dynamic" ],
 					"maxclass" : "umenu",
@@ -2667,6 +2683,7 @@
 					"clickthrough" : 0,
 					"enablehscroll" : 0,
 					"enablevscroll" : 0,
+					"hint" : "Clear path",
 					"id" : "obj-221",
 					"lockeddragscroll" : 0,
 					"maxclass" : "bpatcher",
@@ -2741,6 +2758,7 @@
 					"clickthrough" : 0,
 					"enablehscroll" : 0,
 					"enablevscroll" : 0,
+					"hint" : "Draw preset path",
 					"id" : "obj-211",
 					"lockeddragscroll" : 0,
 					"maxclass" : "bpatcher",
@@ -2841,6 +2859,7 @@
 					"clickthrough" : 0,
 					"enablehscroll" : 0,
 					"enablevscroll" : 0,
+					"hint" : "Draw free path",
 					"id" : "obj-197",
 					"lockeddragscroll" : 0,
 					"maxclass" : "bpatcher",
@@ -2936,7 +2955,7 @@
 					"numoutlets" : 1,
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 331.783264, 1272.125, 66.0, 42.432373 ],
+					"patching_rect" : [ 331.783264, 1274.0, 66.0, 42.432373 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 197.5, -89.932373, 25.0, 22.432373 ],
 					"viewvisibility" : 1
@@ -3139,7 +3158,7 @@
 					"fontface" : 0,
 					"fontname" : "Helvetica Neue",
 					"fontsize" : 14.0,
-					"hint" : "Open",
+					"hint" : "Close this panel",
 					"id" : "obj-45",
 					"maxclass" : "live.text",
 					"mode" : 0,
@@ -3373,6 +3392,7 @@
 					"clickthrough" : 0,
 					"enablehscroll" : 0,
 					"enablevscroll" : 0,
+					"hint" : "Open scatter space",
 					"id" : "obj-120",
 					"lockeddragscroll" : 0,
 					"maxclass" : "bpatcher",
@@ -3676,7 +3696,7 @@
 					"fontface" : 0,
 					"fontname" : "Helvetica Neue",
 					"fontsize" : 14.0,
-					"hint" : "Open",
+					"hint" : "Draw a path between presets",
 					"id" : "obj-145",
 					"maxclass" : "live.text",
 					"numinlets" : 1,
@@ -3771,7 +3791,7 @@
 					"fontface" : 0,
 					"fontname" : "Helvetica Neue",
 					"fontsize" : 14.0,
-					"hint" : "Open",
+					"hint" : "Clear the path",
 					"id" : "obj-134",
 					"maxclass" : "live.text",
 					"mode" : 0,
@@ -3854,7 +3874,7 @@
 					"fontface" : 0,
 					"fontname" : "Helvetica Neue",
 					"fontsize" : 14.0,
-					"hint" : "Open",
+					"hint" : "Draw a free path in space",
 					"id" : "obj-131",
 					"maxclass" : "live.text",
 					"numinlets" : 1,
@@ -3903,7 +3923,7 @@
 					"fontface" : 0,
 					"fontname" : "Helvetica Neue",
 					"fontsize" : 14.0,
-					"hint" : "Open",
+					"hint" : "Load presets while hovering",
 					"id" : "obj-129",
 					"maxclass" : "live.text",
 					"numinlets" : 1,
@@ -5857,6 +5877,7 @@
 					"bgfillcolor_type" : "gradient",
 					"fontname" : "Helvetica Neue",
 					"fontsize" : 14.0,
+					"hint" : "Filtering and coloring (tags)",
 					"id" : "obj-39",
 					"items" : [ "hash", ",", "features", ",", "category", ",", "categories", ",", "dark", ",", "dirty", ",", "vintage", ",", "phat", ",", "aggressive", ",", "moving", ",", "synthetic", ",", "wide", ",", "inharmonic", ",", "dynamic" ],
 					"maxclass" : "umenu",
@@ -6238,13 +6259,13 @@
 					"query" : "SELECT * FROM presets",
 					"table" : "presets",
 					"versionnumber" : 10000,
-					"vzoom" : 1172.23119,
+					"vzoom" : 1000.0,
 					"where" : "hash",
 					"xfield" : "x0",
 					"xlabel" : "centroid",
 					"yfield" : "x1",
 					"ylabel" : "check",
-					"zoom" : 1471.131263
+					"zoom" : 1000.0
 				}
 
 			}
@@ -6679,7 +6700,7 @@
 					"outlettype" : [ "list", "list", "int", "" ],
 					"patching_rect" : [ 919.216736, 1386.5, 283.5, 274.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 29.5, 8.75, 752.0, 656.75 ],
+					"presentation_rect" : [ 29.5, 8.75, 757.0, 656.75 ],
 					"varname" : "lcd_draw"
 				}
 
@@ -8684,6 +8705,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-396", 0 ],
+					"source" : [ "obj-334", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-26", 0 ],
 					"midpoints" : [ 1543.0, 135.25, 1155.5, 135.25 ],
 					"source" : [ "obj-335", 0 ]
@@ -9746,18 +9774,18 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-296" : [ "Map[5]", "Map", 0 ],
-			"obj-145" : [ "Map[3]", "Map", 0 ],
 			"obj-134" : [ "Map[2]", "Map", 0 ],
 			"obj-105" : [ "scatter_y", "y", 0 ],
 			"obj-343" : [ "Map[6]", "Map", 0 ],
+			"obj-145" : [ "Map[3]", "Map", 0 ],
+			"obj-296" : [ "Map[5]", "Map", 0 ],
 			"obj-97" : [ "scatter_x", "x", 0 ],
 			"obj-129" : [ "Map[84]", "Map", 0 ],
 			"obj-45" : [ "Map[4]", "Map", 0 ],
 			"obj-182" : [ "scatter_y_small", "y", 0 ],
 			"obj-131" : [ "Map[1]", "Map", 0 ],
-			"obj-183" : [ "scatter_x_small", "x", 0 ],
-			"obj-352" : [ "Map[7]", "Map", 0 ]
+			"obj-352" : [ "Map[7]", "Map", 0 ],
+			"obj-183" : [ "scatter_x_small", "x", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
@@ -9900,12 +9928,12 @@
 , 			{
 				"name" : "BlueTextButtons-1",
 				"default" : 				{
-					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
-					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
 					"fontname" : [ "Helvetica" ],
+					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"bgcolor" : [ 0.538741, 0.764449, 0.877768, 1.0 ],
 					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
-					"bgcolor" : [ 0.538741, 0.764449, 0.877768, 1.0 ]
+					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
+					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -9914,11 +9942,8 @@
 , 			{
 				"name" : "Luca",
 				"default" : 				{
-					"textcolor_inverse" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
-					"color" : [ 0.475135, 0.293895, 0.251069, 1.0 ],
-					"accentcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ],
-					"elementcolor" : [ 0.786675, 0.801885, 0.845022, 1.0 ],
 					"fontname" : [ "Open Sans Semibold" ],
+					"color" : [ 0.475135, 0.293895, 0.251069, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
@@ -9929,8 +9954,11 @@
 						"autogradient" : 0
 					}
 ,
+					"bgcolor" : [ 0.904179, 0.895477, 0.842975, 0.56 ],
 					"selectioncolor" : [ 0.720698, 0.16723, 0.080014, 1.0 ],
-					"bgcolor" : [ 0.904179, 0.895477, 0.842975, 0.56 ]
+					"textcolor_inverse" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
+					"accentcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ],
+					"elementcolor" : [ 0.786675, 0.801885, 0.845022, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -9939,12 +9967,12 @@
 , 			{
 				"name" : "RedTextButtons",
 				"default" : 				{
-					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
-					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
 					"fontname" : [ "Helvetica" ],
+					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"bgcolor" : [ 0.843137, 0.733333, 0.729412, 1.0 ],
 					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
-					"bgcolor" : [ 0.843137, 0.733333, 0.729412, 1.0 ]
+					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
+					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -9953,12 +9981,12 @@
 , 			{
 				"name" : "VioletTextButton",
 				"default" : 				{
-					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
-					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
 					"fontname" : [ "Helvetica" ],
+					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"bgcolor" : [ 0.715377, 0.696413, 0.824482, 1.0 ],
 					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
-					"bgcolor" : [ 0.715377, 0.696413, 0.824482, 1.0 ]
+					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
+					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -9967,8 +9995,6 @@
 , 			{
 				"name" : "dark-night-patch",
 				"default" : 				{
-					"patchlinecolor" : [ 0.439216, 0.74902, 0.254902, 0.898039 ],
-					"accentcolor" : [ 0.952941, 0.564706, 0.098039, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -9978,7 +10004,9 @@
 						"proportion" : 0.39
 					}
 ,
-					"textcolor" : [ 0.862745, 0.870588, 0.878431, 1.0 ]
+					"textcolor" : [ 0.862745, 0.870588, 0.878431, 1.0 ],
+					"patchlinecolor" : [ 0.439216, 0.74902, 0.254902, 0.898039 ],
+					"accentcolor" : [ 0.952941, 0.564706, 0.098039, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

@@ -951,7 +951,7 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "micro.png",
+				"name" : "resume-button.png",
 				"bootpath" : "~/Coding/git/acids/flow_synthesizer/plugin/graphics/icons_white_50",
 				"patcherrelativepath" : "./graphics/icons_white_50",
 				"type" : "PNG ",
