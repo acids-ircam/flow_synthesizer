@@ -539,7 +539,7 @@ class FlowServer(OSCServer):
 
     def encode(self, path):
         """ Encode a given wavefile to infer the synth parameters """
-        path = path.replace('Macintosh HD:', '')
+        path = path.split(':')[1]#replace('Macintosh HD:', '')
         # Retrieve file to encode
         wave, _ = librosa.core.load(path, sr=22050)
         # Perform pitch tracking
