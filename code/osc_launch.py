@@ -123,7 +123,7 @@ if (not os.path.exists(analysis_file + '.npy') or args.reanalyze):
     # Save the whole analysis
     np.save(analysis_file, model_analysis)
 else:
-    model_analysis = np.load(analysis_file + '.npy').item()
+    model_analysis = np.load(analysis_file + '.npy', allow_pickle=True).item()
 
 #%%
 """

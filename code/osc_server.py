@@ -352,7 +352,7 @@ class FlowServer(OSCServer):
         self.args.dataset = dataset
         self.args.data = data
         ref_split = self.args.path + '/reference_split_' + dataset + "_" + data + '.npz'
-        data = np.load(ref_split)['arr_0']
+        data = np.load(ref_split, allow_pickle=True)['arr_0']
         train_loader, valid_loader, test_loader = data[0], data[1], data[2]
         self.dataset = [train_loader, valid_loader, test_loader]
         m_path = self.args.model_path + self.args.dataset + '/' + self.args.model_name
@@ -433,7 +433,7 @@ class FlowServer(OSCServer):
         # Interpolate in preset space
         else:
             cur_file = self.dataset[l_idx[0]].dataset.data_files[l_idx[1]]
-            loaded = np.load(cur_file)
+            loaded = np.load(cur_file, allow_pickle=True)
             params = loaded['param'].item()
             params = torch.Tensor([params[p] for p in self.param_names])
             self.preset_path.append(params)
@@ -495,7 +495,7 @@ class FlowServer(OSCServer):
         # Retrieve correct index
         l_idx = self.analysis['hash_loaders'][hash_v]
         cur_file = self.dataset[l_idx[0]].dataset.datadir + '/raw/' + self.dataset[l_idx[0]].dataset.data_files[l_idx[1]]
-        loaded = np.load(cur_file)
+        loaded = np.load(cur_file, allow_pickle=True)
         params = loaded['param'].item()
         params = torch.Tensor([params[p] for p in self.param_names])
         out_list = []
