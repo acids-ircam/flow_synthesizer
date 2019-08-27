@@ -75,8 +75,9 @@ Dimensions evaluation for AE models
 def evaluate_dimensions(model, pca, args, n_steps = 50, pos=[-1, 0, 1]):	
     print('[Evaluate latent dimensions.]')	
     latent_dims = model.ae_model.latent_dims	
-    latent_variances = np.zeros((latent_dims, latent_dims))	
-    latent_parameters = np.zeros((latent_dims, latent_dims, n_steps))	
+    regression_dims = model.regression_dims
+    latent_variances = np.zeros((latent_dims, regression_dims))	
+    latent_parameters = np.zeros((latent_dims, regression_dims, n_steps))	
     latent_descriptors = np.zeros((latent_dims, 5, n_steps))	
     var_z = torch.linspace(-4, 4, n_steps)	
     for l in range(latent_dims):	

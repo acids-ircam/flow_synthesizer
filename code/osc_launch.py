@@ -14,14 +14,14 @@ import os
 __DEBUG__ = False
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--in_port',    type=int,   default=1234)
-parser.add_argument('--out_port',   type=int,   default=1235)
+parser.add_argument('--in_port',    type=int,   default=1232)
+parser.add_argument('--out_port',   type=int,   default=1233)
 parser.add_argument('--ip',         type=str,   default="127.0.0.1")
 # Model arguments
 parser.add_argument('--model_path', type=str,   default="results/")
-parser.add_argument('--model_name', type=str,   default="vae_flow_mel_mse_64_cnn_iaf_mlp_1.model")
+parser.add_argument('--model_name', type=str,   default="vae_mel_mse_32_cnn_mlp_1.model")
 # Data arguments
-parser.add_argument('--path',       type=str,   default='data', help='')
+parser.add_argument('--path',       type=str,   default='data',     help='')
 parser.add_argument('--dataset',    type=str,   default='64par',    help='')
 parser.add_argument('--train_type', type=str,   default='fixed',    help='')
 parser.add_argument('--data',       type=str,   default='mel',      help='')

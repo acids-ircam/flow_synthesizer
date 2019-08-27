@@ -207,6 +207,7 @@ class FlowServer(OSCServer):
         # Core functionalities (load, decode, encode)
         self.dispatcher.map('/load_preset', osc_parse(self.load_preset))
         self.dispatcher.map('/decode', osc_parse(self.decode))
+        self.dispatcher.map('/decode_hand', osc_parse(self.decode_hand))
         self.dispatcher.map('/encode', osc_parse(self.encode))
     
     """
@@ -493,7 +494,7 @@ class FlowServer(OSCServer):
         """ Load a given preset based on its hash string """
         # Retrieve correct index
         l_idx = self.analysis['hash_loaders'][hash_v]
-        cur_file = self.dataset[l_idx[0]].dataset.data_files[l_idx[1]]
+        cur_file = self.dataset[l_idx[0]].dataset.datadir + '/raw/' + self.dataset[l_idx[0]].dataset.data_files[l_idx[1]]
         loaded = np.load(cur_file)
         params = loaded['param'].item()
         params = torch.Tensor([params[p] for p in self.param_names])
@@ -607,6 +608,36 @@ class FlowServer(OSCServer):
             print(z_point)
         z_point[0, self.analysis['d_idx'][d1]] = x
         z_point[0, self.analysis['d_idx'][d2]] = y
+        # Perform regression on params
+        if (self.pca is not None):
+            ipca_z = torch.Tensor(self.pca.inverse_transform(z_point))
+            out = self._model.regression_model(ipca_z)
+        else:
+            out = self._model.regression_model(z_point)  
+        out_list = []
+        # Create dict out of params
+        for p in range(out.shape[1]):
+            out_list.append(self.param_names[p])
+            out_list.append(float(out[0, p]))
+        # Handle variables
+        self.send('/params', out_list)
+        if (self.freeze_mode):
+            self.prev_z = z_point
+
+    def decode_hand(self, x1, d1, x2, d2, x3, d3, x4, d4, x5, d5, x6, d6):
+        """ Decode a given point in audio z space to obtain the synth parameters """
+        # Create vector for latent point
+        z_point = torch.zeros(1, self._model.latent_dims)
+        if (self.prev_z is not None):
+            z_point = self.prev_z
+            print('Reusing point:')
+            print(z_point)
+        z_point[0, self.analysis['d_idx'][d1]] = x1
+        z_point[0, self.analysis['d_idx'][d2]] = x2
+        z_point[0, self.analysis['d_idx'][d3]] = x3
+        z_point[0, self.analysis['d_idx'][d4]] = x4
+        z_point[0, self.analysis['d_idx'][d5]] = x5
+        z_point[0, self.analysis['d_idx'][d6]] = x6
         # Perform regression on params
         if (self.pca is not None):
             ipca_z = torch.Tensor(self.pca.inverse_transform(z_point))
