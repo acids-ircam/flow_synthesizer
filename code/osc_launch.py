@@ -9,6 +9,7 @@ from evaluate import evaluate_dimensions, evaluate_dataset
 from torch.utils.data import DataLoader
 import numpy as np
 import os
+from os.path import expanduser
 
 # Debug mode
 __DEBUG__ = False
@@ -58,9 +59,10 @@ else:
     data = torch.load(ref_split)
     train_loader, valid_loader, test_loader = data[0], data[1], data[2]
     print('[Changing refs in reference]')
+    home = expanduser("~")
     for t in [train_loader, valid_loader, test_loader]:
-        t.dataset.datadir = '/Users/esling/Datasets/diva_dataset/' + args.dataset
-        t.dataset.trans_datasets[args.data].datadir = '/Users/esling/Datasets/diva_dataset/' + args.dataset
+        t.dataset.datadir = home + '/Datasets/diva_dataset/' + args.dataset
+        t.dataset.trans_datasets[args.data].datadir = home + '/Datasets/diva_dataset/' + args.dataset
     torch.save([train_loader, valid_loader, test_loader], ref_split)
 # Remove the shuffling from dataset
 train_loader = DataLoader(train_loader.dataset, batch_size=64, shuffle=False, num_workers=2)
