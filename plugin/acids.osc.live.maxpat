@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 181.0, 194.0, 957.0, 719.0 ],
+		"rect" : [ -908.0, -909.0, 1139.0, 719.0 ],
 		"bgcolor" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
@@ -431,7 +431,7 @@
 									"patching_rect" : [ 18.0, 18.284363, 72.0, 56.829431 ],
 									"pic" : "ACIDS_logo.png",
 									"presentation" : 1,
-									"presentation_rect" : [ 13.0, 10.234194, 86.0, 67.879599 ]
+									"presentation_rect" : [ 13.0, 10.234194, 86.0, 67.879601 ]
 								}
 
 							}
@@ -962,7 +962,7 @@
 ,
 					"style" : "",
 					"text" : "autopattr @autoname 1",
-					"varname" : "u417000904"
+					"varname" : "u320000387"
 				}
 
 			}
@@ -998,14 +998,13 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-39",
-					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 1,
-					"numoutlets" : 5,
-					"outlettype" : [ "", "", "", "", "" ],
-					"patching_rect" : [ 1077.0, 276.5, 118.0, 35.0 ],
+					"numoutlets" : 2,
+					"outlettype" : [ "", "int" ],
+					"patching_rect" : [ 1077.0, 288.5, 130.0, 22.0 ],
 					"style" : "",
-					"text" : "regexp \"Macintosh HD:\" @substitute /"
+					"text" : "conformpath max boot"
 				}
 
 			}
