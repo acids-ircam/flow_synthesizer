@@ -85,7 +85,7 @@
 ,
 					"style" : "",
 					"text" : "autopattr @autoname 1",
-					"varname" : "u587005605"
+					"varname" : "u885002381"
 				}
 
 			}
@@ -243,9 +243,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 539.0, 111.144531, 64.0, 22.0 ],
+					"patching_rect" : [ 539.0, 111.144531, 41.0, 22.0 ],
 					"style" : "",
-					"text" : "32 64 128"
+					"text" : "16 32"
 				}
 
 			}
@@ -261,7 +261,7 @@
 					"fontname" : "Helvetica Neue",
 					"fontsize" : 11.0,
 					"id" : "obj-5",
-					"items" : [ 32, ",", 64, ",", 128 ],
+					"items" : [ 16, ",", 32 ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -1195,11 +1195,11 @@
 				"name" : "BlueTextButtons-1",
 				"default" : 				{
 					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
-					"fontname" : [ "Helvetica" ],
 					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
-					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"bgcolor" : [ 0.538741, 0.764449, 0.877768, 1.0 ],
-					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ]
+					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
+					"fontname" : [ "Helvetica" ],
+					"color" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -1210,8 +1210,8 @@
 				"default" : 				{
 					"textcolor_inverse" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
 					"accentcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ],
-					"fontname" : [ "Open Sans Semibold" ],
 					"elementcolor" : [ 0.786675, 0.801885, 0.845022, 1.0 ],
+					"bgcolor" : [ 0.904179, 0.895477, 0.842975, 0.56 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
@@ -1222,9 +1222,9 @@
 						"autogradient" : 0
 					}
 ,
-					"color" : [ 0.475135, 0.293895, 0.251069, 1.0 ],
-					"bgcolor" : [ 0.904179, 0.895477, 0.842975, 0.56 ],
-					"selectioncolor" : [ 0.720698, 0.16723, 0.080014, 1.0 ]
+					"selectioncolor" : [ 0.720698, 0.16723, 0.080014, 1.0 ],
+					"fontname" : [ "Open Sans Semibold" ],
+					"color" : [ 0.475135, 0.293895, 0.251069, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -1234,11 +1234,11 @@
 				"name" : "RedTextButtons",
 				"default" : 				{
 					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
-					"fontname" : [ "Helvetica" ],
 					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
-					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"bgcolor" : [ 0.843137, 0.733333, 0.729412, 1.0 ],
-					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ]
+					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
+					"fontname" : [ "Helvetica" ],
+					"color" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -1248,11 +1248,11 @@
 				"name" : "VioletTextButton",
 				"default" : 				{
 					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
-					"fontname" : [ "Helvetica" ],
 					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
-					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"bgcolor" : [ 0.715377, 0.696413, 0.824482, 1.0 ],
-					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ]
+					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
+					"fontname" : [ "Helvetica" ],
+					"color" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -1262,7 +1262,6 @@
 				"name" : "dark-night-patch",
 				"default" : 				{
 					"patchlinecolor" : [ 0.439216, 0.74902, 0.254902, 0.898039 ],
-					"textcolor" : [ 0.862745, 0.870588, 0.878431, 1.0 ],
 					"accentcolor" : [ 0.952941, 0.564706, 0.098039, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
@@ -1272,7 +1271,8 @@
 						"angle" : 270.0,
 						"proportion" : 0.39
 					}
-
+,
+					"textcolor" : [ 0.862745, 0.870588, 0.878431, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -1314,8 +1314,8 @@
 , 			{
 				"name" : "multislider001",
 				"default" : 				{
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.945827, 0.711942, 0.174445, 0.0 ]
+					"bgcolor" : [ 0.945827, 0.711942, 0.174445, 0.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

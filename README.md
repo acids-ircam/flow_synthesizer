@@ -9,14 +9,16 @@ In order to try out the _Flow synthesizer_ plugin, you must
 ```
 /Library/Audio/Plug-Ins/VST/u-he/Diva.vst
 ```
-2. Install the latest version of the [Dada library](https://www.bachproject.net/dl/) for MaxMsp
-3. Have an updated version of `Python 3.7`
-4. Install the Python dependencies by running the following line at the root of this folder
+2. Install the latest (bleeding-edge) version of both the [Bach and Dada library](https://www.bachproject.net/dl/) for MaxMsp
+3. Install the [Mubu library](http://forumnet.ircam.fr/shop/fr/forumnet/59-mubu-pour-max.html) for MaxMsp
+4. Have an updated version of `Python 3.7`
+5. Install the Python dependencies by running the following line at the root of this folder
 ```bash
 $ pip install -r requirements.txt
 ```
-5. Put the `plugin/flow_synth.amxd` device inside a MIDI track in `Ableton Live`
-6. ???
+6. Put the `plugin/flow_synth.amxd` device inside a MIDI track in `Ableton Live`
+7. Optionally, if you happen to have a [LeapMotion sensor](https://www.leapmotion.com/), you can install the Leap framework to enjoy it with the synth.
+7. ???
 7. Profit
 
 NB: If the device seems non-responding, you can try to run the server manually

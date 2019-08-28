@@ -328,22 +328,26 @@ class FlowServer(OSCServer):
         self.print('model loaded')
         self.get_state()
     
-    def set_model(self, model, data, beta):
+    def set_model(self, model, beta, dims):
         """ Set the model from a pre-defined list in the interface """
         if (model == 'flow'):
             m_name = 'vae_flow'
-            regress = 'flow_kl_f_iaf'
+            regress = 'iaf_mlp'
         elif (model == 'vae'):
-            m_name = 'vae_flow'
-            regress = 'mlp_iaf'
+            m_name = 'vae'
+            regress = 'mlp'
         else:
             m_name = 'wae'
             regress = 'mlp'
-        m_path = 'results/' + m_name + '_' + data + '_mse_cnn_' + regress + '_' + str(beta) + '.model'
+        m_path = 'results/64par/' + m_name + '_mel_mse_' + str(dims) + '_cnn_' + regress + '_' + str(beta) + '.model'
         self.args.model_path = m_path
+        analysis_file = m_path.replace('.model', '.analysis.pca')
+        self.analysis = np.load(analysis_file + '.npy', allow_pickle=True).item()
+        self.pca = self.analysis['pca']
         self.print('Loading model.')
         self._model = torch.load(m_path, map_location='cpu')
-        self.get_state()
+        self.prev_z = None
+        self.resend_state()
     
     def set_dataset(self, model, data, params):
         """ Set the dataset from a pre-defined list """
