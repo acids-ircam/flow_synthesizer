@@ -39,6 +39,19 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-79",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 28.0, 482.5, 75.0, 22.0 ],
+					"style" : "",
+					"text" : "speedlim 20"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-78",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -154,8 +167,8 @@
 					"restore" : 					{
 						"xy_close" : [ 0.0 ],
 						"xy_freeze" : [ 0.0 ],
-						"xy_pad_large" : [ 0, 0 ],
-						"xy_pad_small" : [ 0, 0 ],
+						"xy_pad_large" : [ -112, 62 ],
+						"xy_pad_small" : [ -112, 62 ],
 						"xy_x" : [ 0.0 ],
 						"xy_x_small" : [ 0.0 ],
 						"xy_y" : [ 1.0 ],
@@ -164,7 +177,7 @@
 ,
 					"style" : "",
 					"text" : "autopattr @autoname 1",
-					"varname" : "u052002186"
+					"varname" : "u997002398"
 				}
 
 			}
@@ -1461,7 +1474,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "int" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 28.0, 74.5, 185.0, 175.0 ],
+					"patching_rect" : [ 28.0, 73.932373, 185.0, 175.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 7.0, -161.843628, 151.0, 151.343628 ],
 					"rightvalue" : 300,
@@ -1578,7 +1591,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-195", 2 ],
-					"midpoints" : [ 263.5, 323.5, 80.166667, 323.5 ],
+					"midpoints" : [ 263.5, 326.5, 80.166667, 326.5 ],
 					"order" : 3,
 					"source" : [ "obj-157", 0 ]
 				}
@@ -1680,7 +1693,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-4", 0 ],
+					"destination" : [ "obj-79", 0 ],
 					"source" : [ "obj-195", 0 ]
 				}
 
@@ -1709,7 +1722,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-195", 1 ],
-					"midpoints" : [ 102.5, 329.25, 58.833333, 329.25 ],
+					"midpoints" : [ 102.5, 323.25, 58.833333, 323.25 ],
 					"source" : [ "obj-205", 0 ]
 				}
 
@@ -2116,6 +2129,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-79", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-69", 0 ],
 					"source" : [ "obj-80", 0 ]
 				}
@@ -2147,58 +2167,58 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-52::obj-24::obj-70" : [ "live.dial[8]", "yaw", 0 ],
-			"obj-52::obj-23::obj-103" : [ "live.dial[17]", "y", 0 ],
-			"obj-52::obj-24::obj-53" : [ "live.dial[7]", "radius", 0 ],
-			"obj-6" : [ "xy_y_small", "y", 0 ],
-			"obj-52::obj-24::obj-16" : [ "live.slider[2]", "live.slider", 0 ],
-			"obj-52::obj-24::obj-71" : [ "live.dial[9]", "pitch", 0 ],
-			"obj-52::obj-23::obj-45" : [ "live.dial[21]", "fingers", 0 ],
-			"obj-52::obj-24::obj-101" : [ "pos_roll[1]", "roll", 0 ],
-			"obj-52::obj-23::obj-102" : [ "live.dial[16]", "z", 0 ],
+			"obj-52::obj-23::obj-22" : [ "pos_x[3]", "x", 0 ],
+			"obj-13" : [ "xy_y", "y", 0 ],
+			"obj-52::obj-23::obj-71" : [ "live.dial[19]", "pitch", 0 ],
 			"obj-52::obj-24::obj-22" : [ "pos_x", "x", 0 ],
-			"obj-28" : [ "Map[6]", "Map", 0 ],
 			"obj-22" : [ "Map[3]", "Map", 0 ],
-			"obj-52::obj-23::obj-70" : [ "live.dial[18]", "yaw", 0 ],
-			"obj-52::obj-24::obj-99" : [ "live.dial[10]", "yaw", 0 ],
-			"obj-157" : [ "xy_x_small", "x", 0 ],
-			"obj-52::obj-24::obj-44" : [ "live.dial[5]", "pinch", 0 ],
-			"obj-52::obj-23::obj-30" : [ "live.slider[5]", "live.slider", 0 ],
-			"obj-52::obj-24::obj-100" : [ "live.dial[11]", "pitch", 0 ],
-			"obj-52::obj-23::obj-72" : [ "pos_roll[3]", "roll", 0 ],
-			"obj-52::obj-24::obj-23" : [ "live.dial[1]", "y", 0 ],
-			"obj-52::obj-23::obj-104" : [ "pos_x[2]", "x", 0 ],
-			"obj-192" : [ "pictslider", "pictslider", 0 ],
-			"obj-52::obj-24::obj-30" : [ "live.slider", "live.slider", 0 ],
-			"obj-52::obj-23::obj-17" : [ "Map[8]", "Map", 0 ],
-			"obj-52::obj-24::obj-45" : [ "live.dial[6]", "fingers", 0 ],
-			"obj-52::obj-23::obj-101" : [ "pos_roll[2]", "roll", 0 ],
-			"obj-52::obj-23::obj-24" : [ "live.dial[25]", "z", 0 ],
 			"obj-52::obj-23::obj-39" : [ "live.slider[4]", "live.slider", 0 ],
 			"obj-52::obj-24::obj-35" : [ "live.dial[4]", "trust", 0 ],
+			"obj-52::obj-23::obj-104" : [ "pos_x[2]", "x", 0 ],
 			"obj-52::obj-23::obj-99" : [ "live.dial[14]", "yaw", 0 ],
-			"obj-52::obj-49" : [ "Map[4]", "Map", 0 ],
-			"obj-52::obj-23::obj-16" : [ "live.slider[3]", "live.slider", 0 ],
-			"obj-32" : [ "pictslider[1]", "pictslider", 0 ],
-			"obj-52::obj-23::obj-35" : [ "live.dial[23]", "trust", 0 ],
-			"obj-13" : [ "xy_y", "y", 0 ],
-			"obj-52::obj-23::obj-100" : [ "live.dial[15]", "pitch", 0 ],
-			"obj-52::obj-23::obj-22" : [ "pos_x[3]", "x", 0 ],
-			"obj-52::obj-24::obj-17" : [ "Map[1]", "Map", 0 ],
-			"obj-52::obj-23::obj-23" : [ "live.dial[26]", "y", 0 ],
-			"obj-52::obj-24::obj-104" : [ "pos_x[1]", "x", 0 ],
-			"obj-52::obj-24::obj-39" : [ "live.slider[1]", "live.slider", 0 ],
 			"obj-52::obj-162" : [ "Map[7]", "Map", 0 ],
-			"obj-52::obj-23::obj-44" : [ "live.dial[22]", "pinch", 0 ],
-			"obj-52::obj-24::obj-25" : [ "live.dial[3]", "grab", 0 ],
-			"obj-14" : [ "xy_x", "x", 0 ],
-			"obj-52::obj-23::obj-53" : [ "live.dial[20]", "radius", 0 ],
-			"obj-52::obj-24::obj-24" : [ "live.dial[2]", "z", 0 ],
-			"obj-52::obj-24::obj-72" : [ "pos_roll", "roll", 0 ],
 			"obj-52::obj-23::obj-25" : [ "live.dial[24]", "grab", 0 ],
-			"obj-52::obj-23::obj-71" : [ "live.dial[19]", "pitch", 0 ],
+			"obj-14" : [ "xy_x", "x", 0 ],
+			"obj-52::obj-23::obj-17" : [ "Map[8]", "Map", 0 ],
+			"obj-52::obj-24::obj-39" : [ "live.slider[1]", "live.slider", 0 ],
+			"obj-52::obj-23::obj-53" : [ "live.dial[20]", "radius", 0 ],
+			"obj-52::obj-24::obj-16" : [ "live.slider[2]", "live.slider", 0 ],
+			"obj-52::obj-24::obj-23" : [ "live.dial[1]", "y", 0 ],
+			"obj-52::obj-23::obj-30" : [ "live.slider[5]", "live.slider", 0 ],
+			"obj-52::obj-23::obj-103" : [ "live.dial[17]", "y", 0 ],
+			"obj-28" : [ "Map[6]", "Map", 0 ],
+			"obj-192" : [ "pictslider", "pictslider", 0 ],
+			"obj-52::obj-23::obj-102" : [ "live.dial[16]", "z", 0 ],
+			"obj-52::obj-24::obj-72" : [ "pos_roll", "roll", 0 ],
+			"obj-52::obj-24::obj-104" : [ "pos_x[1]", "x", 0 ],
+			"obj-6" : [ "xy_y_small", "y", 0 ],
+			"obj-52::obj-23::obj-23" : [ "live.dial[26]", "y", 0 ],
+			"obj-52::obj-24::obj-24" : [ "live.dial[2]", "z", 0 ],
+			"obj-52::obj-24::obj-30" : [ "live.slider", "live.slider", 0 ],
+			"obj-52::obj-23::obj-35" : [ "live.dial[23]", "trust", 0 ],
+			"obj-32" : [ "pictslider[1]", "pictslider", 0 ],
+			"obj-52::obj-24::obj-70" : [ "live.dial[8]", "yaw", 0 ],
 			"obj-52::obj-24::obj-102" : [ "live.dial[12]", "z", 0 ],
-			"obj-52::obj-24::obj-103" : [ "live.dial[13]", "y", 0 ]
+			"obj-52::obj-24::obj-71" : [ "live.dial[9]", "pitch", 0 ],
+			"obj-52::obj-23::obj-101" : [ "pos_roll[2]", "roll", 0 ],
+			"obj-52::obj-23::obj-16" : [ "live.slider[3]", "live.slider", 0 ],
+			"obj-52::obj-24::obj-103" : [ "live.dial[13]", "y", 0 ],
+			"obj-52::obj-24::obj-45" : [ "live.dial[6]", "fingers", 0 ],
+			"obj-157" : [ "xy_x_small", "x", 0 ],
+			"obj-52::obj-24::obj-25" : [ "live.dial[3]", "grab", 0 ],
+			"obj-52::obj-23::obj-44" : [ "live.dial[22]", "pinch", 0 ],
+			"obj-52::obj-23::obj-70" : [ "live.dial[18]", "yaw", 0 ],
+			"obj-52::obj-24::obj-101" : [ "pos_roll[1]", "roll", 0 ],
+			"obj-52::obj-24::obj-53" : [ "live.dial[7]", "radius", 0 ],
+			"obj-52::obj-24::obj-17" : [ "Map[1]", "Map", 0 ],
+			"obj-52::obj-23::obj-72" : [ "pos_roll[3]", "roll", 0 ],
+			"obj-52::obj-23::obj-45" : [ "live.dial[21]", "fingers", 0 ],
+			"obj-52::obj-24::obj-99" : [ "live.dial[10]", "yaw", 0 ],
+			"obj-52::obj-49" : [ "Map[4]", "Map", 0 ],
+			"obj-52::obj-24::obj-100" : [ "live.dial[11]", "pitch", 0 ],
+			"obj-52::obj-24::obj-44" : [ "live.dial[5]", "pinch", 0 ],
+			"obj-52::obj-23::obj-100" : [ "live.dial[15]", "pitch", 0 ],
+			"obj-52::obj-23::obj-24" : [ "live.dial[25]", "z", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
