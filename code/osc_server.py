@@ -636,12 +636,18 @@ class FlowServer(OSCServer):
             z_point = self.prev_z
             print('Reusing point:')
             print(z_point)
-        z_point[0, self.analysis['d_idx'][d1]] = x1
-        z_point[0, self.analysis['d_idx'][d2]] = x2
-        z_point[0, self.analysis['d_idx'][d3]] = x3
-        z_point[0, self.analysis['d_idx'][d4]] = x4
-        z_point[0, self.analysis['d_idx'][d5]] = x5
-        z_point[0, self.analysis['d_idx'][d6]] = x6
+        if (d1 > -1):
+            z_point[0, self.analysis['d_idx'][d1]] = x1
+        if (d2 > -1):
+            z_point[0, self.analysis['d_idx'][d2]] = x2
+        if (d3 > -1):
+            z_point[0, self.analysis['d_idx'][d3]] = x3
+        if (d4 > -1):
+            z_point[0, self.analysis['d_idx'][d4]] = x4
+        if (d5 > -1):
+            z_point[0, self.analysis['d_idx'][d5]] = x5
+        if (d6 > -1):
+            z_point[0, self.analysis['d_idx'][d6]] = x6
         # Perform regression on params
         if (self.pca is not None):
             ipca_z = torch.Tensor(self.pca.inverse_transform(z_point))

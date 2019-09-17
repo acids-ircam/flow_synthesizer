@@ -104,6 +104,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-163",
+					"int" : 1,
 					"maxclass" : "gswitch",
 					"numinlets" : 3,
 					"numoutlets" : 1,
@@ -874,7 +875,6 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-120",
-					"int" : 1,
 					"maxclass" : "gswitch",
 					"numinlets" : 3,
 					"numoutlets" : 1,
@@ -888,7 +888,6 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-119",
-					"int" : 1,
 					"maxclass" : "gswitch",
 					"numinlets" : 3,
 					"numoutlets" : 1,
@@ -1125,6 +1124,7 @@
 							"parameter_longname" : "live.dial[10]",
 							"parameter_shortname" : "yaw",
 							"parameter_type" : 1,
+							"parameter_mmin" : -1.0,
 							"parameter_mmax" : 32.0,
 							"parameter_unitstyle" : 0
 						}
@@ -1157,6 +1157,7 @@
 							"parameter_longname" : "live.dial[11]",
 							"parameter_shortname" : "pitch",
 							"parameter_type" : 1,
+							"parameter_mmin" : -1.0,
 							"parameter_mmax" : 32.0,
 							"parameter_unitstyle" : 0
 						}
@@ -1189,6 +1190,7 @@
 							"parameter_longname" : "pos_roll[1]",
 							"parameter_shortname" : "roll",
 							"parameter_type" : 1,
+							"parameter_mmin" : -1.0,
 							"parameter_mmax" : 32.0,
 							"parameter_unitstyle" : 0
 						}
@@ -1221,6 +1223,7 @@
 							"parameter_longname" : "live.dial[12]",
 							"parameter_shortname" : "z",
 							"parameter_type" : 1,
+							"parameter_mmin" : -1.0,
 							"parameter_mmax" : 32.0,
 							"parameter_unitstyle" : 0
 						}
@@ -1253,6 +1256,7 @@
 							"parameter_longname" : "live.dial[13]",
 							"parameter_shortname" : "y",
 							"parameter_type" : 1,
+							"parameter_mmin" : -1.0,
 							"parameter_mmax" : 32.0,
 							"parameter_unitstyle" : 0
 						}
@@ -1285,6 +1289,7 @@
 							"parameter_longname" : "pos_x[1]",
 							"parameter_shortname" : "x",
 							"parameter_type" : 1,
+							"parameter_mmin" : -1.0,
 							"parameter_mmax" : 32.0,
 							"parameter_unitstyle" : 0
 						}
@@ -5023,27 +5028,27 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-70" : [ "live.dial[8]", "yaw", 0 ],
-			"obj-53" : [ "live.dial[7]", "radius", 0 ],
-			"obj-71" : [ "live.dial[9]", "pitch", 0 ],
-			"obj-16" : [ "live.slider[2]", "live.slider", 0 ],
-			"obj-101" : [ "pos_roll[1]", "roll", 0 ],
-			"obj-22" : [ "pos_x", "x", 0 ],
-			"obj-99" : [ "live.dial[10]", "yaw", 0 ],
-			"obj-44" : [ "live.dial[5]", "pinch", 0 ],
-			"obj-100" : [ "live.dial[11]", "pitch", 0 ],
-			"obj-23" : [ "live.dial[1]", "y", 0 ],
-			"obj-30" : [ "live.slider", "live.slider", 0 ],
+			"obj-103" : [ "live.dial[13]", "y", 0 ],
 			"obj-45" : [ "live.dial[6]", "fingers", 0 ],
-			"obj-35" : [ "live.dial[4]", "trust", 0 ],
+			"obj-101" : [ "pos_roll[1]", "roll", 0 ],
 			"obj-17" : [ "Map[1]", "Map", 0 ],
-			"obj-104" : [ "pos_x[1]", "x", 0 ],
-			"obj-39" : [ "live.slider[1]", "live.slider", 0 ],
+			"obj-99" : [ "live.dial[10]", "yaw", 0 ],
+			"obj-100" : [ "live.dial[11]", "pitch", 0 ],
+			"obj-72" : [ "pos_roll", "roll", 0 ],
+			"obj-44" : [ "live.dial[5]", "pinch", 0 ],
+			"obj-16" : [ "live.slider[2]", "live.slider", 0 ],
+			"obj-22" : [ "pos_x", "x", 0 ],
+			"obj-53" : [ "live.dial[7]", "radius", 0 ],
+			"obj-70" : [ "live.dial[8]", "yaw", 0 ],
+			"obj-71" : [ "live.dial[9]", "pitch", 0 ],
 			"obj-25" : [ "live.dial[3]", "grab", 0 ],
 			"obj-24" : [ "live.dial[2]", "z", 0 ],
-			"obj-72" : [ "pos_roll", "roll", 0 ],
-			"obj-102" : [ "live.dial[12]", "z", 0 ],
-			"obj-103" : [ "live.dial[13]", "y", 0 ]
+			"obj-23" : [ "live.dial[1]", "y", 0 ],
+			"obj-35" : [ "live.dial[4]", "trust", 0 ],
+			"obj-39" : [ "live.slider[1]", "live.slider", 0 ],
+			"obj-104" : [ "pos_x[1]", "x", 0 ],
+			"obj-30" : [ "live.slider", "live.slider", 0 ],
+			"obj-102" : [ "live.dial[12]", "z", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
@@ -5083,11 +5088,11 @@
 				"name" : "BlueTextButtons-1",
 				"default" : 				{
 					"fontname" : [ "Helvetica" ],
+					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
+					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
 					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"bgcolor" : [ 0.538741, 0.764449, 0.877768, 1.0 ],
-					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
-					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
-					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ]
+					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -5097,6 +5102,9 @@
 				"name" : "Luca",
 				"default" : 				{
 					"fontname" : [ "Open Sans Semibold" ],
+					"textcolor_inverse" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
+					"accentcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ],
+					"elementcolor" : [ 0.786675, 0.801885, 0.845022, 1.0 ],
 					"color" : [ 0.475135, 0.293895, 0.251069, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
@@ -5109,10 +5117,7 @@
 					}
 ,
 					"bgcolor" : [ 0.904179, 0.895477, 0.842975, 0.56 ],
-					"selectioncolor" : [ 0.720698, 0.16723, 0.080014, 1.0 ],
-					"textcolor_inverse" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
-					"accentcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ],
-					"elementcolor" : [ 0.786675, 0.801885, 0.845022, 1.0 ]
+					"selectioncolor" : [ 0.720698, 0.16723, 0.080014, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -5122,11 +5127,11 @@
 				"name" : "RedTextButtons",
 				"default" : 				{
 					"fontname" : [ "Helvetica" ],
+					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
+					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
 					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"bgcolor" : [ 0.843137, 0.733333, 0.729412, 1.0 ],
-					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
-					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
-					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ]
+					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -5136,11 +5141,11 @@
 				"name" : "VioletTextButton",
 				"default" : 				{
 					"fontname" : [ "Helvetica" ],
+					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
+					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
 					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"bgcolor" : [ 0.715377, 0.696413, 0.824482, 1.0 ],
-					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
-					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
-					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ]
+					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -5149,6 +5154,9 @@
 , 			{
 				"name" : "dark-night-patch",
 				"default" : 				{
+					"patchlinecolor" : [ 0.439216, 0.74902, 0.254902, 0.898039 ],
+					"textcolor" : [ 0.862745, 0.870588, 0.878431, 1.0 ],
+					"accentcolor" : [ 0.952941, 0.564706, 0.098039, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -5157,10 +5165,7 @@
 						"angle" : 270.0,
 						"proportion" : 0.39
 					}
-,
-					"textcolor" : [ 0.862745, 0.870588, 0.878431, 1.0 ],
-					"patchlinecolor" : [ 0.439216, 0.74902, 0.254902, 0.898039 ],
-					"accentcolor" : [ 0.952941, 0.564706, 0.098039, 1.0 ]
+
 				}
 ,
 				"parentstyle" : "",
