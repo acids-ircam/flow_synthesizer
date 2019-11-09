@@ -931,9 +931,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 603.0, 562.0, 71.0, 22.0 ],
+					"patching_rect" : [ 603.0, 561.0, 71.0, 22.0 ],
 					"style" : "",
-					"text" : "qmetro 100"
+					"text" : "qmetro 200"
 				}
 
 			}
@@ -5028,27 +5028,27 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-103" : [ "live.dial[13]", "y", 0 ],
-			"obj-45" : [ "live.dial[6]", "fingers", 0 ],
-			"obj-101" : [ "pos_roll[1]", "roll", 0 ],
-			"obj-17" : [ "Map[1]", "Map", 0 ],
-			"obj-99" : [ "live.dial[10]", "yaw", 0 ],
-			"obj-100" : [ "live.dial[11]", "pitch", 0 ],
+			"obj-25" : [ "live.dial[3]", "grab", 0 ],
+			"obj-70" : [ "live.dial[8]", "yaw", 0 ],
 			"obj-72" : [ "pos_roll", "roll", 0 ],
-			"obj-44" : [ "live.dial[5]", "pinch", 0 ],
+			"obj-103" : [ "live.dial[13]", "y", 0 ],
+			"obj-23" : [ "live.dial[1]", "y", 0 ],
+			"obj-45" : [ "live.dial[6]", "fingers", 0 ],
+			"obj-17" : [ "Map[1]", "Map", 0 ],
+			"obj-100" : [ "live.dial[11]", "pitch", 0 ],
+			"obj-35" : [ "live.dial[4]", "trust", 0 ],
+			"obj-71" : [ "live.dial[9]", "pitch", 0 ],
+			"obj-39" : [ "live.slider[1]", "live.slider", 0 ],
+			"obj-30" : [ "live.slider", "live.slider", 0 ],
 			"obj-16" : [ "live.slider[2]", "live.slider", 0 ],
 			"obj-22" : [ "pos_x", "x", 0 ],
-			"obj-53" : [ "live.dial[7]", "radius", 0 ],
-			"obj-70" : [ "live.dial[8]", "yaw", 0 ],
-			"obj-71" : [ "live.dial[9]", "pitch", 0 ],
-			"obj-25" : [ "live.dial[3]", "grab", 0 ],
 			"obj-24" : [ "live.dial[2]", "z", 0 ],
-			"obj-23" : [ "live.dial[1]", "y", 0 ],
-			"obj-35" : [ "live.dial[4]", "trust", 0 ],
-			"obj-39" : [ "live.slider[1]", "live.slider", 0 ],
+			"obj-53" : [ "live.dial[7]", "radius", 0 ],
+			"obj-102" : [ "live.dial[12]", "z", 0 ],
 			"obj-104" : [ "pos_x[1]", "x", 0 ],
-			"obj-30" : [ "live.slider", "live.slider", 0 ],
-			"obj-102" : [ "live.dial[12]", "z", 0 ]
+			"obj-44" : [ "live.dial[5]", "pinch", 0 ],
+			"obj-101" : [ "pos_roll[1]", "roll", 0 ],
+			"obj-99" : [ "live.dial[10]", "yaw", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
@@ -5087,12 +5087,12 @@
 , 			{
 				"name" : "BlueTextButtons-1",
 				"default" : 				{
+					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
 					"fontname" : [ "Helvetica" ],
+					"bgcolor" : [ 0.538741, 0.764449, 0.877768, 1.0 ],
 					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
 					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
-					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"bgcolor" : [ 0.538741, 0.764449, 0.877768, 1.0 ],
-					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ]
+					"color" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -5101,11 +5101,12 @@
 , 			{
 				"name" : "Luca",
 				"default" : 				{
+					"selectioncolor" : [ 0.720698, 0.16723, 0.080014, 1.0 ],
 					"fontname" : [ "Open Sans Semibold" ],
 					"textcolor_inverse" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
+					"bgcolor" : [ 0.904179, 0.895477, 0.842975, 0.56 ],
 					"accentcolor" : [ 0.32549, 0.345098, 0.372549, 1.0 ],
 					"elementcolor" : [ 0.786675, 0.801885, 0.845022, 1.0 ],
-					"color" : [ 0.475135, 0.293895, 0.251069, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
@@ -5116,8 +5117,7 @@
 						"autogradient" : 0
 					}
 ,
-					"bgcolor" : [ 0.904179, 0.895477, 0.842975, 0.56 ],
-					"selectioncolor" : [ 0.720698, 0.16723, 0.080014, 1.0 ]
+					"color" : [ 0.475135, 0.293895, 0.251069, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -5126,12 +5126,12 @@
 , 			{
 				"name" : "RedTextButtons",
 				"default" : 				{
+					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
 					"fontname" : [ "Helvetica" ],
+					"bgcolor" : [ 0.843137, 0.733333, 0.729412, 1.0 ],
 					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
 					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
-					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"bgcolor" : [ 0.843137, 0.733333, 0.729412, 1.0 ],
-					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ]
+					"color" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -5140,12 +5140,12 @@
 , 			{
 				"name" : "VioletTextButton",
 				"default" : 				{
+					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ],
 					"fontname" : [ "Helvetica" ],
+					"bgcolor" : [ 0.715377, 0.696413, 0.824482, 1.0 ],
 					"accentcolor" : [ 0.25, 0.25, 0.25, 1.0 ],
 					"elementcolor" : [ 0.55, 0.55, 0.55, 1.0 ],
-					"color" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"bgcolor" : [ 0.715377, 0.696413, 0.824482, 1.0 ],
-					"selectioncolor" : [ 0.1, 0.1, 0.1, 1.0 ]
+					"color" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -5207,8 +5207,8 @@
 , 			{
 				"name" : "multislider001",
 				"default" : 				{
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.945827, 0.711942, 0.174445, 0.0 ]
+					"bgcolor" : [ 0.945827, 0.711942, 0.174445, 0.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
