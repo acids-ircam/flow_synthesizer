@@ -39,7 +39,7 @@ class MaskedLinear(nn.Module):
         self.mask = mask.detach()
         if zero_diag:
             for i in range(self.mask.shape[0]):
-                mask[i, i] = 0
+                self.mask[i, i] = 0
         # Register buffers for CUDA call
         # self.register_buffer('mask_p', self.mask)
 
