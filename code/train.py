@@ -330,6 +330,7 @@ for i in range(args.epochs):
         print(torch.cuda.memory_allocated(args.device))
     print('Epoch ' + str(i))
     print(losses[i])
+    torch.cuda.empty_cache()
 
 """
 ###################
