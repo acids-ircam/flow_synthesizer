@@ -41,10 +41,11 @@ class MaskedLinear(nn.Module):
             for i in range(self.mask.shape[0]):
                 mask[i, i] = 0
         # Register buffers for CUDA call
-        self.register_buffer('mask_p', self.mask)
+        # self.register_buffer('mask_p', self.mask)
 
     def forward(self, z, h=None):
-        self.mask = self.mask.to(z.device)
+        if (self.mask.device != z.device):
+            self.mask = self.mask.to(z.device)
         output = F.linear(z, self.linear.weight * self.mask, self.linear.bias)
         if h is not None:
             output += h
