@@ -53,7 +53,7 @@ parser.add_argument('--beta_factor',    type=int,   default=1,              help
 parser.add_argument('--ref_model',      type=str,   default='',             help='Reference model')
 # Flow specific parameters
 parser.add_argument('--flow',           type=str,   default='iaf',          help='Type of flow to use')
-parser.add_argument('--flow_length',    type=int,   default=8,              help='Number of flow transforms')
+parser.add_argument('--flow_length',    type=int,   default=16,             help='Number of flow transforms')
 # Regression parameters
 parser.add_argument('--regressor',      type=str,   default='mlp',          help='Type of regressor')
 parser.add_argument('--reg_layers',     type=int,   default=3,              help='Number of regression layers')
