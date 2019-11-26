@@ -70,7 +70,7 @@ parser.add_argument('--eval',           type=int,   default=100,            help
 parser.add_argument('--lr',             type=float, default=2e-4,           help='Learning rate')
 # Semantic arguments
 parser.add_argument('--semantic_dim',   type=int,   default=-1,             help='Using semantic dimension')
-parser.add_argument('--dis_layers',     type=int,   default=4,              help='Number of disentangling layers')
+parser.add_argument('--dis_layers',     type=int,   default=8,              help='Number of disentangling layers')
 parser.add_argument('--disentangling',  type=str,   default='density',      help='Type of disentangling approach')
 parser.add_argument('--start_disentangle',type=int, default=100,            help='Epoch to start disentangling')
 parser.add_argument('--warm_disentangle',type=int,  default=25,             help='Warmup on disentanglement')
