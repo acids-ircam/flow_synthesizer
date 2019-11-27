@@ -98,7 +98,7 @@ if (args.device != 'cpu'):
     # Enable CuDNN optimization
     torch.backends.cudnn.benchmark=True
 
-os.system(f"mount -o remount,size={40G} /dev/shm")
+os.system("mount -o remount,size={40G} /dev/shm")
 
 """
 ###################
