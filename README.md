@@ -10,7 +10,7 @@ In order to try out the _Flow synthesizer_ plugin, you must
 /Library/Audio/Plug-Ins/VST/u-he/Diva.vst
 ```
 2. Install the latest (bleeding-edge) version of both the [Bach and Dada library](https://www.bachproject.net/dl/) for MaxMsp
-3. Install the [Mubu library](http://forumnet.ircam.fr/shop/fr/forumnet/59-mubu-pour-max.html) for MaxMsp
+3. Install the [Mubu library](https://forum.ircam.fr/projects/detail/mubu/) for MaxMsp
 4. Have an updated version of `Python 3.7`
 5. Install the Python dependencies by running the following line at the root of this folder
 ```bash
