@@ -266,7 +266,7 @@ class DecodeCNN(RegressionModel):
             in_s = (l==0) and (in_size) or hidden_size
             out_s = (l == n_mlp - 1) and np.prod(cnn_size) or hidden_size
             self.mlp.add_module('h%i'%l, dense_module(in_s, out_s))
-            if (l < n_layers - 1):
+            if (l < n_mlp - 1):
                 self.mlp.add_module('b%i'%l, nn.BatchNorm1d(out_s))
                 self.mlp.add_module('a%i'%l, nn.ReLU())
                 self.mlp.add_module('d%i'%l, nn.Dropout(p=.25))
