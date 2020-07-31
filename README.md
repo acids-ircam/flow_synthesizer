@@ -1,6 +1,9 @@
 # Universal audio synthesizer control with normalizing flows
 
-This repository hosts code and additional results for the paper [Universal audio synthesizer control with normalizing flows](https://arxiv.org/abs/1907.00971). You can check out the [![video demonstration of the FlowSynth on youtube](https://img.youtube.com/vi/UufQwUitBIw/0.jpg)](https://www.youtube.com/watch?v=UufQwUitBIw)
+This repository hosts code and additional results for the paper [Universal audio synthesizer control with normalizing flows](https://arxiv.org/abs/1907.00971). You can check out the video demonstration of the FlowSynth on youtube by cliking on the following image
+
+[![](https://img.youtube.com/vi/UufQwUitBIw/0.jpg)](https://www.youtube.com/watch?v=UufQwUitBIw)
+[https://www.youtube.com/watch?v=UufQwUitBIw](https://www.youtube.com/watch?v=UufQwUitBIw)
 
 ## Installing the flow synthesizer plugin
 
