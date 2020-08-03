@@ -1,0 +1,16 @@
+ENV1: Attack
+ENV1: Decay
+ENV1: Sustain
+VCF1: Frequency
+VCF1: Resonance
+VCF1: FilterFM
+VCF1: Feedback
+OSC: OscMix
+OSC: Vibrato
+OSC: Tune2
+OSC: Tune3
+OSC: Shape1
+OSC: Shape2
+OSC: FM
+OSC: Volume2
+OSC: Volume3

@@ -1,0 +1,128 @@
+Chrs1: Depth
+Chrs1: Rate
+Chrs1: Wet
+Chrs2: Depth
+Chrs2: Rate
+Chrs2: Wet
+Delay1: Center Delay
+Delay1: Center Vol
+Delay1: Dry
+Delay1: Feedback
+Delay1: HP
+Delay1: LP
+Delay1: Right Delay
+Delay1: Side Vol
+Delay1: Wow
+Delay2: Center Delay
+Delay2: Center Vol
+Delay2: Dry
+Delay2: Feedback
+Delay2: HP
+Delay2: LP
+Delay2: Right Delay
+Delay2: Side Vol
+Delay2: Wow
+ENV1: Attack
+ENV1: Decay
+ENV1: KeyFollow
+ENV1: Release
+ENV1: Sustain
+ENV1: Velocity
+ENV2: Attack
+ENV2: Decay
+ENV2: KeyFollow
+ENV2: Release
+ENV2: Sustain
+ENV2: Velocity
+HPF: FreqModDepth
+HPF: Frequency
+HPF: Resonance
+LFO1: Delay
+LFO1: DepthMod Dpt1
+LFO1: FreqMod Dpt
+LFO1: Phase
+LFO1: Rate
+LFO2: Delay
+LFO2: DepthMod Dpt1
+LFO2: FreqMod Dpt
+LFO2: Phase
+LFO2: Rate
+MOD: Quantise
+MOD: Slew Rate
+OSC: DigitalShape2
+OSC: DigitalShape3
+OSC: DigitalShape4
+OSC: Drift
+OSC: FM
+OSC: FmModDepth
+OSC: NoiseVol
+OSC: NoiseVolModDepth
+OSC: OscMix
+OSC: PWModDepth
+OSC: PulseWidth
+OSC: Shape1
+OSC: Shape2
+OSC: Shape3
+OSC: ShapeDepth
+OSC: Tune1
+OSC: Tune1ModDepth
+OSC: Tune2
+OSC: Tune2ModDepth
+OSC: Tune3
+OSC: Vibrato
+OSC: Volume1
+OSC: Volume2
+OSC: Volume3
+Phase1: Feedback
+Phase1: Phase
+Phase1: Rate
+Phase1: Stereo
+Phase1: Wet
+Phase2: Feedback
+Phase2: Phase
+Phase2: Rate
+Phase2: Stereo
+Phase2: Wet
+Plate1: Damp
+Plate1: Decay
+Plate1: Diffusion
+Plate1: Dry
+Plate1: PreDelay
+Plate1: Size
+Plate1: Wet
+Plate2: Damp
+Plate2: Decay
+Plate2: Diffusion
+Plate2: Dry
+Plate2: PreDelay
+Plate2: Size
+Plate2: Wet
+Rtary1: Balance
+Rtary1: Drive
+Rtary1: Fast
+Rtary1: Mix
+Rtary1: Out
+Rtary1: RiseTime
+Rtary1: Slow
+Rtary1: Stereo
+Rtary2: Balance
+Rtary2: Drive
+Rtary2: Fast
+Rtary2: Mix
+Rtary2: Slow
+Rtary2: Stereo
+VCA1: ModDepth
+VCA1: PanModDepth
+VCA1: Volume
+VCF1: Feedback
+VCF1: FeedbackModDepth
+VCF1: FilterFM
+VCF1: FmAmountModDepth
+VCF1: FreqMod2Depth
+VCF1: FreqModDepth
+VCF1: Frequency
+VCF1: KeyFollow
+VCF1: ResModDepth
+VCF1: Resonance
+VCF1: ShapeMix
+VCF1: ShapeModDepth
