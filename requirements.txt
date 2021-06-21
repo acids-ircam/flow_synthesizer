@@ -4,6 +4,7 @@ matplotlib
 numpy
 python-osc
 scipy
-torch
-torchvision
+torch==1.9.0+cpu -f https://download.pytorch.org/torch_stable.html
+torchvision==0.10.0+cpu -f https://download.pytorch.org/torch_stable.html
 scikit_learn
+skorch
