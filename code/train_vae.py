@@ -2,9 +2,12 @@ import matplotlib
 import os 
 import time 
 import numpy as np 
-import torch 
+import torch
+from torch._C import device, get_device
+from torch.jit import Error 
 import torch.nn as nn   
-import torch.optim as optim 
+import torch.optim as optim
+from torch.optim import optimizer 
 
 # Internal imports 
 from utils.data import load_dataset, get_external_sounds 
@@ -13,7 +16,15 @@ from models.vae.vae import VAE
 from models.vae.vae_flow import VAEFLow 
 from models.loss import multinomial_loss, multinomial_mse_loss 
 from models.basic import GatedMLP, GatedCNN, construct_encoder_decoder, construct_flow, construct_disentangle, construct_regressor 
-from evaluate  import evaluate_model  
+from evaluate  import (evaluate_model, evaluate_params, evaluate_synthesis,\
+            evaluate_projection, evaluate_reconstruction, evaluate_latent_space,\
+            evaluate_meta_parameters, evaluate_semantic_parameters,\
+            evaluate_latent_neighborhood)
+
+
+
+# TODO: Dealing with args
+# Search for how to add attributes to dict objects on the fly?
 
 
 class Constants: 
@@ -69,6 +80,10 @@ class Constants:
     MODEL_PATH = '/models'
     INPUT_SIZE = 10 # This is the  input size to the encoder its needs to be defined by the user
     OUTPUT_SIZE = 10 # TODO: this value needs to be defined by the user
+    OUTPUT = 'outputs' # path to saved models
+    PLOT = '' # 
+    MODEL_NAME = 'vae_with_flow'
+
 
 
 class LossTypes:
@@ -116,7 +131,9 @@ def save_model(model, data, loss, latent_dims):
 def set_device(device_type="cpu"):
     if device_type == "gpu":
         if torch.cuda.is_available():
-            torch.device("gpu")
+            torch.device(device_type)
+        else: 
+            raise Error("{} device not available valid inputs are [cpu or gpu]".format(device_type))
     else: 
         torch.device("cpu")
 
@@ -179,7 +196,7 @@ def get_input_and_output_size(error_type=None):
 
 
 
-def define_model():
+def define_vae_with_flow_model():
     latent_dims = get_latent_dims()
     flow = Constants.FLOW 
     flow_length = Constants.FLOW_LENGTH 
@@ -223,9 +240,148 @@ def get_adam_optimizer_and_scheduler(model):
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optim, mode='min', factor=0.5, patience=20, verbose=True, threshold=1e-7)
     return optimizer, scheduler
 
-def train_model():
-    pass 
 
-def evaluate_model(model): 
-    pass 
+def make_final_evaluation(model, losses, test_loader, args): 
+    plot = Constants.PLOT 
+    plot = 'final' 
+    model_name = Constants.MODEL_NAME
+    base_img = None 
+    base_dir = None 
+    base_audio = None 
+    base_model_name = None 
+    base_model = Constants.OUTPUT + '/models/' + model_name  
+    vocal_sounds = None
+    device = set_device(device_type="cpu")
+    print('[Reload best performing model]') 
+    model = torch.load(Constants.OUTPUT + '/models/' + model_name + '.model') 
+    model = model.to(device)
+    print('[Performing final evaluation]') 
+    # Memory saver 
+    with torch.no_grad(): 
+        # Perform parameters evaluation 
+        evaluate_params(model, test_loader, args, losses=losses)
+        # Synthesis engine on (GPU) 
+        if(torch.device() == "gpu" and Constants.SYNTHESIZE):
+            # Importh synthesis 
+            from synth.synthesize import create_synth 
+            print('[Synthesis evaluation]') 
+            engine, generator, param_defaults, rev_idx = create_synth(Constants.DATASET) 
+        # Perform reconstruction evaluation
+        evaluate_reconstruction(model, test_loader, args, train=False) 
+        # Evaluate latent space 
+        args = evaluate_latent_space(model, test_loader, args, train=False)
+        # Perform meta-parameter analysis 
+        evaluate_meta_parameters(model, test_loader, args, train=False) 
+        # Perform latent neighborhood analysis
+        evaluate_latent_neighborhood(model, test_loader, args, train=False)
+
+        if (Constants.SYNTHESIZE): 
+            # Evaluate synthetizer output 
+            evaluate_synthesis(model, test_loader, args, train=False) 
+            print('[Load set of testing sound (outside Diva)]') 
+            test_sounds = get_external_sounds(vocal_sounds, test_loader.dataset, args)
+            # Evaluate projection 
+            evaluate_projection(model, test_sounds, args, train=False, type_val='vocal')
+
+
+
+
+def train_model(with_final_evaluation=False):
+    epochs = Constants.EPOCHS
+    losses = torch.zeros(epochs, 3) 
+    beta_factor = Constants.BETA_FACTOR
+    beta = 0 
+    warm_latent = Constants.WARM_LATENT
+    gamma = 0
+    reg_factor = Constants.REG_FACTOR
+    warm_regress = Constants.WARM_REGRESS
+    start_regress = Constants.START_REGRESS
+    delta = 0 
+    start_disentangle = Constants.START_DISENTANGLE
+    warm_disentangle = Constants.WARM_DISENTANGLE
+    early_stop = Constants.EARLY_STOP
+    regressor = Constants.REGRESSOR
+    plot_interval = Constants.PLOT_INTERVAL
+    plot = Constants.PLOT
+    fixed_batch = get_fixed_data()
+    model = define_vae_with_flow_model()
+    model_name = 'vae_with_flow'
+    base_dir = '{0}'.format(Constants.OUTPUTS) 
+    base_img = '{0}/images/{1}'.format(Constants.OUTPUTS, model_name) 
+    base_audio = '{0}/audio/{1}'.format(Constants.OUTPUTS, model_name)
+    train_loader, valid_loader, test_loader = get_dataloaders()
+    loss = get_loss(loss_type=LossTypes.MSE)
+    adam_optimizer, scheduler = get_adam_optimizer_and_scheduler(model)
+    if(epochs == 0):
+        losses = torch.zeros(200, 3) 
+    best_loss = np.inf 
+    print('[Starting Training]') 
+    for i in range(epochs):
+        if(start_regress == 0):
+            from pympler import muppy, summary 
+            all_objects = muppy.get_objects() 
+            sum1 = summary.summarize(all_objects) 
+            # Prints out a summary of the large objects 
+            print('******* Summary at the beginning of epoch *******')
+            summary.print_(sum1) 
+        # set warm-up values 
+        beta = beta_factor * (float(i) / float(max(warm_latent, i)))
+        if( i >= start_regress):
+            gamma = ((float(i - start_regress) * reg_factor) / float(max(warm_regress, i - start_regress)))
+            if(regressor != 'mlp'):
+                gamma *= 1e-1
+        else: 
+            gamma = 0 
+        if(i >= start_disentangle):
+            delta = ((float(i - start_disentangle)) / float(max(warm_disentangle, i - start_disentangle)))
+        else: 
+            delta = 0 
+        print('%.3f - % .3f' % (beta, gamma))
+        # Perform one epoch of train 
+        losses[i, 0] = model.train_epoch(train_loader, loss, adam_optimizer, args)
+        # Perform validation 
+        losses[i, 1] = model.eval_epoch(valid_loader, loss, optimizer, args)
+        # Learning rate scheduling
+        if( i>= start_regress):
+            scheduler.step(losses[i, 1]) 
+        # Perform test evaluation 
+        losses[i, 2] = model.eval_epoch(test_loader, loss, args) 
+        if (start_regress == 1000): 
+            losses[i, 1] = losses[i, 0] 
+            losses[i, 2] = losses[i, 0]
+        # Model saving 
+        if(losses[i, 1] < best_loss): 
+            # Save model 
+            best_loss = losses[i, 1] 
+            torch.save(model, Constants.OUTPUTS + '/models/' + model_name + '.model')
+            early = 0 
+        # Check for early stopping 
+        elif(early_stop > 0 and i > start_regress): 
+            early += 1 
+            if(early > early_stop):
+                print('[Model stopped early]') 
+                break  
+        # Periodic evaluation (or debug model) 
+        if((i + 1) % plot_interval == 0 or (epochs == 1)):
+            plot = 'train' 
+            with torch.no_grad(): 
+                model.eval() 
+                evaluate_model(model, fixed_batch, test_loader, args, train=True, name=base_img + '_batch_' + str(i))
+        print('Epoch ' + str(i)) 
+        print(losses[i]) 
+        torch.cuda.empty_cache()
+        if(with_final_evaluation):
+            make_final_evaluation()
+
+        
+    
+
+
+
+def training_checklist():
+    set_device(device_type="cpu") 
+    make_checkpoint_dirs()
+
+
+
 
