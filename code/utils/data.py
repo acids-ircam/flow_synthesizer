@@ -98,7 +98,10 @@ class SynthesizerDataset(Dataset):
             self.mean = self.mean + ((b_mean - self.mean) / (n + 1))
             self.var = self.var + ((data - self.mean) * b_var).mean()
         self.mean = float(self.mean)
-        self.var = float(np.sqrt(self.var / len(self.spectral_files)))
+        if(len(self.spectral_files) == 0):
+            self.var = float(np.sqrt(self.var / 1))
+        else: 
+            self.var = float(np.sqrt(self.var / len(self.spectral_files)))
     
     def analyze_dataset(self):
         # Fill some properties based on the first file
@@ -401,7 +404,7 @@ Load any given dataset and return DataLoaders
 
 ###################
 """
-def load_dataset(args, **kwargs):
+def load_dataset(args, **kwargs): 
     if (args.dataset in ['toy'], ["32par"], ["64par"], ["64par_aug"], ["128par"]):
         params = {'32par':'32contparams.txt', '64par':'64contparams.txt', '64par_aug':'64contparams.txt', '128par':'128contparams.txt'}
         with open('synth/params/' + params[args.dataset]) as f: # load list of parameters to not fix

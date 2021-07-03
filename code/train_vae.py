@@ -1,19 +1,22 @@
+import copy
+
+from torch.utils.data.dataloader import DataLoader
 import matplotlib 
 import os 
 import time 
 import numpy as np 
 import torch
-from torch._C import device, get_device
 from torch.jit import Error 
 import torch.nn as nn   
 import torch.optim as optim
 from torch.optim import optimizer 
 
 # Internal imports 
+from utils.data import CompSynthesizerDataset
 from utils.data import load_dataset, get_external_sounds 
-from models.vae.ae import AE, RegressionAE, DisentangleAE
+from models.vae.ae import AE, RegressionAE, DisentanglingAE
 from models.vae.vae import VAE 
-from models.vae.vae_flow import VAEFLow 
+from models.vae.vae_flow import VAEFlow 
 from models.loss import multinomial_loss, multinomial_mse_loss 
 from models.basic import GatedMLP, GatedCNN, construct_encoder_decoder, construct_flow, construct_disentangle, construct_regressor 
 from evaluate  import (evaluate_model, evaluate_params, evaluate_synthesis,\
@@ -28,7 +31,7 @@ from evaluate  import (evaluate_model, evaluate_params, evaluate_synthesis,\
 
 
 class Constants: 
-    DATASET_PATH = '' 
+    DATASET_PATH = '/data/'
     TEST_SOUNDS_PATH = '' 
     OUTPUTS = 'outputs' 
     DATASET = '32par' 
@@ -83,6 +86,7 @@ class Constants:
     OUTPUT = 'outputs' # path to saved models
     PLOT = '' # 
     MODEL_NAME = 'vae_with_flow'
+    DATASET_NAMES = {'toy': 'toy', '32par':'32par', '64par':'64par', '64par_aug':'64par_aug', '128par':'128par'}
 
 
 
@@ -104,7 +108,7 @@ def check_parameters():
 
 # Results and checkpoint folders
 def make_checkpoint_dirs(): 
-    if not os.path.exists('{0}'.fomat(Constants.OUTPUTS)):
+    if not os.path.exists('{0}'.format(Constants.OUTPUTS)):
         os.makedirs('{0}'.format(Constants.OUTPUTS)) 
         os.makedirs('{0}/audio'.format(Constants.OUTPUTS)) 
         os.makedirs('{0}/images'.format(Constants.OUTPUTS)) 
@@ -137,18 +141,35 @@ def set_device(device_type="cpu"):
     else: 
         torch.device("cpu")
 
-
+def load_data(dataset_name, path, data, **kwargs):
+    if(dataset_name in ['toy'], ['32par'], ['64par'], ['64par_aug'], ['128par']):
+        params = {'32par': '32contparams.txt', '64par': '64contparams.txt', '64par_aug': '64contparams.txt',
+        '128par': '128contparams.txt'}
+        with open('synth/params/' + params[dataset_name]) as f: 
+            use_params = [line.strip() for line in f] 
+        dset_train = CompSynthesizerDataset(path + '/' + dataset_name, use_params, data=data, **kwargs) 
+        dset_valid = copy.deepcopy(dset_train).switch_set('valid')
+        dset_test = copy.deepcopy(dset_train).switch_set('test') 
+        dset_train = dset_train.switch_set('train')
+    else:
+        raise Exception('Wrong dataset name!!')
+    input_size = dset_train.input_size 
+    output_size = dset_train.output_size 
+    train_loader = DataLoader(dset_train, batch_size=Constants.BATCH_SIZE, shuffle=True, num_workers=Constants.N_WORKERS, pin_memory=False,\
+        **kwargs)
+    valid_loader = DataLoader(dset_valid, batch_size=Constants.BATCH_SIZE, shuffle= (Constants.TRAIN_TYPE == 'random'),\
+        num_workers=Constants.N_WORKERS, pin_memory=False, **kwargs)
+    test_loader = DataLoader(dset_test, batch_size=Constants.BATCH_SIZE, shuffle=(Constants.TRAIN_TYPE == 'random'),
+    n_workers=Constants.N_WORKERS, pin_memory=False, **kwargs)
+    return train_loader, valid_loader, test_loader
     
-def get_dataloaders_wrong():
-    ref_split = Constants.DATASET_PATH + '/reference_split_' + Constants.DATASET + '.th' 
-    data = torch.load(ref_split) 
-    train_loader, valid_loader, test_loader = data[0], data[1], data[2] 
-    fixed_data, fixed_params, fixed_meta, fixed_audio = next(iter(test_loader))
-    fixed_data, fixed_params, fixed_meta, fixed_audio = fixed_data.to(Constants.DEVICE), fixed_params.to(Constants.DEVICE), fixed_meta, fixed_audio 
-    fixed_batch = (fixed_data, fixed_params, fixed_meta, fixed_audio) 
+
 
 def get_dataloaders():
     ref_split = Constants.DATASET_PATH + '/reference_split_' + Constants.DATASET + '.th' 
+    dataset_name = Constants.DATASET_NAME
+    path = Constants.DATASET_PATH
+    train_loader, valid_loader, test_loader = load_data(dataset_name, path='')
     data = torch.load(ref_split) 
     train_loader, valid_loader, test_loader = data[0], data[1], data[2] 
     return train_loader, valid_loader, test_loader 
@@ -219,7 +240,7 @@ def define_vae_with_flow_model():
         latent_dims, channels = channels, n_layers=n_layers, hidden_size=hidden_size, n_mlp= n_layers//2, type_mod=type_mod)
     flow, blocks = construct_flow(latent_dims, flow_type=flow, flow_length=flow_length, amortization='input') 
 
-    model = VAEFLow(encoder, decoder, input_size, encoder_dims, latent_dims)
+    model = VAEFlow(encoder, decoder, input_size, encoder_dims, latent_dims)
     # construct specific regressor
     regression_model = construct_regressor(latent_dims, output_size, model=regressor,\
         hidden_dims=reg_hiddens, n_layers=reg_layers, flow_type=reg_flow)
@@ -230,7 +251,7 @@ def define_vae_with_flow_model():
         # Construct disentangling flow
         disentangling = construct_disentangle(latent_dims, model=disentangling, semantic_dim=semantic_dim,\
             n_layers=dis_layers, flow_type=reg_flow)
-        model = DisentangleAE(model, latent_dims, output_size, rec_loss, regressor=regression_model,\
+        model = DisentanglingAE(model, latent_dims, output_size, rec_loss, regressor=regression_model,\
             regressor_name=regressor, disentangling=disentangling, semantic_dim=semantic_dim)
     model = model.to(Constants.DEVICE) 
     return model 
@@ -378,10 +399,15 @@ def train_model(with_final_evaluation=False):
 
 
 
-def training_checklist():
+def start():
     set_device(device_type="cpu") 
     make_checkpoint_dirs()
+    check_parameters()
+    train_model(with_final_evaluation=True)
 
 
 
 
+
+if __name__ == '__main__': 
+    start()
