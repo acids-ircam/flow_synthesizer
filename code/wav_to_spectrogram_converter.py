@@ -1,8 +1,11 @@
 from scipy import signal 
-from scipy.io import wavefile 
+from scipy.io import wavfile
 
 def wav_to_spectrogram(file): 
-    sample_rate, samples = wavefile.read(file) 
+    '''
+    Returns frequencies, times, and spectrograms for a given files
+    '''
+    sample_rate, samples = wavfile.read(file) 
     frequencies, times, spectrogram = signal.spectrogram(samples, sample_rate)
     return frequencies, times, spectrogram 
 

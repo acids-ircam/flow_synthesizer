@@ -257,7 +257,10 @@ class SpecData(Dataset):
             self.mean = self.mean + ((b_mean - self.mean) / (n + 1))
             self.var = self.var + ((data - self.mean) * b_var).mean()
         self.mean = float(self.mean)
-        self.var = float(np.sqrt(self.var / len(self.spectral_files)))
+        if(len(self.spectral_files) == 0):
+            self.var = float(np.sqrt(self.var / 1))
+        else:
+            self.var = float(np.sqrt(self.var / len(self.spectral_files)))
 
     def __getitem__(self, idx):
         data = np.load(self.datadir + '/' + self.data_type + '/' + self.spectral_files[idx], allow_pickle=True)
